@@ -1,0 +1,17 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const wa = 'https://wa.me/14062356618?text=' + encodeURIComponent('Bonjour Prime IPTV, j’ai une question.');
+---
+<ContentPage title="Nous joindre | Prime IPTV, soutien 24/7" description="Joignez Prime IPTV par WhatsApp, par courriel ou par téléphone. Soutien 24 heures sur 24, 7 jours sur 7, en français et en anglais." label="Contact" icon="mail" h1="Nous joindre">
+  <p>Notre soutien est offert 24 heures sur 24, 7 jours sur 7. Écrivez-nous en français ou en anglais.</p>
+  <div class="grid3">
+    <div class="tile"><h2><Icon name="chat" size={18} /> WhatsApp</h2><p>Le moyen le plus rapide. <a href={wa} target="_blank" rel="noopener">+1 (406) 235-6618</a></p></div>
+    <div class="tile"><h2><Icon name="mail" size={18} /> Courriel</h2><p><a href="mailto:contactiptv.amelia@gmail.com">contactiptv.amelia@gmail.com</a></p></div>
+    <div class="tile"><h2><Icon name="phone" size={18} /> Téléphone</h2><p><a href="tel:+14062356618">+1 (406) 235-6618</a></p></div>
+  </div>
+  <h2>Pour une réponse plus rapide</h2>
+  <p>Quand vous nous écrivez au sujet d’un problème, indiquez votre appareil et votre application de lecture, le nom de la chaîne, l’heure du problème et ce que vous voyez à l’écran. Bien des problèmes se règlent aussi avec le <a href="/fr/aide/">centre d’aide</a> ou les <a href="/fr/installation/">guides d’installation</a>.</p>
+  <h2>Adresse de l’entreprise</h2>
+  <p>4793 County Rd 772B, Webster, FL 33597, USA</p>
+</ContentPage>

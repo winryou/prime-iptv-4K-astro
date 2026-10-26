@@ -1,0 +1,89 @@
+# robots.txt for primeiptv4k.ca
+# Static site with no login, internal search or query-string URLs, so nothing is blocked.
+# All search engines and AI crawlers may crawl and index every page.
+
+User-agent: *
+Allow: /
+
+# Search engines (explicit, so intent is clear)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI crawlers and answer engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://primeiptv4k.ca/sitemap-index.xml
+Sitemap: https://primeiptv4k.ca/sitemap-core.xml
+Sitemap: https://primeiptv4k.ca/sitemap-plans.xml
+Sitemap: https://primeiptv4k.ca/sitemap-setup.xml
+Sitemap: https://primeiptv4k.ca/sitemap-channels.xml
+Sitemap: https://primeiptv4k.ca/sitemap-guides.xml
+Sitemap: https://primeiptv4k.ca/sitemap-blog.xml
+Sitemap: https://primeiptv4k.ca/sitemap-support.xml
+Sitemap: https://primeiptv4k.ca/sitemap-legal.xml
+Sitemap: https://primeiptv4k.ca/sitemap-cities.xml
+Sitemap: https://primeiptv4k.ca/sitemap-fr.xml

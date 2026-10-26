@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Privacy Policy | Prime IPTV" description="Prime IPTV Privacy Policy: what information we collect when you subscribe or contact support, how we use it and how we protect it.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <div class="section-label"><Icon name="lock" size={14} />Legal</div>
+      <h1 class="section-title">Privacy Policy</h1>
+      <p style="color:var(--muted); font-size:0.875rem;">Last updated: October 2026</p>
+      <p>Prime IPTV ("we," "us," or "our") operates the website primeiptv4k.ca. This Privacy Policy explains how we collect, use, and protect information when you visit our website or use our service.</p>
+      <h2>Information We Collect</h2>
+      <p>We may collect basic contact information (name, email address) when you purchase a subscription or contact support. We do not collect sensitive personal information beyond what is necessary to provide our service.</p>
+      <h2>How We Use Your Information</h2>
+      <ul>
+        <li>To process your subscription and deliver your activation credentials</li>
+        <li>To respond to your support inquiries</li>
+        <li>To send transactional communications related to your subscription</li>
+      </ul>
+      <h2>Data Security</h2>
+      <p>We take reasonable measures to protect your information. We do not sell or share your personal information with third parties for marketing purposes.</p>
+      <h2>Contact</h2>
+      <p>For privacy-related questions, contact us at <a href="mailto:contactiptv.amelia@gmail.com" style="color:var(--brand);">contactiptv.amelia@gmail.com</a>.</p>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:900; margin:0 0 1rem; }
+  h2 { font-size:1.15rem; font-weight:800; margin:2rem 0 0.75rem; }
+  p { color:var(--muted); line-height:1.75; margin:0 0 1rem; }
+  ul { color:var(--muted); padding-left:1.5rem; display:flex; flex-direction:column; gap:0.4rem; margin:0 0 1.25rem; }
+  li { font-size:0.9rem; line-height:1.65; }
+</style>

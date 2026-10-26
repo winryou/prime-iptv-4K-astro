@@ -1,0 +1,175 @@
+---
+import '../styles/global.css';
+import { isFr, altPath } from '../data/i18n';
+import { existsSync } from 'node:fs';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  schema?: Record<string, unknown>[];
+  crumb?: string;
+  noindex?: boolean;
+  published?: string;
+  trail?: { name: string; item: string }[];
+}
+
+const SITE = 'https://primeiptv4k.ca';
+const {
+  title,
+  description = 'Prime IPTV: Premium IPTV Service in Canada. 25,000+ live channels, 120,000+ movies & series, 4K streaming, sports, PPV, EPG & 24/7 support.',
+  ogImage,
+  type = 'website',
+  schema = [],
+  crumb,
+  noindex = false,
+  published,
+  trail: customTrail,
+} = Astro.props;
+
+const trimDesc = (d: string) => (d.length <= 160 ? d : d.slice(0, 157).replace(/\s+\S*$/, '').replace(/[,;:\s]+$/, '') + '…');
+const path = Astro.url.pathname;
+const ogKey = path === '/' ? 'home' : path.replace(/^\/|\/$/g, '').replace(/\//g, '-');
+const ogFinal = ogImage ?? (existsSync(`public/og/${ogKey}.jpg`) ? `/og/${ogKey}.jpg` : '/og.jpg');
+const ogAlt = `${title}`;
+const url = new URL(path, SITE).href;
+const fr = isFr(path);
+const isHome = path === '/' || path === '/fr/';
+const alt = altPath(path);
+const enPath = fr ? alt : path;
+const frPath = fr ? path : alt;
+const siteName = 'Prime IPTV';
+
+const frLabels: Record<string, string> = { fr: 'Français', tarifs: 'Tarifs', 'essai-gratuit': 'Essai gratuit', faq: 'FAQ', contact: 'Contact', 'a-propos': 'À propos', chaines: 'Chaînes', 'sports-ppv-4k': 'Sports et PPV', installation: 'Installation', aide: 'Centre d’aide', avertissement: 'Avertissement', remboursement: 'Remboursement', confidentialite: 'Confidentialité', conditions: 'Conditions', blogue: 'Blogue', revendeur: 'Revendeur', dmca: 'Avis DMCA', 'iptv-4k': 'IPTV 4K', 'abonnement-iptv-smarters-pro': 'Abonnement IPTV Smarters Pro', 'installer-iptv-smarters-pro-firestick': 'Installer IPTV Smarters Pro sur Firestick', 'meilleur-service-iptv-canada': 'Meilleur service IPTV Canada', 'vitesse-internet-iptv': 'Disponibilité et vitesse' };
+const labels: Record<string, string> = {
+  setup: 'Setup Guide',
+  blog: 'Blog',
+  pricing: 'Pricing',
+  'free-trial': 'Free Trial',
+  faq: 'FAQ',
+  about: 'About',
+  contact: 'Contact',
+  'iptv-internet-speed-requirements': 'Availability & Speed',
+  'iptv-channels': 'IPTV Channels',
+  '4k-iptv': '4K IPTV',
+  'iptv-smarters-pro-subscription': 'IPTV Smarters Pro Subscription',
+  'install-iptv-smarters-pro-firestick': 'Install IPTV Smarters Pro on Firestick',
+  'best-iptv-service-canada': 'Best IPTV Service Canada',
+  'iptv-sports-ppv-4k': 'Sports & PPV',
+  reseller: 'Reseller',
+  help: 'Help Center',
+  disclaimer: 'Disclaimer',
+  dmca: 'DMCA Notice',
+  privacy: 'Privacy Policy',
+  terms: 'Terms of Service',
+  refund: 'Refund Policy',
+};
+const humanize = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+const allSegments = path.split('/').filter(Boolean);
+const segments = fr ? allSegments.slice(1) : allSegments;
+const base = fr ? `${SITE}/fr/` : `${SITE}/`;
+const trail = [{ name: fr ? 'Accueil' : 'Home', item: base }].concat(
+  segments.map((seg, i) => ({
+    name: i === segments.length - 1 && crumb ? crumb : (fr ? frLabels[seg] : undefined) ?? labels[seg] ?? humanize(seg),
+    item: `${base}${segments.slice(0, i + 1).join('/')}/`,
+  }))
+);
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE}/#organization`,
+  name: 'Prime IPTV',
+  url: `${SITE}/`,
+  logo: `${SITE}/logo.svg`,
+  telephone: '+14062356618',
+  email: 'contactiptv.amelia@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '4793 County Rd 772B',
+    addressLocality: 'Webster',
+    addressRegion: 'FL',
+    postalCode: '33597',
+    addressCountry: 'US',
+  },
+  areaServed: { '@type': 'Country', name: 'Canada' },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      telephone: '+14062356618',
+      email: 'contactiptv.amelia@gmail.com',
+      availableLanguage: 'en',
+    },
+  ],
+};
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE}/#website`,
+  name: 'Prime IPTV',
+  url: `${SITE}/`,
+  inLanguage: fr ? 'fr-CA' : 'en-CA',
+  publisher: { '@id': `${SITE}/#organization` },
+};
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: (customTrail ?? trail).map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, item: t.item })),
+};
+
+const jsonLd = [...(isHome ? [organization, website] : noindex ? [] : [breadcrumbs]), ...schema];
+---
+
+<!DOCTYPE html>
+<html lang={fr ? 'fr-CA' : 'en-CA'}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b2a6f" />
+
+  <title>{title}</title>
+  <meta name="description" content={trimDesc(description)} />
+  <link rel="canonical" href={url} />
+  {enPath && frPath && <link rel="alternate" hreflang="en-CA" href={new URL(enPath, SITE).href} />}
+  {enPath && frPath && <link rel="alternate" hreflang="fr-CA" href={new URL(frPath, SITE).href} />}
+  {enPath && frPath && <link rel="alternate" hreflang="x-default" href={new URL(enPath, SITE).href} />}
+  <link rel="alternate" type="application/rss+xml" title={fr ? 'Prime IPTV Blogue' : 'Prime IPTV Blog'} href={fr ? '/fr/rss.xml' : '/rss.xml'} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={url} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content={fr ? 'fr_CA' : 'en_CA'} />
+  {published && <meta property="article:published_time" content={published} />}
+  <meta property="og:image" content={`${SITE}${ogFinal}`} />
+  <meta property="og:image:secure_url" content={`${SITE}${ogFinal}`} />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={ogAlt} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${SITE}${ogFinal}`} />
+  <meta name="twitter:image:alt" content={ogAlt} />
+
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  {jsonLd.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
+</head>
+<body>
+  <slot name="header" />
+  <main>
+    <slot />
+  </main>
+  <slot name="footer" />
+</body>
+</html>

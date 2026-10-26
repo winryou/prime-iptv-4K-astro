@@ -1,0 +1,82 @@
+---
+import Icon from './Icon.astro';
+import { isFr, altPath, ui } from '../data/i18n';
+const lang = isFr(Astro.url.pathname) ? 'fr' : 'en';
+const T = ui[lang];
+const nav = T.nav.map(([label, href]) => ({ label, href }));
+const switchHref = altPath(Astro.url.pathname) ?? (lang === 'fr' ? '/' : '/fr/');
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={T.home} class="logo" aria-label="Prime IPTV">
+      <svg class="logo-mark" width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0b2a6f"/><path d="M19 14h15a13 13 0 0 1 0 26H27v10h-8z" fill="#fff"/><path d="M27 21v12h7a6 6 0 0 0 0-12z" fill="#0b2a6f"/><path d="M31 25l8 4-8 4z" fill="#e8352f"/></svg>
+      <span class="logo-text">Prime <span class="logo-accent">IPTV</span></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {nav.map(item => (
+        <a href={item.href} class={`nav-link ${(item.href === T.home ? currentPath === T.home : !item.href.includes('#') && currentPath.startsWith(item.href)) ? 'active' : ''}`}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="header-cta">
+      <a href={switchHref} class="lang-switch" hreflang={lang === 'fr' ? 'en-CA' : 'fr-CA'} lang={lang === 'fr' ? 'en' : 'fr'} title={T.switchTitle}>{T.switchLabel}</a>
+      <a href={lang === 'fr' ? '/fr/essai-gratuit/' : '/free-trial/'} class="btn-primary"><Icon name="play" size={14} />{T.trial}</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    {nav.map(item => (
+      <a href={item.href} class="mobile-link">{item.label}</a>
+    ))}
+    <a href={switchHref} class="mobile-link" hreflang={lang === 'fr' ? 'en-CA' : 'fr-CA'} lang={lang === 'fr' ? 'en' : 'fr'}>{T.switchTitle}</a>
+    <a href={lang === 'fr' ? '/fr/essai-gratuit/' : '/free-trial/'} class="btn-primary" style="margin-top:0.5rem;justify-content:center;"><Icon name="play" size={14} />{T.trial}</a>
+  </nav>
+</header>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: 100; padding: 0.6rem 0.75rem 0; }
+  .header-inner {
+    display: flex; align-items: center; gap: 1.5rem; padding: 0 0.6rem 0 1rem; height: 62px;
+    background: rgba(255,255,255,0.86); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow); max-width: 1100px;
+  }
+  .logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; flex-shrink: 0; }
+  .logo-mark { display: block; }
+  .logo-text { font-size: 1.2rem; font-weight: 800; color: var(--brand); letter-spacing: -0.03em; }
+  .logo-accent { color: var(--accent); }
+  .desktop-nav { display: flex; gap: 0.1rem; flex: 1; justify-content: center; }
+  .nav-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 0.45rem 0.8rem; border-radius: 999px; transition: color 0.15s, background 0.15s; }
+  .nav-link:hover { color: var(--brand); background: var(--bg-2); }
+  .nav-link.active { color: var(--brand); background: var(--bg-2); }
+  .header-cta { margin-left: auto; flex-shrink: 0; display: flex; align-items: center; gap: 0.6rem; }
+  .lang-switch { font-size: 0.8rem; font-weight: 800; color: var(--brand); border: 1.5px solid var(--border); border-radius: 999px; padding: 0.35rem 0.7rem; text-decoration: none; }
+  .lang-switch:hover { background: var(--bg-2); }
+  .header-cta .btn-primary { padding: 0.6rem 1.2rem; font-size: 0.88rem; }
+  .menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px; margin-left: auto; }
+  .menu-btn span { display: block; width: 22px; height: 2px; background: var(--brand); border-radius: 2px; }
+  .mobile-nav { display: none; flex-direction: column; padding: 0.75rem; gap: 0.2rem; background: #fff; border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow); margin: 0.5rem auto 0; max-width: 1100px; }
+  .mobile-link { color: var(--text); text-decoration: none; font-size: 1rem; font-weight: 600; padding: 0.7rem 0.9rem; border-radius: 12px; }
+  .mobile-link:hover { background: var(--bg-2); }
+  .mobile-nav.open { display: flex; }
+  @media (max-width: 900px) { .desktop-nav, .header-cta { display: none; } .menu-btn { display: flex; } }
+</style>
+
+<script>
+  const btn = document.getElementById('menuBtn')!;
+  const nav = document.getElementById('mobileNav')!;
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+    nav.setAttribute('aria-hidden', String(!open));
+  });
+</script>

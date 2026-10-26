@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { enCities as cities, getCity } from '../data/cities';
+import { prices } from '../data/pricing';
+
+export function getStaticPaths() {
+  return cities.map((c) => ({ params: { city: c.slug }, props: { slug: c.slug } }));
+}
+const city = getCity(Astro.props.slug);
+const SITE = 'https://primeiptv4k.ca';
+const wa = `https://wa.me/14062356618?text=${encodeURIComponent(`Hello Prime IPTV, I live in ${city.name} and I'd like a free trial.`)}`;
+const faqs = [
+  ...city.faqs,
+  [`Is there a free trial for ${city.name} viewers?`, 'Yes. The 24-hour free trial needs no credit card. Message us on WhatsApp or by email and we send the details.'],
+  [`How much does IPTV cost in ${city.name}?`, `Prime IPTV plans start at $${prices[1][3]} for 3 months with 1 connection, and you can pick 1 to 4 connections and 3, 6, 12 or 24 months. See the pricing page for every plan.`],
+] as [string, string][];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Prime IPTV in ${city.name}`,
+  serviceType: 'IPTV subscription',
+  provider: { '@type': 'Organization', name: 'Prime IPTV', url: `${SITE}/` },
+  areaServed: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'AdministrativeArea', name: city.province } },
+  url: `${SITE}/iptv-${city.slug}/`,
+};
+const others = cities.filter((c) => c.slug !== city.slug);
+---
+
+<Layout
+  title={`IPTV ${city.name}: Prime IPTV Subscription with 25,000+ Channels`}
+  description={`Prime IPTV for ${city.name}, ${city.province}: 25,000+ live channels, sports, PPV and 120,000+ movies and series. 24-hour free trial, no credit card.`}
+  crumb={`IPTV ${city.name}`}
+  schema={[faqSchema, service]}
+>
+  <Header slot="header" />
+
+  <section class="chero">
+    <div class="container">
+      <div class="crumbs"><a href="/">Home</a> / <a href="/#cities">Cities</a> / {city.name}</div>
+      <h1>IPTV {city.name}: Prime IPTV for {city.name} viewers</h1>
+      <p class="lede">{city.tagline}. 25,000+ live channels, 120,000+ movies and series, sports and PPV, on your own internet connection.</p>
+      <div class="cta">
+        <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} /> Start free trial</a>
+        <a href={wa} class="btn-ghost" target="_blank" rel="noopener"><Icon name="chat" size={16} /> WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">What is Prime IPTV in {city.name}?</h2>
+      <p class="body">{city.intro}</p>
+      <h2 class="section-title" style="text-align:left; margin-top:2.5rem;">Why IPTV suits {city.name} life</h2>
+      <p class="body">{city.lifestyle}</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Where we serve in {city.region}</h2>
+      <p class="body">Prime IPTV works anywhere in {city.province} with a stable internet connection. Viewers in these areas use it every day:</p>
+      <div class="chips">{city.areas.map((a) => <span>{a}</span>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Channels for {city.name} households</h2>
+      <p class="body">{city.communities}</p>
+      <p class="body"><a href="/iptv-channels/">See what the Prime IPTV lineup includes</a>.</p>
+      <h2 class="section-title" style="text-align:left; margin-top:2.5rem;">Sports and PPV in {city.name}</h2>
+      <p class="body">{city.sports}</p>
+      <p class="body"><a href="/iptv-sports-ppv-4k/">More about sports and PPV in 4K</a>.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Will IPTV run well on {city.name} internet?</h2>
+      <p class="body">{city.internet}</p>
+      <p class="body">Read the full <a href="/iptv-internet-speed-requirements/">speed requirements guide</a> or the <a href="/blog/iptv-buffering-troubleshooting/">buffering checklist</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">How to get started in {city.name}</h2>
+      <ol class="steps">
+        <li><strong>Request the free trial.</strong> Message us on WhatsApp or by email. No credit card.</li>
+        <li><strong>Install a player app.</strong> Follow the <a href="/setup/">setup guide</a> for your TV, Firestick, phone or computer.</li>
+        <li><strong>Add your login and test.</strong> Check your channels, a live game at peak time and the on-demand library.</li>
+        <li><strong>Choose a plan.</strong> Pick 1 to 4 connections and 3 to 24 months on the <a href="/pricing/">pricing page</a>. There is no contract and a 7-day money-back guarantee applies.</li>
+      </ol>
+    </div>
+  </section>
+
+  {city.extra && (
+    <section class="section alt">
+      <div class="container narrow">
+        {city.extra.map((x) => (<><h2 class="section-title" style="text-align:left; margin-top:1.5rem;">{x.title}</h2><p class="body">{x.text}</p></>))}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Helpful guides for {city.name} viewers</h2>
+      <ul class="steps">
+        <li><a href="/blog/iptv-cost-canada/">IPTV cost in Canada: what you pay and what you save</a></li>
+        <li><a href="/blog/is-iptv-legal-in-canada/">Is IPTV legal in Canada?</a></li>
+        <li><a href="/blog/iptv-vs-cable-canada/">IPTV vs cable in Canada</a></li>
+        <li><a href="/blog/iptv-box-canada/">IPTV box in Canada: do you need one?</a></li>
+        <li><a href="/best-iptv-service-canada/">Best IPTV in Canada: an 8-point checklist</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">IPTV {city.name} questions, answered</h2>
+      <div class="faq-grid">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="faq-arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="section-title">Try IPTV in {city.name} free, on your own connection</h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Test the channels, the picture and the speed on your own TV before you pay anything.</p>
+      <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} /> Start my free trial</a>
+      <h3 class="more">Prime IPTV in other Canadian cities</h3>
+      <div class="chips center">
+        {others.map((c) => <a href={`/iptv-${c.slug}/`}>IPTV {c.name}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .container.narrow { max-width: 780px; }
+  .section.alt { background: var(--bg-2); }
+  .chero { margin-top: -4.6rem; padding: 8.5rem 1rem 3.5rem; color: #fff; border-radius: 0 0 36px 36px;
+    background: radial-gradient(700px 360px at 90% 0%, rgba(79,123,234,0.5), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(232,53,47,0.35), transparent 60%), linear-gradient(160deg, #06143a, #0b2a6f 60%, #12388f); }
+  .crumbs { font-size: 0.82rem; color: #b9c9ec; margin-bottom: 1rem; }
+  .crumbs a { color: #fff; text-decoration: none; }
+  .chero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.1; font-weight: 800; margin: 0 0 1rem; max-width: 760px; }
+  .lede { color: #d3def6; font-size: 1.08rem; max-width: 640px; margin: 0 0 1.5rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.6rem; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+  .body { color: var(--muted); line-height: 1.85; margin: 0 0 1rem; }
+  .body a, .steps a { color: var(--brand-2); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .chips.center { justify-content: center; }
+  .chips span, .chips a { background: #fff; border: 1px solid var(--border); color: var(--brand); font-weight: 700; font-size: 0.85rem; padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; }
+  .chips a:hover { background: var(--brand); color: #fff; }
+  .steps { color: var(--muted); line-height: 1.8; padding-left: 1.3rem; display: grid; gap: 0.7rem; }
+  .steps strong { color: var(--text); }
+  .more { margin: 2.5rem 0 0.5rem; font-size: 1rem; font-weight: 800; }
+  .faq-grid { display: grid; gap: 0.75rem; margin-top: 1rem; }
+  .faq-item { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 0 1.25rem; }
+  .faq-item[open] { border-color: var(--brand-2); box-shadow: var(--shadow); }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; font-weight: 700; font-size: 0.98rem; }
+  .faq-arrow { color: var(--brand-2); display: inline-flex; transition: transform 0.2s; }
+  .faq-item[open] .faq-arrow { transform: rotate(180deg); }
+  .faq-item p { margin: 0 0 1.1rem; color: var(--muted); line-height: 1.75; font-size: 0.94rem; }
+</style>

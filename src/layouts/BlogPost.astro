@@ -1,0 +1,78 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { getPost, formatDate } from '../data/posts';
+import { postsFr } from '../data/posts-fr';
+import { isFr, altPath } from '../data/i18n';
+
+interface Props {
+  slug: string;
+}
+
+const SITE = 'https://primeiptv4k.ca';
+const fr = isFr(Astro.url.pathname);
+const en = getPost(Astro.props.slug);
+const post = fr ? { ...en, ...postsFr[Astro.props.slug] } : en;
+const url = `${SITE}${fr ? '/fr/blogue/' : '/blog/'}${post.slug}/`;
+const frDate = (iso: string) => new Date(iso + 'T12:00:00Z').toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  datePublished: post.datePublished,
+  dateModified: post.dateModified,
+  inLanguage: fr ? 'fr-CA' : 'en-CA',
+  mainEntityOfPage: url,
+  image: `${SITE}/og/${Astro.url.pathname.replace(/^\/|\/$/g, '').replace(/\//g, '-')}.jpg`,
+  author: { '@type': 'Organization', name: 'Prime IPTV', url: `${SITE}/` },
+  publisher: { '@type': 'Organization', name: 'Prime IPTV', logo: { '@type': 'ImageObject', url: `${SITE}/logo.svg` } },
+};
+---
+<Layout title={post.title} description={post.description} type="article" crumb={post.title} schema={[article]} published={post.datePublished}>
+  <Header slot="header" />
+  <article class="section">
+    <div class="container" style="max-width:780px;">
+      <a href={fr ? '/fr/blogue/' : '/blog/'} class="back-link"><Icon name="arrow" size={14} class="rot180" /> {fr ? 'Retour au blogue' : 'Back to Blog'}</a>
+      <div class="section-label"><Icon name="book" size={14} />{fr ? 'Guide IPTV' : 'IPTV Guide'}</div>
+      <h1 class="post-title">{post.title}</h1>
+      <p class="post-meta">
+        <Icon name="calendar" size={15} class="ic-accent" /> {fr ? `Publié le ${frDate(post.datePublished)}` : `Published ${formatDate(post.datePublished)}`}
+        <span aria-hidden="true">·</span> {fr ? 'Par l’équipe Prime IPTV' : 'By the Prime IPTV team'}
+        <span aria-hidden="true">·</span> {fr ? `${post.minutes} min de lecture` : `${post.minutes} min read`}
+      </p>
+
+      <div class="prose">
+        <slot />
+      </div>
+
+      <h2 class="rel-h"><Icon name="link" size={20} class="ic-accent" /> {fr ? 'À lire aussi' : 'Related'}</h2>
+      <ul class="related">
+        {post.related.map((r) => <li><a href={r.href}>{r.text}</a></li>)}
+      </ul>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> {fr ? 'Essayez Prime IPTV gratuitement pendant 24 heures' : 'Try Prime IPTV free for 24 hours'}</h3>
+        <p>{fr ? 'Plus de 25 000 chaînes en direct et plus de 120 000 films et séries. Aucune carte de crédit pour l’essai.' : '25,000+ live channels and 120,000+ movies &amp; series. No credit card required for the trial.'}</p>
+        <a href={fr ? '/fr/essai-gratuit/' : '/free-trial/'} class="btn-primary"><Icon name="play" size={14} />{fr ? 'Essai gratuit' : 'Start Free Trial'}</a>
+      </div>
+    </div>
+  </article>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .back-link { color:var(--muted); text-decoration:none; font-size:0.875rem; display:flex; width:fit-content; align-items:center; gap:0.35rem; margin-bottom:1.25rem; }
+  .back-link:hover { color:var(--brand); }
+  .post-title { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 0.75rem; }
+  .post-meta { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; color:var(--muted); font-size:0.85rem; margin:0 0 2rem; }
+  .rel-h { display:flex; align-items:center; gap:0.5rem; font-size:1.2rem; font-weight:800; margin:2.5rem 0 0.75rem; }
+  .related { color:var(--muted); padding-left:1.25rem; margin:0 0 1.5rem; display:flex; flex-direction:column; gap:0.4rem; }
+  .related a { color:var(--brand); font-weight:600; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+</style>

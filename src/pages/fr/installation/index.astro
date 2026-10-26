@@ -1,0 +1,26 @@
+---
+import ContentPage from '../../../layouts/ContentPage.astro';
+import Icon from '../../../components/Icon.astro';
+import { devices } from '../../../data/devices';
+import { devicesFr } from '../../../data/devices-fr';
+---
+<ContentPage title="Installer l’IPTV : Firestick, Smart TV, Android | Prime IPTV" description="Comment installer Prime IPTV sur un téléviseur intelligent, une Firestick, Android TV, Apple TV, Roku, un téléphone, un ordinateur ou un boîtier MAG." label="Installation" icon="monitor" h1="Guide d’installation de Prime IPTV">
+  <p>Prime IPTV fonctionne avec toute application de lecture qui accepte les codes Xtream ou un lien M3U, par exemple IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV et NET IPTV. Voici le principe pour chaque appareil.</p>
+  <h2>Les étapes en bref</h2>
+  <ol>
+    <li>Demandez votre identifiant d’<a href="/fr/essai-gratuit/">essai gratuit</a> ou achetez un <a href="/fr/tarifs/">forfait</a>.</li>
+    <li>Installez une application de lecture compatible sur votre appareil.</li>
+    <li>Ajoutez votre identifiant (nom d’utilisateur, mot de passe et URL du serveur) dans l’application.</li>
+    <li>Attendez que la liste des chaînes et le guide se chargent, puis regardez.</li>
+  </ol>
+  <h2>Choisissez votre appareil</h2>
+  <div class="grid2">
+    {devices.map((d) => (
+      <a class="tile" href={`/fr/installation/${d.slug}/`}>
+        <h3><Icon name={d.icon} size={18} /> {devicesFr[d.slug].name}</h3>
+        <p>{devicesFr[d.slug].short}</p>
+      </a>
+    ))}
+  </div>
+  <div class="box"><p>Besoin d’aide en français? <a href="/fr/contact/">Écrivez-nous</a> ou lisez le <a href="/fr/aide/">centre d’aide</a>. Voyez aussi <a href="/fr/installer-iptv-smarters-pro-firestick/">comment installer IPTV Smarters Pro sur Firestick</a>.</p></div>
+</ContentPage>

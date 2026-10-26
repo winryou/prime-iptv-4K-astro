@@ -1,0 +1,100 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+import { prices, connectionTabs, buildPlans, bonusFor, isPriced, planMonths } from '../../data/pricing';
+import { planFr } from '../../data/plans-fr';
+
+export function getStaticPaths() {
+  return planMonths.map((m) => ({ params: { mois: `${m}-mois` }, props: { months: m } }));
+}
+const { months } = Astro.props;
+const SITE = 'https://primeiptv4k.ca';
+const copy = planFr[months];
+const priced = isPriced(months);
+const bonus = bonusFor(months);
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+const wa = (text: string) => `https://wa.me/14062356618?text=${encodeURIComponent(text)}`;
+const connLabel = (n: number) => `${n} ${n === 1 ? 'connexion' : 'connexions'}`;
+const bonusText = bonus > 0 ? `+${bonus} mois gratuit${bonus > 1 ? 's' : ''}` : '';
+const tiers = priced
+  ? connectionTabs.map((n) => {
+      const plan = buildPlans(n).find((p) => p.months === months)!;
+      return { n, price: prices[n][months], perMonth: prices[n][months] / months, savePct: plan.savePct };
+    })
+  : [];
+const orderMsg = (n: number) =>
+  priced
+    ? `Bonjour Prime IPTV, je voudrais commander le forfait de ${connLabel(n)}, ${months} mois${bonus > 0 ? ` (${bonusText})` : ''} à ${money(prices[n][months])}. Pouvez-vous m’envoyer les détails de paiement?`
+    : `Bonjour Prime IPTV, je voudrais commander le forfait de ${months} mois. Pouvez-vous m’envoyer le prix et les détails de paiement?`;
+const faqs: [string, string][] = [
+  ...copy.faqs,
+  ['Que comprend chaque forfait Prime IPTV?', 'Chaque forfait comprend plus de 25 000 chaînes en direct (toutes les chaînes canadiennes et américaines et des chaînes d’autres pays), plus de 120 000 films et séries, la qualité SD/HD/FHD/4K, l’EPG, le sport et toutes les chaînes PPV en 4K et en FHD, avec un soutien 24/7.'],
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+const url = `${SITE}/fr/abonnement-iptv-${months}-mois/`;
+const productSchema = priced
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: `Abonnement Prime IPTV de ${months} mois`,
+      description: copy.description,
+      image: [`${SITE}/og/fr-abonnement-iptv-${months}-mois.jpg`],
+      brand: { '@type': 'Brand', name: 'Prime IPTV' },
+      url,
+      offers: tiers.map((t) => ({ '@type': 'Offer', name: `${months} mois, ${connLabel(t.n)}`, price: t.price.toFixed(2), priceCurrency: 'CAD', availability: 'https://schema.org/InStock', url })),
+    }
+  : null;
+---
+<ContentPage title={copy.title} description={copy.description} label="Forfait IPTV" icon="card" h1={copy.h1} crumb={`${months} mois`} schema={productSchema ? [productSchema, faqSchema] : [faqSchema]} width={900}>
+  <p>{copy.intro}</p>
+
+  {priced ? (
+    <>
+      <h2>Prix du forfait de {months} mois</h2>
+      <div style="overflow-x:auto;"><table>
+        <thead><tr><th>Connexions</th><th>Prix</th><th>Par mois payé</th><th></th></tr></thead>
+        <tbody>
+          {tiers.map((t) => (
+            <tr>
+              <td><strong>{connLabel(t.n)}</strong>{bonus > 0 && <><br /><span>{bonusText}</span></>}</td>
+              <td><strong>{money(t.price)}</strong></td>
+              <td>{money(t.perMonth)}</td>
+              <td><a href={wa(orderMsg(t.n))} class="btn-primary" target="_blank" rel="noopener" style="padding:0.5rem 1rem;font-size:0.85rem;">Acheter</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table></div>
+    </>
+  ) : (
+    <div class="box"><p>Écrivez-nous sur WhatsApp pour connaître le prix actuel de ce forfait.</p>
+    <div class="btns"><a href={wa(orderMsg(1))} class="btn-primary" target="_blank" rel="noopener"><Icon name="chat" size={16} /> Commander sur WhatsApp</a></div></div>
+  )}
+  <div class="btns">
+    <a href="/fr/essai-gratuit/" class="btn-outline"><Icon name="play" size={14} /> Essai gratuit de 24 heures</a>
+    <a href="/fr/tarifs/" class="btn-outline">Voir tous les forfaits</a>
+  </div>
+
+  <h2>À qui convient ce forfait</h2>
+  <div class="grid3">
+    {copy.fit.map((f) => (<div class="tile"><h3>{f.title}</h3><p>{f.text}</p></div>))}
+  </div>
+
+  <h2>Bon à savoir</h2>
+  <ul>{copy.watchOut.map((w) => <li>{w}</li>)}</ul>
+
+  <h2>Un exemple concret</h2>
+  <p>{copy.scenario}</p>
+
+  <h2>{copy.deepDive.title}</h2>
+  {copy.deepDive.paras.map((para) => <p>{para}</p>)}
+
+  <h2>Comparer avec les autres durées</h2>
+  <p>{copy.neighbor}</p>
+  <p>
+    {planMonths.filter((m) => m !== months).map((m, i) => (<><a href={`/fr/abonnement-iptv-${m}-mois/`}>{m} mois</a>{i < planMonths.length - 2 ? ' · ' : ''}</>))}
+  </p>
+
+  <h2>Questions fréquentes</h2>
+  {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+  <div class="box"><p>Une <a href="/fr/remboursement/">garantie de remboursement de 7 jours</a> s’applique, sans contrat. Besoin d’aide pour choisir? <a href="/fr/contact/">Écrivez-nous</a>.</p></div>
+</ContentPage>

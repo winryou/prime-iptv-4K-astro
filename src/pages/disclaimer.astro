@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Disclaimer | Prime IPTV" description="Prime IPTV disclaimer: viewer responsibility, third-party player apps, trademarks, service availability and no legal advice.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <div class="section-label"><Icon name="info" size={14} />Legal</div>
+      <h1>Disclaimer</h1>
+      <h2>Viewer responsibility</h2>
+      <p>Users are responsible for ensuring that their use of the service complies with the laws and regulations that apply to them, including copyright and broadcasting rules in Canada and in any other country where they watch.</p>
+      <h2>No legal advice</h2>
+      <p>Information on this website, including our guides on legality and safety, is general information only. It is not legal advice. If you need certainty about your situation, speak to a qualified lawyer.</p>
+      <h2>Third-party apps and trademarks</h2>
+      <p>Prime IPTV is an IPTV subscription service. It does not make or own the player apps used to watch it, such as IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV or NET IPTV. Names of apps, devices and brands belong to their owners and are used only to describe compatibility. We are not affiliated with or endorsed by them.</p>
+      <h2>Service availability and quality</h2>
+      <p>Streaming quality depends on your internet connection, device and player app. Channel lineups, events and on-demand titles can change. Features such as catch-up depend on the player you use. Use the free trial to confirm the service works for you before buying.</p>
+      <h2>Prices and offers</h2>
+      <p>Prices and plan options are shown on the <a class="l" href="/pricing/">pricing page</a> and may change. The price shown in your WhatsApp order message is the price you pay.</p>
+      <h2>Questions</h2>
+      <p>Read our <a class="l" href="/terms/">terms</a>, <a class="l" href="/privacy/">privacy policy</a>, <a class="l" href="/refund/">refund policy</a> and <a class="l" href="/dmca/">DMCA notice</a>, or <a class="l" href="/contact/">contact us</a>.</p>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:900; margin:0 0 1.5rem; }
+  h2 { font-size:1.15rem; font-weight:800; margin:2rem 0 0.75rem; }
+  p { color:var(--muted); line-height:1.75; margin:0 0 1rem; }
+  ul { color:var(--muted); padding-left:1.5rem; display:flex; flex-direction:column; gap:0.5rem; margin:0 0 1.25rem; }
+  li { font-size:0.95rem; line-height:1.65; }
+  a.l { color:var(--brand-2); font-weight:600; }
+</style>

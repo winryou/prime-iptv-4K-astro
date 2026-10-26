@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../data/pricing';
+const money = (n: number) => `$${n.toFixed(2)}`;
+
+const faqs = [["Does IPTV Smarters Pro include a subscription?", "No. IPTV Smarters Pro is a player app and has no channels of its own. You add a subscription from an IPTV provider, such as Prime IPTV, to watch."], ["Does Prime IPTV work with IPTV Smarters Pro?", "Yes. Prime IPTV works with IPTV Smarters Pro using the Xtream Codes login: server URL, username and password."], ["Where do I get my IPTV Smarters Pro login?", "From your IPTV provider. For Prime IPTV, we send your login details by WhatsApp or email when you start the free trial or subscribe."], ["Is IPTV Smarters Pro free?", "The app itself is installed from an app store or the official website, and its channels come from your subscription. Check the app’s current listing for its terms. The Prime IPTV subscription is separate and starts at $34.99 for 3 months."], ["Can I try a subscription before paying?", "Yes. Prime IPTV has a 24-hour free trial with no credit card, and we send the details by WhatsApp or email."], ["What if I do not want to use IPTV Smarters Pro?", "Prime IPTV works with all players that accept Xtream Codes or an M3U link, including TiviMate, IBO Player, Set IPTV and NET IPTV."]];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="IPTV Smarters Pro Subscription Canada | Prime IPTV" description="IPTV Smarters Pro needs a subscription to show channels. Get a Prime IPTV subscription and add your Xtream Codes login. Free 24-hour trial, no credit card." schema={[faqSchema]} >
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="section-label"><Icon name="monitor" size={14} />Players</div>
+      <h1 class="page-h1">IPTV Smarters Pro Subscription: What You Need and How to Get It</h1>
+      <div class="prose">
+        <p><strong>IPTV Smarters Pro is an IPTV player app, not an IPTV provider, so it needs a subscription from a provider before it shows any channels.</strong> A Prime IPTV subscription works with IPTV Smarters Pro: you receive your login details and add them using the Xtream Codes login.</p>
+
+        <h2>How an IPTV Smarters Pro subscription works</h2>
+        <p>Three things work together, and people often mix them up.</p>
+        <ul>
+          <li><strong>The app:</strong> IPTV Smarters Pro is the player on your device. It displays channels, movies and the TV guide but has no channels of its own.</li>
+          <li><strong>The subscription:</strong> the IPTV service that supplies the channels and on-demand library. This is what Prime IPTV provides.</li>
+          <li><strong>Your login:</strong> the details that connect the app to the subscription.</li>
+        </ul>
+        <p>We explain this difference in more detail in <a href="/blog/iptv-service-vs-iptv-player-app/">IPTV service vs IPTV player app</a>.</p>
+
+        <h2>What you receive with your Prime IPTV subscription</h2>
+        <p>When you start the <a href="/free-trial/">free trial</a> or subscribe, we send you your login details by WhatsApp or email. It is normally a <strong>server URL, a username and a password</strong> for the Xtream Codes login. For a paid plan, activation is normally within a few minutes after payment.</p>
+
+        <h2>How to add Prime IPTV to IPTV Smarters Pro</h2>
+        <ol>
+          <li>Install IPTV Smarters Pro on your device (see the next section).</li>
+          <li>Open the app and choose <strong>Add New User</strong>, then <strong>Login with Xtream Codes API</strong>.</li>
+          <li>Enter any name you like, then your <strong>username, password and server URL</strong> exactly as we sent them. Copy and paste to avoid typos and trailing spaces.</li>
+          <li>Tap <strong>Add User</strong> and wait while your channels, movies and series load.</li>
+          <li>Open <strong>Live TV</strong>, <strong>Movies</strong> or <strong>Series</strong> and start watching.</li>
+        </ol>
+
+        <h2>Where you can use IPTV Smarters Pro</h2>
+        <p>IPTV Smarters Pro runs on Fire TV devices, Android phones, tablets and Android TV, iPhone and iPad, and on some Smart TVs and computers. Availability and the install method differ by device. For Firestick, follow our <a href="/install-iptv-smarters-pro-firestick/">step-by-step Firestick installation guide</a>. For other devices see the <a href="/setup/">device setup guides</a>.</p>
+
+        <h2>IPTV Smarters Pro subscription price</h2>
+        <p>The app and your subscription are separate, and the subscription is what you pay for. These are the Prime IPTV prices for 1 connection. Every plan includes 25,000+ live channels, 120,000+ movies and series, 4K and sports.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Plan length</th><th>Price (1 connection)</th><th>Per month</th></tr></thead>
+            <tbody>
+              {durations.map((m) => (
+                <tr>
+                  <td><strong>{m} months</strong>{bonusMonths[m] > 0 && <><br /><span class="bonus-note">+{bonusMonths[m]} {bonusMonths[m] === 1 ? 'month' : 'months'} free</span></>}</td>
+                  <td><strong>{money(prices[1][m])}</strong></td>
+                  <td>{money(prices[1][m] / m)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>Plans for 2, 3 and 4 connections are on the <a href="/pricing/">pricing page</a>, where each plan has a Buy Now! button that opens WhatsApp with your plan in the message.</p>
+
+        <h2>Other players that work with Prime IPTV</h2>
+        <p>Prime IPTV works with <strong>all players that accept Xtream Codes or an M3U link</strong>, including TiviMate, IBO Player, Set IPTV and NET IPTV. Players such as IBO Player, Set IPTV and NET IPTV load the playlist through your device&rsquo;s MAC address. Send us that MAC address on WhatsApp and we will help you set it up. Compare them in our <a href="/blog/best-iptv-players/">IPTV player comparison</a>.</p>
+      </div>
+
+      <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> Get a login for IPTV Smarters Pro</h3>
+        <p>Start the 24-hour free trial with no credit card, then add the login to IPTV Smarters Pro in minutes.</p>
+        <div class="cta-row">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="/pricing/" class="btn-outline">View Plans<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .page-h1 { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 1.5rem; }
+  .faq-h { display:flex; align-items:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+</style>

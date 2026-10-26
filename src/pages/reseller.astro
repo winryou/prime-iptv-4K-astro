@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+
+const WA = '14062356618';
+const wa = (text: string) => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
+
+const packs = [
+  { credits: 120, price: 419.99 },
+  { credits: 240, price: 783.99, popular: true },
+  { credits: 360, price: 1120.99 },
+  { credits: 480, price: 1470.99 },
+  { credits: 600, price: 1821.99 },
+  { credits: 1200, price: 3574.99 },
+].map((p) => ({
+  ...p,
+  priceText: p.price.toLocaleString('en-CA', { minimumFractionDigits: 2 }),
+  perCredit: (p.price / p.credits).toFixed(2),
+  link: wa(`Hello Prime IPTV, I'd like to buy the ${p.credits} Credits reseller package (CAD $${p.price.toLocaleString('en-CA', { minimumFractionDigits: 2 })}). Please send me the payment details.`),
+}));
+
+const includes = [
+  'Free test accounts for your customers',
+  'Free content updates (live TV & VOD)',
+  'Fast & stable premium servers',
+  '99.9% uptime',
+  '4K, FHD, HD & SD channels',
+  'Works on all devices',
+  '24/7 live support',
+];
+
+const credits = [
+  ['1 Month', '1 Credit'],
+  ['3 Months', '3 Credits'],
+  ['6 Months', '6 Credits'],
+  ['12 Months', '12 Credits'],
+];
+
+const benefits = [
+  ['server', 'Reliable IPTV Server', '25,000+ live channels and 120,000+ movies & series on premium servers, so your subscribers get plenty to watch.'],
+  ['dollar', 'Set Your Own Prices', 'You decide what to charge your customers, so you keep control of your margins.'],
+  ['sliders', 'Full Control', 'Manage your customers’ subscriptions with your credits, anytime and from anywhere.'],
+];
+
+const steps = [
+  ['Pick a package', 'Choose the credit pack that fits the size of your customer base.'],
+  ['Message us on WhatsApp', 'Click Buy Now and your chosen package is already filled in the WhatsApp message.'],
+  ['Pay & receive credits', 'We send the payment details and activate your reseller access.'],
+  ['Sell & support', 'Activate customers with your credits. We support you 24/7.'],
+];
+
+const faqs = [
+  ['What is an IPTV reseller panel?', 'An IPTV reseller panel is where a reseller manages customer subscriptions using credits. With Prime IPTV, 1 credit pays for one month of service for one customer, so you buy credits in a package and activate your own customers.'],
+  ['Is there an IPTV reseller program in Canada?', 'Yes. The Prime IPTV reseller program is open to resellers in Canada and worldwide, with credit packages from 120 to 1,200 credits and 24/7 reseller support.'],
+  ['How do credits work?', 'A credit pays for one month of service for one customer: 1 month = 1 credit, 3 months = 3 credits, 6 months = 6 credits and 12 months = 12 credits.'],
+  ['Do I need technical experience?', 'No. We give you setup guidance, and our device guides cover every supported player.'],
+  ['Can I set my own prices?', 'Yes. You decide what to charge your own customers.'],
+  ['Can I try the service first?', 'Yes. Ask us for a free test account to check quality before you buy a package.'],
+  ['What support do resellers get?', 'Resellers get 24/7 support through WhatsApp and email.'],
+];
+---
+<Layout title="IPTV Reseller Panel Canada: Credit Packages | Prime IPTV" description="Become a Prime IPTV reseller. Credit packages from 120 to 1200 credits, 25,000+ live channels, 120,000+ movies & series and 24/7 reseller support.">
+  <Header slot="header" />
+
+  <section class="section" style="padding-bottom:2rem; background:radial-gradient(ellipse at 50% 0%, rgba(232,53,47,0.16) 0%, transparent 60%), var(--bg);">
+    <div class="container" style="text-align:center; max-width:860px;">
+      <div class="section-label"><Icon name="briefcase" size={14} />Reseller Panel</div>
+      <h1 class="section-title" style="font-size:clamp(1.9rem,4.5vw,2.75rem);">IPTV Reseller Panel Canada: Become a Prime IPTV Reseller</h1>
+      <p class="section-sub" style="max-width:700px; margin-bottom:1.75rem;">Start earning by selling premium IPTV to your own customers. You stay in control of your subscriptions, with 25,000+ live channels and 120,000+ movies & series behind them.</p>
+      <div class="credit-strip">
+        {credits.map(([m, c], i) => (
+          <span class={`credit-pill${i === 0 ? ' first' : ''}`}>{m} = {c}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:2.5rem;">
+    <div class="container">
+      <div class="pack-grid">
+        {packs.map(p => (
+          <div class={`pricing-card${p.popular ? ' featured' : ''}`}>
+            {p.popular && <div class="badge-popular">Most Popular</div>}
+            <div class="plan-name">{p.credits} Credits</div>
+            <div class="plan-duration">High Performance Server</div>
+            <div class="plan-price">${p.priceText}</div>
+            <div class="plan-per">≈ ${p.perCredit} CAD per credit</div>
+            <ul class="plan-features">
+              {includes.map(f => <li><Icon name="check" size={16} class="ic-check" /> {f}</li>)}
+            </ul>
+            <a href={p.link} class="btn-primary" style="width:100%;justify-content:center;" target="_blank" rel="noopener">Buy Now</a>
+          </div>
+        ))}
+      </div>
+      <p class="pack-note">Clicking <strong>Buy Now</strong> opens WhatsApp with your chosen package already written in the message. All reseller prices are in Canadian dollars (CAD).</p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Reseller Benefits: Why Our Program Is the Best Choice</h2>
+      <div class="ben-grid">
+        {benefits.map(([icon, title, desc]) => (
+          <div class="ben-card">
+            <div class="ben-icon"><Icon name={icon} size={30} /></div>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="list" size={14} />How It Works</div>
+      <h2 class="section-title">Start Reselling in 4 Steps</h2>
+      <div class="rs-steps">
+        {steps.map(([t, d], i) => (
+          <div class="rs-step">
+            <div class="rs-num">{i + 1}</div>
+            <h3>{t}</h3>
+            <p>{d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:800px;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div class="section-label"><Icon name="help" size={14} />FAQ</div>
+        <h2 class="section-title">Reseller Questions</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm support">
+    <div class="container" style="text-align:center;">
+      <h2><Icon name="headset" size={28} class="ic-accent" /> Online Support!</h2>
+      <p>Send us a message on WhatsApp without saving our number.</p>
+      <a href={wa('Hello Prime IPTV, I have a question about your reseller program.')} class="wa-btn" target="_blank" rel="noopener"><Icon name="chat" size={18} />Send Message on WhatsApp</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .credit-strip { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; }
+  .credit-pill { background:var(--brand); color:#fff; font-size:0.9rem; font-weight:600; padding:0.45rem 1.1rem; border-radius:999px; }
+  .credit-pill.first { background:var(--accent); color:#fff; }
+
+  .pack-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:0.5rem; }
+  .pack-note { text-align:center; color:var(--muted); font-size:0.85rem; margin-top:1.75rem; }
+
+  .ben-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; text-align:center; margin-top:2rem; }
+  .ben-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:1.75rem 1.5rem; }
+  .ben-icon { margin-bottom:0.6rem; }
+  .ben-card h3 { font-size:1.05rem; font-weight:800; margin:0 0 0.4rem; }
+  .ben-card p { color:var(--muted); font-size:0.88rem; margin:0; line-height:1.6; }
+
+  .rs-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; margin-top:2.5rem; }
+  .rs-step { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.75rem 1.25rem; }
+  .rs-num { width:44px; height:44px; background:var(--accent); color:#fff; font-weight:900; font-size:1.15rem; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.9rem; }
+  .rs-step h3 { font-size:1rem; font-weight:700; margin:0 0 0.4rem; }
+  .rs-step p { color:var(--muted); font-size:0.85rem; margin:0; line-height:1.6; }
+
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); font-size:0.75rem; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+
+  .support h2 { font-size:1.75rem; font-weight:900; margin:0 0 0.4rem; }
+  .support p { color:var(--muted); margin:0 0 1.25rem; font-weight:600; }
+  .wa-btn { display:inline-flex; align-items:center; gap:0.5rem; background:#0f7a40; color:#fff; font-weight:700; padding:0.8rem 1.75rem; border-radius:8px; text-decoration:none; }
+  .wa-btn:hover { background:#0b6a37; }
+
+  @media (max-width:900px) { .pack-grid { grid-template-columns:repeat(2,1fr); } .rs-steps { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px) { .pack-grid, .ben-grid, .rs-steps { grid-template-columns:1fr; } }
+</style>

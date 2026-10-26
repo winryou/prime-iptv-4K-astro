@@ -1,0 +1,33 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const wa = 'https://wa.me/14062356618?text=' + encodeURIComponent('Bonjour Prime IPTV, je voudrais l’essai gratuit de 24 heures.');
+const mail = 'mailto:contactiptv.amelia@gmail.com?subject=' + encodeURIComponent('Essai gratuit Prime IPTV') + '&body=' + encodeURIComponent('Bonjour, je voudrais l’essai gratuit de 24 heures. Mon appareil : ');
+---
+<ContentPage title="Essai gratuit IPTV Canada : 24 heures | Prime IPTV" description="IPTV essai gratuit : essayez Prime IPTV gratuitement pendant 24 heures, sans carte de crédit. Demandez votre essai par WhatsApp ou par courriel et testez les chaînes sur votre propre appareil." label="Essai gratuit" icon="gift" h1="Essai gratuit IPTV Canada de 24 heures">
+  <p>Testez Prime IPTV sur votre propre téléviseur et votre propre connexion avant de payer quoi que ce soit. <strong>Aucune carte de crédit n’est nécessaire.</strong></p>
+  <div class="btns">
+    <a href={wa} class="btn-primary" target="_blank" rel="noopener"><Icon name="chat" size={18} /> Demander l’essai sur WhatsApp</a>
+    <a href={mail} class="btn-outline"><Icon name="mail" size={18} /> Demander par courriel</a>
+  </div>
+  <h2>Comment obtenir l’essai</h2>
+  <ol>
+    <li><strong>Écrivez-nous</strong> sur WhatsApp ou par courriel et indiquez votre appareil (téléviseur intelligent, Firestick, téléphone, etc.).</li>
+    <li><strong>Recevez vos détails</strong> d’essai par WhatsApp ou par courriel.</li>
+    <li><strong>Installez une application de lecture</strong> en suivant le <a href="/fr/installation/">guide d’installation</a>.</li>
+    <li><strong>Saisissez votre identifiant</strong> et regardez pendant 24 heures.</li>
+  </ol>
+  <h2>IPTV essai gratuit : à quoi vous attendre</h2>
+  <p>Un essai gratuit IPTV vous permet de tester un service sur votre propre appareil et votre propre connexion avant de payer. Avec Prime IPTV, l’essai dure 24 heures, ne demande aucune carte de crédit et donne accès à la même offre de chaînes en direct, de sport, de PPV et de titres sur demande qu’un abonnement. Au Québec, écrivez-nous en français sur WhatsApp : nous vous envoyons votre identifiant d’essai et vous pouvez vérifier les chaînes en français vous-même.</p>
+  <p>Vous cherchez un <a href="/fr/iptv-quebec/">IPTV au Québec</a>? Voyez aussi notre page pour <a href="/fr/iptv-montreal/">Montréal</a>.</p>
+
+  <h2>Quoi tester pendant l’essai</h2>
+  <ul>
+    <li>Les chaînes que vous regardez le plus, y compris celles en français si c’est important pour vous.</li>
+    <li>Un événement sportif en direct aux heures de pointe, pour voir la stabilité du flux.</li>
+    <li>La vidéothèque sur demande et la qualité d’image (HD, FHD ou 4K).</li>
+    <li>La vitesse de changement de chaîne et le guide des programmes (EPG).</li>
+    <li>Votre Wi-Fi dans la pièce où se trouve le téléviseur. Une connexion filaire est plus stable.</li>
+  </ul>
+  <div class="box"><p>Après l’essai, choisissez un forfait de 1 à 4 connexions sur la <a href="/fr/tarifs/">page des tarifs</a>. Il n’y a aucun contrat, et une garantie de remboursement de 7 jours s’applique.</p></div>
+</ContentPage>

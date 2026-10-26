@@ -1,0 +1,21 @@
+# Cloudflare redirects (permanent). Format: /from  /to  status
+/sitemap.xml /sitemap-index.xml 301
+/sitemap_index.xml /sitemap-index.xml 301
+/sitemap /sitemap-index.xml 301
+/sitemap/ /sitemap-index.xml 301
+
+# Retired URLs
+/blog/iptv-setup-firestick /setup/firestick/ 301
+/blog/iptv-setup-firestick/ /setup/firestick/ 301
+/coverage /iptv-internet-speed-requirements/ 301
+/coverage/ /iptv-internet-speed-requirements/ 301
+/feed /rss.xml 301
+/feed/ /rss.xml 301
+/feed.xml /rss.xml 301
+/rss /rss.xml 301
+/rss/ /rss.xml 301
+/atom.xml /rss.xml 301
+/llms /llms.txt 301
+/llms/ /llms.txt 301
+/abonnement-iptv-canada /fr/ 301
+/abonnement-iptv-canada/ /fr/ 301

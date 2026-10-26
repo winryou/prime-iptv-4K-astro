@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+
+const faqs = [["Can I watch UFC and other PPV events on IPTV?", "Prime IPTV includes PPV channels in 4K and FHD. Because events change, message us on WhatsApp before a specific card or fight night and we will tell you what is available, or test during the free trial."], ["Is there IPTV for hockey and Canadian sports?", "Yes. Prime IPTV includes Canadian sports channels alongside US and international sports. Check the specific games you follow during the 24-hour free trial."], ["Does Prime IPTV have sports channels?", "Yes. Prime IPTV includes Canadian and US sports, and sports from other countries across all major sports packages."], ["Does Prime IPTV include Canadian sports?", "Yes. Canadian sports are included, alongside US sports and sports from other countries."], ["Are PPV channels available in 4K?", "Yes. All PPV channels are available in 4K and FHD."], ["What internet speed do I need for live sport?", "As a rough guide, about 15 Mbps per screen for FHD and 25 Mbps or more for 4K. Multiply that by the number of screens watching at once, and use a wired connection if you can."], ["Can two people watch different games at the same time?", "Yes, as long as your plan has enough connections. A connection is one stream playing at a time, and plans cover 1 to 4 connections."], ["How can I test sports before I buy?", "Request the 24-hour free trial (no credit card required) and watch a live game at peak time on your own device."]];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="IPTV Sports & PPV in 4K and FHD | Prime IPTV" description="Prime IPTV includes Canadian and US sports, and sports from other countries, plus all PPV channels in 4K and FHD. Test live games with a free trial." schema={[faqSchema]}>
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="section-label"><Icon name="trophy" size={14} />Sports & PPV</div>
+      <h1 class="page-h1">Prime IPTV Sports and PPV: Live Games and Events in 4K and FHD</h1>
+      <div class="prose">
+        <p><strong>Prime IPTV includes Canadian and US sports, and sports from other countries across all major sports packages, and all PPV channels are available in 4K and FHD.</strong> This guide explains what to expect and how to get a smooth picture for live games and big events.</p>
+
+        <h2>Sports coverage on Prime IPTV</h2>
+        <ul>
+          <li><strong>Canadian sports:</strong> Canadian sports channels are part of the all-Canadian-channels lineup.</li>
+          <li><strong>Canadian sports:</strong> Canadian sports channels are included.</li>
+          <li><strong>Sports from other countries:</strong> sports channels from other countries are included too.</li>
+          <li><strong>All major sports packages:</strong> the lineup covers the major sports packages.</li>
+        </ul>
+        <p>For the full list of what is included, see our guide to <a href="/iptv-channels/">Prime IPTV channels from Canada, the US and other countries</a>.</p>
+
+        <h2>IPTV with PPV: PPV channels in 4K and FHD</h2>
+        <p>PPV (pay-per-view) channels carry special events, and many people look for an IPTV service with PPV (also searched as "PPV on IPTV"). On Prime IPTV, <strong>all PPV channels are available in 4K and FHD</strong>, so big events can be watched in high quality on a compatible TV and connection.</p>
+
+        <h2>How to get a smooth picture for live sport</h2>
+        <p>Live sport is one of the most demanding things you can stream, because everyone watches at the same moment. These steps make the biggest difference.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Quality</th><th>Approximate speed per screen</th></tr></thead>
+            <tbody>
+              <tr><td>SD</td><td>5 Mbps</td></tr>
+              <tr><td>HD</td><td>10 Mbps</td></tr>
+              <tr><td>FHD (1080p)</td><td>15 Mbps</td></tr>
+              <tr><td>4K</td><td>25 Mbps or more</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These are rough guide values, not guarantees. Multiply them by the number of screens watching at once.</p>
+        <ul>
+          <li><strong>Use Ethernet</strong> for your TV or streaming box where possible, especially for 4K.</li>
+          <li><strong>Choose FHD if 4K stutters.</strong> A steadier FHD picture beats a stuttering 4K one.</li>
+          <li><strong>Keep other heavy use down</strong> during the event, such as downloads, cloud backups and extra 4K streams.</li>
+          <li><strong>Restart the player and router</strong> before a big event, and update the player app.</li>
+          <li><strong>Match connections to screens.</strong> If several games run at once, make sure your plan has enough connections. See <a href="/blog/how-many-iptv-connections-do-i-need/">how many connections you need</a>.</li>
+        </ul>
+        <p>If something stutters, our <a href="/blog/iptv-buffering-troubleshooting/">buffering and login checklist</a> covers the usual causes step by step.</p>
+
+        <h2>Test live sport during the free trial</h2>
+        <ol>
+          <li>Install your player first (see the <a href="/setup/">device guides</a>).</li>
+          <li>Request the <a href="/free-trial/">24-hour free trial</a>. No credit card is required, and the details come by WhatsApp or email.</li>
+          <li>Pick a live game at peak time, and watch for picture quality, start-up time and stability across the whole event.</li>
+          <li>If you plan to watch a PPV event, check that the PPV channel you need plays in 4K or FHD on your TV.</li>
+        </ol>
+
+        <h2>Choose a plan that fits your household</h2>
+        <p>Plans cover 1 to 4 connections, so more than one person can watch a different game at the same time. Compare plans on the <a href="/pricing/">pricing page</a>. Each one has a Buy Now! button that opens WhatsApp with your plan already in the message.</p>
+      </div>
+
+      <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> Check it on your own device</h3>
+        <p>Try Prime IPTV free for 24 hours. No credit card required, and the trial details come by WhatsApp or email.</p>
+        <div class="cta-row">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="/pricing/" class="btn-outline">View Pricing<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .page-h1 { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 1.5rem; }
+  .faq-h { display:flex; align-items:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+</style>

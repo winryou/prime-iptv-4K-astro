@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout title="Contact Prime IPTV: 24/7 Support Canada" description="Contact Prime IPTV support 24/7 via WhatsApp or email. Fast response for subscription, setup, and billing questions.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:700px; text-align:center;">
+      <div class="section-label"><Icon name="chat" size={14} />Contact</div>
+      <h1 class="section-title">Contact Prime IPTV</h1>
+      <p style="color:var(--muted); margin-bottom:3rem;">Our support team is available 24/7. Reach us by WhatsApp or email for help with subscriptions, setup, billing or any other question.</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="c-icon"><Icon name="chat" size={28} /></div>
+          <h2>WhatsApp</h2>
+          <p>Fastest response. Available 24/7 for all support needs.</p>
+          <a href="https://wa.me/14062356618" class="btn-primary" style="justify-content:center;">Message on WhatsApp</a>
+          <p class="c-detail">+1 (406) 235-6618</p>
+        </div>
+        <div class="contact-card">
+          <div class="c-icon"><Icon name="mail" size={18} /> </div>
+          <h2>Email</h2>
+          <p>Send us an email and we will reply as soon as we can.</p>
+          <a href="mailto:contactiptv.amelia@gmail.com" class="btn-outline" style="justify-content:center;">Send Email<Icon name="arrow" size={16} /></a>
+          <p class="c-detail">contactiptv.amelia@gmail.com</p>
+        </div>
+      </div>
+      <div class="tips-box">
+        <h3>Get a faster answer</h3>
+        <p>When you message us about a problem, include your device and player app, the channel name, the time it happened and what you see on screen. Many problems can also be fixed in the <a href="/help/">help center</a> or with our <a href="/blog/iptv-buffering-troubleshooting/">buffering and login checklist</a> or the <a href="/setup/">device setup guides</a>. For plans and prices, see <a href="/pricing/">pricing</a>; for common questions, the <a href="/faq/">FAQ</a>.</p>
+      </div>
+      <div class="tips-box">
+        <h3>What we can help with</h3>
+        <p>Choosing a plan or number of connections &middot; requesting the 24-hour free trial &middot; ordering and payment &middot; receiving or re-sending your login &middot; setting up on your device &middot; buffering, login or TV-guide problems &middot; refunds under the 7-day money-back guarantee &middot; <a href="/reseller/">reseller enquiries</a>. Support is available 24/7.</p>
+      </div>
+      <div class="address-box">
+        <h3><Icon name="map-pin" size={18} class="ic-accent" /> Business Address</h3>
+        <p>4793 County Rd 772B, Webster, FL 33597, USA</p>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  .contact-cards { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem; }
+  .contact-card { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:2rem; text-align:center; display:flex; flex-direction:column; gap:0.75rem; }
+  .c-icon { font-size:2.5rem; }
+  .contact-card h2 { font-size:1.1rem; font-weight:800; margin:0; }
+  .contact-card p { color:var(--muted); font-size:0.875rem; margin:0; }
+  .c-detail { color:var(--brand) !important; font-weight:600; }
+  .tips-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-top:1rem; text-align:left; }
+  .tips-box h3 { font-size:0.95rem; font-weight:700; margin:0 0 0.5rem; }
+  .tips-box p { color:var(--muted); margin:0; font-size:0.9rem; line-height:1.65; }
+  .tips-box a { color:var(--brand); font-weight:600; }
+  .address-box { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-top:1rem; }
+  .address-box h3 { font-size:0.95rem; font-weight:700; margin:0 0 0.5rem; }
+  .address-box p { color:var(--muted); margin:0; font-size:0.9rem; }
+  @media (max-width:600px) { .contact-cards { grid-template-columns:1fr; } }
+</style>

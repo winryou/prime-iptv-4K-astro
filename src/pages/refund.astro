@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout title="Refund Policy: Prime IPTV 7-Day Money-Back Guarantee" description="Prime IPTV offers a 7-day money-back guarantee on all subscription plans. See how to request a refund by WhatsApp or email.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:700px; text-align:center;">
+      <div class="section-label"><Icon name="undo" size={14} />Refund Policy</div>
+      <h1 class="section-title">7-Day Money-Back Guarantee</h1>
+      <p style="color:var(--muted); font-size:1.05rem; margin-bottom:2.5rem;">We stand behind the quality of our service. If you're not satisfied within the first 7 days of your subscription, our 7-day money-back guarantee applies.</p>
+      <div class="refund-box">
+        <h2>How to Request a Refund</h2>
+        <ol>
+          <li>Contact our support team within 7 days of your purchase</li>
+          <li>Provide your subscription email and order details</li>
+          <li>We'll process your refund promptly</li>
+        </ol>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+          <a href="https://wa.me/14062356618" class="btn-primary"><Icon name="chat" size={18} /> WhatsApp Us</a>
+          <a href="mailto:contactiptv.amelia@gmail.com" class="btn-outline"><Icon name="mail" size={18} /> Email Us</a>
+        </div>
+      </div>
+      <div class="before-buy">
+        <h3>What to include in your request</h3>
+        <p>To speed things up, include the email or WhatsApp number you used to order, the plan you bought (connections and length) and the date of purchase. Contact us within 7 days of purchase by WhatsApp or email. If you are having a technical problem rather than wanting a refund, our <a href="/blog/iptv-buffering-troubleshooting/">troubleshooting checklist</a> may solve it quickly.</p>
+      </div>
+      <div class="before-buy">
+        <h3>Before you buy</h3>
+        <p>Not sure Prime IPTV suits your device and connection? Test it first with the <a href="/free-trial/">24-hour free trial</a> (no credit card required) and use our <a href="/blog/iptv-free-trial-checklist/">trial checklist</a>. You can compare plans on the <a href="/pricing/">pricing page</a>, and find answers in the <a href="/faq/">FAQ</a>.</p>
+      </div>
+      <p style="color:var(--muted); font-size:0.875rem; margin-top:2rem;">Refunds apply to subscription fees paid. Free trial period is not eligible for refund as no charge is made during the trial.</p>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:900; margin:0 0 1rem; }
+  .refund-box { background:var(--bg-card); border:1px solid var(--border); border-radius:14px; padding:2.5rem; text-align:left; }
+  .refund-box h2 { font-size:1.15rem; font-weight:800; margin:0 0 1.25rem; text-align:center; }
+  .refund-box ol { padding-left:1.5rem; display:flex; flex-direction:column; gap:0.75rem; margin:0; }
+  .refund-box li { color:var(--muted); font-size:0.95rem; line-height:1.6; }
+  .before-buy { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-top:1.5rem; text-align:left; }
+  .before-buy h3 { font-size:1rem; font-weight:800; margin:0 0 0.5rem; }
+  .before-buy p { color:var(--muted); font-size:0.9rem; line-height:1.65; margin:0; }
+  .before-buy a { color:var(--brand); font-weight:600; }
+</style>

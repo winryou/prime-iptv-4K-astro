@@ -1,0 +1,195 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+
+const WA = '14062356618';
+const wa = (text: string) => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`;
+
+const packs = [
+  { credits: 120, price: 419.99 },
+  { credits: 240, price: 783.99, popular: true },
+  { credits: 360, price: 1120.99 },
+  { credits: 480, price: 1470.99 },
+  { credits: 600, price: 1821.99 },
+  { credits: 1200, price: 3574.99 },
+].map((p) => ({
+  ...p,
+  priceText: p.price.toLocaleString('fr-CA', { minimumFractionDigits: 2 }),
+  perCredit: (p.price / p.credits).toFixed(2),
+  link: wa(`Bonjour Prime IPTV, je voudrais acheter le forfait revendeur de ${p.credits} crédits (${p.price.toLocaleString('fr-CA', { minimumFractionDigits: 2 })} $ CAD). Pouvez-vous m’envoyer les détails de paiement?`),
+}));
+
+const includes = [
+  'Comptes d’essai gratuits pour vos clients',
+  'Mises à jour de contenu gratuites (télé en direct et VOD)',
+  'Serveurs de qualité, rapides et stables',
+  'Disponibilité de 99,9 %',
+  'Chaînes 4K, FHD, HD et SD',
+  'Fonctionne sur tous les appareils',
+  'Soutien en direct 24/7',
+];
+
+const credits = [
+  ['1 mois', '1 crédit'],
+  ['3 mois', '3 crédits'],
+  ['6 mois', '6 crédits'],
+  ['12 mois', '12 crédits'],
+];
+
+const benefits = [
+  ['server', 'Serveur IPTV fiable', 'Plus de 25 000 chaînes en direct et plus de 120 000 films et séries sur des serveurs de qualité, pour que vos abonnés aient de quoi regarder.'],
+  ['dollar', 'Fixez vos propres prix', 'Vous décidez de ce que vous facturez à vos clients et gardez le contrôle de vos marges.'],
+  ['sliders', 'Plein contrôle', 'Gérez les abonnements de vos clients avec vos crédits, en tout temps et de n’importe où.'],
+];
+
+const steps = [
+  ['Choisissez un forfait', 'Choisissez le paquet de crédits qui convient à la taille de votre clientèle.'],
+  ['Écrivez-nous sur WhatsApp', 'Cliquez sur « Acheter maintenant » et votre forfait est déjà écrit dans le message WhatsApp.'],
+  ['Payez et recevez vos crédits', 'Nous envoyons les détails de paiement et activons votre accès revendeur.'],
+  ['Vendez et soutenez', 'Activez vos clients avec vos crédits. Nous vous soutenons 24/7.'],
+];
+
+const faqs = [
+  ['Qu’est-ce qu’un panneau de revendeur IPTV?', 'Un panneau de revendeur IPTV est l’endroit où un revendeur gère les abonnements de ses clients à l’aide de crédits. Avec Prime IPTV, 1 crédit paie un mois de service pour un client; vous achetez donc des crédits en forfait et activez vos propres clients.'],
+  ['Y a-t-il un programme de revendeurs IPTV au Canada?', 'Oui. Le programme de revendeurs Prime IPTV est ouvert aux revendeurs du Canada et du monde entier, avec des forfaits de 120 à 1 200 crédits et un soutien revendeur 24/7.'],
+  ['Comment fonctionnent les crédits?', 'Un crédit paie un mois de service pour un client : 1 mois = 1 crédit, 3 mois = 3 crédits, 6 mois = 6 crédits et 12 mois = 12 crédits.'],
+  ['Ai-je besoin d’expérience technique?', 'Non. Nous vous guidons pour l’installation, et nos guides par appareil couvrent chaque lecteur pris en charge.'],
+  ['Puis-je fixer mes propres prix?', 'Oui. Vous décidez de ce que vous facturez à vos clients.'],
+  ['Puis-je essayer le service d’abord?', 'Oui. Demandez-nous un compte d’essai gratuit pour vérifier la qualité avant d’acheter un forfait.'],
+  ['Quel soutien les revendeurs reçoivent-ils?', 'Les revendeurs reçoivent un soutien 24/7 par WhatsApp et par courriel.'],
+];
+---
+<Layout title="Revendeur IPTV Canada : forfaits de crédits | Prime IPTV" description="Revendeur IPTV Canada : devenez revendeur Prime IPTV. Forfaits de 120 à 1 200 crédits, plus de 25 000 chaînes en direct, plus de 120 000 films et séries et soutien revendeur 24/7.">
+  <Header slot="header" />
+
+  <section class="section" style="padding-bottom:2rem; background:radial-gradient(ellipse at 50% 0%, rgba(232,53,47,0.16) 0%, transparent 60%), var(--bg);">
+    <div class="container" style="text-align:center; max-width:860px;">
+      <div class="section-label"><Icon name="briefcase" size={14} />Panneau revendeur</div>
+      <h1 class="section-title" style="font-size:clamp(1.9rem,4.5vw,2.75rem);">Devenez revendeur Prime IPTV</h1>
+      <p class="section-sub" style="max-width:700px; margin-bottom:1.75rem;">Gagnez de l’argent en vendant de l’IPTV de qualité à vos propres clients. Vous gardez le contrôle de vos abonnements, avec plus de 25 000 chaînes en direct et plus de 120 000 films et séries derrière eux.</p>
+      <div class="credit-strip">
+        {credits.map(([m, c], i) => (
+          <span class={`credit-pill${i === 0 ? ' first' : ''}`}>{m} = {c}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:2.5rem;">
+    <div class="container">
+      <div class="pack-grid">
+        {packs.map(p => (
+          <div class={`pricing-card${p.popular ? ' featured' : ''}`}>
+            {p.popular && <div class="badge-popular">Le plus populaire</div>}
+            <div class="plan-name">{p.credits} crédits</div>
+            <div class="plan-duration">Serveur haute performance</div>
+            <div class="plan-price">{p.priceText} $</div>
+            <div class="plan-per">≈ {p.perCredit.replace('.', ',')} $ CAD par crédit</div>
+            <ul class="plan-features">
+              {includes.map(f => <li><Icon name="check" size={16} class="ic-check" /> {f}</li>)}
+            </ul>
+            <a href={p.link} class="btn-primary" style="width:100%;justify-content:center;" target="_blank" rel="noopener">Acheter maintenant</a>
+          </div>
+        ))}
+      </div>
+      <p class="pack-note">En cliquant sur <strong>Acheter maintenant</strong>, WhatsApp s’ouvre avec le forfait choisi déjà écrit dans le message. Tous les prix des revendeurs sont en dollars canadiens (CAD).</p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title">Avantages revendeur : pourquoi notre programme est le bon choix</h2>
+      <div class="ben-grid">
+        {benefits.map(([icon, title, desc]) => (
+          <div class="ben-card">
+            <div class="ben-icon"><Icon name={icon} size={30} /></div>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="list" size={14} />Comment ça marche</div>
+      <h2 class="section-title">Commencez à revendre en 4 étapes</h2>
+      <div class="rs-steps">
+        {steps.map(([t, d], i) => (
+          <div class="rs-step">
+            <div class="rs-num">{i + 1}</div>
+            <h3>{t}</h3>
+            <p>{d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:800px;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div class="section-label"><Icon name="help" size={14} />FAQ</div>
+        <h2 class="section-title">Questions des revendeurs</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm support">
+    <div class="container" style="text-align:center;">
+      <h2><Icon name="headset" size={28} class="ic-accent" /> Soutien en ligne!</h2>
+      <p>Écrivez-nous sur WhatsApp sans enregistrer notre numéro.</p>
+      <a href={wa('Bonjour Prime IPTV, j’ai une question sur votre programme de revendeurs.')} class="wa-btn" target="_blank" rel="noopener"><Icon name="chat" size={18} />Envoyer un message sur WhatsApp</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .credit-strip { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; }
+  .credit-pill { background:var(--brand); color:#fff; font-size:0.9rem; font-weight:600; padding:0.45rem 1.1rem; border-radius:999px; }
+  .credit-pill.first { background:var(--accent); color:#fff; }
+
+  .pack-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:0.5rem; }
+  .pack-note { text-align:center; color:var(--muted); font-size:0.85rem; margin-top:1.75rem; }
+
+  .ben-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; text-align:center; margin-top:2rem; }
+  .ben-card { background:#fff; border:1.5px solid var(--border); border-radius:12px; padding:1.75rem 1.5rem; }
+  .ben-icon { margin-bottom:0.6rem; }
+  .ben-card h3 { font-size:1.05rem; font-weight:800; margin:0 0 0.4rem; }
+  .ben-card p { color:var(--muted); font-size:0.88rem; margin:0; line-height:1.6; }
+
+  .rs-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; margin-top:2.5rem; }
+  .rs-step { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.75rem 1.25rem; }
+  .rs-num { width:44px; height:44px; background:var(--accent); color:#fff; font-weight:900; font-size:1.15rem; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.9rem; }
+  .rs-step h3 { font-size:1rem; font-weight:700; margin:0 0 0.4rem; }
+  .rs-step p { color:var(--muted); font-size:0.85rem; margin:0; line-height:1.6; }
+
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); font-size:0.75rem; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+
+  .support h2 { font-size:1.75rem; font-weight:900; margin:0 0 0.4rem; }
+  .support p { color:var(--muted); margin:0 0 1.25rem; font-weight:600; }
+  .wa-btn { display:inline-flex; align-items:center; gap:0.5rem; background:#0f7a40; color:#fff; font-weight:700; padding:0.8rem 1.75rem; border-radius:8px; text-decoration:none; }
+  .wa-btn:hover { background:#0b6a37; }
+
+  @media (max-width:900px) { .pack-grid { grid-template-columns:repeat(2,1fr); } .rs-steps { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px) { .pack-grid, .ben-grid, .rs-steps { grid-template-columns:1fr; } }
+</style>

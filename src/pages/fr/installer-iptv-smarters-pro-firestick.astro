@@ -1,0 +1,60 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const faqs: [string, string][] = [
+  ['IPTV Smarters Pro est-il dans l’Amazon Appstore?', 'Non. IPTV Smarters Pro ne figure pas dans l’Amazon Appstore. Sur une Firestick, il s’installe avec l’application gratuite Downloader à partir du site officiel du lecteur.'],
+  ['Ai-je besoin de Downloader pour installer IPTV Smarters Pro sur Firestick?', 'Oui, dans la méthode habituelle. Installez Downloader depuis l’Appstore, autorisez-le à installer des applications inconnues dans les options pour les développeurs, puis servez-vous-en pour installer le lecteur depuis la source officielle.'],
+  ['Quelle connexion utiliser dans IPTV Smarters Pro?', 'Utilisez la connexion Xtream Codes avec l’URL du serveur, le nom d’utilisateur et le mot de passe que nous vous envoyons par WhatsApp ou par courriel.'],
+  ['Pourquoi IPTV Smarters Pro ne fonctionne-t-il pas sur ma Firestick?', 'Vérifiez qu’il n’y a pas de fautes de frappe ni d’espaces en trop dans vos identifiants, vérifiez votre connexion Internet et redémarrez l’application et la Firestick. Si cela échoue encore, videz le cache de l’application ou réinstallez-la, ou communiquez avec le soutien.'],
+  ['Est-ce que ça fonctionne sur une Fire TV Stick 4K?', 'Oui. Les étapes sont les mêmes sur toute Fire TV Stick, y compris la Fire TV Stick 4K, qui peut lire des flux 4K sur un téléviseur 4K avec une connexion stable.'],
+  ['Puis-je tester avant de payer?', 'Oui. Prime IPTV offre un essai gratuit de 24 heures sans carte de crédit, et nous envoyons les détails par WhatsApp ou par courriel; vous pouvez donc tester IPTV Smarters Pro sur votre Firestick d’abord.'],
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<ContentPage title="Installer IPTV Smarters Pro sur Firestick | Prime IPTV" description="Comment installer IPTV Smarters Pro sur Firestick avec Downloader et ajouter votre connexion Xtream Codes Prime IPTV. Avec des solutions si ça ne fonctionne pas." label="Firestick" icon="stick" h1="Comment installer IPTV Smarters Pro sur Firestick" width={860} schema={[faqSchema]}>
+  <p>Ce guide montre l’IPTV Firestick avec IPTV Smarters Pro. <strong>IPTV Smarters Pro ne figure pas dans l’Amazon Appstore; vous l’installez donc sur une Firestick avec l’application gratuite Downloader.</strong> Une fois installé, vous ajoutez votre identifiant Prime IPTV avec l’option Xtream Codes. Cette page vous guide à chaque étape.</p>
+
+  <h2>Ce qu’il vous faut</h2>
+  <ul>
+    <li>Une Amazon Fire TV Stick (y compris la Fire TV Stick 4K) ou un appareil Fire TV connecté à Internet.</li>
+    <li>L’application gratuite <strong>Downloader</strong> de l’Amazon Appstore.</li>
+    <li>Le <strong>lien de téléchargement officiel</strong> d’IPTV Smarters Pro depuis le site officiel de l’application. N’installez des applications qu’à partir de sources officielles.</li>
+    <li>Votre identifiant Prime IPTV (URL du serveur, nom d’utilisateur et mot de passe). <a href="/fr/essai-gratuit/">Demandez l’essai gratuit de 24 heures</a> si vous n’en avez pas encore.</li>
+  </ul>
+
+  <h2>Comment installer IPTV Smarters Pro sur Firestick</h2>
+  <ol>
+    <li><strong>Installez Downloader.</strong> Sur l’écran d’accueil de Fire TV, choisissez <strong>Rechercher</strong>, cherchez <strong>Downloader</strong> et sélectionnez <strong>Obtenir</strong>.</li>
+    <li><strong>Autorisez Downloader à installer des applications.</strong> Allez dans <strong>Paramètres &rarr; Mon Fire TV &rarr; Options pour les développeurs</strong> et activez <strong>Installer des applications inconnues</strong> (ou <strong>Applications de sources inconnues</strong>) pour Downloader. Si les options pour les développeurs sont absentes, ouvrez <strong>Paramètres &rarr; Mon Fire TV &rarr; À propos</strong> et sélectionnez sept fois le nom de votre appareil. Les noms des menus varient un peu selon la version de Fire OS.</li>
+    <li><strong>Téléchargez IPTV Smarters Pro.</strong> Ouvrez Downloader, saisissez le lien de téléchargement officiel d’IPTV Smarters Pro et sélectionnez <strong>Go</strong>. Une fois le téléchargement terminé, choisissez <strong>Installer</strong>.</li>
+    <li><strong>Faites le ménage.</strong> Après l’installation, supprimez le fichier d’installation quand Downloader vous le propose, pour économiser de l’espace.</li>
+    <li><strong>Ouvrez IPTV Smarters Pro</strong> et acceptez les invites.</li>
+  </ol>
+
+  <h2>Ajouter votre identifiant Prime IPTV dans IPTV Smarters Pro</h2>
+  <ol>
+    <li>Choisissez <strong>Add New User</strong>, puis <strong>Login with Xtream Codes API</strong>.</li>
+    <li>Saisissez un nom quelconque, puis votre <strong>nom d’utilisateur, mot de passe et URL de serveur</strong> tirés de votre message WhatsApp ou courriel. Utilisez l’application Fire TV de votre téléphone comme clavier, ou copiez et collez, pour éviter les fautes de frappe.</li>
+    <li>Sélectionnez <strong>Add User</strong> et attendez le chargement des chaînes, films et séries.</li>
+    <li>Ouvrez <strong>Live TV</strong>, <strong>Movies</strong> ou <strong>Series</strong> et commencez à regarder.</li>
+  </ol>
+
+  <h2>IPTV Smarters Pro ne fonctionne pas sur Firestick : solutions</h2>
+  <ul>
+    <li><strong>La connexion échoue :</strong> saisissez de nouveau les renseignements avec soin, sans espace au début ou à la fin et avec la bonne URL de serveur. Utilisez la connexion Xtream Codes (et non M3U), sauf si nous vous avons envoyé un lien de liste de lecture.</li>
+    <li><strong>Les chaînes ne se chargent pas :</strong> vérifiez votre connexion Internet, puis redémarrez l’application et la Firestick.</li>
+    <li><strong>Mise en mémoire tampon :</strong> utilisez Ethernet si possible, et voyez notre <a href="/fr/blogue/iptv-buffering-troubleshooting/">guide sur la mise en mémoire tampon et la connexion</a>.</li>
+    <li><strong>L’application plante ou ralentit :</strong> videz le cache de l’application dans les paramètres d’applications de Fire TV, libérez de l’espace ou réinstallez-la.</li>
+    <li><strong>Downloader ne l’installe pas :</strong> assurez-vous que « Installer des applications inconnues » est activé pour Downloader et que vous avez utilisé le lien de téléchargement officiel.</li>
+  </ul>
+
+  <h2>Vous préférez un autre lecteur?</h2>
+  <p>Prime IPTV fonctionne avec <strong>tous les lecteurs qui acceptent les codes Xtream ou un lien M3U</strong>. TiviMate est une solution de rechange populaire sur Fire TV et s’installe de la même façon. Voyez le <a href="/fr/installation/firestick/">guide d’installation complet pour Firestick</a> ou comparez les applications dans la <a href="/fr/blogue/best-iptv-players/">comparaison des lecteurs</a>. Vous ne connaissez pas encore la différence entre l’application et l’abonnement? Lisez <a href="/fr/abonnement-iptv-smarters-pro/">abonnement IPTV Smarters Pro : ce qu’il faut savoir</a>.</p>
+  <h2>Questions fréquentes</h2>
+  {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+  <div class="box">
+    <h3 style="margin-top:0;">Besoin d’un identifiant à ajouter?</h3>
+    <p>Demandez l’essai gratuit de 24 heures sans carte de crédit et recevez votre identifiant par WhatsApp ou par courriel.</p>
+    <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a><a href="/fr/tarifs/" class="btn-outline">Voir les forfaits</a></div>
+  </div>
+</ContentPage>

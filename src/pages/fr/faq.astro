@@ -1,0 +1,11 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+import { faqsFr } from '../../data/faq-fr';
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqsFr.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<ContentPage title="FAQ IPTV : questions fréquentes | Prime IPTV Canada" description="Réponses aux questions les plus fréquentes sur Prime IPTV : forfaits, essai gratuit, appareils, vitesse Internet, chaînes, paiement et remboursement." label="FAQ" icon="help" h1="Questions fréquentes sur Prime IPTV" schema={[faqSchema]}>
+  <p>Voici les réponses aux questions que l’on nous pose le plus souvent avant l’abonnement.</p>
+  {faqsFr.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+  <div class="box"><p>Vous ne trouvez pas votre réponse? <a href="/fr/contact/">Écrivez-nous</a>, nous répondons 24 heures sur 24.</p></div>
+</ContentPage>

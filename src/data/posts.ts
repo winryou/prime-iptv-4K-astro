@@ -1,0 +1,258 @@
+export interface Post {
+  slug: string;
+  title: string;
+  description: string;
+  excerpt: string;
+  keyword: string;
+  datePublished: string;
+  dateModified: string;
+  minutes: number;
+  related: { href: string; text: string }[];
+}
+
+const PUBLISHED = '2026-10-05';
+const MODIFIED = '2026-10-14';
+
+export const posts: Post[] = [
+  {
+    slug: 'what-is-iptv',
+    title: 'What Is IPTV in Canada? Meaning, How It Works and What You Need',
+    description: 'IPTV meaning explained: what IPTV is, how it works, what you need to watch it and the terms you will see (EPG, VOD, PPV, M3U, Xtream Codes), for Canada viewers.',
+    excerpt: 'How IPTV works, what you need to get started, the terms you will run into, and how it differs from cable.',
+    keyword: 'what is iptv',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 6,
+    related: [
+      { href: '/blog/iptv-service-vs-iptv-player-app/', text: 'IPTV service vs IPTV player app: what is the difference?' },
+      { href: '/blog/iptv-vs-cable/', text: 'IPTV vs cable TV: what you trade off' },
+      { href: '/setup/', text: 'Set up Prime IPTV on your device' },
+          { href: '/blog/is-iptv-legal-in-canada/', text: 'Is IPTV legal in Canada?' },
+      { href: '/blog/how-to-watch-tv-without-cable-canada/', text: 'How to watch TV without cable in Canada' },
+    ],
+  },
+  {
+    slug: 'iptv-service-vs-iptv-player-app',
+    title: 'IPTV Service vs IPTV Player App: What’s the Difference?',
+    description: 'An IPTV service provides the channels and your login; a player app only displays them. Learn the difference and how Prime IPTV fits in.',
+    excerpt: 'Why an IPTV player shows nothing on its own, what a subscription gives you, and how to avoid mixing the two up.',
+    keyword: 'king iptv pro / iptv player vs service',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 5,
+    related: [
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players for Firestick, Android TV and Smart TV' },
+      { href: '/setup/', text: 'Device setup guides' },
+      { href: '/about/', text: 'About Prime IPTV' },
+          { href: '/blog/iptv-box-canada/', text: 'IPTV box in Canada: do you need one?' },
+    ],
+  },
+  {
+    slug: 'best-iptv-players',
+    title: 'Best IPTV Players and Apps (2026): Firestick, Android TV, Smart TV',
+    description: 'Compare IPTV Smarters Pro, TiviMate, GSE Smart IPTV and Smart IPTV: which devices they suit, how you log in and what to look for.',
+    excerpt: 'A practical comparison of the most-used IPTV players and which one suits your device.',
+    keyword: 'best iptv players',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 6,
+    related: [
+      { href: '/setup/firestick/', text: 'Set up Prime IPTV on Firestick' },
+      { href: '/setup/android-tv/', text: 'Set up Prime IPTV on Android TV' },
+      { href: '/setup/smart-tv/', text: 'Set up Prime IPTV on a Smart TV' },
+      { href: '/setup/apple-tv/', text: 'Set up Prime IPTV on Apple TV' },
+          { href: '/blog/iptv-box-canada/', text: 'Do you need an IPTV box in Canada?' },
+          { href: '/blog/iptv-m3u-vs-xtream-codes/', text: 'M3U vs Xtream Codes: which login to use' },
+    ],
+  },
+  {
+    slug: 'how-many-iptv-connections-do-i-need',
+    title: 'How Many IPTV Connections Do You Need? (1 to 4 Plan Guide)',
+    description: 'Work out whether 1, 2, 3 or 4 IPTV connections fits your household, with Prime IPTV prices for every plan length and a quick chooser.',
+    excerpt: 'What a connection is, how to count the screens in your home, and a chooser that shows the matching Prime IPTV plans.',
+    keyword: 'iptv multiple connections',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 5,
+    related: [
+      { href: '/pricing/', text: 'Prime IPTV pricing and plans' },
+      { href: '/free-trial/', text: 'Start the 24-hour free trial' },
+      { href: '/faq/', text: 'Frequently asked questions' },
+          { href: '/blog/iptv-cost-canada/', text: 'IPTV cost in Canada' },
+    ],
+  },
+  {
+    slug: 'iptv-free-trial-checklist',
+    title: 'How to Test an IPTV Free Trial: A 24-Hour Checklist',
+    description: 'Make the most of a 24-hour IPTV free trial: what to test on your device and network, what to ask, and how to decide before you pay.',
+    excerpt: 'A practical test plan for any IPTV trial: channels, sports at peak time, EPG, VOD, support and refund terms.',
+    keyword: 'iptv free trial',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 6,
+    related: [
+      { href: '/free-trial/', text: 'Request the Prime IPTV 24-hour free trial' },
+      { href: '/blog/iptv-buffering-troubleshooting/', text: 'IPTV buffering and login problems: step-by-step fixes' },
+      { href: '/refund/', text: 'Prime IPTV refund policy' },
+          { href: '/blog/is-iptv-safe-canada/', text: 'Is IPTV safe in Canada?' },
+    ],
+  },
+  {
+    slug: 'iptv-buffering-troubleshooting',
+    title: 'IPTV Not Working? Fix Buffering, Login and Channel Problems',
+    description: 'Fix IPTV buffering, freezing, login failures and missing TV guide data with a simple step-by-step checklist for any device and player.',
+    excerpt: 'A step-by-step checklist for buffering, freezing, login errors and EPG problems.',
+    keyword: 'iptv buffering fix',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 7,
+    related: [
+      { href: '/setup/', text: 'Device setup guides' },
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players' },
+      { href: '/faq/', text: 'Frequently asked questions' },
+          { href: '/blog/iptv-epg-explained/', text: 'IPTV EPG explained' },
+    ],
+  },
+  {
+    slug: 'iptv-vs-cable',
+    title: 'IPTV vs Cable TV: What You’re Actually Trading Off',
+    description: 'IPTV vs cable TV compared on channels, on-demand content, devices, contracts and reliability, and what you gain and give up.',
+    excerpt: 'A straight comparison of IPTV and cable: channels, on-demand, devices, contracts and what you give up.',
+    keyword: 'iptv vs cable',
+    datePublished: PUBLISHED,
+    dateModified: MODIFIED,
+    minutes: 6,
+    related: [
+      { href: '/pricing/', text: 'Prime IPTV pricing and plans' },
+      { href: '/blog/what-is-iptv/', text: 'What is IPTV?' },
+      { href: '/free-trial/', text: 'Try Prime IPTV free for 24 hours' },
+          { href: '/blog/iptv-vs-cable-canada/', text: 'IPTV vs cable in Canada' },
+      { href: '/blog/iptv-cost-canada/', text: 'IPTV cost in Canada' },
+    ],
+  },
+  {
+    slug: 'is-iptv-legal-in-canada',
+    title: 'Is IPTV Legal in Canada? What Viewers Should Know',
+    description: 'Is IPTV legal in Canada? A plain-language guide to licensing, what makes a service lawful, and how Canadian viewers can protect themselves. Not legal advice.',
+    excerpt: 'What the technology is, what actually decides legality in Canada, and the questions to ask any provider.',
+    keyword: 'is iptv legal in canada',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 6,
+    related: [
+      { href: '/blog/is-iptv-safe-canada/', text: 'Is IPTV safe in Canada?' },
+      { href: '/terms/', text: 'Prime IPTV terms of service' },
+      { href: '/faq/', text: 'Frequently asked questions' },
+    ],
+  },
+  {
+    slug: 'is-iptv-safe-canada',
+    title: 'Is IPTV Safe in Canada? Payments, Privacy and Scam Checks',
+    description: 'How to judge whether an IPTV service is safe in Canada: payment protection, privacy, refunds, trial offers and red flags to avoid.',
+    excerpt: 'A practical checklist for spotting scams and protecting your money and data when you subscribe to IPTV.',
+    keyword: 'is iptv safe canada',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 6,
+    related: [
+      { href: '/blog/iptv-free-trial-checklist/', text: '24-hour free trial checklist' },
+      { href: '/refund/', text: 'Refund policy' },
+      { href: '/contact/', text: 'Contact Prime IPTV' },
+    ],
+  },
+  {
+    slug: 'iptv-cost-canada',
+    title: 'IPTV Cost in Canada: What You Pay and What You Save',
+    description: 'How much does IPTV cost in Canada? A breakdown of monthly cost by plan length and connections, and how to compare it with a cable bill.',
+    excerpt: 'How to turn plan prices into a monthly cost, and what to include when you compare IPTV with cable.',
+    keyword: 'iptv cost canada / cheap iptv canada',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 6,
+    related: [
+      { href: '/pricing/', text: 'Prime IPTV pricing' },
+      { href: '/blog/iptv-vs-cable-canada/', text: 'IPTV vs cable in Canada' },
+      { href: '/blog/how-many-iptv-connections-do-i-need/', text: 'How many connections do you need?' },
+    ],
+  },
+  {
+    slug: 'iptv-vs-cable-canada',
+    title: 'IPTV vs Cable in Canada: Which Is Better for Your Home?',
+    description: 'IPTV vs cable in Canada compared on cost, channels, contracts, devices and reliability, with tips for deciding what fits your household.',
+    excerpt: 'A Canada-focused look at switching from a cable bundle to IPTV, and what to check first.',
+    keyword: 'iptv vs cable canada',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 6,
+    related: [
+      { href: '/blog/iptv-vs-cable/', text: 'IPTV vs cable TV: the general comparison' },
+      { href: '/blog/iptv-cost-canada/', text: 'IPTV cost in Canada' },
+      { href: '/free-trial/', text: 'Try Prime IPTV free' },
+    ],
+  },
+  {
+    slug: 'how-to-watch-tv-without-cable-canada',
+    title: 'How to Watch TV Without Cable in Canada',
+    description: 'How to watch live TV, sports and movies without a cable subscription in Canada: devices, apps, internet speeds and a simple setup path.',
+    excerpt: 'The devices, apps and internet you need to cut the cord, and how IPTV fits in.',
+    keyword: 'how to watch tv without cable canada',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 6,
+    related: [
+      { href: '/setup/', text: 'Device setup guides' },
+      { href: '/blog/what-is-iptv/', text: 'What is IPTV?' },
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players' },
+    ],
+  },
+  {
+    slug: 'iptv-epg-explained',
+    title: 'IPTV EPG Explained: How the TV Guide Works',
+    description: 'What an EPG is, how an IPTV TV guide works, why it sometimes shows the wrong shows, and how to fix it.',
+    excerpt: 'What the guide on your IPTV player is, where its data comes from and how to fix a blank or wrong guide.',
+    keyword: 'iptv epg',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 5,
+    related: [
+      { href: '/blog/iptv-buffering-troubleshooting/', text: 'Buffering and login fixes' },
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players' },
+      { href: '/faq/', text: 'FAQ' },
+    ],
+  },
+  {
+    slug: 'iptv-box-canada',
+    title: 'Best IPTV Box in Canada: Do You Need One?',
+    description: 'Do you need an IPTV box in Canada? Compare Smart TVs, Firesticks, Android boxes, Apple TV and MAG boxes, and see what works best for you.',
+    excerpt: 'Which device to use for IPTV in Canada, and when a dedicated box is worth it.',
+    keyword: 'iptv box canada',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 5,
+    related: [
+      { href: '/setup/', text: 'Device setup guides' },
+      { href: '/setup/mag/', text: 'MAG box setup' },
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players' },
+    ],
+  },
+  {
+    slug: 'iptv-m3u-vs-xtream-codes',
+    title: 'IPTV M3U vs Xtream Codes: Which Login Should You Use?',
+    description: 'IPTV M3U playlist vs Xtream Codes login explained: what each is, how they differ, which players use them and which to choose for your device.',
+    excerpt: 'What an M3U playlist and an Xtream Codes login are, how they differ and which one to use on your device.',
+    keyword: 'iptv m3u / xtream codes',
+    datePublished: '2026-10-26',
+    dateModified: '2026-10-26',
+    minutes: 5,
+    related: [
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players and apps' },
+      { href: '/setup/', text: 'Device setup guides' },
+      { href: '/blog/iptv-buffering-troubleshooting/', text: 'IPTV not working? Buffering and login fixes' },
+    ],
+  },
+];
+
+export const getPost = (slug: string) => posts.find((p) => p.slug === slug)!;
+
+export const formatDate = (iso: string) =>
+  new Date(iso + 'T12:00:00Z').toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });

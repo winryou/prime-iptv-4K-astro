@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { devices } from '../data/devices';
+
+const EMAIL = 'contactiptv.amelia@gmail.com';
+const waTrial = `https://wa.me/14062356618?text=${encodeURIComponent("Hello Prime IPTV, I'd like the 24-hour free trial. My device is: ")}`;
+const mailTrial = `mailto:${EMAIL}?subject=${encodeURIComponent('24-hour free trial request')}&body=${encodeURIComponent('Hello Prime IPTV,\n\nI would like the 24-hour free trial.\nMy device and player app: ')}`;
+
+const included = [
+  ['tv', '25,000+ live channels'],
+  ['film', '120,000+ movies & series (VOD)'],
+  ['gem', 'SD, HD, FHD and 4K quality'],
+  ['trophy', 'Sports packages and PPV'],
+  ['calendar', 'EPG (TV guide)'],
+  ['monitor', 'Works on all compatible devices'],
+];
+
+const steps = [
+  ['download', 'Install a player', 'Pick your device in our setup guides and install a compatible IPTV player such as TiviMate or IPTV Smarters Pro.'],
+  ['chat', 'Request the trial', 'Message us on WhatsApp or email and tell us which device and player you use. For a MAG box or a MAC-address player, include its MAC address. No credit card is needed.'],
+  ['mail', 'Receive your login', 'We send your trial login details by WhatsApp or email.'],
+  ['play', 'Watch for 24 hours', 'Add the login to your player and test everything that matters to you. Then decide if you want a plan.'],
+];
+
+const faqs = [
+  ['What is a free IPTV trial?', 'A free IPTV trial lets you test an IPTV service on your own device and internet connection before you pay. With Prime IPTV the trial lasts 24 hours, needs no credit card and gives you the same lineup of live channels, sports, PPV and on-demand titles that a subscription includes.'],
+  ['Is there a free IPTV trial in Canada?', 'Yes. Prime IPTV offers a free 24-hour trial to viewers in Canada. Request it on WhatsApp or by email, tell us your device, and we send your trial login.'],
+  ['Is the IPTV trial really free?', 'Yes. There is no charge and no credit card is needed. The trial simply ends after 24 hours unless you choose a plan.'],
+  ['Do I need a credit card for the free trial?', 'No. The 24-hour free trial does not require a credit card.'],
+  ['How long does the free trial last?', 'The Prime IPTV free trial lasts 24 hours.'],
+  ['How do I get my trial login details?', 'Request the trial on WhatsApp or by email and tell us your device. We send your trial details by WhatsApp or email. For a MAG box or a MAC-address player, send us the MAC address too.'],
+  ['Which devices can I use?', 'Prime IPTV works with compatible IPTV players on Smart TVs, Fire TV and Firestick, Android TV, Apple TV, Roku, phones, tablets, computers and MAG boxes. The device setup guides give the exact steps.'],
+  ['Can I use the trial outside Canada?', 'Prime IPTV serves viewers across Canada and is also available worldwide.'],
+  ['Is there a free IPTV trial with a channel list I can check?', 'Yes. During the 24-hour free trial your player loads the full channel list and categories, so you can look for the channels, sports and PPV you care about. That includes all Canadian and US channels, channels from other countries and all PPV channels in 4K and FHD.'],
+  ['Is there a 48-hour or 72-hour free trial?', 'The Prime IPTV free trial is 24 hours with no credit card. Plan your tests with the free-trial checklist, and 24 hours is enough to judge the service on your own device and connection.'],
+  ['What happens when the 24 hours end?', 'The trial ends after 24 hours. To keep watching, choose a plan on the pricing page. There is no contract, and a 7-day money-back guarantee applies to subscriptions.'],
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="IPTV Free Trial Canada: 24 Hours, No Card | Prime IPTV" description="Get a free IPTV trial for 24 hours with no credit card: 25,000+ live channels, 120,000+ movies & series, 4K, sports & PPV. Request it on WhatsApp or email." schema={[faqSchema]}>
+  <Header slot="header" />
+
+  <section class="section" style="background:radial-gradient(ellipse at 50% 0%, rgba(232,53,47,0.16) 0%, transparent 60%), var(--bg);">
+    <div class="container" style="max-width:820px; text-align:center;">
+      <div class="trial-badge"><Icon name="sparkles" size={14} /> FREE TRIAL · NO CREDIT CARD</div>
+      <h1 class="section-title" style="font-size:clamp(1.9rem,4.5vw,2.75rem);">IPTV Free Trial Canada: Start Your 24-Hour Prime IPTV Trial</h1>
+      <p style="color:var(--muted); font-size:1.05rem; margin:0 auto 2rem; max-width:640px;">Test Prime IPTV on your own device and connection for 24 hours. You get live TV, on-demand movies and series, sports and PPV, and you do not need a credit card.</p>
+      <div class="cta-row">
+        <a href={waTrial} class="btn-primary" target="_blank" rel="noopener"><Icon name="chat" size={18} />Request on WhatsApp</a>
+        <a href={mailTrial} class="btn-outline"><Icon name="mail" size={18} />Request by Email</a>
+      </div>
+      <p class="contact-line"><Icon name="phone" size={15} class="ic-accent" /> <a href="tel:+14062356618">+1 (406) 235-6618</a> · <Icon name="mail" size={15} class="ic-accent" /> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:2rem;">
+    <div class="container" style="max-width:900px;">
+      <div style="text-align:center;">
+        <div class="section-label"><Icon name="check" size={14} />What You Get</div>
+        <h2 class="section-title">What Is Included in the Trial</h2>
+      </div>
+      <p style="text-align:center; color:var(--muted); font-size:0.92rem; margin:0.5rem 0 0;">Comparing providers? Use the <a href="/best-iptv-service-canada/" style="color:var(--brand); font-weight:600;">8-point buyer&rsquo;s checklist</a>. Includes all Canadian and US channels and channels from other countries, and all PPV in 4K and FHD. See <a href="/iptv-channels/" style="color:var(--brand); font-weight:600;">channels</a> and <a href="/iptv-sports-ppv-4k/" style="color:var(--brand); font-weight:600;">sports &amp; PPV</a>.</p>
+      <div class="tf-grid">
+        {included.map(([icon, label]) => (
+          <div class="tf"><Icon name={icon} size={20} class="ic-accent" /> {label}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:1000px; text-align:center;">
+      <div class="section-label"><Icon name="list" size={14} />How It Works</div>
+      <h2 class="section-title">Get Your Free Trial in 4 Steps</h2>
+      <div class="steps">
+        {steps.map(([icon, title, desc], i) => (
+          <div class="step">
+            <div class="step-num">{i + 1}</div>
+            <h3><Icon name={icon} size={18} class="ic-accent" /> {title}</h3>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:900px;">
+      <div style="text-align:center;">
+        <div class="section-label"><Icon name="monitor" size={14} />Devices</div>
+        <h2 class="section-title">Pick Your Device First</h2>
+        <p class="section-sub" style="margin-bottom:2rem;">Installing a player before you request the trial saves trial time. Choose your device for step-by-step instructions.</p>
+      </div>
+      <div class="dev-links">
+        {devices.map((d) => (
+          <a href={`/setup/${d.slug}/`} class="dev-link-card"><Icon name={d.icon} size={22} class="ic-accent" /> {d.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:820px;">
+      <div style="text-align:center;">
+        <div class="section-label"><Icon name="search" size={14} />Test It Properly</div>
+        <h2 class="section-title">Make the Most of 24 Hours</h2>
+      </div>
+      <ul class="test-list">
+        <li><Icon name="check" size={18} class="ic-check" /> Find the channels and sports you watch most.</li>
+        <li><Icon name="check" size={18} class="ic-check" /> Watch during a busy evening slot or a live event.</li>
+        <li><Icon name="check" size={18} class="ic-check" /> Try HD, FHD and, if your TV supports it, 4K.</li>
+        <li><Icon name="check" size={18} class="ic-check" /> Check the TV guide (EPG) and search the movie and series library.</li>
+        <li><Icon name="check" size={18} class="ic-check" /> Message support and see how quickly you get an answer.</li>
+      </ul>
+      <p style="text-align:center; margin-top:1.5rem;"><a href="/blog/iptv-free-trial-checklist/" class="btn-outline">Read the full 24-hour trial checklist<Icon name="arrow" size={16} /></a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:820px; text-align:center;">
+      <div class="section-label"><Icon name="card" size={14} />After the Trial</div>
+      <h2 class="section-title">Choose a Plan When You Are Ready</h2>
+      <p style="color:var(--muted); margin-bottom:1.5rem;">Plans start at <strong style="color:var(--brand);">$34.99 for 3 months</strong> (1 connection), with 1, 2, 3 and 4-connection options for 3, 6, 12 or 24 months. 6- and 12-month plans get +1 month free and 24-month plans +2 months free. There is no contract, and a 7-day money-back guarantee applies.</p>
+      <div class="cta-row">
+        <a href="/pricing/" class="btn-primary"><Icon name="card" size={16} />View Pricing</a>
+        <a href="/blog/how-many-iptv-connections-do-i-need/" class="btn-outline">How many connections do I need?<Icon name="arrow" size={16} /></a>
+        <a href="/refund/" class="btn-outline">Refund policy<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:800px;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div class="section-label"><Icon name="help" size={14} />FAQ</div>
+        <h2 class="section-title">Free Trial Questions</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+      <p style="text-align:center; margin-top:1.5rem;"><a href="/faq/" class="btn-outline">More questions<Icon name="arrow" size={16} /></a></p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .trial-badge { display:inline-flex; align-items:center; gap:0.4rem; background:rgba(11,42,111,0.1); border:1px solid rgba(11,42,111,0.3); color:var(--brand); font-size:0.78rem; font-weight:800; letter-spacing:0.06em; padding:0.35rem 1rem; border-radius:20px; margin-bottom:1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .contact-line { color:var(--muted); font-size:0.9rem; margin-top:1.5rem; }
+  .contact-line a { color:var(--brand); font-weight:600; text-decoration:none; }
+  .tf-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.9rem; margin-top:1.5rem; }
+  .tf { display:flex; align-items:center; gap:0.6rem; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:0.9rem 1rem; font-size:0.9rem; font-weight:600; }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; margin-top:2rem; text-align:center; }
+  .step { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.1rem; }
+  .step-num { width:42px; height:42px; background:var(--accent); color:#fff; font-weight:900; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.8rem; }
+  .step h3 { display:flex; align-items:center; justify-content:center; gap:0.4rem; font-size:1rem; font-weight:700; margin:0 0 0.4rem; }
+  .step p { color:var(--muted); font-size:0.85rem; line-height:1.6; margin:0; }
+  .dev-links { display:grid; grid-template-columns:repeat(3,1fr); gap:0.8rem; }
+  .dev-link-card { display:flex; align-items:center; gap:0.6rem; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:0.85rem 1rem; text-decoration:none; color:var(--text); font-weight:600; font-size:0.9rem; transition:border-color 0.2s; }
+  .dev-link-card:hover { border-color:var(--brand); }
+  .test-list { list-style:none; padding:0; margin:1.5rem 0 0; display:flex; flex-direction:column; gap:0.7rem; }
+  .test-list li { display:flex; align-items:flex-start; gap:0.6rem; color:var(--muted); font-size:0.97rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  @media (max-width:900px) { .tf-grid, .dev-links { grid-template-columns:repeat(2,1fr); } .steps { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px) { .tf-grid, .dev-links, .steps { grid-template-columns:1fr; } }
+</style>

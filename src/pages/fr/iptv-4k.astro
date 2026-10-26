@@ -1,0 +1,94 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const faqs: [string, string][] = [
+  ['Qu’est-ce que l’IPTV 4K?', 'L’IPTV 4K est de l’IPTV livré en qualité 4K (Ultra HD), soit 3840 × 2160 pixels. Il vous faut un téléviseur 4K, un appareil et un lecteur compatibles 4K, et une connexion stable d’environ 25 Mb/s ou plus par flux.'],
+  ['Prime IPTV offre-t-il le 4K?', 'Oui. Prime IPTV diffuse en SD, HD, FHD et 4K lorsque le contenu le permet, et toutes les chaînes PPV sont offertes en 4K et en FHD.'],
+  ['Quelle vitesse Internet faut-il pour l’IPTV 4K?', 'À titre indicatif, environ 25 Mb/s ou plus par flux 4K. Multipliez par le nombre d’écrans qui diffusent en même temps, et utilisez une connexion filaire si possible.'],
+  ['Me faut-il un boîtier spécial pour l’IPTV 4K?', 'Aucun boîtier Prime IPTV spécial n’est nécessaire. Il vous faut un appareil compatible 4K que vous possédez déjà ou pouvez acheter, comme une Fire TV Stick 4K, une Apple TV 4K ou un boîtier Android TV 4K, avec un lecteur compatible.'],
+  ['Pourquoi mon IPTV 4K se met-il en mémoire tampon?', 'Les causes habituelles sont le Wi-Fi, trop de flux en même temps, un appareil plus ancien ou les réglages du lecteur. Essayez Ethernet, passez en FHD, redémarrez le lecteur et le routeur, et consultez le guide sur la mise en mémoire tampon et la connexion.'],
+  ['Le 4K est-il offert pour le sport et le PPV?', 'Toutes les chaînes PPV sont offertes en 4K et en FHD. Les chaînes sportives sont offertes dans la meilleure qualité que le contenu permet.'],
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<ContentPage title="IPTV 4K Canada : ce qu’il faut pour le 4K | Prime IPTV" description="Prime IPTV diffuse en SD, HD, FHD et 4K, avec toutes les chaînes PPV en 4K et en FHD. Ce qu’il faut pour l’IPTV 4K au Canada : téléviseur, appareil, vitesse et installation." label="IPTV 4K" icon="gem" h1="IPTV 4K : comment diffuser la télé en direct et les films en 4K" width={860} schema={[faqSchema]}>
+  <p><strong>L’IPTV 4K est de l’IPTV livré en qualité 4K (Ultra HD). Pour le regarder, il vous faut un téléviseur 4K, un appareil et un lecteur capables de lire du 4K, et une connexion stable d’environ 25 Mb/s ou plus par flux 4K.</strong> Prime IPTV diffuse en SD, HD, FHD et 4K lorsque le contenu le permet, et toutes les chaînes PPV sont offertes en 4K et en FHD. Ce guide explique ce qu’il faut pour l’IPTV 4K au Canada et comment obtenir une image fluide.</p>
+
+  <h2>Qu’est-ce que l’IPTV 4K?</h2>
+  <p>Le 4K, aussi appelé Ultra HD ou UHD, correspond à 3840 &times; 2160 pixels, soit quatre fois les pixels de la Full HD (1920 &times; 1080). Avec l’IPTV, « IPTV 4K » signifie que la chaîne ou le film diffusé est livré à cette résolution. Toutes les chaînes et tous les titres ne sont pas produits en 4K; l’image que vous voyez dépend donc du contenu, mais aussi de votre équipement et de votre connexion.</p>
+
+  <h2>Ce qu’il faut pour l’IPTV 4K</h2>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Exigence</th><th>À vérifier</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Un téléviseur 4K</strong></td><td>Le téléviseur prend en charge le 4K, et le port HDMI utilisé aussi.</td></tr>
+      <tr><td><strong>Un appareil compatible 4K</strong></td><td>Par exemple une Fire TV Stick 4K, une Apple TV 4K, un boîtier Android TV ou Google TV 4K, ou un téléviseur intelligent 4K avec un lecteur compatible.</td></tr>
+      <tr><td><strong>Un lecteur IPTV compatible</strong></td><td>Tout lecteur qui accepte les codes Xtream ou un lien M3U, comme IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV ou NET IPTV.</td></tr>
+      <tr><td><strong>Une vitesse Internet suffisante</strong></td><td>Environ 25 Mb/s ou plus pour chaque flux 4K.</td></tr>
+      <tr><td><strong>Une connexion filaire</strong></td><td>Ethernet est plus stable que le Wi-Fi pour le 4K et le sport en direct.</td></tr>
+      <tr><td><strong>Un abonnement avec du contenu 4K</strong></td><td>Prime IPTV comprend le 4K et toutes les chaînes PPV en 4K et en FHD.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Vitesse Internet pour l’IPTV 4K</h2>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Qualité</th><th>Vitesse approximative par écran</th></tr></thead>
+    <tbody>
+      <tr><td>SD</td><td>5 Mb/s</td></tr>
+      <tr><td>HD</td><td>10 Mb/s</td></tr>
+      <tr><td>FHD (1080p)</td><td>15 Mb/s</td></tr>
+      <tr><td>4K</td><td>25 Mb/s ou plus</td></tr>
+    </tbody>
+  </table></div>
+  <p>Ce sont des valeurs indicatives, non des garanties. Multipliez-les par le nombre d’écrans qui diffusent ensemble : deux écrans 4K demandent donc environ 50 Mb/s avant tout autre usage de votre réseau. Voyez les <a href="/fr/vitesse-internet-iptv/">vitesses Internet requises</a>.</p>
+
+  <h2>L’IPTV 4K avec Prime IPTV</h2>
+  <ul>
+    <li>Diffuse en <strong>SD, HD, FHD et 4K</strong> lorsque le contenu le permet.</li>
+    <li><strong>Toutes les chaînes PPV en 4K et en FHD.</strong> Voyez <a href="/fr/sports-ppv-4k/">sports et PPV</a>.</li>
+    <li><strong>Plus de 25 000 chaînes en direct</strong> et <strong>plus de 120 000 films et séries</strong>. <a href="/fr/chaines/">Voir ce qui est inclus</a>.</li>
+    <li>Des serveurs de qualité conçus pour éviter la mise en mémoire tampon, avec 99,9 % de disponibilité.</li>
+    <li>Fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U.</li>
+  </ul>
+
+  <h2>Comment installer l’IPTV 4K</h2>
+  <ol>
+    <li><strong>Vérifiez votre téléviseur et votre port HDMI</strong> pour la prise en charge du 4K.</li>
+    <li><strong>Choisissez un appareil compatible 4K</strong> (le tableau ci-dessous énumère les options) et branchez-le en Ethernet si possible.</li>
+    <li><strong>Installez un lecteur compatible</strong> en suivant les <a href="/fr/installation/">guides d’installation</a>.</li>
+    <li><strong>Obtenez votre identifiant.</strong> <a href="/fr/essai-gratuit/">Demandez l’essai gratuit de 24 heures</a> (sans carte de crédit) ou choisissez un <a href="/fr/tarifs/">forfait</a>.</li>
+    <li><strong>Ajoutez l’identifiant</strong> dans le lecteur et ouvrez une chaîne ou un film offert en 4K.</li>
+    <li><strong>Confirmez l’image.</strong> Si elle saccade, passez en FHD et faites les vérifications ci-dessous.</li>
+  </ol>
+
+  <h2>Si le 4K saccade ou se met en mémoire tampon</h2>
+  <ul>
+    <li>Passez à une version FHD de la chaîne. Une image FHD stable vaut mieux qu’un 4K qui saccade.</li>
+    <li>Utilisez Ethernet plutôt que le Wi-Fi, ou rapprochez-vous du routeur et utilisez la bande de 5 GHz.</li>
+    <li>Réduisez les autres usages lourds : téléchargements, sauvegardes et autres flux 4K.</li>
+    <li>Redémarrez le lecteur, l’appareil et le routeur, et mettez à jour l’application de lecture.</li>
+    <li>Vérifiez que le câble et le port HDMI prennent en charge le 4K.</li>
+  </ul>
+  <p>La liste complète se trouve dans notre <a href="/fr/blogue/iptv-buffering-troubleshooting/">guide sur la mise en mémoire tampon et la connexion</a>.</p>
+
+  <h2>Les meilleurs appareils pour l’IPTV 4K</h2>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Appareil</th><th>Note sur le 4K</th><th>Guide d’installation</th></tr></thead>
+    <tbody>
+      <tr><td>Firestick / Fire TV</td><td>Utilisez une Fire TV Stick 4K ou un autre modèle 4K.</td><td><a href="/fr/installation/firestick/">Guide Firestick</a></td></tr>
+      <tr><td>Apple TV</td><td>Utilisez une Apple TV 4K.</td><td><a href="/fr/installation/apple-tv/">Guide Apple TV</a></td></tr>
+      <tr><td>Android TV / Google TV</td><td>Les boîtiers et clés 4K lisent le 4K avec un lecteur compatible.</td><td><a href="/fr/installation/android-tv/">Guide Android TV</a></td></tr>
+      <tr><td>Téléviseur intelligent</td><td>Les téléviseurs intelligents 4K fonctionnent lorsqu’un lecteur compatible est offert.</td><td><a href="/fr/installation/smart-tv/">Guide du téléviseur intelligent</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Abonnement IPTV 4K : quoi chercher</h2>
+  <p>Si vous comparez les meilleures offres d’abonnement IPTV 4K, vérifiez que le fournisseur offre vraiment du contenu 4K, vous indique la vitesse et les appareils requis, vous laisse tester avant de payer et publie ses prix. Prime IPTV comprend le 4K dans chaque forfait. Les <a href="/fr/tarifs/">forfaits commencent à 34,99 $ pour 3 mois</a>, et vous pouvez tester le 4K sur votre propre téléviseur avec l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a>.</p>
+  <h2>Questions fréquentes</h2>
+  {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+  <div class="box">
+    <h3 style="margin-top:0;">Testez le 4K sur votre propre téléviseur</h3>
+    <p>Essayez Prime IPTV gratuitement pendant 24 heures, sans carte de crédit, et vérifiez le 4K sur votre téléviseur et votre connexion.</p>
+    <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a><a href="/fr/tarifs/" class="btn-outline">Voir les forfaits</a></div>
+  </div>
+</ContentPage>

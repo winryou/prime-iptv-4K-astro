@@ -1,0 +1,71 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+import { prices } from '../../data/pricing';
+const faqs: [string, string][] = [
+  ['Quel est le meilleur service IPTV au Canada?', 'Le meilleur service est celui qui a vos chaînes, fonctionne bien sur vos appareils, offre un essai gratuit et est transparent sur le prix, les remboursements et le soutien. Prime IPTV offre plus de 25 000 chaînes en direct, plus de 120 000 films et séries, le 4K, un essai gratuit de 24 heures sans carte de crédit et une garantie de remboursement de 7 jours.'],
+  ['Comment choisir un fournisseur IPTV?', 'Utilisez la liste de 8 critères de cette page : chaînes, qualité et PPV, essai gratuit, appareils et lecteurs, prix, remboursement et contrat, soutien et antécédents. Testez ensuite vos chaînes indispensables pendant un essai.'],
+  ['Un essai gratuit est-il important pour choisir un service IPTV?', 'Oui. Un essai vous permet de vérifier les chaînes, la qualité d’image, le guide des programmes et le soutien sur votre propre appareil et votre propre connexion avant de payer.'],
+  ['Que chercher dans les prix de l’IPTV?', 'Des prix publiés pour chaque durée, un nombre clair de connexions, les éventuels mois gratuits et une politique de remboursement. Prime IPTV publie tous ses prix et offre une garantie de remboursement de 7 jours.'],
+  ['Faut-il un contrat pour l’IPTV?', 'Pas avec Prime IPTV. Il n’y a aucun contrat, et l’annulation est possible.'],
+  ['Quels appareils Prime IPTV prend-il en charge?', 'Prime IPTV fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U, sur téléviseurs intelligents, Fire TV / Firestick, Android TV, Apple TV, Roku, téléphones, tablettes et ordinateurs, ainsi qu’avec les boîtiers MAG.'],
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<ContentPage title="Meilleur IPTV Canada : liste de 8 critères | Prime IPTV" description="Comment choisir le meilleur service IPTV au Canada : 8 critères sur les chaînes, le 4K, l’essai gratuit, les appareils, les prix, les remboursements et le soutien." label="Guide d’achat" icon="award" h1="Meilleur service IPTV au Canada : une liste de 8 critères" width={860} schema={[faqSchema]}>
+  <p><strong>Le meilleur service IPTV pour le Canada est celui qui offre les chaînes que vous regardez vraiment, fonctionne bien sur vos appareils, vous laisse tester avant de payer et est transparent sur le prix, les remboursements et le soutien.</strong> Utilisez cette liste de 8 critères pour comparer n’importe quel fournisseur IPTV, et voyez comment Prime IPTV s’en tire.</p>
+
+  <h2>Les 8 critères pour choisir un service IPTV</h2>
+  <ol>
+    <li><strong>Les chaînes que vous regardez vraiment.</strong> Dressez la liste de vos chaînes et sports indispensables, y compris ceux d’autres pays, et vérifiez-les, idéalement pendant un essai.</li>
+    <li><strong>Qualité d’image et PPV.</strong> Cherchez la SD, la HD, la FHD et le 4K, et vérifiez si les chaînes PPV sont incluses et en quelle qualité.</li>
+    <li><strong>Un essai gratuit sans carte.</strong> Un essai vous permet de tester sur votre appareil et votre connexion sans risque.</li>
+    <li><strong>Fonctionne sur vos appareils et vos lecteurs.</strong> Vérifiez Firestick, téléviseur intelligent, Android TV, Apple TV, téléphones et boîtiers MAG, et quelles connexions de lecteur (Xtream Codes, M3U) sont prises en charge.</li>
+    <li><strong>Prix et connexions clairs.</strong> Les prix, les durées et le nombre d’écrans simultanés devraient être publiés, et non cachés.</li>
+    <li><strong>Conditions de remboursement et de contrat.</strong> Cherchez une garantie de remboursement, l’absence de contrat et une façon simple d’annuler.</li>
+    <li><strong>Du soutien quand vous en avez besoin.</strong> Vérifiez les heures, les canaux (WhatsApp, courriel, téléphone) et la rapidité des réponses pendant votre essai.</li>
+    <li><strong>Antécédents et transparence.</strong> Regardez depuis quand l’entreprise est en activité et si elle publie ses coordonnées et ses politiques.</li>
+  </ol>
+
+  <h2>Comment Prime IPTV s’en tire</h2>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Critère</th><th>Prime IPTV</th></tr></thead>
+    <tbody>
+      <tr><td>1. Chaînes</td><td>Plus de 25 000 chaînes en direct (toutes les chaînes canadiennes et américaines et des chaînes d’autres pays) plus plus de 120 000 films et séries. <a href="/fr/chaines/">Voir le guide des chaînes</a>.</td></tr>
+      <tr><td>2. Qualité et PPV</td><td>SD, HD, FHD et 4K; toutes les chaînes PPV en 4K et en FHD. <a href="/fr/iptv-4k/">Guide IPTV 4K</a> &middot; <a href="/fr/sports-ppv-4k/">sports et PPV</a>.</td></tr>
+      <tr><td>3. Essai gratuit</td><td>24 heures, sans carte de crédit, livré par WhatsApp ou par courriel. <a href="/fr/essai-gratuit/">Le demander</a>.</td></tr>
+      <tr><td>4. Appareils et lecteurs</td><td>Fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U (IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV, NET IPTV) et avec les boîtiers MAG. <a href="/fr/installation/">Guides par appareil</a>.</td></tr>
+      <tr><td>5. Prix</td><td>Publiés dès 34,99 $ pour 3 mois; de 1 à 4 connexions; +1 mois gratuit sur les forfaits de 6 et 12 mois et +2 sur ceux de 24 mois. <a href="/fr/tarifs/">Voir tous les prix</a>.</td></tr>
+      <tr><td>6. Remboursement et contrat</td><td>Garantie de remboursement de 7 jours; aucun contrat; annulation possible. <a href="/fr/remboursement/">Politique de remboursement</a>.</td></tr>
+      <tr><td>7. Soutien</td><td>24/7 par WhatsApp et par courriel, plus par téléphone : +1 (406) 235-6618.</td></tr>
+      <tr><td>8. Antécédents</td><td>Téléphone, courriel et adresse d’entreprise publiés; pages de conditions, de confidentialité, de remboursement et de DMCA. <a href="/fr/a-propos/">À propos de Prime IPTV</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Nous avons conçu Prime IPTV pour les spectateurs au Canada, et cette liste est la façon dont vous pouvez en juger vous-même, avec un essai gratuit et une garantie de remboursement de 7 jours en appui.</p>
+
+  <h2>Des questions à poser à tout fournisseur IPTV avant de payer</h2>
+  <ul>
+    <li>Puis-je essayer d’abord, et faut-il une carte de crédit pour l’essai?</li>
+    <li>Combien de connexions simultanées chaque forfait comprend-il?</li>
+    <li>Quelle est la politique de remboursement et comment demander un remboursement?</li>
+    <li>En combien de temps recevrai-je mon identifiant après le paiement, et comment est-il livré?</li>
+    <li>Quels appareils et quels lecteurs sont pris en charge, et qui m’aide à les configurer?</li>
+    <li>Comment joindre le soutien, et quand est-il offert?</li>
+  </ul>
+
+  <h2>Le meilleur IPTV selon vos besoins</h2>
+  <ul>
+    <li><strong>Amateurs de sport :</strong> testez un match en direct aux heures de pointe. Voyez <a href="/fr/sports-ppv-4k/">sports et PPV sur Prime IPTV</a>.</li>
+    <li><strong>Spectateurs 4K :</strong> vérifiez le téléviseur, l’appareil et la vitesse. Voyez le <a href="/fr/iptv-4k/">guide IPTV 4K</a>.</li>
+    <li><strong>Utilisateurs de Firestick :</strong> voyez le <a href="/fr/installation/firestick/">guide d’installation Firestick</a>.</li>
+    <li><strong>Foyers avec plusieurs écrans :</strong> utilisez le <a href="/fr/blogue/how-many-iptv-connections-do-i-need/">choisisseur de connexions</a>.</li>
+    <li><strong>Pour les indécis :</strong> utilisez la <a href="/fr/blogue/iptv-free-trial-checklist/">liste de vérification de l’essai de 24 heures</a>.</li>
+  </ul>
+  <h2>Questions fréquentes</h2>
+  {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+  <div class="box">
+    <h3 style="margin-top:0;">Jugez-en par vous-même</h3>
+    <p>Testez Prime IPTV gratuitement pendant 24 heures sans carte de crédit, puis comparez les forfaits.</p>
+    <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a><a href="/fr/tarifs/" class="btn-outline">Voir les forfaits</a></div>
+  </div>
+</ContentPage>

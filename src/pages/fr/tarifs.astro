@@ -1,0 +1,27 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+import PricingTabs from '../../components/PricingTabs.astro';
+import { prices, durations, bonusMonths } from '../../data/pricing';
+const fmt = (n: number) => n.toFixed(2).replace('.', ',') + ' $';
+---
+<ContentPage title="Abonnement IPTV Canada : forfaits dès 34,99 $ | Prime IPTV" description="Abonnement IPTV Canada : forfaits Prime IPTV de 1 à 4 connexions et de 3 à 24 mois, dès 34,99 $. Plus de 25 000 chaînes, 4K, sports et PPV. Essai gratuit de 24 heures et garantie de 7 jours." label="Forfaits et tarifs" icon="card" h1="Abonnement IPTV Canada : forfaits et tarifs" width={1100}>
+  <p style="max-width:720px;">Choisissez l’abonnement IPTV qui vous convient. Tous les forfaits comprennent plus de 25 000 chaînes en direct, plus de 120 000 films et séries, le 4K, l’EPG, le sport, le PPV et le soutien 24/7. Aucun contrat. Annulation possible.</p>
+  <div style="text-align:center;"><PricingTabs /></div>
+  <h2>Coût par mois selon la durée (1 connexion)</h2>
+  <div style="overflow-x:auto;">
+  <table>
+    <thead><tr><th>Forfait</th><th>Prix</th><th>Mois gratuits</th><th>Coût par mois payé</th></tr></thead>
+    <tbody>
+      {durations.map((m) => (<tr><td>{m} mois</td><td>{fmt(prices[1][m])}</td><td>{bonusMonths[m] > 0 ? `+${bonusMonths[m]}` : 'Aucun'}</td><td>{fmt(prices[1][m] / m)}</td></tr>))}
+    </tbody>
+  </table>
+  </div>
+  <h2>Comment commander</h2>
+  <ol>
+    <li>Choisissez le nombre de connexions et la durée.</li>
+    <li>Appuyez sur « Acheter maintenant » : WhatsApp s’ouvre avec votre forfait et son prix déjà écrits.</li>
+    <li>Nous vous envoyons les détails de paiement, puis votre identifiant par courriel ou par WhatsApp, normalement en quelques minutes.</li>
+  </ol>
+  <div class="box"><p><strong>Pas certain?</strong> Commencez par l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a>. Une <a href="/fr/remboursement/">garantie de remboursement de 7 jours</a> s’applique à tous les forfaits. Plus de 4 appareils? Écrivez-nous sur WhatsApp ou par courriel pour un forfait sur mesure. Questions? Consultez la <a href="/fr/faq/">FAQ</a> ou le <a href="/fr/aide/">centre d’aide</a>. Vous voulez revendre? Voyez le <a href="/fr/revendeur/">programme de revendeurs</a>.</p></div>
+</ContentPage>

@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { posts, formatDate } from '../../data/posts';
+
+const icons: Record<string, string> = {
+  'what-is-iptv': 'book',
+  'iptv-service-vs-iptv-player-app': 'monitor',
+  'best-iptv-players': 'tv-play',
+  'how-many-iptv-connections-do-i-need': 'link',
+  'iptv-free-trial-checklist': 'list',
+  'iptv-buffering-troubleshooting': 'wifi',
+  'iptv-vs-cable': 'sliders',
+};
+---
+<Layout title="Prime IPTV Guides: IPTV Setup, Fixes & Buying Tips" description="Practical IPTV guides: what IPTV is, service vs player app, best players, connections, a free-trial checklist, buffering fixes and IPTV vs cable.">
+  <Header slot="header" />
+
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div class="section-label"><Icon name="book" size={14} />Blog</div>
+        <h1 class="section-title">Prime IPTV Guides</h1>
+        <p class="section-sub">Practical IPTV guides for Canada viewers: how it works, how to choose, how to set up and how to fix common problems.</p>
+      </div>
+
+      <div class="posts-grid">
+        {posts.map(p => (
+          <a href={`/blog/${p.slug}/`} class="post-card">
+            <span class="post-icon"><Icon name={icons[p.slug] ?? 'book'} size={22} /></span>
+            <h2>{p.title}</h2>
+            <p>{p.excerpt}</p>
+            <span class="post-meta"><Icon name="calendar" size={14} /> {formatDate(p.datePublished)} · {p.minutes} min read</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="blog-cta">
+        <h2><Icon name="download" size={20} class="ic-accent" /> Looking for device setup steps?</h2>
+        <p>Every supported device has its own step-by-step guide.</p>
+        <a href="/setup/" class="btn-outline">Browse device setup guides<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .posts-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+  .post-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1.75rem; text-decoration:none; color:var(--text); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.2s; }
+  .post-card:hover { border-color:rgba(11,42,111,0.4); }
+  .post-icon { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:rgba(11,42,111,0.08); color:var(--brand); }
+  .post-card h2 { font-size:1.1rem; font-weight:700; margin:0; line-height:1.3; }
+  .post-card p { color:var(--muted); font-size:0.875rem; margin:0; line-height:1.6; flex:1; }
+  .post-meta { color:var(--muted); font-size:0.8rem; }
+  .blog-cta { text-align:center; margin-top:3rem; background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; }
+  .blog-cta h2 { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:1.2rem; margin:0 0 0.4rem; }
+  .blog-cta p { color:var(--muted); margin:0 0 1rem; }
+  @media (max-width:700px) { .posts-grid { grid-template-columns:1fr; } }
+</style>

@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../data/pricing';
+const money = (n: number) => `$${n.toFixed(2)}`;
+
+const faqs = [["What is 4K IPTV?", "4K IPTV is IPTV delivered in 4K (Ultra HD) quality, which is 3840 × 2160 pixels. You need a 4K TV, a 4K-capable device and player, and a stable connection of about 25 Mbps or more per stream."], ["Does Prime IPTV have 4K?", "Yes. Prime IPTV streams in SD, HD, FHD and 4K where the content supports it, and all PPV channels are available in 4K and FHD."], ["What internet speed do I need for 4K IPTV?", "As a rough guide, about 25 Mbps or more per 4K stream. Multiply that by the number of screens streaming at the same time, and use a wired connection if you can."], ["Do I need a special box for 4K IPTV?", "No special Prime IPTV box is needed. You need a 4K-capable device you already own or can buy, such as a Fire TV Stick 4K, an Apple TV 4K or a 4K Android TV box, plus a compatible player."], ["Why does my 4K IPTV buffer?", "The usual causes are Wi-Fi, too many streams running at once, an older device or player settings. Try Ethernet, switch to FHD, restart the player and router, and see the buffering and login guide."], ["Is 4K available for sports and PPV?", "All PPV channels are available in 4K and FHD. Sports channels are available in the best quality the content supports."]];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="4K IPTV Canada: What You Need to Stream in 4K | Prime IPTV" description="Prime IPTV streams in SD, HD, FHD and 4K, with all PPV channels in 4K and FHD. See what you need for 4K IPTV in Canada: TV, device, speed and setup." schema={[faqSchema]} >
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="section-label"><Icon name="gem" size={14} />4K IPTV</div>
+      <h1 class="page-h1">4K IPTV: How to Stream Live TV and Movies in 4K</h1>
+      <div class="prose">
+        <p><strong>4K IPTV is IPTV delivered in 4K (Ultra HD) quality. To watch it you need a 4K TV, a device and player that can play 4K, and a stable connection of about 25 Mbps or more per 4K stream.</strong> Prime IPTV streams in SD, HD, FHD and 4K where the content supports it, and all PPV channels are available in 4K and FHD. This guide explains what you need for 4K IPTV in Canada and how to get a smooth picture.</p>
+
+        <h2>What is 4K IPTV?</h2>
+        <p>4K, also called Ultra HD or UHD, is 3840 &times; 2160 pixels, which is four times the pixels of Full HD (1920 &times; 1080). With IPTV, &ldquo;4K IPTV&rdquo; means the channel or movie you stream is delivered at that resolution. Not every channel or title is produced in 4K, so the picture you see depends on the content as well as your equipment and connection.</p>
+
+        <h2>What you need for 4K IPTV</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Requirement</th><th>What to check</th></tr></thead>
+            <tbody>
+              <tr><td><strong>A 4K TV</strong></td><td>The TV supports 4K, and the HDMI port you use supports 4K.</td></tr>
+              <tr><td><strong>A 4K-capable device</strong></td><td>For example a Fire TV Stick 4K, an Apple TV 4K, a 4K Android TV or Google TV box, or a 4K Smart TV with a compatible player.</td></tr>
+              <tr><td><strong>A compatible IPTV player</strong></td><td>Any player that accepts Xtream Codes or an M3U link, such as IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV or NET IPTV.</td></tr>
+              <tr><td><strong>Enough internet speed</strong></td><td>About 25 Mbps or more for each 4K stream.</td></tr>
+              <tr><td><strong>A wired connection</strong></td><td>Ethernet is steadier than Wi-Fi for 4K and live sport.</td></tr>
+              <tr><td><strong>A subscription with 4K content</strong></td><td>Prime IPTV includes 4K, and all PPV channels in 4K and FHD.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Internet speed for 4K IPTV</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Quality</th><th>Approximate speed per screen</th></tr></thead>
+            <tbody>
+              <tr><td>SD</td><td>5 Mbps</td></tr>
+              <tr><td>HD</td><td>10 Mbps</td></tr>
+              <tr><td>FHD (1080p)</td><td>15 Mbps</td></tr>
+              <tr><td>4K</td><td>25 Mbps or more</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These are rough guide values, not guarantees. Multiply them by the number of screens streaming together, so two 4K screens need roughly 50 Mbps before anything else on your network. See the <a href="/iptv-internet-speed-requirements/">internet speed requirements</a> for more.</p>
+
+        <h2>4K IPTV with Prime IPTV</h2>
+        <ul>
+          <li>Streams in <strong>SD, HD, FHD and 4K</strong> where the content supports it.</li>
+          <li><strong>All PPV channels in 4K and FHD.</strong> See <a href="/iptv-sports-ppv-4k/">sports and PPV</a>.</li>
+          <li><strong>25,000+ live channels</strong> and <strong>120,000+ movies and series</strong>. <a href="/iptv-channels/">See what is included</a>.</li>
+          <li>Premium servers designed for zero buffering and 99.9% uptime.</li>
+          <li>Works with all players that accept Xtream Codes or an M3U link.</li>
+        </ul>
+
+        <h2>How to set up 4K IPTV</h2>
+        <ol>
+          <li><strong>Check your TV and HDMI port</strong> for 4K support.</li>
+          <li><strong>Choose a 4K-capable device</strong> (the device table further down lists the options) and connect it with Ethernet if you can.</li>
+          <li><strong>Install a compatible player</strong> using the <a href="/setup/">device setup guides</a>.</li>
+          <li><strong>Get your login.</strong> <a href="/free-trial/">Request the 24-hour free trial</a> (no credit card) or choose a <a href="/pricing/">plan</a>.</li>
+          <li><strong>Add the login</strong> in the player and open a channel or movie available in 4K.</li>
+          <li><strong>Confirm the picture.</strong> If it stutters, drop to FHD and work through the checks below.</li>
+        </ol>
+
+        <h2>If 4K stutters or buffers</h2>
+        <ul>
+          <li>Switch to an FHD version of the channel. A steady FHD picture beats a stuttering 4K one.</li>
+          <li>Use Ethernet instead of Wi-Fi, or move closer to the router and use the 5 GHz band.</li>
+          <li>Reduce other heavy use: downloads, backups and extra 4K streams.</li>
+          <li>Restart the player, the device and the router, and update the player app.</li>
+          <li>Check the HDMI cable and port support 4K.</li>
+        </ul>
+        <p>The full checklist is in our <a href="/blog/iptv-buffering-troubleshooting/">buffering and login guide</a>.</p>
+
+        <h2>Best devices for 4K IPTV</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Device</th><th>4K note</th><th>Setup guide</th></tr></thead>
+            <tbody>
+              <tr><td>Firestick / Fire TV</td><td>Use a Fire TV Stick 4K or another 4K model.</td><td><a href="/setup/firestick/">Firestick guide</a></td></tr>
+              <tr><td>Apple TV</td><td>Use an Apple TV 4K.</td><td><a href="/setup/apple-tv/">Apple TV guide</a></td></tr>
+              <tr><td>Android TV / Google TV</td><td>4K boxes and sticks play 4K with a compatible player.</td><td><a href="/setup/android-tv/">Android TV guide</a></td></tr>
+              <tr><td>Smart TV</td><td>4K Smart TVs work when a compatible player is available for the TV.</td><td><a href="/setup/smart-tv/">Smart TV guide</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4K IPTV subscription: what to look for</h2>
+        <p>If you are comparing the best 4K IPTV subscription options, check that the provider actually offers 4K content, tells you what speed and devices you need, lets you test before you pay, and publishes its prices. Prime IPTV includes 4K in every plan. <a href="/pricing/">Plans start at $34.99 for 3 months</a>, and you can test 4K on your own TV with the <a href="/free-trial/">24-hour free trial</a>.</p>
+      </div>
+
+      <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> Test 4K on your own TV</h3>
+        <p>Try Prime IPTV free for 24 hours, with no credit card required, and check 4K on your own TV and connection.</p>
+        <div class="cta-row">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="/pricing/" class="btn-outline">View Plans<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .page-h1 { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 1.5rem; }
+  .faq-h { display:flex; align-items:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+</style>

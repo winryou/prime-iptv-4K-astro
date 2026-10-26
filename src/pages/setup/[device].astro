@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { devices, getDevice, deviceExtras } from '../../data/devices';
+
+export function getStaticPaths() {
+  return devices.map((d) => ({ params: { device: d.slug } }));
+}
+
+const { device: slug } = Astro.params;
+const device = getDevice(slug!)!;
+const extras = deviceExtras[device.slug];
+const faqSchema = extras.faqs
+  ? { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: extras.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
+  : null;
+const waLink = `https://wa.me/14062356618${device.whatsappPrompt ? `?text=${encodeURIComponent(device.whatsappPrompt)}` : ''}`;
+const others = devices.filter((d) => d.slug !== device.slug);
+
+const howTo = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: `How to set up Prime IPTV on ${device.name}`,
+  step: device.steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    text: s.replace(/<[^>]+>/g, ''),
+  })),
+};
+---
+<Layout
+  title={device.seoTitle ?? `Set Up Prime IPTV on ${device.name}: Guide`}
+  crumb={device.name}
+  schema={faqSchema ? [howTo, faqSchema] : [howTo]}
+  description={device.seoDescription ?? `Step-by-step guide to set up Prime IPTV on ${device.name}. Players include ${device.players.slice(0, 3).join(', ')}${device.players.length > 3 ? ' and more' : ''}. Ready in minutes.`}
+>
+  <Header slot="header" />
+
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <a href="/setup/" class="back-link"><Icon name="arrow" size={14} class="rot180" /> All devices</a>
+      <div class="head">
+        <span class="head-icon"><Icon name={device.icon} size={34} /></span>
+        <div>
+          <div class="section-label"><Icon name="download" size={14} />Setup Guide</div>
+          <h1>{device.h1 ?? `Set Up Prime IPTV on ${device.name}`}</h1>
+        </div>
+      </div>
+
+      <p class="intro">{device.intro}</p>
+
+      <div class="players">
+        <strong>Recommended players:</strong>
+        {device.players.map(p => <span class="pill">{p}</span>)}
+      </div>
+
+      <h2><Icon name="check" size={20} class="ic-accent" /> What you need</h2>
+      <ul class="tips">
+        {extras.needs.map(n => <li>{n}</li>)}
+      </ul>
+
+      <h2><Icon name="list" size={20} class="ic-accent" /> Step-by-step</h2>
+      <ol class="steps">
+        {device.steps.map(s => <li set:html={s} />)}
+      </ol>
+
+      {device.note && <p class="note"><Icon name="info" size={18} class="ic-accent" /><span>{device.note}</span></p>}
+
+      <h2><Icon name="alert" size={20} class="ic-accent" /> Common issues on {device.name}</h2>
+      <div class="issues">
+        {extras.issues.map(([problem, fix]) => (
+          <div class="issue"><h3>{problem}</h3><p>{fix}</p></div>
+        ))}
+      </div>
+      <p class="more-help">Still stuck? See <a href="/blog/iptv-buffering-troubleshooting/">IPTV buffering and login problems: step-by-step fixes</a>.</p>
+
+      {extras.sections?.map((sec) => (
+        <>
+          <h2><Icon name="monitor" size={20} class="ic-accent" /> {sec.title}</h2>
+          <div class="more-sec" set:html={sec.html} />
+        </>
+      ))}
+
+      <h2><Icon name="bulb" size={20} class="ic-accent" /> Tips</h2>
+      <ul class="tips">
+        {device.tips.map(t => <li>{t}</li>)}
+      </ul>
+
+      <div class="help-box">
+        <h3>Need a hand?</h3>
+        <p>Our support team is available 24/7 to help you set up on {device.name}.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem;">
+          <a href={waLink} class="btn-primary" target="_blank" rel="noopener"><Icon name="chat" size={18} />{device.whatsappPrompt ? 'Send your MAC address on WhatsApp' : 'WhatsApp Support'}</a>
+          <a href="/free-trial/" class="btn-outline">Get a Free Trial<Icon name="arrow" size={16} /></a>
+          <a href="/faq/" class="btn-outline">Read the FAQ<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+
+      {extras.faqs && (
+        <>
+          <h2><Icon name="help" size={20} class="ic-accent" /> {device.name} questions answered</h2>
+          <div class="issues">
+            {extras.faqs.map(([q, a]) => (
+              <div class="issue"><h3>{q}</h3><p>{a}</p></div>
+            ))}
+          </div>
+        </>
+      )}
+
+      <h2><Icon name="book" size={20} class="ic-accent" /> Related guides</h2>
+      <ul class="tips">
+        <li><a href="/blog/best-iptv-players/" style="color:var(--brand);font-weight:600;">Best IPTV players compared</a></li>
+        <li><a href="/blog/iptv-buffering-troubleshooting/" style="color:var(--brand);font-weight:600;">IPTV buffering and login problems: step-by-step fixes</a></li>
+        <li><a href="/blog/iptv-service-vs-iptv-player-app/" style="color:var(--brand);font-weight:600;">IPTV service vs IPTV player app</a></li>
+        <li><a href="/free-trial/" style="color:var(--brand);font-weight:600;">Request the 24-hour free trial (no credit card)</a></li>
+      </ul>
+
+      <h2><Icon name="monitor" size={20} class="ic-accent" /> Other devices</h2>
+      <div class="others">
+        {others.map(o => <a href={`/setup/${o.slug}/`} class="other"><Icon name={o.icon} size={16} /> {o.name}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .back-link { color:var(--muted); text-decoration:none; font-size:0.875rem; display:inline-block; margin-bottom:1.5rem; }
+  .back-link:hover { color:var(--brand); }
+  .head { display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem; }
+  .head-icon { display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:16px; background:rgba(11,42,111,0.08); color:var(--brand); flex-shrink:0; }
+  h1 { font-size:clamp(1.6rem,4vw,2.25rem); font-weight:900; line-height:1.2; margin:0; }
+  h2 { display:flex; align-items:center; gap:0.5rem; font-size:1.2rem; font-weight:800; margin:2.25rem 0 0.9rem; }
+  .intro { color:var(--muted); line-height:1.75; margin:0 0 1.25rem; }
+  .players { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; font-size:0.9rem; }
+  .pill { background:rgba(11,42,111,0.12); border:1px solid rgba(11,42,111,0.3); color:var(--brand); font-size:0.8rem; font-weight:600; padding:0.25rem 0.75rem; border-radius:20px; }
+  .steps { padding-left:0; margin:0; list-style:none; counter-reset:step; display:flex; flex-direction:column; gap:0.75rem; }
+  .steps li { counter-increment:step; position:relative; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:1rem 1rem 1rem 3.5rem; color:var(--muted); font-size:0.95rem; line-height:1.6; }
+  .steps li::before { content:counter(step); position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:1.75rem; height:1.75rem; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:0.85rem; display:flex; align-items:center; justify-content:center; }
+  .steps :global(strong) { color:var(--text); }
+  .note { display:flex; gap:0.6rem; align-items:flex-start; color:var(--muted); font-size:0.88rem; margin:1.25rem 0 0; padding:0.85rem 1rem; background:rgba(11,42,111,0.06); border-left:3px solid var(--brand); border-radius:0 6px 6px 0; line-height:1.6; }
+  .tips { color:var(--muted); padding-left:1.25rem; margin:0; display:flex; flex-direction:column; gap:0.4rem; font-size:0.92rem; line-height:1.6; }
+  .help-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:1.75rem; text-align:center; margin-top:2.5rem; }
+  .help-box h3 { font-size:1.1rem; font-weight:800; margin:0 0 0.4rem; }
+  .help-box p { color:var(--muted); margin:0; font-size:0.9rem; }
+  .others { display:flex; flex-wrap:wrap; gap:0.6rem; }
+  .issues { display:flex; flex-direction:column; gap:0.75rem; }
+  .issue { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:1rem 1.1rem; }
+  .issue h3 { font-size:0.95rem; font-weight:700; margin:0 0 0.3rem; color:var(--text); }
+  .issue p { color:var(--muted); font-size:0.9rem; line-height:1.6; margin:0; }
+  .more-sec :global(p) { color:var(--muted); line-height:1.75; margin:0 0 1rem; }
+  .more-sec :global(a) { color:var(--brand); font-weight:600; }
+  .more-help { color:var(--muted); font-size:0.9rem; margin:1rem 0 0; }
+  .more-help a { color:var(--brand); font-weight:600; }
+  .other { display:inline-flex; align-items:center; gap:0.4rem; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.5rem 0.9rem; font-size:0.85rem; color:var(--text); text-decoration:none; transition:border-color 0.2s; }
+  .other:hover { border-color:var(--brand); }
+</style>

@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+---
+<BlogPost slug="iptv-m3u-vs-xtream-codes">
+  <p>Une connexion IPTV M3U ou Xtream Codes, laquelle choisir? Quand vous vous abonnez à un service IPTV, vous recevez un identifiant, et il prend généralement l’une de deux formes : une <strong>connexion Xtream Codes</strong> ou un <strong>lien de liste de lecture M3U</strong>. Les deux relient votre application de lecture au service, mais elles fonctionnent différemment. Ce guide explique la différence et laquelle utiliser.</p>
+
+  <h2>Qu’est-ce qu’une connexion Xtream Codes?</h2>
+  <p>Une connexion Xtream Codes (aussi appelée API Xtream Codes) se compose de trois renseignements : une <strong>URL de serveur</strong>, un <strong>nom d’utilisateur</strong> et un <strong>mot de passe</strong>. Vous les saisissez dans un lecteur compatible avec Xtream Codes, comme IPTV Smarters Pro ou TiviMate, et le lecteur charge pour vous les chaînes en direct, les catégories, les films et séries sur demande et le guide des programmes (EPG).</p>
+
+  <h2>Qu’est-ce qu’une liste de lecture M3U?</h2>
+  <p>Une liste de lecture M3U est un lien ou un fichier unique qui énumère des chaînes. Vous collez le lien dans un lecteur, et le lecteur lit la liste. Le même format de fichier est utilisé par de nombreux lecteurs multimédias, dont VLC. Un lien M3U contient souvent votre nom d’utilisateur et votre mot de passe dans l’adresse; traitez-le donc comme un mot de passe et ne le partagez pas. Le guide des programmes peut exiger un lien EPG distinct, et les titres sur demande peuvent être mêlés à la liste des chaînes ou absents, selon le lecteur.</p>
+
+  <h2>M3U ou Xtream Codes en un coup d’œil</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Xtream Codes</th><th>Liste M3U</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Ce que vous saisissez</strong></td><td>URL du serveur, nom d’utilisateur, mot de passe</td><td>Un seul lien de liste</td></tr>
+        <tr><td><strong>Télé en direct et catégories</strong></td><td>Chargées avec les catégories</td><td>Chargées en une seule liste</td></tr>
+        <tr><td><strong>Films et séries sur demande</strong></td><td>Sections distinctes dans la plupart des lecteurs</td><td>Selon le lecteur</td></tr>
+        <tr><td><strong>Guide des programmes (EPG)</strong></td><td>Se charge habituellement seul</td><td>Peut exiger un lien EPG distinct</td></tr>
+        <tr><td><strong>Lecteurs typiques</strong></td><td>IPTV Smarters Pro, TiviMate</td><td>VLC, GSE Smart IPTV, de nombreuses applications de téléviseur intelligent</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Laquelle utiliser?</h2>
+  <ul>
+    <li><strong>Utilisez Xtream Codes</strong> si votre lecteur l’offre. C’est la façon la plus simple d’obtenir la télé en direct, les titres sur demande et le guide avec un seul identifiant.</li>
+    <li><strong>Utilisez M3U</strong> si votre lecteur ou votre appareil n’accepte qu’un lien de liste, par exemple VLC sur un ordinateur ou certaines applications de téléviseur intelligent.</li>
+    <li><strong>Utilisez l’activation par adresse MAC</strong> pour des lecteurs comme IBO Player, Set IPTV et NET IPTV, et pour les boîtiers MAG. Envoyez-nous l’adresse MAC affichée dans l’application et nous la configurons.</li>
+  </ul>
+
+  <h2>Ce que vous recevez avec Prime IPTV</h2>
+  <p>Prime IPTV fonctionne avec <strong>tous les lecteurs qui acceptent les codes Xtream ou un lien M3U</strong>. Votre identifiant arrive normalement sous forme d’URL de serveur, de nom d’utilisateur et de mot de passe, par WhatsApp ou par courriel. Si votre lecteur exige un lien M3U, demandez-le au soutien et nous vous en enverrons un. Les <a href="/fr/installation/">guides d’installation</a> montrent exactement où saisir les renseignements sur chaque appareil, et vous pouvez tout tester avec l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a>.</p>
+
+  <h2>Problèmes courants</h2>
+  <ul>
+    <li><strong>La connexion échoue :</strong> vérifiez qu’il n’y a pas d’espace au début ou à la fin ni de « http:// » manquant. Copiez et collez plutôt que de taper.</li>
+    <li><strong>Les chaînes se chargent, mais il n’y a pas de guide :</strong> actualisez l’EPG dans le lecteur. Voyez <a href="/fr/blogue/iptv-epg-explained/">l’EPG de l’IPTV expliqué</a>.</li>
+    <li><strong>La liste ne se charge pas :</strong> copiez de nouveau le lien en entier, ou utilisez Xtream Codes si votre lecteur le permet. D’autres solutions se trouvent dans <a href="/fr/blogue/iptv-buffering-troubleshooting/">l’IPTV ne fonctionne pas? solutions</a>.</li>
+  </ul>
+
+  <h2>Réponses rapides</h2>
+  <h3>Xtream Codes est-il une application?</h3>
+  <p>Non. Xtream Codes est un type de connexion que de nombreux lecteurs IPTV acceptent. Il vous faut quand même un abonnement et une application de lecture.</p>
+  <h3>Un lien M3U peut-il être partagé sans risque?</h3>
+  <p>Non. Il contient habituellement votre identifiant; gardez-le donc privé.</p>
+  <h3>Puis-je utiliser les deux dans des lecteurs différents?</h3>
+  <p>Oui, dans la limite des connexions de votre forfait.</p>
+</BlogPost>

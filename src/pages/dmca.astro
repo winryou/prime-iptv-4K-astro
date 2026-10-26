@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="DMCA Notice | Prime IPTV" description="Prime IPTV DMCA Notice: how to report alleged copyright infringement, the information a notice must include and where to send it.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <div class="section-label"><Icon name="copyright" size={14} />Legal</div>
+      <h1 class="section-title">DMCA Notice</h1>
+      <p>Prime IPTV respects the intellectual property rights of others and expects its users to do the same. In accordance with the Digital Millennium Copyright Act (DMCA), Prime IPTV will respond to notices of alleged copyright infringement.</p>
+      <h2>To File a DMCA Notice</h2>
+      <p>If you believe that content accessible through our service infringes your copyright, please send a written notice to our designated agent with the following information:</p>
+      <ul>
+        <li>A physical or electronic signature of a person authorized to act on behalf of the copyright owner</li>
+        <li>Identification of the copyrighted work claimed to have been infringed</li>
+        <li>Identification of the material claimed to be infringing and information reasonably sufficient to permit us to locate the material</li>
+        <li>Your contact information including name, address, telephone number, and email address</li>
+        <li>A statement that you have a good faith belief that use of the material is not authorized by the copyright owner, its agent, or the law</li>
+        <li>A statement that the information in the notification is accurate and, under penalty of perjury, that you are authorized to act on behalf of the copyright owner</li>
+      </ul>
+      <h2>Contact for DMCA Notices</h2>
+      <p>Email: <a href="mailto:contactiptv.amelia@gmail.com" style="color:var(--brand);">contactiptv.amelia@gmail.com</a></p>
+      <p>Address: 4793 County Rd 772B, Webster, FL 33597, USA</p>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:900; margin:0 0 1.5rem; }
+  h2 { font-size:1.15rem; font-weight:800; margin:2rem 0 0.75rem; }
+  p { color:var(--muted); line-height:1.75; margin:0 0 1rem; }
+  ul { color:var(--muted); padding-left:1.5rem; display:flex; flex-direction:column; gap:0.5rem; margin:0 0 1.25rem; }
+  li { font-size:0.9rem; line-height:1.65; }
+</style>

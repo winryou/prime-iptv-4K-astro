@@ -1,0 +1,409 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import PricingTabs from '../../components/PricingTabs.astro';
+import { cities, frName } from '../../data/cities';
+import { faqsFr } from '../../data/faq-fr';
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqsFr.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+
+<Layout title="Prime IPTV Canada : abonnement IPTV, 4K et essai gratuit" description="Prime IPTV : l’abonnement IPTV pour le Canada avec plus de 25 000 chaînes en direct, plus de 120 000 films et séries, 4K, sports et PPV. Essai gratuit de 24 heures, sans carte de crédit." schema={[faqSchema]}>
+  <Header slot="header" />
+
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-chip"><span class="dot"></span> Maintenant en ondes partout au Canada</div>
+        <h1>Prime IPTV <span class="grad">Canada</span> : télé, sports et films de qualité, partout au pays.</h1>
+        <p class="hero-sub">Prime IPTV offre aux spectateurs canadiens <strong>plus de 25 000 chaînes en direct et plus de 120 000 films et séries</strong> en SD, HD, FHD et 4K, avec du sport, du PPV et un guide des programmes complet. Sans décodeur et sans contrat.</p>
+        <div class="hero-actions">
+          <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit de 24 heures</a>
+          <a href="/fr/tarifs/" class="btn-ghost">Voir les tarifs<Icon name="arrow" size={16} /></a>
+        </div>
+        <ul class="hero-points">
+          <li><Icon name="tick" size={16} /> Aucune carte de crédit pour l’essai</li>
+          <li><Icon name="tick" size={16} /> Garantie de remboursement de 7 jours</li>
+          <li><Icon name="tick" size={16} /> Soutien 24 h sur 24, 7 j sur 7</li>
+        </ul>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="screen">
+          <div class="screen-top"><span class="live"><i></i> EN DIRECT</span><span class="res">4K UHD</span></div>
+          <div class="screen-main"><span>Prime IPTV</span></div>
+          <div class="screen-rows">
+            <div class="row"><b></b><span>Chaînes canadiennes</span><em>Direct</em></div>
+            <div class="row"><b></b><span>Sports et PPV</span><em>4K</em></div>
+            <div class="row"><b></b><span>Films et séries</span><em>VOD</em></div>
+          </div>
+        </div>
+        <div class="float f1"><strong>25 K+</strong><span>Chaînes en direct</span></div>
+        <div class="float f2"><strong>120 K+</strong><span>Films et séries</span></div>
+        <div class="float f3"><strong>10</strong><span>provinces + 3 territoires</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts">
+    <div class="container facts-grid">
+      <div><strong>24 heures</strong><span>d’essai gratuit</span></div>
+      <div><strong>1 à 4</strong><span>connexions par forfait</span></div>
+      <div><strong>3 à 24</strong><span>mois de forfait</span></div>
+      <div><strong>7 jours</strong><span>garantie de remboursement</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="head">
+        <div class="section-label"><Icon name="sparkles" size={14} />Qu’est-ce que Prime IPTV</div>
+        <h2 class="section-title">Un seul abonnement Prime IPTV remplace le forfait de câble</h2>
+        <p class="section-sub">L’IPTV, c’est de la télévision diffusée par votre connexion Internet. Avec Prime IPTV, vous ouvrez une application de lecture sur votre appareil et vous regardez, sans rien installer sur votre toit et sans location d’équipement.</p>
+      </div>
+      <div class="bento">
+        <article class="bt bt-lg">
+          <span class="bt-ic"><Icon name="tv-play" size={26} /></span>
+          <h3>Plus de 25 000 chaînes en direct</h3>
+          <p>Toutes les chaînes canadiennes et américaines et des chaînes d’autres pays : divertissement, nouvelles, jeunesse et famille, et programmation internationale.</p>
+          <a href="/fr/chaines/" class="bt-link">Voir l’offre de chaînes<Icon name="arrow" size={14} /></a>
+        </article>
+        <article class="bt">
+          <span class="bt-ic"><Icon name="trophy" size={26} /></span>
+          <h3>Sports et PPV</h3>
+          <p>Sport canadien, américain et international, plus des chaînes PPV en 4K et en FHD.</p>
+          <a href="/fr/sports-ppv-4k/" class="bt-link">Sports et PPV<Icon name="arrow" size={14} /></a>
+        </article>
+        <article class="bt">
+          <span class="bt-ic"><Icon name="film" size={26} /></span>
+          <h3>Plus de 120 000 films et séries</h3>
+          <p>Une vaste vidéothèque pour les soirs où il n’y a rien en direct.</p>
+        </article>
+        <article class="bt">
+          <span class="bt-ic"><Icon name="monitor" size={26} /></span>
+          <h3>De la SD au 4K</h3>
+          <p>SD, HD, FHD et 4K lorsque le contenu et votre appareil le permettent.</p>
+        </article>
+        <article class="bt">
+          <span class="bt-ic"><Icon name="list" size={26} /></span>
+          <h3>Guide des programmes (EPG)</h3>
+          <p>Voyez ce qui passe maintenant et ensuite, comme au câble.</p>
+        </article>
+        <article class="bt bt-lg bt-dark">
+          <span class="bt-ic"><Icon name="headset" size={26} /></span>
+          <h3>Soutien 24 h sur 24, 7 j sur 7</h3>
+          <p>Écrivez-nous sur WhatsApp ou par courriel à toute heure. Aide à l’installation, problèmes d’identifiant et questions sur les forfaits : vous obtenez une vraie réponse.</p>
+          <a href="/fr/contact/" class="bt-link">Joindre Prime IPTV<Icon name="arrow" size={14} /></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="forfaits">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="card" size={14} />Forfaits et tarifs</div>
+      <h2 class="section-title">Choisissez votre forfait Prime IPTV</h2>
+      <p class="section-sub">Chaque forfait comprend plus de 25 000 chaînes, plus de 120 000 titres sur demande, le 4K, l’EPG, le sport, le PPV et le soutien 24/7. Aucun contrat, annulation possible en tout temps.</p>
+      <PricingTabs />
+      <p style="color:var(--muted); margin-top:1.5rem; font-size:0.875rem;">Besoin de plus de 4 connexions? <a href="/fr/contact/" style="color:var(--brand);">Écrivez-nous</a> pour un forfait sur mesure.</p>
+      <div style="margin-top:1.5rem;"><a href="/fr/tarifs/" class="btn-outline">Comparer tous les forfaits<Icon name="arrow" size={16} /></a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cov">
+      <div class="cov-text">
+        <div class="section-label"><Icon name="flag" size={14} />L’IPTV au Canada</div>
+        <h2 class="section-title" style="text-align:left;">Conçu pour les spectateurs canadiens, d’un océan à l’autre</h2>
+        <p style="color:var(--muted);">Prime IPTV passe par Internet; il ne dépend donc pas d’un réseau local de câble ou de satellite. Si votre maison ou votre chalet a une connexion stable, vous pouvez regarder, que vous soyez dans un condo de Toronto, une maison de Calgary ou une petite ville des Maritimes.</p>
+        <p style="color:var(--muted);">À titre indicatif, il faut environ 5 Mb/s pour la SD, 10 pour la HD, 15 pour la FHD et 25 ou plus pour le 4K, par écran.</p>
+      </div>
+      <div class="prov" aria-label="Provinces et territoires desservis">
+        {['Ontario','Québec','Colombie-Britannique','Alberta','Manitoba','Saskatchewan','Nouvelle-Écosse','Nouveau-Brunswick','Terre-Neuve-et-Labrador','Île-du-Prince-Édouard','Yukon','Territoires du Nord-Ouest','Nunavut'].map((p) => <span>{p}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="villes">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="map-pin" size={14} />Villes</div>
+      <h2 class="section-title">IPTV près de chez vous : Prime IPTV dans votre ville</h2>
+      <p class="section-sub">Des guides locaux pour les villes d’où nos spectateurs regardent, avec des conseils sur les secteurs, le sport et Internet.</p>
+      <div class="city-grid">
+        {cities.map((c) => <a href={`/fr/iptv-${c.slug}/`} class="city-tile"><strong>IPTV {frName(c)}</strong><span>{c.province === 'Quebec' ? 'Québec' : c.province === 'British Columbia' ? 'Colombie-Britannique' : c.province === 'Nova Scotia' ? 'Nouvelle-Écosse' : c.province}</span></a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="monitor" size={14} />Appareils</div>
+      <h2 class="section-title">Regardez Prime IPTV sur les écrans que vous avez déjà</h2>
+      <p class="section-sub">Prime IPTV fonctionne avec des lecteurs IPTV compatibles sur tous les appareils ci-dessous.</p>
+      <div class="devices-grid">
+        <a href="/fr/installation/smart-tv/" class="device-tile"><span class="dev-icon"><Icon name="tv" size={30} /></span><span>Téléviseur intelligent</span></a>
+        <a href="/fr/installation/firestick/" class="device-tile"><span class="dev-icon"><Icon name="stick" size={30} /></span><span>Fire TV / Firestick</span></a>
+        <a href="/fr/installation/android-tv/" class="device-tile"><span class="dev-icon"><Icon name="tv-play" size={30} /></span><span>Android TV</span></a>
+        <a href="/fr/installation/apple-tv/" class="device-tile"><span class="dev-icon"><Icon name="box" size={30} /></span><span>Apple TV</span></a>
+        <a href="/fr/installation/roku/" class="device-tile"><span class="dev-icon"><Icon name="cast" size={30} /></span><span>Roku</span></a>
+        <a href="/fr/installation/mobile/" class="device-tile"><span class="dev-icon"><Icon name="smartphone" size={30} /></span><span>Téléphone et tablette</span></a>
+        <a href="/fr/installation/computer/" class="device-tile"><span class="dev-icon"><Icon name="laptop" size={30} /></span><span>Ordinateur</span></a>
+        <a href="/fr/installation/mag/" class="device-tile"><span class="dev-icon"><Icon name="settop" size={30} /></span><span>Boîtier MAG</span></a>
+      </div>
+      <div style="margin-top:2rem;"><a href="/fr/installation/" class="btn-outline">Tous les guides d’installation<Icon name="arrow" size={16} /></a></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="rocket" size={14} />Comment ça marche</div>
+      <h2 class="section-title">Regarder en trois étapes</h2>
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><h3>Essayez gratuitement</h3><p>Demandez votre essai de 24 heures sur WhatsApp ou par courriel. Aucune carte de crédit.</p></div>
+        <div class="step"><span class="step-num">2</span><h3>Choisissez un forfait</h3><p>Choisissez de 1 à 4 connexions et de 3 à 24 mois. Appuyez sur « Acheter maintenant » et WhatsApp s’ouvre avec votre forfait.</p></div>
+        <div class="step"><span class="step-num">3</span><h3>Ajoutez votre identifiant</h3><p>Saisissez l’identifiant que nous envoyons dans votre application de lecture et regardez, normalement en quelques minutes.</p></div>
+      </div>
+      <div style="margin-top:2.25rem;"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Commencer mon essai gratuit</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="head">
+        <div class="section-label"><Icon name="card" size={14} />Abonnement IPTV</div>
+        <h2 class="section-title">Abonnement IPTV au Canada : comment choisir</h2>
+      </div>
+      <p style="color:var(--muted); line-height:1.8;">Un bon fournisseur IPTV au Canada se reconnaît à ce qu’il vous laisse l’essayer d’abord, affiche ses prix et ne vous enferme pas dans un contrat. Avec Prime IPTV, vous demandez l’<a href="/fr/essai-gratuit/" style="color:var(--brand); font-weight:600;">essai gratuit de 24 heures</a>, vous comparez les <a href="/fr/tarifs/" style="color:var(--brand); font-weight:600;">forfaits dès 34,99 $ CAD</a>, puis vous payez par WhatsApp. Les forfaits vont de 1 à 4 connexions, et pour plus de 4 appareils il suffit de nous écrire. Prime IPTV est un service IPTV axé sur le Canada, avec du soutien en français sur WhatsApp. Vous cherchez un abonnement IPTV pas cher, un forfait IPTV pour le Québec, un fournisseur IPTV fiable ou le meilleur IPTV au Canada? Voyez notre <a href="/fr/meilleur-service-iptv-canada/" style="color:var(--brand); font-weight:600;">liste de 8 critères</a> et la page <a href="/fr/iptv-quebec/" style="color:var(--brand); font-weight:600;">IPTV Québec</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="head">
+        <div class="section-label"><Icon name="trend" size={14} />IPTV ou câble</div>
+        <h2 class="section-title">Prime IPTV comparé à un forfait de câble ou de satellite</h2>
+      </div>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead><tr><th></th><th class="us">Prime IPTV</th><th>Câble / satellite</th></tr></thead>
+          <tbody>
+            <tr><td>Contrat</td><td class="us">Aucun contrat</td><td>Souvent une entente à terme</td></tr>
+            <tr><td>Équipement</td><td class="us">Votre appareil et une application de lecture</td><td>Récepteur ou décodeur, souvent loué</td></tr>
+            <tr><td>Écrans</td><td class="us">De 1 à 4 connexions par forfait</td><td>Un décodeur de plus par téléviseur</td></tr>
+            <tr><td>Où regarder</td><td class="us">Partout où il y a Internet</td><td>À la maison</td></tr>
+            <tr><td>Bibliothèque</td><td class="us">Télé en direct et plus de 120 000 films et séries</td><td>Télé en direct et une section sur demande plus petite</td></tr>
+            <tr><td>Essayer avant d’acheter</td><td class="us">Essai gratuit de 24 heures</td><td>Rarement</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">Comparaison générale. Les offres de câble et de satellite varient selon le fournisseur et la région au Canada.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <div class="head">
+        <div class="section-label"><Icon name="shield" size={14} />Bon à savoir</div>
+        <h2 class="section-title">L’IPTV est-il légal au Canada?</h2>
+      </div>
+      <p style="color:var(--muted); line-height:1.8;">L’IPTV est une technologie de diffusion, et la technologie elle-même n’est pas en cause. Ce qui compte, c’est que le contenu que vous regardez soit autorisé là où vous habitez. Les règles varient selon les pays et changent avec le temps; vérifiez donc ce qui s’applique à vous. Les spectateurs doivent s’assurer que leur utilisation du service respecte les lois et règlements qui s’appliquent à eux. Lisez nos <a href="/fr/conditions/" style="color:var(--brand); font-weight:600;">conditions</a>, notre <a href="/fr/confidentialite/" style="color:var(--brand); font-weight:600;">politique de confidentialité</a> et notre <a href="/fr/remboursement/" style="color:var(--brand); font-weight:600;">politique de remboursement</a> avant de vous abonner.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="book" size={14} />Guides</div>
+      <h2 class="section-title">Guides IPTV pour les spectateurs canadiens</h2>
+      <p class="section-sub">Des réponses claires sur le fonctionnement de l’IPTV, le coût, la légalité et l’installation.</p>
+      <div class="guides-grid">
+        <a href="/fr/blogue/what-is-iptv/" class="guide-card"><span class="guide-ic"><Icon name="book" size={24} /></span><strong>Télévision IP (IPTV)</strong><p>Ce que c’est et comment ça marche.</p></a>
+        <a href="/fr/blogue/iptv-cost-canada/" class="guide-card"><span class="guide-ic"><Icon name="dollar" size={24} /></span><strong>Coût de l’IPTV au Canada</strong><p>Ce que vous payez par mois et comment comparer avec le câble.</p></a>
+        <a href="/fr/blogue/is-iptv-legal-in-canada/" class="guide-card"><span class="guide-ic"><Icon name="shield" size={24} /></span><strong>L’IPTV est-il légal?</strong><p>Licences, questions à poser et façons de vous protéger.</p></a>
+        <a href="/fr/blogue/iptv-vs-cable-canada/" class="guide-card"><span class="guide-ic"><Icon name="trend" size={24} /></span><strong>IPTV ou câble</strong><p>Coût, chaînes, contrats et comment changer sans risque.</p></a>
+      </div>
+      <div style="margin-top:2rem;"><a href="/fr/blogue/" class="btn-outline">Tous les guides<Icon name="arrow" size={16} /></a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="head">
+        <div class="section-label"><Icon name="help" size={14} />FAQ</div>
+        <h2 class="section-title">Prime IPTV : vos questions, nos réponses</h2>
+      </div>
+      <div class="faq-grid">
+        {faqsFr.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="faq-arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container final-inner">
+      <h2>Prêt à essayer Prime IPTV au Canada?</h2>
+      <p>Commencez l’essai gratuit de 24 heures, sans carte de crédit, et voyez les chaînes et la qualité d’image sur votre propre téléviseur.</p>
+      <div class="final-actions">
+        <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a>
+        <a href="/fr/tarifs/" class="btn-ghost">Voir les tarifs<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+.container.narrow { max-width: 780px; }
+.head { text-align: center; margin-bottom: 2.5rem; }
+.head .section-sub { margin-bottom: 0; }
+.section.alt { background: var(--bg-2); }
+
+/* HERO */
+.hero { position: relative; overflow: hidden; margin-top: -4.6rem; padding: 9rem 1rem 5.5rem; color: #fff;
+  background: radial-gradient(900px 500px at 85% 10%, rgba(79,123,234,0.55), transparent 60%),
+              radial-gradient(700px 420px at 0% 100%, rgba(232,53,47,0.35), transparent 60%),
+              linear-gradient(160deg, #06143a 0%, #0b2a6f 55%, #12388f 100%);
+  border-radius: 0 0 44px 44px; }
+.hero-grid { position: absolute; inset: 0; opacity: 0.35;
+  background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 48px 48px; mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%); }
+.hero-inner { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; }
+.hero-chip { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-size: 0.82rem; font-weight: 600; margin-bottom: 1.25rem; }
+.hero-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: #ff6b64; box-shadow: 0 0 0 4px rgba(255,107,100,0.25); }
+.hero h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); line-height: 1.08; font-weight: 800; margin: 0 0 1.25rem; }
+.grad { background: linear-gradient(90deg, #ff8a84, #ffffff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-sub { font-size: 1.1rem; color: #d3def6; max-width: 560px; margin: 0 0 1.75rem; }
+.hero-sub strong { color: #fff; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.6rem; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+.hero-points { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.9rem; color: #d3def6; }
+.hero-points li { display: inline-flex; align-items: center; gap: 0.4rem; }
+.hero-points :global(.icon) { color: #ff8a84; }
+
+.hero-visual { position: relative; padding: 1.5rem 1rem 2.5rem; }
+.screen { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22); border-radius: 26px; padding: 1rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); transform: rotate(-2deg); }
+.screen-top { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+.live { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent); padding: 0.15rem 0.6rem; border-radius: 999px; }
+.live i { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+.res { color: #cfdcf8; }
+.screen-main { aspect-ratio: 16/9; border-radius: 16px; display: grid; place-items: center; font-weight: 800; font-size: 1.5rem; letter-spacing: -0.02em; background: linear-gradient(135deg, #1f4fd8, #06143a 70%); border: 1px solid rgba(255,255,255,0.15); }
+.screen-rows { margin-top: 0.8rem; display: grid; gap: 0.5rem; }
+.row { display: flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.08); border-radius: 12px; padding: 0.5rem 0.7rem; font-size: 0.82rem; }
+.row b { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, #4f7bea, #e8352f); }
+.row span { flex: 1; }
+.row em { font-style: normal; font-size: 0.7rem; font-weight: 800; color: #ff8a84; }
+.float { position: absolute; background: #fff; color: var(--brand); border-radius: 16px; padding: 0.55rem 0.9rem; box-shadow: 0 16px 30px -12px rgba(0,0,0,0.5); display: grid; line-height: 1.15; }
+.float strong { font-size: 1.25rem; font-weight: 800; }
+.float span { font-size: 0.7rem; color: var(--muted); font-weight: 600; }
+.f1 { top: -0.25rem; right: 0; } .f2 { bottom: 0.5rem; left: -0.5rem; } .f3 { bottom: -0.4rem; right: 1rem; }
+
+/* FACTS */
+.facts { padding: 0 1rem; margin-top: -2rem; position: relative; z-index: 2; }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow); padding: 1.25rem 0.5rem; text-align: center; }
+.facts-grid div { display: grid; padding: 0.25rem 0.5rem; border-right: 1px solid var(--border); }
+.facts-grid div:last-child { border-right: 0; }
+.facts-grid strong { font-size: 1.4rem; color: var(--brand); font-weight: 800; letter-spacing: -0.02em; }
+.facts-grid span { font-size: 0.82rem; color: var(--muted); }
+
+/* BENTO */
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.bt { background: #fff; border: 1px solid var(--border); border-radius: 22px; padding: 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.5rem; transition: transform 0.2s, border-color 0.2s; }
+.bt:hover { transform: translateY(-4px); border-color: var(--brand-2); }
+.bt-lg { grid-column: span 2; }
+.bt-ic { width: 50px; height: 50px; border-radius: 15px; display: inline-flex; align-items: center; justify-content: center; background: var(--bg-2); color: var(--brand-2); margin-bottom: 0.4rem; }
+.bt h3 { font-size: 1.1rem; margin: 0; font-weight: 800; }
+.bt p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.6; flex: 1; }
+.bt-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.4rem; font-weight: 700; font-size: 0.88rem; color: var(--brand-2); text-decoration: none; }
+.bt-link:hover { text-decoration: underline; }
+.bt-dark { background: linear-gradient(150deg, #0b2a6f, #06143a); border-color: transparent; color: #fff; }
+.bt-dark p { color: #c7d4ee; } .bt-dark .bt-ic { background: rgba(255,255,255,0.12); color: #fff; } .bt-dark .bt-link { color: #ff8a84; }
+
+/* COVERAGE */
+.cov { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.cov-actions { margin-top: 1.5rem; }
+.prov { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.prov span { background: #fff; border: 1px solid var(--border); color: var(--brand); font-size: 0.85rem; font-weight: 700; padding: 0.45rem 0.95rem; border-radius: 999px; box-shadow: 0 1px 2px rgba(11,42,111,0.05); }
+.prov span:nth-child(3n+1) { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* CITIES */
+.city-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; }
+.city-tile { display: grid; gap: 0.15rem; padding: 1rem 0.5rem; background: #fff; border: 1px solid var(--border); border-radius: 18px; text-decoration: none; color: var(--brand); transition: transform 0.2s, background 0.2s, color 0.2s; }
+.city-tile strong { font-size: 0.95rem; font-weight: 800; }
+.city-tile span { font-size: 0.75rem; color: var(--muted); }
+.city-tile:hover { transform: translateY(-4px); background: var(--brand); color: #fff; }
+.city-tile:hover span { color: #c7d4ee; }
+@media (max-width: 760px) { .city-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* DEVICES */
+.devices-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.device-tile { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.5rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 20px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
+.device-tile:hover { transform: translateY(-4px); border-color: var(--brand-2); box-shadow: var(--shadow); }
+.dev-icon { color: var(--brand-2); }
+
+/* STEPS */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; position: relative; }
+.step { background: #fff; border: 1px solid var(--border); border-radius: 22px; padding: 1.75rem 1.25rem; box-shadow: var(--shadow); }
+.step-num { width: 48px; height: 48px; background: var(--accent); color: #fff; font-size: 1.2rem; font-weight: 800; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transform: rotate(-6deg); }
+.step h3 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 800; }
+.step p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+/* COMPARISON */
+.cmp-wrap { overflow-x: auto; border-radius: 22px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow); }
+.cmp { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 560px; }
+.cmp th, .cmp td { padding: 0.95rem 1.1rem; text-align: left; border-bottom: 1px solid var(--border); }
+.cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp th { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.cmp td:first-child { font-weight: 700; }
+.cmp .us { background: rgba(31,79,216,0.07); color: var(--brand); font-weight: 700; }
+.cmp-note { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 0.9rem; }
+
+/* GUIDES */
+.guides-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: left; }
+.guide-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.4rem; background: #fff; border: 1px solid var(--border); border-radius: 20px; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s; }
+.guide-card:hover { transform: translateY(-4px); border-color: var(--brand-2); }
+.guide-card strong { font-size: 0.98rem; font-weight: 800; }
+.guide-card p { margin: 0; color: var(--muted); font-size: 0.86rem; }
+.guide-ic { color: var(--brand-2); }
+
+/* FAQ */
+.faq-grid { display: grid; gap: 0.75rem; }
+.faq-item { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 0 1.25rem; transition: border-color 0.2s; }
+.faq-item[open] { border-color: var(--brand-2); box-shadow: var(--shadow); }
+.faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; font-weight: 700; font-size: 0.98rem; }
+.faq-arrow { color: var(--brand-2); display: inline-flex; transition: transform 0.2s; }
+.faq-item[open] .faq-arrow { transform: rotate(180deg); }
+.faq-item p { margin: 0 0 1.1rem; color: var(--muted); line-height: 1.75; font-size: 0.94rem; }
+
+/* FINAL CTA */
+.final { padding: 2rem 1rem 5rem; }
+.final-inner { text-align: center; color: #fff; border-radius: 36px; padding: 4rem 1.5rem; background: radial-gradient(600px 300px at 80% 0%, rgba(232,53,47,0.45), transparent 60%), linear-gradient(150deg, #0b2a6f, #06143a); box-shadow: var(--shadow); }
+.final-inner h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin: 0 0 0.8rem; }
+.final-inner p { color: #c7d4ee; max-width: 560px; margin: 0 auto 1.75rem; }
+.final-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+
+@media (max-width: 960px) {
+  .hero-inner, .cov { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 460px; margin: 0 auto; width: 100%; }
+  .bento { grid-template-columns: 1fr 1fr; }
+  .devices-grid, .guides-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .hero { padding: 7.5rem 1rem 4.5rem; border-radius: 0 0 30px 30px; }
+  .facts-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 0; }
+  .facts-grid div:nth-child(2) { border-right: 0; }
+  .bento, .steps { grid-template-columns: 1fr; }
+  .bt-lg { grid-column: auto; }
+  .guides-grid { grid-template-columns: 1fr; }
+  .f3 { display: none; }
+}
+</style>

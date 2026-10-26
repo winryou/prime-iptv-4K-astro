@@ -1,0 +1,107 @@
+---
+interface Props {
+  name: string;
+  size?: number | string;
+  class?: string;
+  filled?: boolean;
+  title?: string;
+}
+
+const { name, size = 20, class: className = '', filled, title } = Astro.props;
+
+const circle = (cx: number, cy: number, r: number) => `<circle cx="${cx}" cy="${cy}" r="${r}"/>`;
+const rect = (x: number, y: number, w: number, h: number, rx = 0) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"/>`;
+const p = (d: string) => `<path d="${d}"/>`;
+
+const icons: Record<string, { body: string; fill?: boolean }> = {
+  crown: { body: p('M3 7l4.5 4.5L12 4l4.5 7.5L21 7l-2 12H5L3 7z') + p('M5 22h14') },
+  phone: { body: p('M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z') },
+  'map-pin': { body: p('M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z') + circle(12, 10, 3) },
+  mail: { body: rect(2, 4, 20, 16, 2) + p('m22 7-10 6L2 7') },
+  chat: { body: p('M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z') },
+  check: { body: circle(12, 12, 10) + p('m9 12 2 2 4-4') },
+  tick: { body: p('M20 6 9 17l-5-5') },
+  x: { body: p('M18 6 6 18M6 6l12 12') },
+  minus: { body: p('M5 12h14') },
+  gift: { body: rect(3, 8, 18, 4, 1) + p('M12 8v13') + p('M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7') + p('M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5') },
+  tv: { body: rect(2, 7, 20, 15, 2) + p('m17 2-5 5-5-5') },
+  'tv-play': { body: rect(2, 4, 20, 14, 2) + p('M10 8.5v5l4.5-2.5z') + p('M8 21h8') + p('M12 18v3') },
+  stick: { body: rect(2, 8, 15, 8, 2) + p('M17 10h4v4h-4') + circle(6, 12, 1) },
+  box: { body: rect(3, 7, 18, 10, 3) + p('M10.5 12h3') + p('M8 20h8') },
+  settop: { body: rect(2, 8, 20, 9, 2) + p('M6 12.5h5') + p('M17.5 12.5h.01') + p('M6 17v3M18 17v3') },
+  cast: { body: p('M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6') + p('M2 12a9 9 0 0 1 8 8') + p('M2 16a5 5 0 0 1 4 4') + p('M2 20h.01') },
+  smartphone: { body: rect(5, 2, 14, 20, 2) + p('M12 18h.01') },
+  tablet: { body: rect(4, 2, 16, 20, 2) + p('M12 18h.01') },
+  laptop: { body: rect(4, 5, 16, 11, 2) + p('M2 20h20') },
+  film: { body: rect(2, 2, 20, 20, 2.2) + p('M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5') },
+  sparkles: { body: p('M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z') + p('M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z') },
+  gem: { body: p('M6 3h12l4 6-10 13L2 9z') + p('M11 3 8 9l4 13 4-13-3-6') + p('M2 9h20') },
+  link: { body: p('M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7') + p('M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7') },
+  zap: { body: p('M13 2 3 14h9l-1 8 10-12h-9l1-8z') },
+  rocket: { body: p('M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z') + p('M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z') + p('M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0') + p('M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5') },
+  refresh: { body: p('M3 12a9 9 0 0 1 15-6.7L21 8') + p('M21 3v5h-5') + p('M21 12a9 9 0 0 1-15 6.7L3 16') + p('M3 21v-5h5') },
+  headset: { body: p('M3 14v-2a9 9 0 0 1 18 0v2') + p('M21 15a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 15a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2z') + p('M18 17v1a3 3 0 0 1-3 3h-2') },
+  shield: { body: p('M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z') + p('m9 12 2 2 4-4') },
+  users: { body: p('M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2') + circle(9, 7, 4) + p('M23 21v-2a4 4 0 0 0-3-3.9') + p('M16 3.1a4 4 0 0 1 0 7.8') },
+  globe: { body: circle(12, 12, 10) + p('M2 12h20') + p('M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z') },
+  trophy: { body: p('M6 9H4.5a2.5 2.5 0 0 1 0-5H6') + p('M18 9h1.5a2.5 2.5 0 0 0 0-5H18') + p('M4 22h16') + p('M10 14.7V17c0 .6-.5 1-1.1 1.2C7.8 18.7 7 20.2 7 22') + p('M14 14.7V17c0 .6.5 1 1.1 1.2 1.1.5 1.9 2 1.9 3.8') + p('M18 2H6v7a6 6 0 0 0 12 0V2z') },
+  newspaper: { body: p('M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2') + p('M18 14h-8M15 18h-5') + p('M10 6h8v4h-8z') },
+  ticket: { body: p('M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z') + p('M13 5v2M13 11v2M13 17v2') },
+  server: { body: rect(2, 2, 20, 8, 2) + rect(2, 14, 20, 8, 2) + p('M6 6h.01M6 18h.01') },
+  dollar: { body: circle(12, 12, 10) + p('M15 9.5c-.4-1-1.4-1.5-3-1.5-1.7 0-3 .9-3 2.2 0 3 6 1.6 6 4.6 0 1.3-1.3 2.2-3 2.2-1.6 0-2.7-.6-3.2-1.6') + p('M12 6v2M12 16v2') },
+  sliders: { body: p('M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6') },
+  play: { body: p('M6 4l14 8-14 8V4z'), fill: true },
+  chevron: { body: p('m6 9 6 6 6-6') },
+  arrow: { body: p('M5 12h14M12 5l7 7-7 7') },
+  clock: { body: circle(12, 12, 10) + p('M12 6v6l4 2') },
+  card: { body: rect(2, 5, 20, 14, 2) + p('M2 10h20') },
+  file: { body: p('M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z') + p('M14 2v6h6M16 13H8M16 17H8M10 9H8') },
+  lock: { body: rect(3, 11, 18, 11, 2) + p('M7 11V7a5 5 0 0 1 10 0v4') },
+  undo: { body: p('M3 12a9 9 0 1 0 3-6.7L3 8') + p('M3 3v5h5') },
+  copyright: { body: circle(12, 12, 10) + p('M15 9.4a4 4 0 1 0 0 5.2') },
+  book: { body: p('M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z') + p('M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z') },
+  help: { body: circle(12, 12, 10) + p('M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3') + p('M12 17h.01') },
+  flag: { body: p('M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z') + p('M4 22v-7') },
+  compass: { body: circle(12, 12, 10) + p('m16.2 7.8-2 6.4-6.4 2 2-6.4z') },
+  wifi: { body: p('M5 12.55a11 11 0 0 1 14.08 0') + p('M1.42 9a16 16 0 0 1 21.16 0') + p('M8.53 16.11a6 6 0 0 1 6.95 0') + p('M12 20h.01') },
+  briefcase: { body: rect(2, 7, 20, 14, 2) + p('M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16') },
+  calendar: { body: rect(3, 4, 18, 18, 2) + p('M16 2v4M8 2v4M3 10h18') },
+  download: { body: p('M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4') + p('m7 10 5 5 5-5') + p('M12 15V3') },
+  search: { body: circle(11, 11, 8) + p('m21 21-4.3-4.3') },
+  alert: { body: p('M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z') + p('M12 9v4M12 17h.01') },
+  info: { body: circle(12, 12, 10) + p('M12 16v-4M12 8h.01') },
+  bulb: { body: p('M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5') + p('M9 18h6M10 22h4') },
+  list: { body: p('M10 6h11M10 12h11M10 18h11') + p('M4 6h1v4M4 10h2M6 18H4c0-1 2-2 2-3s-1-1.5-2-1') },
+  trend: { body: p('m22 7-8.5 8.5-5-5L2 17') + p('M16 7h6v6') },
+  award: { body: circle(12, 9, 6) + p('M8.2 13.9 7 23l5-3 5 3-1.2-9.1') },
+  family: { body: circle(9, 7, 3) + circle(17, 9, 2.5) + p('M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2') + p('M17 14a3.5 3.5 0 0 1 4 3.5V21') },
+  monitor: { body: rect(2, 3, 20, 14, 2) + p('M8 21h8M12 17v4') },
+  star: { body: p('M12 2.5l3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1z'), fill: true },
+  facebook: { body: p('M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z') },
+  instagram: { body: rect(2, 2, 20, 20, 5) + p('M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z') + p('M17.5 6.5h.01') },
+  xsocial: { body: p('M4 4l11.7 16H20L8.3 4z') + p('M4 20l6.8-6.8M13.2 10.8L20 4') },
+  signal: { body: p('M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4v16') },
+};
+
+const icon = icons[name];
+if (!icon) throw new Error(`Icon "${name}" is not defined in Icon.astro`);
+const isFilled = filled ?? icon.fill ?? false;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width={size}
+  height={size}
+  fill={isFilled ? 'currentColor' : 'none'}
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={`icon icon-${name} ${className}`.trim()}
+  aria-hidden={title ? undefined : 'true'}
+  role={title ? 'img' : undefined}
+  aria-label={title}
+  focusable="false"
+  set:html={(title ? `<title>${title}</title>` : '') + icon.body}
+/>

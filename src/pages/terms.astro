@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Terms of Service | Prime IPTV" description="Prime IPTV Terms of Service: service description, acceptable use, refunds under the 7-day money-back guarantee, availability and cancellation.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <div class="section-label"><Icon name="file" size={14} />Legal</div>
+      <h1 class="section-title">Terms of Service</h1>
+      <p style="color:var(--muted); font-size:0.875rem;">Last updated: October 2026</p>
+      <p>By purchasing and using a Prime IPTV subscription, you agree to the following terms and conditions.</p>
+      <h2>Service</h2>
+      <p>Prime IPTV provides access to streaming content via IPTV technology. You receive login credentials (Server URL, Username, Password) to use with a compatible IPTV player application of your choice.</p>
+      <h2>Acceptable Use</h2>
+      <p>Your subscription is for personal, non-commercial use only. Sharing, reselling, or redistributing your credentials without authorization is not permitted.</p>
+      <h2>Refunds</h2>
+      <p>A 7-day money-back guarantee is available on all subscription plans. Contact support within 7 days of purchase to request a refund.</p>
+      <h2>Service Availability</h2>
+      <p>We strive for 99.9% uptime. Scheduled maintenance or unforeseen technical issues may occasionally affect service availability.</p>
+      <h2>Cancellation</h2>
+      <p>There is no contract. You may cancel your subscription at any time. Active subscription periods are non-refundable except as covered by the 7-day money-back guarantee.</p>
+      <h2>Contact</h2>
+      <p>Questions about these terms? Contact us at <a href="mailto:contactiptv.amelia@gmail.com" style="color:var(--brand);">contactiptv.amelia@gmail.com</a>.</p>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:900; margin:0 0 1rem; }
+  h2 { font-size:1.15rem; font-weight:800; margin:2rem 0 0.75rem; }
+  p { color:var(--muted); line-height:1.75; margin:0 0 1rem; }
+</style>

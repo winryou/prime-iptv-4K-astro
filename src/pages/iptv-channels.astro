@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+
+const faqs = [["Is there an IPTV channels list?", "We do not publish a channel list because lineups change. Request the free 24-hour trial and your player loads the full channel list and categories, so you can check the channels you want before you pay."], ["Which channels does Prime IPTV include?", "Prime IPTV includes more than 25,000 live channels: all Canadian and US channels and channels from other countries. They cover entertainment, news, kids and family, international programming and sports."], ["Does Prime IPTV include Canadian channels?", "Yes. Canadian channels are included, along with Canadian sports."], ["Can I watch channels from other countries?", "Yes. Prime IPTV includes channels from other countries, and the service is available worldwide."], ["Are the channels available in HD and 4K?", "Yes. Channels come in SD, HD, FHD and 4K where the content supports it, and all PPV channels are available in 4K and FHD."], ["How can I check that my channels are included?", "Request the 24-hour free trial (no credit card required) and search for your channels in your player. You can also message us on WhatsApp and ask about a specific channel."], ["Is there a TV guide?", "Yes. An EPG (TV guide) is included. Catch-up depends on the player you use."]];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="IPTV Channels Canada: Canadian, US & World | Prime IPTV" description="Prime IPTV includes all Canadian and US channels and channels from other countries, with sports and PPV in 4K and FHD. See what is included." schema={[faqSchema]}>
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="section-label"><Icon name="tv" size={14} />Channels</div>
+      <h1 class="page-h1">Prime IPTV Channels: Canadian, US and International TV</h1>
+      <div class="prose">
+        <p><strong>Prime IPTV offers 25,000+ live channels, including all Canadian and US channels and channels from other countries.</strong> The lineup covers entertainment, news, kids and family, international programming and sports, alongside a library of 120,000+ movies and series. All PPV channels are available in 4K and FHD.</p>
+
+        <h2>What types of channels are included?</h2>
+        <ul>
+          <li><strong>Canadian channels:</strong> all Canadian channels, including sports channels.</li>
+          <li><strong>Canadian channels:</strong> Canadian channels, including Canadian sports.</li>
+          <li><strong>Channels from other countries:</strong> programming from different regions, for viewers who want TV from home or from around the world.</li>
+          <li><strong>Sports:</strong> Canadian and US sports, and sports from other countries across all major sports packages. See <a href="/iptv-sports-ppv-4k/">sports and PPV in 4K and FHD</a>.</li>
+          <li><strong>PPV channels:</strong> all PPV channels, available in 4K and FHD.</li>
+          <li><strong>Entertainment, news and kids &amp; family:</strong> everyday channels for the whole household.</li>
+          <li><strong>Movies and series on demand:</strong> 120,000+ titles in the VOD library.</li>
+        </ul>
+
+        <h2>Canadian channels</h2>
+        <p>Prime IPTV includes all Canadian channels, so you get the television you would expect from a Canadian package, including entertainment, news, kids and family, and sports, in one subscription instead of several. Quality ranges from SD to 4K depending on the channel.</p>
+
+        <h2>Canadian channels, Canadian sports and a Canadian IPTV subscription</h2>
+        <p>Canadian channels are included, along with Canadian sports. If you are looking for a Canadian IPTV subscription, Prime IPTV is available worldwide, including Canada. That helps viewers in Canada who follow Canadian teams and broadcasts, and it means viewers in Canada can use it too.</p>
+
+        <h2>Channels from other countries</h2>
+        <p>Prime IPTV also includes channels from other countries. That suits anyone who wants programming from another region alongside Canadian and US TV, without paying for a separate subscription for each. Your picture quality still depends on your own internet connection, so check the <a href="/iptv-internet-speed-requirements/">internet speed requirements</a>.</p>
+
+        <h2>Picture quality: SD, HD, FHD and 4K</h2>
+        <p>Channels are available in SD, HD, FHD and 4K where the content supports it, and all PPV channels are in 4K and FHD. As a rough guide, one stream needs about 5 Mbps for SD, 10 Mbps for HD, 15 Mbps for FHD and 25 Mbps or more for 4K. Use a wired connection for 4K where you can.</p>
+
+        <h2>How to find the channels you want</h2>
+        <ol>
+          <li><strong>Browse by category</strong> in your player, for example sports, news, kids or a country&rsquo;s group.</li>
+          <li><strong>Use the TV guide (EPG)</strong> to see what is on now and next across channels.</li>
+          <li><strong>Use search</strong> in your player to jump straight to a channel name.</li>
+          <li><strong>Mark favourites</strong> so the channels you watch most are always at the top.</li>
+        </ol>
+        <p>Not sure which player to use? See the <a href="/blog/best-iptv-players/">player comparison</a> and the <a href="/setup/">device setup guides</a>. Prime IPTV works with all players that accept Xtream Codes or an M3U link.</p>
+
+        <h2>Check your must-have channels before you buy</h2>
+        <p>The surest way to confirm a specific channel is to look for it yourself. Request the <a href="/free-trial/">24-hour free trial</a> and use our <a href="/blog/iptv-free-trial-checklist/">trial checklist</a>, or message us on <a href="https://wa.me/14062356618" target="_blank" rel="noopener">WhatsApp</a> and ask about a particular channel.</p>
+      </div>
+
+      <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> Check it on your own device</h3>
+        <p>Try Prime IPTV free for 24 hours. No credit card required, and the trial details come by WhatsApp or email.</p>
+        <div class="cta-row">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="/pricing/" class="btn-outline">View Pricing<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .page-h1 { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 1.5rem; }
+  .faq-h { display:flex; align-items:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+</style>

@@ -1,0 +1,190 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { cities, getCity, frName } from '../../data/cities';
+import { citiesFr } from '../../data/cities-fr';
+import { prices } from '../../data/pricing';
+const provFr: Record<string, string> = { Ontario: 'Ontario', Quebec: 'Québec', 'British Columbia': 'Colombie-Britannique', Alberta: 'Alberta', Manitoba: 'Manitoba', 'Nova Scotia': 'Nouvelle-Écosse' };
+
+export function getStaticPaths() {
+  return cities.map((c) => ({ params: { city: c.slug }, props: { slug: c.slug } }));
+}
+const base = getCity(Astro.props.slug);
+const city = { ...base, ...citiesFr[base.slug], extra: citiesFr[base.slug]?.extra, name: frName(base), province: provFr[base.province] ?? base.province };
+const cn = base.slug === 'cote-nord';
+const at = cn ? 'sur la Côte-Nord' : `à ${city.name}`;
+const of = cn ? 'de la Côte-Nord' : `de ${city.name}`;
+const money = (n: number) => String(n).replace('.', ',') + ' $';
+const SITE = 'https://primeiptv4k.ca';
+const wa = `https://wa.me/14062356618?text=${encodeURIComponent(`Bonjour Prime IPTV, j’habite ${at} et je voudrais un essai gratuit.`)}`;
+const faqs = [
+  ...city.faqs,
+  [`Y a-t-il un essai gratuit pour les spectateurs ${of}?`, 'Oui. L’essai gratuit de 24 heures ne demande pas de carte de crédit. Écrivez-nous sur WhatsApp ou par courriel et nous vous envoyons les détails.'],
+  [`Combien coûte l’IPTV ${at}?`, `Les forfaits Prime IPTV commencent à ${money(prices[1][3])} pour 3 mois avec 1 connexion, et vous pouvez choisir de 1 à 4 connexions et 3, 6, 12 ou 24 mois. Consultez la page des tarifs pour tous les forfaits.`],
+] as [string, string][];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Prime IPTV in ${city.name}`,
+  serviceType: 'Abonnement IPTV',
+  provider: { '@type': 'Organization', name: 'Prime IPTV', url: `${SITE}/` },
+  areaServed: { '@type': 'City', name: city.name, containedInPlace: { '@type': 'AdministrativeArea', name: city.province } },
+  url: `${SITE}/fr/iptv-${city.slug}/`,
+};
+const others = cities.filter((c) => c.slug !== city.slug);
+---
+
+<Layout
+  title={city.frTitle ?? `IPTV ${city.name} : abonnement Prime IPTV, 25 000+ chaînes`}
+  description={city.frMeta ?? `Prime IPTV ${at}, ${city.province} : plus de 25 000 chaînes en direct, sports, PPV et plus de 120 000 films et séries. Essai gratuit de 24 heures, sans carte de crédit.`}
+  crumb={`IPTV ${city.name}`}
+  schema={[faqSchema, service]}
+>
+  <Header slot="header" />
+
+  <section class="chero">
+    <div class="container">
+      <div class="crumbs"><a href="/fr/">Accueil</a> / <a href="/fr/#villes">Villes</a> / {city.name}</div>
+      <h1>{city.frH1 ?? `IPTV ${city.name} : Prime IPTV pour les spectateurs ${of}`}</h1>
+      <p class="lede">{city.tagline}. Plus de 25 000 chaînes en direct, plus de 120 000 films et séries, sports et PPV, sur votre propre connexion Internet.</p>
+      <div class="cta">
+        <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a>
+        <a href={wa} class="btn-ghost" target="_blank" rel="noopener"><Icon name="chat" size={16} /> Écrivez-nous sur WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Qu’est-ce que Prime IPTV {at}?</h2>
+      <p class="body">{city.intro}</p>
+      <h2 class="section-title" style="text-align:left; margin-top:2.5rem;">Pourquoi l’IPTV convient à la vie {at}</h2>
+      <p class="body">{city.lifestyle}</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Où nous servons {at} et aux alentours</h2>
+      <p class="body">Prime IPTV fonctionne partout en {city.province} avec une connexion Internet stable. Les spectateurs de ces secteurs l’utilisent tous les jours :</p>
+      <div class="chips">{city.areas.map((a) => <span>{a}</span>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Des chaînes pour les foyers {of}</h2>
+      <p class="body">{city.communities}</p>
+      <p class="body"><a href="/fr/chaines/">Voir ce que comprend l’offre Prime IPTV</a>.</p>
+      <h2 class="section-title" style="text-align:left; margin-top:2.5rem;">Sports et PPV {at}</h2>
+      <p class="body">{city.sports}</p>
+      <p class="body"><a href="/fr/sports-ppv-4k/">En savoir plus sur les sports et le PPV en 4K</a>.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">L’IPTV fonctionnera-t-il bien sur Internet {at}?</h2>
+      <p class="body">{city.internet}</p>
+      <p class="body">Lisez le <a href="/fr/vitesse-internet-iptv/">guide des vitesses requises</a> ou la <a href="/fr/blogue/iptv-buffering-troubleshooting/">liste de vérification de la mise en mémoire tampon</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Comment commencer {at}</h2>
+      <ol class="steps">
+        <li><strong>Demandez l’essai gratuit.</strong> Écrivez-nous sur WhatsApp ou par courriel. Aucune carte de crédit.</li>
+        <li><strong>Installez une application de lecture.</strong> Suivez le <a href="/fr/installation/">guide d’installation</a> pour votre téléviseur, votre Firestick, votre téléphone ou votre ordinateur.</li>
+        <li><strong>Ajoutez votre identifiant et testez.</strong> Vérifiez vos chaînes, un match en direct aux heures de pointe et la vidéothèque.</li>
+        <li><strong>Choisissez un forfait.</strong> Sélectionnez de 1 à 4 connexions et de 3 à 24 mois sur la <a href="/fr/tarifs/">page des tarifs</a>. Il n’y a aucun contrat et une garantie de remboursement de 7 jours s’applique.</li>
+      </ol>
+    </div>
+  </section>
+
+  {city.extra && (
+    <section class="section alt">
+      <div class="container narrow">
+        {city.extra.map((x) => (<><h2 class="section-title" style="text-align:left; margin-top:1.5rem;">{x.title}</h2><p class="body">{x.text}</p></>))}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Guides utiles pour les spectateurs {of}</h2>
+      <ul class="steps">
+        <li><a href="/fr/blogue/iptv-cost-canada/">Coût de l’IPTV au Canada</a></li>
+        <li><a href="/fr/blogue/is-iptv-legal-in-canada/">L’IPTV est-il légal au Canada?</a></li>
+        <li><a href="/fr/blogue/iptv-vs-cable-canada/">IPTV ou câble au Canada</a></li>
+        <li><a href="/fr/blogue/iptv-box-canada/">Boîtier IPTV au Canada : en faut-il un?</a></li>
+        <li><a href="/fr/meilleur-service-iptv-canada/">Meilleur IPTV au Canada : liste de 8 critères</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">IPTV {city.name} : vos questions, nos réponses</h2>
+      <div class="faq-grid">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="faq-arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="section-title">Essayez l’IPTV {at} gratuitement, sur votre propre connexion</h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Testez les chaînes, l’image et la vitesse sur votre propre téléviseur avant de payer quoi que ce soit.</p>
+      <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Commencer mon essai gratuit</a>
+      <h3 class="more">Prime IPTV dans d’autres villes canadiennes</h3>
+      <div class="chips center">
+        {others.map((c) => <a href={`/fr/iptv-${c.slug}/`}>IPTV {frName(c)}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .container.narrow { max-width: 780px; }
+  .section.alt { background: var(--bg-2); }
+  .chero { margin-top: -4.6rem; padding: 8.5rem 1rem 3.5rem; color: #fff; border-radius: 0 0 36px 36px;
+    background: radial-gradient(700px 360px at 90% 0%, rgba(79,123,234,0.5), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(232,53,47,0.35), transparent 60%), linear-gradient(160deg, #06143a, #0b2a6f 60%, #12388f); }
+  .crumbs { font-size: 0.82rem; color: #b9c9ec; margin-bottom: 1rem; }
+  .crumbs a { color: #fff; text-decoration: none; }
+  .chero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.1; font-weight: 800; margin: 0 0 1rem; max-width: 760px; }
+  .lede { color: #d3def6; font-size: 1.08rem; max-width: 640px; margin: 0 0 1.5rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.6rem; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+  .body { color: var(--muted); line-height: 1.85; margin: 0 0 1rem; }
+  .body a, .steps a { color: var(--brand-2); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .chips.center { justify-content: center; }
+  .chips span, .chips a { background: #fff; border: 1px solid var(--border); color: var(--brand); font-weight: 700; font-size: 0.85rem; padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; }
+  .chips a:hover { background: var(--brand); color: #fff; }
+  .steps { color: var(--muted); line-height: 1.8; padding-left: 1.3rem; display: grid; gap: 0.7rem; }
+  .steps strong { color: var(--text); }
+  .more { margin: 2.5rem 0 0.5rem; font-size: 1rem; font-weight: 800; }
+  .faq-grid { display: grid; gap: 0.75rem; margin-top: 1rem; }
+  .faq-item { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 0 1.25rem; }
+  .faq-item[open] { border-color: var(--brand-2); box-shadow: var(--shadow); }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; font-weight: 700; font-size: 0.98rem; }
+  .faq-arrow { color: var(--brand-2); display: inline-flex; transition: transform 0.2s; }
+  .faq-item[open] .faq-arrow { transform: rotate(180deg); }
+  .faq-item p { margin: 0 0 1.1rem; color: var(--muted); line-height: 1.75; font-size: 0.94rem; }
+</style>

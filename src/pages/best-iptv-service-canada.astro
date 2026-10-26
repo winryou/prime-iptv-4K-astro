@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../data/pricing';
+const money = (n: number) => `$${n.toFixed(2)}`;
+
+const faqs = [["What is the best IPTV service in Canada?", "The best service is the one that has your channels, plays well on your devices, offers a free trial and is open about price, refunds and support. Prime IPTV has 25,000+ live channels, 120,000+ movies and series, 4K, a 24-hour free trial with no credit card and a 7-day money-back guarantee."], ["How do I choose an IPTV provider?", "Use the 8-point checklist on this page: channels, quality and PPV, free trial, devices and players, pricing, refund and contract, support, and track record. Then test your must-have channels during a trial."], ["Is a free trial important when choosing an IPTV service?", "Yes. A trial lets you check channels, picture quality, the TV guide and support on your own device and connection before you pay."], ["What should I look for in IPTV pricing?", "Published prices for each plan length, a clear number of connections, any bonus months, and a refund policy. Prime IPTV publishes all its prices and offers a 7-day money-back guarantee."], ["Do I need a contract for IPTV?", "Not with Prime IPTV. There is no contract, and cancellation is available."], ["Which devices does Prime IPTV support?", "Prime IPTV works with all players that accept Xtream Codes or an M3U link, on Smart TVs, Fire TV / Firestick, Android TV, Apple TV, Roku, phones, tablets and computers, and with MAG boxes."]];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="Best IPTV Canada: 8-Point Checklist | Prime IPTV" description="Best IPTV Canada: how to choose the best IPTV service in Canada: an 8-point checklist on channels, 4K, free trial, devices, pricing, refunds and support." schema={[faqSchema]} >
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="section-label"><Icon name="award" size={14} />Buyer’s Guide</div>
+      <h1 class="page-h1">Best IPTV Canada: An 8-Point Buyer’s Checklist for Choosing a Service</h1>
+      <div class="prose">
+        <p><strong>The best IPTV service for Canada is one that carries the channels you actually watch, plays smoothly on your devices, lets you test before you pay, and is open about price, refunds and support.</strong> Use this 8-point checklist to compare any IPTV provider, and see how Prime IPTV measures up.</p>
+
+        <h2>The 8-point checklist for finding the best IPTV in Canada</h2>
+        <ol>
+          <li><strong>The channels you actually watch.</strong> List your must-have channels and sports, including any from other countries, and check them, ideally in a trial.</li>
+          <li><strong>Picture quality and PPV.</strong> Look for SD, HD, FHD and 4K, and check whether PPV channels are included and in what quality.</li>
+          <li><strong>A free trial without a card.</strong> A trial lets you test on your own device and connection at no risk.</li>
+          <li><strong>Works on your devices and players.</strong> Check Firestick, Smart TV, Android TV, Apple TV, phones and MAG boxes, and which player logins (Xtream Codes, M3U) are supported.</li>
+          <li><strong>Clear pricing and connections.</strong> Prices, plan lengths and the number of simultaneous screens should be published, not hidden.</li>
+          <li><strong>Refund and contract terms.</strong> Look for a money-back guarantee, no contract, and a simple way to cancel.</li>
+          <li><strong>Support when you need it.</strong> Check the hours, the channels (WhatsApp, email, phone) and how fast they reply during your trial.</li>
+          <li><strong>Track record and transparency.</strong> Look for how long the business has operated and whether it publishes contact details and policies.</li>
+        </ol>
+
+        <h2>How Prime IPTV measures up</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Checklist item</th><th>Prime IPTV</th></tr></thead>
+            <tbody>
+              <tr><td>1. Channels</td><td>25,000+ live channels (all Canadian and US channels and channels from other countries) plus 120,000+ movies and series. <a href="/iptv-channels/">See the channel guide</a>.</td></tr>
+              <tr><td>2. Quality and PPV</td><td>SD, HD, FHD and 4K; all PPV channels in 4K and FHD. <a href="/4k-iptv/">4K IPTV guide</a> &middot; <a href="/iptv-sports-ppv-4k/">sports and PPV</a>.</td></tr>
+              <tr><td>3. Free trial</td><td>24 hours, no credit card required, delivered by WhatsApp or email. <a href="/free-trial/">Request it</a>.</td></tr>
+              <tr><td>4. Devices and players</td><td>Works with all players that accept Xtream Codes or an M3U link (IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV, NET IPTV) and with MAG boxes. <a href="/setup/">Device guides</a>.</td></tr>
+              <tr><td>5. Pricing</td><td>Published from $34.99 for 3 months; 1 to 4 connections; +1 month free on 6 and 12-month plans and +2 on 24-month plans. <a href="/pricing/">See all prices</a>.</td></tr>
+              <tr><td>6. Refund and contract</td><td>7-day money-back guarantee; no contract; cancellation available. <a href="/refund/">Refund policy</a>.</td></tr>
+              <tr><td>7. Support</td><td>24/7 by WhatsApp and email, plus phone: +1 (406) 235-6618.</td></tr>
+              <tr><td>8. Track record</td><td>Phone, email and business address published; terms, privacy, refund and DMCA pages. <a href="/about/">About Prime IPTV</a>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>We built Prime IPTV for viewers in Canada, and this checklist is how you can judge it for yourself, with a free trial and a 7-day money-back guarantee behind it.</p>
+
+        <h2>Questions to ask any IPTV provider before you pay</h2>
+        <ul>
+          <li>Can I try it first, and do I need a credit card for the trial?</li>
+          <li>How many simultaneous connections does each plan include?</li>
+          <li>What is the refund policy and how do I request a refund?</li>
+          <li>How quickly will I get my login after paying, and how is it delivered?</li>
+          <li>Which devices and players are supported, and who helps me set them up?</li>
+          <li>How do I reach support, and when is it available?</li>
+        </ul>
+
+        <h2>Best IPTV for different needs</h2>
+        <ul>
+          <li><strong>Sports fans:</strong> test a live game at peak time. See <a href="/iptv-sports-ppv-4k/">sports and PPV on Prime IPTV</a>.</li>
+          <li><strong>4K viewers:</strong> check the TV, device and speed. See the <a href="/4k-iptv/">4K IPTV guide</a>.</li>
+          <li><strong>Firestick users:</strong> see the <a href="/setup/firestick/">Firestick setup guide</a>.</li>
+          <li><strong>Households with several screens:</strong> use the <a href="/blog/how-many-iptv-connections-do-i-need/">connection chooser</a>.</li>
+          <li><strong>Anyone unsure:</strong> use the <a href="/blog/iptv-free-trial-checklist/">24-hour free-trial checklist</a>.</li>
+        </ul>
+      </div>
+
+      <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> Judge it for yourself</h3>
+        <p>Test Prime IPTV free for 24 hours with no credit card, then compare plans.</p>
+        <div class="cta-row">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="/pricing/" class="btn-outline">View Plans<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .page-h1 { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 1.5rem; }
+  .faq-h { display:flex; align-items:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+</style>

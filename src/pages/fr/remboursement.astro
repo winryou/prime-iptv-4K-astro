@@ -1,0 +1,20 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const wa = 'https://wa.me/14062356618?text=' + encodeURIComponent('Bonjour Prime IPTV, je voudrais demander un remboursement.');
+---
+<ContentPage title="Politique de remboursement : garantie de 7 jours | Prime IPTV" description="Prime IPTV offre une garantie de remboursement de 7 jours sur tous les forfaits. Voyez comment demander un remboursement par WhatsApp ou par courriel." label="Remboursement" icon="undo" h1="Garantie de remboursement de 7 jours">
+  <p>Nous sommes sûrs de la qualité de notre service. Si vous n’êtes pas satisfait pendant les 7 premiers jours de votre abonnement, notre garantie de remboursement de 7 jours s’applique.</p>
+  <h2>Comment demander un remboursement</h2>
+  <ol>
+    <li>Communiquez avec notre équipe de soutien dans les 7 jours suivant votre achat.</li>
+    <li>Indiquez le courriel de votre abonnement et les détails de votre commande.</li>
+    <li>Nous traiterons votre remboursement rapidement.</li>
+  </ol>
+  <div class="btns"><a href={wa} class="btn-primary" target="_blank" rel="noopener"><Icon name="chat" size={18} /> Écrire sur WhatsApp</a><a href="mailto:contactiptv.amelia@gmail.com" class="btn-outline"><Icon name="mail" size={18} /> Écrire par courriel</a></div>
+  <h2>Quoi inclure dans votre demande</h2>
+  <p>Pour accélérer les choses, indiquez le courriel ou le numéro WhatsApp utilisé pour la commande, le forfait acheté (connexions et durée) et la date d’achat. Si vous avez un problème technique plutôt que de vouloir un remboursement, consultez le <a href="/fr/aide/">centre d’aide</a>.</p>
+  <h2>Avant d’acheter</h2>
+  <p>Vous n’êtes pas certain que Prime IPTV convient à votre appareil et à votre connexion? Testez d’abord avec l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a> (sans carte de crédit). Comparez les forfaits sur la <a href="/fr/tarifs/">page des tarifs</a>.</p>
+  <p class="updated">Les remboursements s’appliquent aux frais d’abonnement payés. La période d’essai gratuit n’est pas admissible à un remboursement, car aucun frais n’est exigé pendant l’essai.</p>
+</ContentPage>

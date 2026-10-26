@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+
+const iconFor: Record<string, string> = { '25,000+ Live Channels': 'tv', '120,000+ Movies & Series': 'film', '4K Streaming': 'gem', 'Sports & PPV': 'trophy', 'EPG': 'calendar', 'Multiple Connections': 'link', '24/7 Support': 'headset', 'No Contract': 'file' };
+---
+<Layout title="About Prime IPTV: Premium IPTV Service Canada" description="Learn about Prime IPTV, a premium IPTV subscription service built for viewers in Canada.">
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-label"><Icon name="users" size={14} />About Us</div>
+      <h1 class="section-title">About Prime IPTV</h1>
+      <p><strong style="color:var(--text);">Prime IPTV</strong> (primeiptv4k.ca) is an IPTV <em>subscription service</em> for viewers in Canada, also available worldwide. It is not a player app: you subscribe to Prime IPTV and watch through any compatible IPTV player on your own device. <a href="/blog/iptv-service-vs-iptv-player-app/" style="color:var(--brand);">Learn the difference between an IPTV service and a player app</a>.</p>
+      <p>Prime IPTV is an IPTV subscription service built for viewers in Canada.</p>
+      <p>Prime IPTV brings live TV, sports, PPV, movies, series, VOD and 4K streaming to viewers in Canada, with flexible subscription options and round-the-clock customer support.</p>
+      <p>Our goal is simple: an easy, flexible way to watch on compatible devices, with no contracts, no complications and none of the limits of traditional cable TV.</p>
+      <h2>What We Offer</h2>
+      <div class="offer-grid">
+        {[
+          ['25,000+ Live Channels', 'Entertainment, sports, news, international, kids, and more.'],
+          ['120,000+ Movies & Series', 'A large on-demand library of movies and series.'],
+          ['4K Streaming', 'SD, HD, FHD, and 4K quality for supported content and devices.'],
+          ['Sports & PPV', 'Major sports packages and PPV events.'],
+          ['EPG', 'Electronic Program Guide included with all plans.'],
+          ['Multiple Connections', 'Plans available with 1 to 4 simultaneous connections.'],
+          ['24/7 Support', 'Customer support available via WhatsApp and email.'],
+          ['No Contract', 'Cancel anytime. No commitment required.'],
+        ].map(([title, desc]) => (
+          <div class="offer-item">
+            <strong><Icon name={iconFor[title] ?? 'check'} size={16} class="ic-accent" /> {title}</strong>
+            <span>{desc}</span>
+          </div>
+        ))}
+      </div>
+      <h2>Contact</h2>
+      <p><Icon name="phone" size={16} class="ic-accent" /> <a href="tel:+14062356618" style="color:var(--brand);">+1 (406) 235-6618</a> · <Icon name="mail" size={18} /> <a href="mailto:contactiptv.amelia@gmail.com" style="color:var(--brand);">contactiptv.amelia@gmail.com</a><br /><Icon name="map-pin" size={16} class="ic-accent" /> 4793 County Rd 772B, Webster, FL 33597, USA</p>
+      <h2>How Prime IPTV works</h2>
+      <ol class="how">
+        <li><strong>Try or choose.</strong> Request the <a href="/free-trial/">24-hour free trial</a> (no credit card) or pick a <a href="/pricing/">plan</a> with 1 to 4 connections.</li>
+        <li><strong>Receive your login.</strong> Your login details are sent by WhatsApp or email. For a paid plan, that is normally within minutes after payment.</li>
+        <li><strong>Add it to a player.</strong> Install a compatible IPTV player and enter your login using our <a href="/setup/">device guides</a>.</li>
+      </ol>
+      <p>New to IPTV? Start with <a href="/blog/what-is-iptv/">what IPTV is</a>, then see how to <a href="/blog/how-many-iptv-connections-do-i-need/">choose the right number of connections</a>.</p>
+
+      <h2>Prime IPTV at a glance</h2>
+      <div class="glance">
+        <div><span>Live channels</span><strong>25,000+</strong></div>
+        <div><span>Movies &amp; series (VOD)</span><strong>120,000+</strong></div>
+        <div><span>Quality</span><strong>SD / HD / FHD / 4K</strong></div>
+        <div><span>Connections</span><strong>1 to 4</strong></div>
+        <div><span>Free trial</span><strong>24 hours, no credit card</strong></div>
+        <div><span>Money-back guarantee</span><strong>7 days</strong></div>
+        <div><span>Contract</span><strong>None</strong></div>
+        <div><span>Payment</span><strong>Credit / debit card</strong></div>
+        <div><span>Activation</span><strong>Within minutes after payment</strong></div>
+        <div><span>Support</span><strong>24/7</strong></div>
+        <div><span>Availability</span><strong>Canada and worldwide</strong></div>
+        <div><span>Built for</span><strong>Viewers across Canada</strong></div>
+        <div><span>Channels</span><strong>Canadian, US &amp; other countries</strong></div>
+        <div><span>PPV</span><strong>All channels in 4K &amp; FHD</strong></div>
+        <div><span>Uptime</span><strong>99.9%</strong></div>
+      </div>
+
+      <h2>Who Prime IPTV is for</h2>
+      <p>Prime IPTV is for viewers in Canada (and worldwide) who want a large live and on-demand lineup on devices they already own. That includes people moving away from cable or satellite, sports fans, households with several screens, and movie and series fans. Read <a href="/#who-is-it-for">who it fits best</a> or compare it with cable in <a href="/blog/iptv-vs-cable/">IPTV vs cable TV</a>.</p>
+
+      <h2>How support works</h2>
+      <p>Support is available 24/7 by WhatsApp and email, and by phone at +1 (406) 235-6618. When you contact us about a problem, tell us your device and player app, the channel name, the time it happened and what you see. Many issues are quick to fix with our <a href="/blog/iptv-buffering-troubleshooting/">buffering and login checklist</a> or the <a href="/setup/">device setup guides</a>.</p>
+
+      <h2>Follow Prime IPTV</h2>
+
+      <h2>Be sure before you buy</h2>
+      <p>We would rather you test than guess. The <a href="/free-trial/">24-hour free trial</a> needs no credit card, our <a href="/blog/iptv-free-trial-checklist/">trial checklist</a> shows what to check, prices are published openly on the <a href="/pricing/">pricing page</a>, and every subscription is covered by a 7-day money-back guarantee. Read the <a href="/refund/">refund policy</a>, <a href="/terms/">terms</a> and <a href="/privacy/">privacy policy</a> before you decide.</p>
+
+      <h2>Our Commitment</h2>
+      <p>We aim to deliver a high-quality IPTV service with reliable uptime (99.9%), fast activation and responsive support. You can start with the 24-hour free trial, and every subscription comes with a 7-day money-back guarantee, so you can try Prime IPTV with confidence.</p>
+      <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="/free-trial/" class="btn-primary">Start Free Trial</a>
+        <a href="/pricing/" class="btn-outline">View Plans<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+<style>
+  h1 { font-size:clamp(1.75rem,4vw,2.5rem); font-weight:900; margin:0 0 1.5rem; }
+  h2 { font-size:1.25rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .glance { display:grid; grid-template-columns:repeat(2,1fr); gap:0.6rem; margin:0 0 1rem; }
+  .glance div { display:flex; justify-content:space-between; gap:1rem; background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:0.7rem 1rem; font-size:0.88rem; }
+  .glance span { color:var(--muted); }
+  .glance strong { color:var(--text); text-align:right; }
+  @media (max-width:600px) { .glance { grid-template-columns:1fr; } }
+  .how { color:var(--muted); padding-left:1.4rem; margin:0 0 1rem; display:flex; flex-direction:column; gap:0.5rem; line-height:1.7; }
+  .how a, p a { color:var(--brand); font-weight:600; }
+  p { color:var(--muted); line-height:1.75; margin:0 0 1rem; }
+  .offer-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+  .offer-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:1rem 1.25rem; display:flex; flex-direction:column; gap:0.3rem; }
+  .offer-item strong { font-size:0.9rem; color:var(--text); }
+  .offer-item span { font-size:0.82rem; color:var(--muted); }
+  @media (max-width:600px) { .offer-grid { grid-template-columns:1fr; } }
+</style>

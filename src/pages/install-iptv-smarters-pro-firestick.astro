@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../data/pricing';
+const money = (n: number) => `$${n.toFixed(2)}`;
+
+const faqs = [["Is IPTV Smarters Pro in the Amazon Appstore?", "No. IPTV Smarters Pro is not listed in the Amazon Appstore. On a Firestick it is installed with the free Downloader app from the player’s official website."], ["Do I need Downloader to install IPTV Smarters Pro on Firestick?", "Yes, in the usual method. Install Downloader from the Appstore, allow it to install unknown apps in Developer options, then use it to install the player from the official source."], ["Which login do I use in IPTV Smarters Pro?", "Use the Xtream Codes login with the server URL, username and password we send you by WhatsApp or email."], ["Why is IPTV Smarters Pro not working on my Firestick?", "Check your login details for typos or extra spaces, check your internet connection, and restart the app and the Firestick. If it still fails, clear the app cache or reinstall it, or contact support."], ["Does this work on a Fire TV Stick 4K?", "Yes. The steps are the same on any Fire TV Stick, including the Fire TV Stick 4K, which can play 4K streams on a 4K TV with a stable connection."], ["Can I test it before I pay?", "Yes. Prime IPTV has a 24-hour free trial with no credit card, and we send the details by WhatsApp or email, so you can test IPTV Smarters Pro on your Firestick first."]];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<Layout title="IPTV on Firestick: Install IPTV Smarters Pro (Step-by-Step)" description="How to install IPTV Smarters Pro on Firestick with Downloader and add your Prime IPTV Xtream Codes login. Includes fixes if it is not working." schema={[faqSchema]} >
+  <Header slot="header" />
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="section-label"><Icon name="stick" size={14} />Firestick</div>
+      <h1 class="page-h1">How to Install IPTV Smarters Pro on Firestick</h1>
+      <div class="prose">
+        <p>This guide shows IPTV on Firestick with IPTV Smarters Pro. <strong>IPTV Smarters Pro is not listed in the Amazon Appstore, so you install it on a Firestick with the free Downloader app.</strong> Once it is installed, you add your Prime IPTV login with the Xtream Codes option. This page walks you through every step.</p>
+
+        <h2>What you need</h2>
+        <ul>
+          <li>An Amazon Fire TV Stick (including Fire TV Stick 4K) or Fire TV device connected to the internet.</li>
+          <li>The free <strong>Downloader</strong> app from the Amazon Appstore.</li>
+          <li>The <strong>official download link</strong> for IPTV Smarters Pro from the app&rsquo;s official website. Only install apps from official sources.</li>
+          <li>Your Prime IPTV login (server URL, username and password). <a href="/free-trial/">Request the 24-hour free trial</a> if you do not have one yet.</li>
+        </ul>
+
+        <h2>How to install IPTV Smarters Pro on Firestick</h2>
+        <ol>
+          <li><strong>Install Downloader.</strong> On the Fire TV home screen choose <strong>Find &rarr; Search</strong>, search for <strong>Downloader</strong> and select <strong>Get</strong>.</li>
+          <li><strong>Allow Downloader to install apps.</strong> Go to <strong>Settings &rarr; My Fire TV &rarr; Developer options</strong> and switch <strong>Install unknown apps</strong> (or <strong>Apps from Unknown Sources</strong>) on for Downloader. If Developer options is missing, open <strong>Settings &rarr; My Fire TV &rarr; About</strong> and select your device name seven times. Menu names vary a little by Fire OS version.</li>
+          <li><strong>Download IPTV Smarters Pro.</strong> Open Downloader, enter the official download link for IPTV Smarters Pro and select <strong>Go</strong>. When the download finishes, choose <strong>Install</strong>.</li>
+          <li><strong>Clean up.</strong> After installing, delete the installer file when Downloader offers to, to save storage.</li>
+          <li><strong>Open IPTV Smarters Pro</strong> and accept any prompts.</li>
+        </ol>
+
+        <h2>Add your Prime IPTV login in IPTV Smarters Pro</h2>
+        <ol>
+          <li>Choose <strong>Add New User</strong>, then <strong>Login with Xtream Codes API</strong>.</li>
+          <li>Enter any name, then your <strong>username, password and server URL</strong> from your WhatsApp or email message. Use the Fire TV phone app as a keyboard, or copy and paste, to avoid typos.</li>
+          <li>Select <strong>Add User</strong> and wait while the channels, movies and series load.</li>
+          <li>Open <strong>Live TV</strong>, <strong>Movies</strong> or <strong>Series</strong> and start watching.</li>
+        </ol>
+
+        <h2>IPTV Smarters Pro not working on Firestick: fixes</h2>
+        <ul>
+          <li><strong>Login fails:</strong> re-enter the details carefully, with no leading or trailing spaces and the correct server URL. Use the Xtream Codes login (not M3U) unless we sent you a playlist link.</li>
+          <li><strong>Channels do not load:</strong> check your internet connection, then restart the app and the Firestick.</li>
+          <li><strong>Buffering:</strong> use Ethernet if you can, and see our <a href="/blog/iptv-buffering-troubleshooting/">buffering and login guide</a>.</li>
+          <li><strong>App crashes or lags:</strong> clear the app&rsquo;s cache in the Fire TV application settings, free up storage, or reinstall it.</li>
+          <li><strong>Downloader will not install it:</strong> make sure Install unknown apps is on for Downloader and that you used the official download link.</li>
+        </ul>
+
+        <h2>Best IPTV for Firestick: prefer a different player?</h2>
+        <p>Prime IPTV works with <strong>all players that accept Xtream Codes or an M3U link</strong>. TiviMate is a popular alternative on Fire TV and is installed the same way. See the full <a href="/setup/firestick/">Firestick setup guide</a> or compare apps in the <a href="/blog/best-iptv-players/">player comparison</a>. New to the difference between the app and the subscription? Read <a href="/iptv-smarters-pro-subscription/">IPTV Smarters Pro subscription: what you need</a>.</p>
+      </div>
+
+      <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
+      <div class="faq-list">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-box">
+        <h3><Icon name="sparkles" size={20} class="ic-accent" /> Need a login to add?</h3>
+        <p>Request the 24-hour free trial with no credit card, and get your login by WhatsApp or email.</p>
+        <div class="cta-row">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="/pricing/" class="btn-outline">View Plans<Icon name="arrow" size={16} /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .page-h1 { font-size:clamp(1.75rem,4vw,2.4rem); font-weight:900; line-height:1.2; margin:0 0 1.5rem; }
+  .faq-h { display:flex; align-items:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:2.5rem 0 1rem; }
+  .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+  .cta-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-top:2.5rem; text-align:center; }
+  .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
+  .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
+  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+</style>

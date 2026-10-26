@@ -1,0 +1,75 @@
+---
+import Icon from './Icon.astro';
+import { connectionTabs, buildPlans, features, planUrl } from '../data/pricing';
+import { isFr } from '../data/i18n';
+const fr = isFr(Astro.url.pathname);
+const frFeatures = ['25 000+ chaînes en direct', '120 000+ films et séries', 'SD / HD / FHD / 4K', 'Guide EPG', 'Sports et PPV', 'Soutien 24/7'];
+const month = (n: number) => (n === 1 ? 'mois' : 'mois');
+---
+
+<div class="device-tabs">
+  {connectionTabs.map((n, i) => (
+    <button class={`dtab${i === 0 ? ' active' : ''}`} data-tab={n}>{n} {fr ? (n === 1 ? 'connexion' : 'connexions') : (n === 1 ? 'Connection' : 'Connections')}</button>
+  ))}
+</div>
+
+{connectionTabs.map((n, i) => (
+  <div class={`pricing-grid tab-panel${i === 0 ? '' : ' hidden'}`} id={`tab-${n}`}>
+    {buildPlans(n).map((p) => (
+      <div class={`pricing-card${p.popular ? ' featured' : ''}`}>
+        {p.popular && <div class="badge-popular">{fr ? `Le plus populaire · Économisez ${p.savePct} %` : (p.savePct > 0 ? `Most Popular · Save ${p.savePct}%` : 'Most Popular')}</div>}
+        {!p.popular && p.savePct > 0 && <div class={p.bestValue ? 'badge-save badge-best' : 'badge-save'}>{fr ? (p.bestValue ? `Meilleure valeur · Économisez ${p.savePct} %` : `Économisez ${p.savePct} %`) : (p.bestValue ? `Best Value Offer · Save ${p.savePct}%` : `Save ${p.savePct}%`)}</div>}
+        <div class="plan-name">{fr ? ({ Starter: 'Débutant', Standard: 'Standard', Popular: 'Populaire', Premium: 'Premium' } as Record<string, string>)[p.name] : p.name}</div>
+        <div class="plan-duration">{p.months} {fr ? 'mois' : 'Months'}</div>
+        <div class="plan-price">{fr ? `${p.price.replace('.', ',')} $` : `$${p.price}`}</div>
+        <div class="plan-per">{fr ? `${p.perMonth.replace('.', ',')} $ / mois` : `$${p.perMonth} / mo`}</div>
+        <ul class="plan-features">
+          <li><Icon name="check" size={16} class="ic-check" /> {n} {fr ? (n === 1 ? 'connexion' : 'connexions') : (n === 1 ? 'Connection' : 'Connections')}</li>
+          {(fr ? frFeatures : features).map((f) => <li><Icon name="check" size={16} class="ic-check" /> {f}</li>)}
+          {p.bonus > 0 && <li><Icon name="gift" size={16} class="ic-accent" /> +{p.bonus} {fr ? 'mois gratuit' + (p.bonus > 1 ? 's' : '') : (p.bonus === 1 ? 'Month' : 'Months') + ' Free'}</li>}
+        </ul>
+        <a
+          class="btn-primary buy-btn"
+          style="width:100%;justify-content:center;"
+          href={`https://wa.me/14062356618?text=${encodeURIComponent(fr ? `Bonjour Prime IPTV, je voudrais acheter le forfait ${n} connexion${n > 1 ? 's' : ''}, ${p.months} mois${p.bonus > 0 ? ` (+${p.bonus} mois gratuit${p.bonus > 1 ? 's' : ''})` : ''} à ${p.price} $. Pouvez-vous m'envoyer les détails de paiement?` : `Hello Prime IPTV, I'd like to buy the ${n}-connection, ${p.months}-month plan${p.bonus > 0 ? ` (+${p.bonus} ${p.bonus === 1 ? 'month' : 'months'} free)` : ''} for $${p.price}. Please send me the payment details.`)}`}
+          target="_blank"
+          rel="noopener"
+        ><Icon name="chat" size={18} />{fr ? 'Acheter maintenant' : 'Buy Now!'}</a>
+        <a href={fr ? '/fr/essai-gratuit/' : '/free-trial/'} class="trial-link"><Icon name="play" size={13} />{fr ? "Ou essayez gratuitement pendant 24 heures" : "Or start the 24-hour free trial"}</a>
+        {!fr && <a href={planUrl(p.months)} class="detail-link">{p.months}-month plan details →</a>}
+      </div>
+    ))}
+  </div>
+))}
+
+<p class="cad-note">{fr ? 'Tous les prix sont en dollars canadiens (CAD).' : 'All prices are in Canadian dollars (CAD).'}</p>
+
+<style>
+  .cad-note { text-align:center; color:var(--muted); font-size:0.82rem; margin:1.25rem 0 0; }
+  .device-tabs { display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .dtab { background:var(--bg-card); border:1px solid var(--border); color:var(--muted); padding:0.5rem 1.25rem; border-radius:999px; cursor:pointer; font-size:0.9rem; font-weight:600; transition:all 0.2s; }
+  .dtab:hover { border-color:var(--brand); color:var(--text); }
+  .dtab.active { background:var(--brand); border-color:var(--brand); color:#fff; border-radius:999px; }
+  .pricing-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+  .tab-panel.hidden { display:none; }
+  .buy-btn { font-size:1rem; }
+  .trial-link { display:flex; align-items:center; justify-content:center; gap:0.4rem; margin-top:0.75rem; font-size:0.82rem; font-weight:700; color:var(--brand); text-decoration:none; }
+  .trial-link:hover { text-decoration:underline; }
+  .detail-link { display:block; text-align:center; margin-top:0.5rem; font-size:0.78rem; color:var(--muted); text-decoration:none; }
+  .detail-link:hover { color:var(--brand); text-decoration:underline; }
+  @media (max-width:900px) { .pricing-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px) { .pricing-grid { grid-template-columns:1fr; } }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.dtab');
+  const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.classList.remove('active'));
+      panels.forEach((p) => p.classList.add('hidden'));
+      tab.classList.add('active');
+      document.getElementById(`tab-${tab.dataset.tab}`)?.classList.remove('hidden');
+    });
+  });
+</script>

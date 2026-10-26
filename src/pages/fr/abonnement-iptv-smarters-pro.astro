@@ -1,0 +1,68 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+import { prices, durations, bonusMonths } from '../../data/pricing';
+const faqs: [string, string][] = [
+  ['IPTV Smarters Pro comprend-il un abonnement?', 'Non. IPTV Smarters Pro est une application de lecture et n’a aucune chaîne en propre. Vous ajoutez un abonnement d’un fournisseur IPTV, comme Prime IPTV, pour regarder.'],
+  ['Prime IPTV fonctionne-t-il avec IPTV Smarters Pro?', 'Oui. Prime IPTV fonctionne avec IPTV Smarters Pro grâce à la connexion Xtream Codes : URL du serveur, nom d’utilisateur et mot de passe.'],
+  ['Où obtenir mon identifiant IPTV Smarters Pro?', 'Auprès de votre fournisseur IPTV. Pour Prime IPTV, nous envoyons vos identifiants par WhatsApp ou par courriel quand vous commencez l’essai gratuit ou vous abonnez.'],
+  ['IPTV Smarters Pro est-il gratuit?', 'L’application s’installe depuis une boutique d’applications ou le site officiel, et ses chaînes viennent de votre abonnement. Consultez la fiche actuelle de l’application pour ses conditions. L’abonnement Prime IPTV est distinct et commence à 34,99 $ pour 3 mois.'],
+  ['Puis-je essayer un abonnement avant de payer?', 'Oui. Prime IPTV offre un essai gratuit de 24 heures sans carte de crédit, et nous envoyons les détails par WhatsApp ou par courriel.'],
+  ['Et si je ne veux pas utiliser IPTV Smarters Pro?', 'Prime IPTV fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U, y compris TiviMate, IBO Player, Set IPTV et NET IPTV.'],
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<ContentPage title="Abonnement IPTV Smarters Pro Canada | Prime IPTV" description="IPTV Smarters Pro a besoin d’un abonnement pour afficher des chaînes. Obtenez un abonnement Prime IPTV et ajoutez votre connexion Xtream Codes. Essai gratuit de 24 heures." label="Lecteurs" icon="monitor" h1="Abonnement IPTV Smarters Pro : ce qu’il faut et comment l’obtenir" width={860} schema={[faqSchema]}>
+  <p><strong>IPTV Smarters Pro est une application de lecture IPTV, et non un fournisseur IPTV; il lui faut donc un abonnement d’un fournisseur avant d’afficher la moindre chaîne.</strong> Un abonnement Prime IPTV fonctionne avec IPTV Smarters Pro : vous recevez vos identifiants et les ajoutez avec la connexion Xtream Codes.</p>
+
+  <h2>Comment fonctionne un abonnement IPTV Smarters Pro</h2>
+  <p>Trois éléments travaillent ensemble, et on les confond souvent.</p>
+  <ul>
+    <li><strong>L’application :</strong> IPTV Smarters Pro est le lecteur sur votre appareil. Il affiche les chaînes, les films et le guide des programmes, mais n’a aucune chaîne en propre.</li>
+    <li><strong>L’abonnement :</strong> le service IPTV qui fournit les chaînes et la vidéothèque. C’est ce qu’offre Prime IPTV.</li>
+    <li><strong>Votre identifiant :</strong> les renseignements qui relient l’application à l’abonnement.</li>
+  </ul>
+  <p>Nous expliquons cette différence plus en détail dans <a href="/fr/blogue/iptv-service-vs-iptv-player-app/">service IPTV ou lecteur IPTV</a>.</p>
+
+  <h2>Ce que vous recevez avec votre abonnement Prime IPTV</h2>
+  <p>Quand vous commencez l’<a href="/fr/essai-gratuit/">essai gratuit</a> ou vous abonnez, nous vous envoyons vos identifiants par WhatsApp ou par courriel. Il s’agit normalement d’une <strong>URL de serveur, d’un nom d’utilisateur et d’un mot de passe</strong> pour la connexion Xtream Codes. Pour un forfait payé, l’activation se fait normalement en quelques minutes après le paiement.</p>
+
+  <h2>Comment ajouter Prime IPTV à IPTV Smarters Pro</h2>
+  <ol>
+    <li>Installez IPTV Smarters Pro sur votre appareil (voir la section suivante).</li>
+    <li>Ouvrez l’application et choisissez <strong>Add New User</strong>, puis <strong>Login with Xtream Codes API</strong>.</li>
+    <li>Saisissez le nom de votre choix, puis votre <strong>nom d’utilisateur, mot de passe et URL de serveur</strong> exactement comme nous les avons envoyés. Copiez et collez pour éviter les fautes de frappe et les espaces à la fin.</li>
+    <li>Touchez <strong>Add User</strong> et attendez le chargement de vos chaînes, films et séries.</li>
+    <li>Ouvrez <strong>Live TV</strong>, <strong>Movies</strong> ou <strong>Series</strong> et commencez à regarder.</li>
+  </ol>
+
+  <h2>Où utiliser IPTV Smarters Pro</h2>
+  <p>IPTV Smarters Pro fonctionne sur les appareils Fire TV, les téléphones, tablettes et Android TV, l’iPhone et l’iPad, ainsi que sur certains téléviseurs intelligents et ordinateurs. La disponibilité et le mode d’installation varient selon l’appareil. Pour la Firestick, suivez notre <a href="/fr/installer-iptv-smarters-pro-firestick/">guide d’installation pas à pas pour Firestick</a>. Pour les autres appareils, voyez les <a href="/fr/installation/">guides d’installation</a>.</p>
+
+  <h2>Prix d’un abonnement IPTV Smarters Pro</h2>
+  <p>L’application et votre abonnement sont distincts, et c’est l’abonnement que vous payez. Voici les prix de Prime IPTV pour 1 connexion. Chaque forfait comprend plus de 25 000 chaînes en direct, plus de 120 000 films et séries, le 4K et le sport.</p>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Durée</th><th>Prix (1 connexion)</th><th>Par mois</th></tr></thead>
+    <tbody>
+      {durations.map((m) => (
+        <tr>
+          <td><strong>{m} mois</strong>{bonusMonths[m] > 0 && <><br /><span>+{bonusMonths[m]} {bonusMonths[m] === 1 ? 'mois gratuit' : 'mois gratuits'}</span></>}</td>
+          <td><strong>{money(prices[1][m])}</strong></td>
+          <td>{money(prices[1][m] / m)}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table></div>
+  <p>Les forfaits de 2, 3 et 4 connexions se trouvent sur la <a href="/fr/tarifs/">page des tarifs</a>, où chaque forfait a un bouton « Acheter maintenant » qui ouvre WhatsApp avec votre forfait dans le message.</p>
+
+  <h2>Autres lecteurs compatibles avec Prime IPTV</h2>
+  <p>Prime IPTV fonctionne avec <strong>tous les lecteurs qui acceptent les codes Xtream ou un lien M3U</strong>, y compris TiviMate, IBO Player, Set IPTV et NET IPTV. Des lecteurs comme IBO Player, Set IPTV et NET IPTV chargent la liste de lecture par l’adresse MAC de votre appareil. Envoyez-nous cette adresse MAC sur WhatsApp et nous vous aiderons à la configurer. Comparez-les dans notre <a href="/fr/blogue/best-iptv-players/">comparaison des lecteurs IPTV</a>.</p>
+  <h2>Questions fréquentes</h2>
+  {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+  <div class="box">
+    <h3 style="margin-top:0;">Obtenez un identifiant pour IPTV Smarters Pro</h3>
+    <p>Commencez l’essai gratuit de 24 heures sans carte de crédit, puis ajoutez l’identifiant à IPTV Smarters Pro en quelques minutes.</p>
+    <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a><a href="/fr/tarifs/" class="btn-outline">Voir les forfaits</a></div>
+  </div>
+</ContentPage>

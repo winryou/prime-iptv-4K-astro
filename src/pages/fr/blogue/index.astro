@@ -1,0 +1,72 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import Icon from '../../../components/Icon.astro';
+import { posts } from '../../../data/posts';
+import { postsFr } from '../../../data/posts-fr';
+
+const icons: Record<string, string> = {
+  'what-is-iptv': 'book',
+  'iptv-service-vs-iptv-player-app': 'monitor',
+  'best-iptv-players': 'tv-play',
+  'how-many-iptv-connections-do-i-need': 'link',
+  'iptv-free-trial-checklist': 'list',
+  'iptv-buffering-troubleshooting': 'wifi',
+  'iptv-vs-cable': 'sliders',
+  'is-iptv-legal-in-canada': 'shield',
+  'is-iptv-safe-canada': 'lock',
+  'iptv-cost-canada': 'dollar',
+  'iptv-vs-cable-canada': 'trend',
+  'how-to-watch-tv-without-cable-canada': 'tv',
+  'iptv-epg-explained': 'list',
+  'iptv-box-canada': 'box',
+};
+const frDate = (iso: string) => new Date(iso + 'T12:00:00Z').toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+<Layout title="Guides IPTV : installation, solutions et achat | Prime IPTV" description="Guides IPTV pratiques pour le Canada : qu’est-ce que l’IPTV, lecteurs, connexions, essai gratuit, mise en mémoire tampon, légalité, coût et IPTV ou câble.">
+  <Header slot="header" />
+
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div class="section-label"><Icon name="book" size={14} />Blogue</div>
+        <h1 class="section-title">Guides Prime IPTV</h1>
+        <p class="section-sub">Des guides IPTV pratiques pour les spectateurs au Canada : comment ça marche, comment choisir, comment installer et comment régler les problèmes courants.</p>
+      </div>
+
+      <div class="posts-grid">
+        {posts.map((p) => (
+          <a href={`/fr/blogue/${p.slug}/`} class="post-card">
+            <span class="post-icon"><Icon name={icons[p.slug] ?? 'book'} size={22} /></span>
+            <h2>{postsFr[p.slug].title}</h2>
+            <p>{postsFr[p.slug].excerpt}</p>
+            <span class="post-meta"><Icon name="calendar" size={14} /> {frDate(p.datePublished)} · {postsFr[p.slug].minutes} min de lecture</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="blog-cta">
+        <h2><Icon name="download" size={20} class="ic-accent" /> Vous cherchez les étapes d’installation?</h2>
+        <p>Chaque appareil pris en charge a son propre guide pas à pas.</p>
+        <a href="/fr/installation/" class="btn-outline">Voir les guides d’installation<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .posts-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+  .post-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1.75rem; text-decoration:none; color:var(--text); display:flex; flex-direction:column; gap:0.75rem; transition:border-color 0.2s; }
+  .post-card:hover { border-color:rgba(11,42,111,0.4); }
+  .post-icon { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:rgba(11,42,111,0.08); color:var(--brand); }
+  .post-card h2 { font-size:1.1rem; font-weight:700; margin:0; line-height:1.3; }
+  .post-card p { color:var(--muted); font-size:0.875rem; margin:0; line-height:1.6; flex:1; }
+  .post-meta { color:var(--muted); font-size:0.8rem; }
+  .blog-cta { text-align:center; margin-top:3rem; background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; }
+  .blog-cta h2 { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:1.2rem; margin:0 0 0.4rem; }
+  .blog-cta p { color:var(--muted); margin:0 0 1rem; }
+  @media (max-width:700px) { .posts-grid { grid-template-columns:1fr; } }
+</style>

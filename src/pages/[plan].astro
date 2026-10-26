@@ -1,0 +1,10 @@
+---
+import PlanPage from '../components/PlanPage.astro';
+import { planMonths, planSlug } from '../data/pricing';
+
+export function getStaticPaths() {
+  return planMonths.map((m) => ({ params: { plan: planSlug(m) }, props: { months: m } }));
+}
+const { months } = Astro.props;
+---
+<PlanPage months={months} />

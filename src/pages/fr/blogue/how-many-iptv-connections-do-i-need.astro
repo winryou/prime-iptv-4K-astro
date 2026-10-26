@@ -1,0 +1,116 @@
+---
+import BlogPost from '../../../layouts/BlogPost.astro';
+import Icon from '../../../components/Icon.astro';
+import { prices, durations, bonusMonths, connectionTabs } from '../../../data/pricing';
+
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+const advice: Record<number, { who: string; text: string }> = {
+  1: { who: 'Un spectateur à la fois', text: 'Convient à une personne seule, ou à un foyer où un seul téléviseur, téléphone ou tablette diffuse à la fois.' },
+  2: { who: 'Deux écrans en même temps', text: 'Convient à un couple ou à deux personnes aux goûts différents, par exemple le téléviseur du salon et un téléphone ou le téléviseur de la chambre en même temps.' },
+  3: { who: 'Trois écrans en même temps', text: 'Convient à une petite famille où deux ou trois personnes regardent souvent des choses différentes en soirée.' },
+  4: { who: 'Quatre écrans en même temps', text: 'Convient à un foyer actif avec plusieurs téléviseurs et tablettes, ou à quiconque reçoit souvent et fait fonctionner plusieurs écrans ensemble.' },
+};
+const wa = (n: number) =>
+  `https://wa.me/14062356618?text=${encodeURIComponent(`Bonjour Prime IPTV, j’ai besoin d’aide pour choisir la durée de forfait pour ${n} connexion${n === 1 ? '' : 's'}.`)}`;
+---
+<BlogPost slug="how-many-iptv-connections-do-i-need">
+  <p>Les forfaits Prime IPTV comprennent <strong>1, 2, 3 ou 4 connexions</strong>. Le bon nombre vous fait économiser si vous auriez acheté trop, et vous évite des frustrations si vous auriez acheté trop peu. Besoin de plus de 4? Écrivez-nous sur WhatsApp ou par courriel et nous vous proposerons un forfait pour plus d’appareils. Ce guide explique ce qu’est une connexion et vous aide à choisir.</p>
+
+  <h2>Qu’est-ce qu’une connexion IPTV?</h2>
+  <p>En IPTV, une <strong>connexion</strong> correspond normalement à <strong>un flux en lecture à la fois</strong> sur votre abonnement. Cela concerne le nombre d’écrans qui regardent <em>au même moment</em>, et non le nombre d’appareils sur lesquels vous avez installé le lecteur. Vous pouvez configurer un lecteur sur une Firestick, un téléphone et un portable, mais avec un forfait à 1 connexion, un seul peut diffuser à la fois.</p>
+
+  <h2>Comment compter vos connexions</h2>
+  <ol>
+    <li>Énumérez chaque écran qui pourrait regarder en soirée : salon, chambre, chambre des enfants, téléphone, tablette et ordinateur.</li>
+    <li>Décidez du <strong>plus grand nombre qui fonctionnerait ensemble</strong> un soir de pointe. Ce nombre est votre point de départ.</li>
+    <li>S’il dépasse 4, <a href="/fr/contact/">écrivez-nous</a> pour connaître les options.</li>
+  </ol>
+  <p>N’oubliez pas la limite d’Internet : chaque flux simultané de plus consomme de la bande passante. À titre indicatif, prévoyez environ 10 Mb/s par flux HD et 25 Mb/s par flux 4K. Plusieurs écrans 4K en même temps exigent une connexion rapide; voyez donc les <a href="/fr/vitesse-internet-iptv/">vitesses Internet requises</a> et <a href="/fr/blogue/iptv-buffering-troubleshooting/">notre guide sur la mise en mémoire tampon</a>.</p>
+
+  <h2>Choisisseur rapide</h2>
+  <div class="chooser" id="chooser">
+    <p class="chooser-q"><strong>Combien d’écrans pourraient diffuser en même temps?</strong></p>
+    <div class="chooser-btns" role="group" aria-label="Nombre d’écrans simultanés">
+      {[1, 2, 3, 4].map((n) => <button type="button" class="cbtn" data-n={n}>{n}</button>)}
+      <button type="button" class="cbtn" data-n="5">5 ou plus</button>
+    </div>
+
+    {connectionTabs.map((n) => (
+      <div class="cresult" id={`res-${n}`} hidden>
+        <h3><Icon name="check" size={20} class="ic-check" /> {n} {n === 1 ? 'connexion' : 'connexions'} : {advice[n].who}</h3>
+        <p>{advice[n].text}</p>
+        <p>Les forfaits Prime IPTV à {n} {n === 1 ? 'connexion' : 'connexions'} commencent à <strong>{money(prices[n][3])}</strong> pour 3 mois et vont jusqu’à <strong>{money(prices[n][24])}</strong> pour 24 mois (+2 mois gratuits).</p>
+        <div class="cres-actions">
+          <a class="btn-primary" href="/fr/tarifs/"><Icon name="card" size={16} />Voir les forfaits à {n} {n === 1 ? 'connexion' : 'connexions'}</a>
+          <a class="btn-outline" href={wa(n)} target="_blank" rel="noopener"><Icon name="chat" size={16} />Demander sur WhatsApp</a>
+        </div>
+      </div>
+    ))}
+    <div class="cresult" id="res-5" hidden>
+      <h3><Icon name="info" size={20} class="ic-accent" /> Plus de 4 écrans</h3>
+      <p>Les forfaits standards couvrent jusqu’à 4 connexions. Si vous diffusez régulièrement sur plus d’écrans, écrivez-nous et nous vous conseillerons la meilleure option.</p>
+      <div class="cres-actions">
+        <a class="btn-primary" href="/fr/contact/"><Icon name="mail" size={16} />Nous joindre</a>
+        <a class="btn-outline" href="https://wa.me/14062356618?text=Bonjour%20Prime%20IPTV%2C%20j%E2%80%99ai%20besoin%20de%20plus%20de%204%20connexions." target="_blank" rel="noopener"><Icon name="chat" size={16} />WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Les prix de tous les forfaits</h2>
+  <p>Voici la liste de prix complète de Prime IPTV. Les montants mensuels correspondent au prix du forfait divisé par le nombre de mois payés; les mois gratuits s’ajoutent.</p>
+  <div class="table-wrap">
+    <table id="price-table">
+      <thead>
+        <tr><th>Durée</th>{connectionTabs.map((n) => <th data-col={n}>{n} {n === 1 ? 'connexion' : 'connexions'}</th>)}</tr>
+      </thead>
+      <tbody>
+        {durations.map((m) => (
+          <tr>
+            <td><strong>{m} mois</strong>{bonusMonths[m] > 0 && <><br /><span class="bonus">+{bonusMonths[m]} {bonusMonths[m] === 1 ? 'mois gratuit' : 'mois gratuits'}</span></>}</td>
+            {connectionTabs.map((n) => (
+              <td data-col={n}><strong>{money(prices[n][m])}</strong><br /><span class="per">{money(prices[n][m] / m)} / mois</span></td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Quelle durée de forfait choisir?</h2>
+  <ul>
+    <li><strong>3 mois</strong> est l’engagement le plus court et une bonne façon de s’installer après l’essai.</li>
+    <li><strong>6 et 12 mois</strong> réduisent le coût mensuel et comprennent +1 mois gratuit.</li>
+    <li><strong>24 mois</strong> a le coût mensuel le plus bas et comprend +2 mois gratuits.</li>
+  </ul>
+  <p>Pas encore certain? <a href="/fr/essai-gratuit/">Commencez d’abord l’essai gratuit de 24 heures</a> (aucune carte de crédit) et servez-vous de notre <a href="/fr/blogue/iptv-free-trial-checklist/">liste de vérification de l’essai</a> pour tester votre installation. Une garantie de remboursement de 7 jours s’applique aussi, et la <a href="/fr/remboursement/">politique de remboursement</a> explique son fonctionnement.</p>
+</BlogPost>
+
+<style>
+  .chooser { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin:1rem 0 1.5rem; }
+  .chooser-q { margin:0 0 0.75rem; color:var(--text); }
+  .chooser-btns { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem; }
+  .cbtn { background:#fff; border:1.5px solid var(--border); color:var(--text); font-weight:700; font-size:0.95rem; padding:0.55rem 1.1rem; border-radius:8px; cursor:pointer; transition:all 0.15s; }
+  .cbtn:hover { border-color:var(--brand); }
+  .cbtn.active { background:var(--brand); border-color:var(--brand); color:#fff; }
+  .cresult { background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.25rem; }
+  .cresult[hidden] { display:none; }
+  .cresult h3 { display:flex; align-items:center; gap:0.5rem; margin:0 0 0.5rem; }
+  .cres-actions { display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:0.75rem; }
+  .bonus { color:var(--brand); font-size:0.8rem; font-weight:700; }
+  .per { font-size:0.8rem; }
+  :global(#price-table th.hl), :global(#price-table td.hl) { background:rgba(232,53,47,0.28); }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.cbtn');
+  const results = document.querySelectorAll<HTMLElement>('.cresult');
+  const cells = document.querySelectorAll<HTMLElement>('#price-table [data-col]');
+  buttons.forEach((b) =>
+    b.addEventListener('click', () => {
+      const n = b.dataset.n!;
+      buttons.forEach((x) => x.classList.toggle('active', x === b));
+      results.forEach((r) => (r.hidden = r.id !== `res-${n}`));
+      cells.forEach((c) => c.classList.toggle('hl', c.dataset.col === n));
+    })
+  );
+</script>

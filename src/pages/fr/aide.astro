@@ -1,0 +1,19 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const wa = 'https://wa.me/14062356618?text=' + encodeURIComponent('Bonjour Prime IPTV, j’ai besoin d’aide avec mon abonnement.');
+---
+<ContentPage title="Centre d’aide | Soutien Prime IPTV au Canada" description="Centre d’aide Prime IPTV : installation, problèmes de mise en mémoire tampon, guide EPG, commandes et remboursements. Soutien 24/7 par WhatsApp et courriel." label="Centre d’aide" icon="headset" h1="Comment pouvons-nous vous aider?">
+  <p>Trouvez une réponse ci-dessous ou écrivez-nous. Le soutien est offert 24 heures sur 24, 7 jours sur 7, par WhatsApp et par courriel.</p>
+  <div class="grid2">
+    <div class="tile"><h2>Pour commencer</h2><p><a href="/fr/essai-gratuit/">Essai gratuit</a> · <a href="/fr/installation/">Guides d’installation</a></p></div>
+    <div class="tile"><h2>Mise en mémoire tampon et vitesse</h2><p>Utilisez une connexion filaire, redémarrez le lecteur et le routeur, et vérifiez la vitesse : environ 10 Mb/s par écran HD et 25 Mb/s par écran 4K. <a href="/fr/blogue/iptv-buffering-troubleshooting/">Liste de vérification</a></p></div>
+    <div class="tile"><h2>Guide des programmes (EPG)</h2><p>Si le guide est vide, vérifiez l’heure et le fuseau horaire de l’appareil, actualisez l’EPG dans le lecteur, puis redémarrez. <a href="/fr/blogue/iptv-epg-explained/">EPG expliqué</a></p></div>
+    <div class="tile"><h2>Commandes, forfaits et remboursements</h2><p><a href="/fr/tarifs/">Tarifs</a> · <a href="/fr/remboursement/">Remboursement</a> · <a href="/fr/faq/">FAQ</a></p></div>
+  </div>
+  <div class="box">
+    <h3 style="margin-top:0;">Toujours bloqué?</h3>
+    <p>Indiquez votre appareil, votre application de lecture, la chaîne et l’heure du problème, ainsi que ce que vous voyez à l’écran. Cela nous aide à régler le problème plus vite.</p>
+    <div class="btns"><a href={wa} class="btn-primary" target="_blank" rel="noopener"><Icon name="chat" size={16} /> Soutien WhatsApp</a><a href="/fr/contact/" class="btn-outline">Courriel et coordonnées</a></div>
+  </div>
+</ContentPage>

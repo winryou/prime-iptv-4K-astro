@@ -1,0 +1,51 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost slug="iptv-m3u-vs-xtream-codes">
+  <p>When you subscribe to an IPTV service you receive a login, and it usually comes in one of two forms: an <strong>Xtream Codes login</strong> or an <strong>M3U playlist link</strong>. Both connect your player app to the service, but they work differently. This guide explains the difference and which one to use.</p>
+
+  <h2>What is an Xtream Codes login?</h2>
+  <p>An Xtream Codes login (also called the Xtream Codes API) is made of three details: a <strong>server URL</strong>, a <strong>username</strong> and a <strong>password</strong>. You type them into a player that supports Xtream Codes, such as IPTV Smarters Pro or TiviMate, and the player loads the live channels, categories, on-demand movies and series and the TV guide (EPG) for you.</p>
+
+  <h2>What is an M3U playlist?</h2>
+  <p>An M3U playlist is a single link or file that lists channels. You paste the link into a player, and the player reads the list. The same file format is used by many media players, including VLC. An M3U link often has your username and password built into the address, so treat it like a password and do not share it. The TV guide may need a separate EPG link, and on-demand titles may be mixed into the channel list or missing, depending on the player.</p>
+
+  <h2>M3U vs Xtream Codes at a glance</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Xtream Codes</th><th>M3U playlist</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What you enter</strong></td><td>Server URL, username, password</td><td>One playlist link</td></tr>
+        <tr><td><strong>Live TV and categories</strong></td><td>Loaded with categories</td><td>Loaded as one list</td></tr>
+        <tr><td><strong>On-demand movies and series</strong></td><td>Separate sections in most players</td><td>Depends on the player</td></tr>
+        <tr><td><strong>TV guide (EPG)</strong></td><td>Usually loads automatically</td><td>May need a separate EPG link</td></tr>
+        <tr><td><strong>Typical players</strong></td><td>IPTV Smarters Pro, TiviMate</td><td>VLC, GSE Smart IPTV, many Smart TV apps</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Which should you use?</h2>
+  <ul>
+    <li><strong>Use Xtream Codes</strong> if your player offers it. It is the simplest way to get live TV, on-demand titles and the guide in one login.</li>
+    <li><strong>Use M3U</strong> if your player or device only accepts a playlist link, for example VLC on a computer or some Smart TV apps.</li>
+    <li><strong>Use MAC-address activation</strong> for players such as IBO Player, Set IPTV and NET IPTV, and for MAG boxes. Send us the MAC address shown in the app and we set it up.</li>
+  </ul>
+
+  <h2>What you get with Prime IPTV</h2>
+  <p>Prime IPTV works with <strong>all players that accept Xtream Codes or an M3U link</strong>. Your login normally arrives as a server URL, username and password by WhatsApp or email. If your player needs an M3U link, ask support and we will send one. The <a href="/setup/">device setup guides</a> show exactly where to enter the details on each device, and you can test everything with the <a href="/free-trial/">24-hour free trial</a>.</p>
+
+  <h2>Common problems</h2>
+  <ul>
+    <li><strong>Login fails:</strong> check for a space at the start or end and for a missing "http://". Copy and paste instead of typing.</li>
+    <li><strong>Channels load but there is no guide:</strong> refresh the EPG in the player. See <a href="/blog/iptv-epg-explained/">IPTV EPG explained</a>.</li>
+    <li><strong>Playlist will not load:</strong> copy the whole link again, and use Xtream Codes instead if your player supports it. More fixes are in <a href="/blog/iptv-buffering-troubleshooting/">IPTV not working? buffering and login fixes</a>.</li>
+  </ul>
+
+  <h2>Quick answers</h2>
+  <h3>Is Xtream Codes an app?</h3>
+  <p>No. Xtream Codes is a type of login that many IPTV players accept. You still need a subscription and a player app.</p>
+  <h3>Is an M3U link safe to share?</h3>
+  <p>No. It usually contains your login, so keep it private.</p>
+  <h3>Can I use both in different players?</h3>
+  <p>Yes, within your plan's connection limit.</p>
+</BlogPost>

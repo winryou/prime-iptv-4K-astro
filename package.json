@@ -1,0 +1,26 @@
+{
+  "name": "prime-iptv-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "llms": "astro build && node scripts/build-llms.mjs",
+    "og": "astro build && node scripts/build-og.mjs && astro build",
+    "seo:assets": "astro build && node scripts/build-og.mjs && astro build && node scripts/build-llms.mjs && astro build",
+    "lastmod": "node scripts/update-lastmod.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.5",
+    "tailwindcss": "^4.3.3"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

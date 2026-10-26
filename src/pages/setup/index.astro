@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { devices } from '../../data/devices';
+---
+<Layout title="Prime IPTV Setup Guide: Supported Devices & Installation" description="Prime IPTV works on Firestick, Smart TV, Android TV, Apple TV, Roku, phones, tablets, computers and MAG boxes. Pick your device for a step-by-step setup guide.">
+  <Header slot="header" />
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="download" size={14} />Setup Guide</div>
+      <h1 class="section-title">Works With Your Favorite Devices</h1>
+      <p class="section-sub">Prime IPTV works with a wide range of compatible devices and IPTV players. Choose your device below for its own step-by-step setup guide.</p>
+
+      <div class="dev-grid">
+        {devices.map(d => (
+          <a href={`/setup/${d.slug}/`} class="dev-card">
+            <div class="dev-icon"><Icon name={d.icon} size={38} /></div>
+            <h2>{d.name}</h2>
+            <p>{d.short}</p>
+            <span class="dev-link">View setup guide →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="how-setup">
+        <h2 class="cmp-h" style="margin-top:3rem;"><Icon name="list" size={20} class="ic-accent" /> How setup works on every device</h2>
+        <p>Prime IPTV works with all players that accept Xtream Codes or an M3U link, including IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV and NET IPTV. Setup follows the same three steps on every device. Only the app store and the login screen change.</p>
+        <ol>
+          <li><strong>Get your login.</strong> Request the <a href="/free-trial/">24-hour free trial</a> or choose a <a href="/pricing/">plan</a>. Your login details arrive by WhatsApp or email.</li>
+          <li><strong>Install a player.</strong> Find a compatible IPTV player in your device's app store. Our <a href="/blog/best-iptv-players/">player comparison</a> shows which suits each device.</li>
+          <li><strong>Add the login.</strong> Enter it in the player, wait for the channel list to load, and start watching.</li>
+        </ol>
+        <h3>Which login type will I use?</h3>
+        <ul>
+          <li><strong>Xtream Codes:</strong> a server URL, username and password. Most players support it, including IPTV Smarters Pro and TiviMate.</li>
+          <li><strong>M3U playlist:</strong> a playlist link or file. Some players use it, and so does VLC on a computer.</li>
+          <li><strong>MAC address:</strong> used by MAG boxes and by MAC-address players such as IBO Player, Set IPTV and NET IPTV. Message us on WhatsApp with your MAC address. For a MAG box we activate it and send your portal links, and for the players we help you add your playlist.</li>
+        </ul>
+        <p>New to IPTV? Read <a href="/blog/iptv-service-vs-iptv-player-app/">IPTV service vs IPTV player app</a> first. On Firestick? See <a href="/install-iptv-smarters-pro-firestick/">how to install IPTV Smarters Pro on Firestick</a>.</p>
+      </div>
+      <h2 class="cmp-h"><Icon name="sliders" size={20} class="ic-accent" /> Which device and player should you use?</h2>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead><tr><th>Device</th><th>Recommended players</th><th>Guide</th></tr></thead>
+          <tbody>
+            {devices.map(d => (
+              <tr><td><Icon name={d.icon} size={16} class="ic-accent" /> {d.name}</td><td>{d.players.join(', ')}</td><td><a href={`/setup/${d.slug}/`}>Set up on {d.name}</a></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">Not sure about a player? Read our <a href="/blog/best-iptv-players/">player comparison</a>. If something does not work, see the <a href="/blog/iptv-buffering-troubleshooting/">troubleshooting checklist</a>.</p>
+
+      <div class="before-box">
+        <h3><Icon name="info" size={20} class="ic-accent" /> Before You Start</h3>
+        <p>After payment (or when your free trial is approved) you receive your <strong>Server URL, Username and Password</strong> by email or WhatsApp, usually within a few minutes. Every guide below uses those same details.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.25rem;">
+          <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Start Free Trial</a>
+          <a href="https://wa.me/14062356618" class="btn-outline"><Icon name="chat" size={18} />Ask Support on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .dev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; text-align:center; }
+  .dev-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1.75rem 1.25rem; text-decoration:none; color:var(--text); display:flex; flex-direction:column; align-items:center; gap:0.5rem; transition:border-color 0.2s, transform 0.2s; }
+  .dev-card:hover { border-color:rgba(11,42,111,0.4); transform:translateY(-2px); }
+  .dev-icon { color:var(--brand); }
+  .dev-card h2 { font-size:1rem; font-weight:700; margin:0; }
+  .dev-card p { color:var(--muted); font-size:0.85rem; margin:0; line-height:1.55; flex:1; }
+  .dev-link { color:var(--brand); display:inline-flex; align-items:center; gap:0.3rem; font-size:0.85rem; font-weight:600; margin-top:0.25rem; }
+  .how-setup { text-align:left; max-width:820px; margin:0 auto; }
+  .how-setup p, .how-setup li { color:var(--muted); line-height:1.75; font-size:0.95rem; }
+  .how-setup ol, .how-setup ul { padding-left:1.4rem; display:flex; flex-direction:column; gap:0.45rem; margin:0 0 1rem; }
+  .how-setup h3 { font-size:1.05rem; font-weight:800; margin:1.25rem 0 0.5rem; }
+  .how-setup a { color:var(--brand); font-weight:600; }
+  .how-setup strong { color:var(--text); }
+  .cmp-h { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:1.3rem; font-weight:800; margin:3rem 0 1rem; }
+  .table-wrap { overflow-x:auto; }
+  .cmp { width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left; }
+  .cmp th, .cmp td { border:1px solid var(--border); padding:0.65rem 0.9rem; color:var(--muted); }
+  .cmp th { background:var(--bg-2); color:var(--text); }
+  .cmp a, .cmp-note a { color:var(--brand); font-weight:600; }
+  .cmp-note { color:var(--muted); font-size:0.9rem; margin:1rem 0 0; }
+  .before-box { background:var(--bg-2); border:1px solid var(--border); border-radius:12px; padding:2rem; max-width:680px; margin:3rem auto 0; }
+  .before-box h3 { font-size:1.15rem; font-weight:800; margin:0 0 0.5rem; }
+  .before-box p { color:var(--muted); margin:0; font-size:0.9rem; line-height:1.65; }
+  .before-box strong { color:var(--text); }
+  @media (max-width:900px) { .dev-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px) { .dev-grid { grid-template-columns:1fr; } }
+</style>

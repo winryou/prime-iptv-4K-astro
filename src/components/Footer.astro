@@ -1,0 +1,92 @@
+---
+import Icon from './Icon.astro';
+import { cities as allCities, enCities, frName } from '../data/cities';
+import { isFr } from '../data/i18n';
+const year = new Date().getFullYear();
+const fr = isFr(Astro.url.pathname);
+const P = fr ? '/fr' : '';
+const L = fr
+  ? {
+      home: '/fr/',
+      about: "Abonnement IPTV de Prime IPTV pour les spectateurs au Canada. Plus de 25 000 chaînes en direct, plus de 120 000 films et séries, diffusion 4K.",
+      service: 'Service', company: 'Entreprise', cities: 'Villes', legal: 'Légal',
+      serviceLinks: [['/fr/tarifs/', 'Tarifs et forfaits'], ['/fr/meilleur-service-iptv-canada/', 'Meilleur service IPTV Canada'], ['/fr/iptv-4k/', 'IPTV 4K'], ['/fr/chaines/', 'Chaînes IPTV'], ['/fr/sports-ppv-4k/', 'Sports et PPV en 4K'], ['/fr/installation/', 'Installation et appareils'], ['/fr/essai-gratuit/', 'Essai gratuit'], ['/fr/revendeur/', 'Programme de revendeurs'], ['/fr/faq/', 'FAQ']],
+      companyLinks: [['/fr/a-propos/', 'À propos de Prime IPTV'], ['/fr/vitesse-internet-iptv/', 'Disponibilité et vitesse'], ['/fr/blogue/', 'Blogue'], ['/fr/aide/', "Centre d'aide"], ['/fr/contact/', 'Nous joindre'], ['/', 'English site']],
+      legalLinks: [['/fr/confidentialite/', 'Politique de confidentialité'], ['/fr/conditions/', "Conditions d'utilisation"], ['/fr/remboursement/', 'Politique de remboursement'], ['/fr/dmca/', 'Avis DMCA'], ['/fr/avertissement/', 'Avertissement']],
+      rights: 'Tous droits réservés.',
+      disclaimer: "Les utilisateurs doivent s'assurer que leur utilisation du service respecte les lois et règlements qui s'appliquent à eux.",
+    }
+  : {
+      home: '/',
+      about: 'Premium IPTV subscription service for viewers in Canada. 25,000+ live channels, 120,000+ movies & series, 4K streaming.',
+      service: 'Service', company: 'Company', cities: 'Cities', legal: 'Legal',
+      serviceLinks: [['/pricing/', 'Pricing & Plans'], ['/pricing/#plans-by-length', 'Plans by Length'], ['/best-iptv-service-canada/', 'Best IPTV Service Canada'], ['/4k-iptv/', '4K IPTV'], ['/iptv-channels/', 'IPTV Channels'], ['/iptv-sports-ppv-4k/', 'Sports & PPV in 4K'], ['/setup/', 'Setup Guide & Devices'], ['/free-trial/', 'Free Trial'], ['/reseller/', 'Reseller Program'], ['/faq/', 'FAQ']],
+      companyLinks: [['/about/', 'About Prime IPTV'], ['/iptv-internet-speed-requirements/', 'Availability & Speed'], ['/blog/', 'Blog'], ['/help/', 'Help Center'], ['/contact/', 'Contact Us'], ['/fr/', 'Version française']],
+      legalLinks: [['/privacy/', 'Privacy Policy'], ['/terms/', 'Terms of Service'], ['/refund/', 'Refund Policy'], ['/dmca/', 'DMCA Notice'], ['/disclaimer/', 'Disclaimer']],
+      rights: 'All rights reserved.',
+      disclaimer: 'Users are responsible for ensuring that their use of the service complies with the laws and regulations that apply to them.',
+    };
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href={L.home} class="logo">
+          <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#fff"/><path d="M19 14h15a13 13 0 0 1 0 26H27v10h-8z" fill="#0b2a6f"/><path d="M27 21v12h7a6 6 0 0 0 0-12z" fill="#fff"/><path d="M31 25l8 4-8 4z" fill="#e8352f"/></svg>
+          <span>Prime <span style="color:#ff6b64">IPTV</span></span>
+        </a>
+        <p>{L.about}</p>
+        <div class="contact-info">
+          <p><Icon name="phone" size={16} class="ic-accent" /> <a href="tel:+14062356618">+1 (406) 235-6618</a></p>
+          <p><Icon name="map-pin" size={16} class="ic-accent" /> 4793 County Rd 772B, Webster, FL 33597, USA</p>
+        </div>
+      </div>
+
+      <div>
+        <h2><Icon name="tv" size={15} class="ic-accent" />{L.service}</h2>
+        <ul>{L.serviceLinks.map(([h, t]) => <li><a href={h}>{t}</a></li>)}</ul>
+      </div>
+
+      <div>
+        <h2><Icon name="briefcase" size={15} class="ic-accent" />{L.company}</h2>
+        <ul>{L.companyLinks.map(([h, t]) => <li><a href={h}>{t}</a></li>)}</ul>
+      </div>
+
+      <div>
+        <h2><Icon name="map-pin" size={15} class="ic-accent" />{L.cities}</h2>
+        <ul>{(fr ? allCities : enCities).map((c) => <li><a href={`${P}/iptv-${c.slug}/`}>IPTV {fr ? frName(c) : c.name}</a></li>)}</ul>
+      </div>
+
+      <div>
+        <h2><Icon name="file" size={15} class="ic-accent" />{L.legal}</h2>
+        <ul>{L.legalLinks.map(([h, t]) => <li><a href={h}>{t}</a></li>)}</ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© {year} Prime IPTV. {L.rights} primeiptv4k.ca</p>
+      <p class="disclaimer">{L.disclaimer}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--ink); color: #c7d4ee; padding: 4rem 1rem 2rem; margin-top: auto; border-radius: 36px 36px 0 0; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-brand .logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: #fff; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+  .footer-brand p { color: #a9b9d8; font-size: 0.875rem; line-height: 1.6; margin: 0 0 1rem; }
+  .contact-info p { color: #a9b9d8; font-size: 0.875rem; margin: 0.3rem 0; }
+  .contact-info a { color: #fff; text-decoration: none; }
+  .contact-info a:hover { text-decoration: underline; }
+  .site-footer :global(.ic-accent) { color: #ff6b64; }
+  h2 { color: #fff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; }
+  ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  ul a { color: #a9b9d8; text-decoration: none; font-size: 0.9rem; transition: color 0.15s; }
+  ul a:hover { color: #fff; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.5rem; text-align: center; }
+  .footer-bottom p { color: #8ea1c6; font-size: 0.8rem; margin: 0.35rem 0; }
+  .disclaimer { max-width: 650px; margin: 0 auto !important; }
+  @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .footer-brand { grid-column: 1 / -1; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>

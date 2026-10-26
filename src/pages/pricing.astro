@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import PricingTabs from '../components/PricingTabs.astro';
+import { connectionTabs, buildPlans, prices, durations, bonusMonths, planMonths, planUrl, planLabel, isPriced, bonusFor } from '../data/pricing';
+
+const offers = connectionTabs.flatMap((n) =>
+  buildPlans(n).map((p) => ({
+    '@type': 'Offer',
+    name: `Prime IPTV, ${n} ${n === 1 ? 'Connection' : 'Connections'}, ${p.months} Months`,
+    price: p.price,
+    priceCurrency: 'CAD',
+    availability: 'https://schema.org/InStock',
+    url: 'https://primeiptv4k.ca/pricing/',
+  }))
+);
+const product = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Prime IPTV Subscription',
+  description: 'IPTV subscription with 25,000+ live channels, 120,000+ movies & series, SD/HD/FHD/4K, EPG, sports and PPV. Plans for 1 to 4 connections.',
+  image: ['https://primeiptv4k.ca/og/pricing.jpg'],
+  brand: { '@type': 'Brand', name: 'Prime IPTV' },
+  offers,
+};
+const money = (n: number) => `$${n.toFixed(2)}`;
+const pricingFaqs = [
+  { q: 'Do you offer more than 4 devices?', a: 'Yes. Standard plans cover 1 to 4 devices (connections). If you need more than 4 devices, message us on WhatsApp or email us and we will quote a plan for you.' },
+  { q: 'How much does Prime IPTV cost?', a: 'Plans start at $34.99 for 3 months with 1 connection. The price depends on how long the plan runs (3, 6, 12 or 24 months), and on how many connections you need (1 to 4). Need more than 4 devices? Message us on WhatsApp or email us for a custom plan. All prices are in Canadian dollars (CAD).' },
+  { q: 'Which plan has the lowest monthly cost?', a: '24-month plans cost the least per month at every connection count, followed by 12-month and 6-month plans. 3-month plans cost the least up front.' },
+  { q: 'What does +1 month free and +2 months free mean?', a: 'The 6-month and 12-month plans add 1 extra month at no charge, and the 24-month plans add 2. The free months are added on top of the period you pay for.' },
+  { q: 'What is a connection?', a: 'A connection is one stream playing at a time. With a 2-connection plan, two screens can watch at the same moment.' },
+  { q: 'Do all plans include the same channels and features?', a: 'Yes. Every plan has 25,000+ live channels, 120,000+ movies and series, SD/HD/FHD/4K quality, EPG, sports and PPV, and 24/7 support. Plans differ only in the number of connections and the plan length.' },
+  { q: 'How do I order?', a: 'Press Buy Now! on the plan you want. WhatsApp opens with your plan and price already in the message, and we send you the payment details. You pay by credit or debit card.' },
+  { q: 'How quickly do I get my login after paying?', a: 'Activation is normally within a few minutes after payment, and we send your login details by email or WhatsApp.' },
+  { q: 'Can I try before I buy?', a: 'Yes. The 24-hour free trial does not need a credit card.' },
+  { q: 'Is there a contract?', a: 'No. There is no contract, and cancellation is available.' },
+  { q: 'Is there a refund?', a: 'Yes. Subscriptions come with a 7-day money-back guarantee. The refund policy explains how to request one.' },
+  { q: 'What if I need more than 4 connections?', a: 'Message us on WhatsApp or send an email and we will suggest the best option.' },
+];
+const pricingFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: pricingFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+<Layout title="IPTV Subscription Canada: Plans from $34.99 CAD | Prime IPTV" description="Buy an IPTV subscription in Canada with 1 to 4 connections for 3, 6, 12 or 24 months from $34.99. Free bonus months, 24-hour free trial, 7-day refund." schema={[product, pricingFaqSchema]}>
+  <Header slot="header" />
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <div class="section-label"><Icon name="card" size={14} />Plans & Pricing</div>
+      <h1 class="section-title">IPTV Subscription Canada: Plans and Pricing</h1>
+      <p class="section-sub">Choose the IPTV subscription that fits your needs. All plans include 25,000+ channels, 120,000+ VOD, 4K, EPG, sports & PPV. No contract. Cancel anytime.</p>
+
+      <PricingTabs />
+
+      <p style="color:var(--muted); margin-top:1.5rem; font-size:0.875rem;">Need more than 4 connections? <a href="/contact/" style="color:var(--brand);">Contact us</a> for a custom plan. Comparing providers? See the <a href="/best-iptv-service-canada/" style="color:var(--brand);">8-point IPTV buyer&rsquo;s checklist</a>, the <a href="/4k-iptv/" style="color:var(--brand);">4K IPTV guide</a> and <a href="/iptv-smarters-pro-subscription/" style="color:var(--brand);">IPTV Smarters Pro subscription</a>. Not sure how many connections you need? Use our <a href="/blog/how-many-iptv-connections-do-i-need/" style="color:var(--brand);">connection chooser</a>. Questions before you buy? Read the <a href="/faq/" style="color:var(--brand);">FAQ</a>, the <a href="/refund/" style="color:var(--brand);">7-day refund policy</a>, or <a href="/free-trial/" style="color:var(--brand);">start the 24-hour free trial</a> (no credit card).</p>
+    </div>
+  </section>
+
+  <section class="section-sm" style="background:var(--bg-2); border-top:1px solid var(--border);">
+    <div class="container" style="text-align:center;">
+      <h2 style="font-size:1.5rem; font-weight:800; margin-bottom:2rem;">All Plans Include</h2>
+      <div class="includes-grid">
+        {['25,000+ Live Channels','120,000+ Movies & Series','SD / HD / FHD / 4K','EPG (TV Guide)','Sports & PPV','24/7 Customer Support','Activation via Email or WhatsApp','7-Day Money-Back Guarantee','No Contract, Cancel Anytime','Credit & Debit Card Accepted'].map(f => (
+          <div class="include-item"><Icon name="check" size={16} class="ic-check" /> {f}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container txt-wrap">
+      <div class="section-label"><Icon name="calendar" size={14} />Price Per Month</div>
+      <h2 class="section-title">Prime IPTV Price Per Month, Plan by Plan</h2>
+      <div class="prose">
+        <p>A longer plan costs more up front but less per month. This table divides each price by the paid months (free bonus months are extra), so you can compare every option fairly.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Plan length</th>{connectionTabs.map((n) => <th>{n} {n === 1 ? 'connection' : 'connections'}</th>)}</tr></thead>
+            <tbody>
+              {durations.map((m) => (
+                <tr>
+                  <td><strong>{m} months</strong>{bonusMonths[m] > 0 && <><br /><span class="bonus-note">+{bonusMonths[m]} {bonusMonths[m] === 1 ? 'month' : 'months'} free</span></>}</td>
+                  {connectionTabs.map((n) => <td><strong>{money(prices[n][m])}</strong><br /><span class="per-note">{money(prices[n][m] / m)} / month</span></td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>Not sure how many connections you need? Use the <a href="/blog/how-many-iptv-connections-do-i-need/">connection chooser</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container txt-wrap">
+      <div class="section-label"><Icon name="card" size={14} />How To Order</div>
+      <h2 class="section-title">How to Buy Your IPTV Subscription</h2>
+      <div class="prose">
+        <ol>
+          <li><strong>Pick your plan.</strong> Choose the number of connections with the tabs above, then a plan length.</li>
+          <li><strong>Press Buy Now!</strong> WhatsApp opens with a message that already names your plan, length and price.</li>
+          <li><strong>Pay by credit or debit card.</strong> We send you the payment details in the chat.</li>
+          <li><strong>Receive your login.</strong> Your login details arrive by email or WhatsApp, normally within a few minutes after payment.</li>
+          <li><strong>Set up your device.</strong> Follow the <a href="/setup/">step-by-step guide for your device</a> and start watching.</li>
+        </ol>
+        <p>Prefer to test first? <a href="/free-trial/">Start the 24-hour free trial</a>. No credit card required. Every subscription is covered by a <a href="/refund/">7-day money-back guarantee</a>, and there is no contract.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container txt-wrap">
+      <div class="section-label"><Icon name="users" size={14} />Which Plan</div>
+      <h2 class="section-title">Which Prime IPTV Plan Fits You?</h2>
+      <div class="prose">
+        <h3>1 connection: one viewer at a time</h3>
+        <p>Right for one person, or a household where only one screen is ever watching. It is the lowest-cost way to get the full lineup.</p>
+        <h3>2 connections: a couple or two rooms</h3>
+        <p>Right when two people watch different things, or the living-room TV and a bedroom or phone run at the same time.</p>
+        <h3>3 connections: a small family</h3>
+        <p>Right when two or three people regularly watch different content in the evening.</p>
+        <h3>4 connections: a busy household</h3>
+        <p>Right for several TVs and tablets, or homes where many screens often run together. More simultaneous streams need more internet speed, so see the <a href="/iptv-internet-speed-requirements/">speed guide</a>.</p>
+        <h3>Short or long plan?</h3>
+        <p>Start with 3 months if you want the lowest commitment. Choose 6 or 12 months for a lower monthly cost and +1 month free, or 24 months for the lowest monthly cost and +2 months free.</p>
+        <h3>New to IPTV?</h3>
+        <p>Read <a href="/blog/what-is-iptv/">what IPTV is</a>, <a href="/blog/iptv-cost-canada/">how IPTV cost compares in Canada</a> and the <a href="/blog/iptv-free-trial-checklist/">24-hour trial checklist</a> before you decide. Thinking of switching from cable? See <a href="/blog/iptv-vs-cable-canada/">IPTV vs cable in Canada</a>. Want to resell? See the <a href="/reseller/">reseller program</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plans-by-length">
+    <div class="container" style="max-width:960px;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div class="section-label"><Icon name="calendar" size={14} />Plans by Length</div>
+        <h2 class="section-title">Prime IPTV Plans by Length: 1 to 24 Months</h2>
+        <p class="section-sub" style="margin-bottom:0;">Open any plan to see the details, the price for each number of connections and an Order Now button that opens WhatsApp.</p>
+      </div>
+      <div class="len-grid">
+        {planMonths.map((m) => (
+          <a href={planUrl(m)} class="len-card">
+            <strong>IPTV {planLabel(m)}</strong>
+            <span class="len-price">{isPriced(m) ? `From ${money(prices[1][m])}` : 'Ask for today’s price'}</span>
+            <span class="len-meta">{bonusFor(m) > 0 ? `+${bonusFor(m)} ${bonusFor(m) === 1 ? 'month' : 'months'} free` : 'Flexible short plan'}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container" style="max-width:820px;">
+      <div style="text-align:center; margin-bottom:2rem;">
+        <div class="section-label"><Icon name="help" size={14} />Pricing FAQ</div>
+        <h2 class="section-title">Pricing Questions Answered</h2>
+      </div>
+      <div class="faq-stack">
+        {pricingFaqs.map((f) => (
+          <details class="faq-item">
+            <summary><span>{f.q}</span><span class="arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <p style="text-align:center; margin-top:1.5rem;"><a href="/faq/" class="btn-outline">More questions<Icon name="arrow" size={16} /></a></p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .includes-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
+  .include-item { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:0.75rem; font-size:0.85rem; color:var(--muted); }
+  @media (max-width:900px) { .includes-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px) { .includes-grid { grid-template-columns:1fr; } }
+  .len-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .len-card { display:flex; flex-direction:column; gap:0.3rem; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:1.25rem; text-decoration:none; color:var(--text); transition:border-color 0.2s, transform 0.2s; }
+  .len-card:hover { border-color:var(--brand); transform:translateY(-2px); }
+  .len-price { color:var(--brand); font-weight:800; font-size:1.15rem; }
+  .len-meta { color:var(--muted); font-size:0.82rem; }
+  @media (max-width:700px) { .len-grid { grid-template-columns:repeat(2,1fr); } }
+  .txt-wrap { max-width:860px; margin:0 auto; }
+  .txt-wrap :global(.section-label), .txt-wrap :global(.section-title) { text-align:left; }
+  .bonus-note { color:var(--brand); font-size:0.8rem; font-weight:700; }
+  .per-note { font-size:0.8rem; }
+  .faq-stack { display:flex; flex-direction:column; gap:0.75rem; }
+  .faq-item { background:#fff; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  .faq-item summary { display:flex; justify-content:space-between; align-items:center; padding:1.1rem 1.25rem; font-weight:600; font-size:0.95rem; gap:1rem; }
+  .faq-item summary:hover { background:rgba(11,42,111,0.04); }
+  .arrow { color:var(--muted); display:inline-flex; transition:transform 0.2s; }
+  .faq-item[open] .arrow { transform:rotate(180deg); }
+  .faq-item p { padding:0 1.25rem 1.1rem; color:var(--muted); font-size:0.9rem; margin:0; line-height:1.65; }
+</style>

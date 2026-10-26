@@ -1,0 +1,57 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+const speeds = [
+  ['SD (définition standard)', '5 Mb/s', '10 Mb/s', '15 Mb/s'],
+  ['HD', '10 Mb/s', '20 Mb/s', '30 Mb/s'],
+  ['FHD (Full HD 1080p)', '15 Mb/s', '30 Mb/s', '45 Mb/s'],
+  ['4K (Ultra HD)', '25 Mb/s', '50 Mb/s', '75 Mb/s'],
+];
+---
+<ContentPage title="Disponibilité et vitesse Internet requise | Prime IPTV Canada" description="Prime IPTV dessert les spectateurs partout au Canada et est aussi offert dans le monde entier. Voyez la vitesse nécessaire pour la SD, la HD, la FHD et le 4K sur un ou plusieurs écrans." label="Disponibilité" icon="globe" h1="Prime IPTV pour les spectateurs au Canada et dans le monde" width={820}>
+  <p>Prime IPTV dessert d’abord les clients au <strong>Canada</strong> et est offert dans toutes les provinces et tous les territoires. Il est aussi <strong>offert dans le monde entier</strong>; les spectateurs à l’extérieur du Canada peuvent donc aussi utiliser le service.</p>
+
+  <h2>Quelle vitesse Internet faut-il pour l’IPTV et le streaming 4K?</h2>
+  <p>Prime IPTV diffuse sur votre propre connexion Internet; la vitesse et la stabilité comptent donc plus que l’endroit où vous habitez. Le tableau donne un repère approximatif de la vitesse dont chaque flux a besoin, et de ce que cela donne quand deux ou trois écrans regardent en même temps. Ce sont des règles générales, non des garanties. Les besoins réels varient selon votre appareil, votre lecteur et ce qui utilise d’autre votre connexion.</p>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Qualité</th><th>1 écran</th><th>2 écrans</th><th>3 écrans</th></tr></thead>
+    <tbody>
+      {speeds.map(([q, a, b, c]) => <tr><td><strong>{q}</strong></td><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}
+    </tbody>
+  </table></div>
+
+  <h2>Tirer le meilleur de votre connexion</h2>
+  <ul>
+    <li><strong>Testez à l’heure où vous regardez.</strong> Faites un test de vitesse en soirée sur l’appareil que vous utilisez, et non seulement sur un ordinateur à côté du routeur.</li>
+    <li><strong>Préférez un câble.</strong> Ethernet est plus stable que le Wi-Fi, surtout pour le 4K et le sport en direct.</li>
+    <li><strong>Comptez vos écrans.</strong> Les forfaits couvrent de 1 à 4 connexions. Voyez <a href="/fr/blogue/how-many-iptv-connections-do-i-need/">de combien de connexions vous avez besoin</a>.</li>
+    <li><strong>Choisissez la bonne qualité.</strong> Si votre connexion est limitée, choisissez des chaînes HD ou FHD plutôt que 4K.</li>
+    <li><strong>Réglez les problèmes étape par étape.</strong> Notre <a href="/fr/blogue/iptv-buffering-troubleshooting/">liste sur la mise en mémoire tampon et la connexion</a> couvre les causes habituelles.</li>
+  </ul>
+
+  <h2>Comment tester votre vitesse Internet</h2>
+  <ol>
+    <li>Connectez l’appareil sur lequel vous regardez, ou un téléphone sur le même Wi-Fi, au réseau que vous utiliserez.</li>
+    <li>Faites un test de vitesse dans un navigateur ou une application à l’heure où vous regardez normalement. Les soirées sont généralement les plus chargées.</li>
+    <li>Mettez d’abord en pause les autres usages lourds (téléchargements, sauvegardes infonuagiques, autres flux) pour un résultat propre.</li>
+    <li>Comparez la vitesse de téléchargement au tableau ci-dessus, multipliée par le nombre d’écrans que vous comptez faire fonctionner ensemble.</li>
+  </ol>
+
+  <h2>Wi-Fi ou Ethernet?</h2>
+  <p>Ethernet donne la connexion la plus stable et est le meilleur choix pour les téléviseurs et les boîtiers de diffusion dotés d’un port, surtout pour le 4K et le sport en direct. Le Wi-Fi fonctionne bien quand le signal est fort, mais la distance, les murs et un réseau encombré réduisent la vitesse réelle. Si vous utilisez le Wi-Fi, restez sur la bande de 5 GHz quand vous le pouvez et gardez l’appareil le plus près possible du routeur. Les appareils Fire TV peuvent utiliser un adaptateur Ethernet.</p>
+
+  <h2>Combien d’écrans votre connexion supporte-t-elle?</h2>
+  <p>Additionnez la vitesse dont chaque écran a besoin. Par exemple, deux flux 4K (environ 25 Mb/s chacun) plus un flux HD (environ 10 Mb/s) représentent environ 60 Mb/s, et il faut prévoir de la marge pour les autres personnes qui utilisent le réseau. Si votre connexion ne peut pas supporter cela, réduisez la qualité sur certains écrans ou choisissez un forfait avec moins de connexions simultanées. Le <a href="/fr/blogue/how-many-iptv-connections-do-i-need/">choisisseur de connexions</a> vous aide à décider.</p>
+
+  <h2>Conseils rapides pour le routeur et le réseau</h2>
+  <ul>
+    <li>Redémarrez le routeur si les vitesses baissent, et placez-le dans un endroit dégagé et central.</li>
+    <li>Éloignez l’appareil de diffusion des fours à micro-ondes et des murs épais.</li>
+    <li>Déconnectez du Wi-Fi les appareils que vous n’utilisez pas.</li>
+    <li>Si vous utilisez un VPN et constatez de la mise en mémoire tampon, désactivez-le brièvement pour tester.</li>
+  </ul>
+
+  <h2>Regarder de l’extérieur du Canada</h2>
+  <p>Le même service fonctionne pour les spectateurs du monde entier. Votre expérience dépend quand même de votre connexion Internet locale; servez-vous donc du guide de vitesse ci-dessus. Pour de l’aide à choisir un forfait ou à installer dans votre pays, écrivez-nous sur <a href="https://wa.me/14062356618" target="_blank" rel="noopener">WhatsApp</a> ou <a href="/fr/contact/">joignez le soutien</a>.</p>
+  <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit de 24 heures</a><a href="/fr/tarifs/" class="btn-outline">Voir les tarifs</a><a href="/fr/installation/" class="btn-outline">Guides d’installation</a></div>
+</ContentPage>
