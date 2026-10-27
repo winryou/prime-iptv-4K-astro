@@ -13,6 +13,7 @@
     "llms": "astro build && node scripts/build-llms.mjs",
     "og": "astro build && node scripts/build-og.mjs && astro build",
     "seo:assets": "astro build && node scripts/build-og.mjs && astro build && node scripts/build-llms.mjs && astro build",
+    "stamp": "node scripts/stamp-license.mjs",
     "lastmod": "node scripts/update-lastmod.mjs"
   },
   "dependencies": {

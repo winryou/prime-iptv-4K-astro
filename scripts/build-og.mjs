@@ -5,6 +5,7 @@ import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync } from 'n
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
+import { stampFile } from './stamp-license.mjs';
 
 const DIST = fileURLToPath(new URL('../dist/', import.meta.url));
 const OUT = fileURLToPath(new URL('../public/og/', import.meta.url));
@@ -52,6 +53,7 @@ ${sl.map((l, i) => `<text x="70" y="${y0 + 90 + hl.length * (size + 10) + 20 + i
 <text x="1130" y="590" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#fff">${fr ? 'Essai gratuit 24 h' : '24-hour free trial'}</text>
 </svg>`;
   await sharp(Buffer.from(svg)).jpeg({ quality: 74, mozjpeg: true }).toFile(join(OUT, key + '.jpg'));
+  await stampFile(join(OUT, key + '.jpg'));
   n++;
 }
 console.log(`[og] wrote ${n} images to public/og/`);
