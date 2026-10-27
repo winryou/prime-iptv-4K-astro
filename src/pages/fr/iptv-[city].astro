@@ -16,7 +16,7 @@ const city = { ...base, ...citiesFr[base.slug], extra: citiesFr[base.slug]?.extr
 const cn = base.slug === 'cote-nord';
 const at = cn ? 'sur la Côte-Nord' : `à ${city.name}`;
 const of = cn ? 'de la Côte-Nord' : `de ${city.name}`;
-const money = (n: number) => String(n).replace('.', ',') + ' $';
+const money = (n: number) => String(n).replace('.', ',') + ' $ CAD';
 const SITE = 'https://primeiptv4k.ca';
 const wa = `https://wa.me/14062356618?text=${encodeURIComponent(`Bonjour Prime IPTV, j’habite ${at} et je voudrais un essai gratuit.`)}`;
 const faqs = [
@@ -125,7 +125,7 @@ const others = cities.filter((c) => c.slug !== city.slug);
         <li><a href="/fr/blogue/is-iptv-legal-in-canada/">L’IPTV est-il légal au Canada?</a></li>
         <li><a href="/fr/blogue/iptv-vs-cable-canada/">IPTV ou câble au Canada</a></li>
         <li><a href="/fr/blogue/iptv-box-canada/">Boîtier IPTV au Canada : en faut-il un?</a></li>
-        <li><a href="/fr/meilleur-service-iptv-canada/">Meilleur IPTV au Canada : liste de 8 critères</a></li>
+        <li><a href="/fr/meilleur-service-iptv-canada/">Meilleur IPTV au Canada : pourquoi Prime IPTV est le meilleur</a></li>
       </ul>
     </div>
   </section>
@@ -162,7 +162,7 @@ const others = cities.filter((c) => c.slug !== city.slug);
 <style>
   .container.narrow { max-width: 780px; }
   .section.alt { background: var(--bg-2); }
-  .chero { margin-top: -4.6rem; padding: 8.5rem 1rem 3.5rem; color: #fff; border-radius: 0 0 36px 36px;
+  .chero { margin-top: -4.6rem; padding: 8.5rem 1rem 3.5rem; color: #fff; border-radius: 0 0 22px 22px;
     background: radial-gradient(700px 360px at 90% 0%, rgba(79,123,234,0.5), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(232,53,47,0.35), transparent 60%), linear-gradient(160deg, #06143a, #0b2a6f 60%, #12388f); }
   .crumbs { font-size: 0.82rem; color: #b9c9ec; margin-bottom: 1rem; }
   .crumbs a { color: #fff; text-decoration: none; }

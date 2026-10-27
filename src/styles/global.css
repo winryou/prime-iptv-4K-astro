@@ -14,12 +14,12 @@
   --muted: #4b5b75;
   --green: #0f7a4a;
   --shadow: 0 1px 2px rgba(11,42,111,0.06), 0 12px 32px -12px rgba(11,42,111,0.18);
-  --radius: 18px;
+  --radius: 14px;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   background-color: var(--bg);
@@ -30,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 { letter-spacing: -0.02em; }
+h1, h2, h3, .plan-price, .logo-text { font-family: 'Sora', 'Inter', ui-sans-serif, sans-serif; letter-spacing: -0.03em; }
 
 .btn-primary {
   display: inline-flex;
@@ -41,8 +41,8 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   color: #fff;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.8rem 1.6rem;
-  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -61,8 +61,8 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   color: var(--brand);
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.8rem 1.6rem;
-  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 12px;
   border: 1.5px solid var(--border);
   cursor: pointer;
   text-decoration: none;
@@ -75,6 +75,11 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 .container { max-width: 1100px; margin: 0 auto; }
 .section-label {
   display: inline-block;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(11,42,111,0.06);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -88,6 +93,8 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   line-height: 1.2;
   margin: 0 0 1rem;
 }
+.section-title::after { content: ''; display: block; width: 44px; height: 4px; border-radius: 2px; background: var(--accent); margin: 0.7rem 0 0; }
+.head .section-title::after, [style*="text-align:center"] .section-title::after, [style*="text-align: center"] .section-title::after, .section-title[style*="center"]::after { margin-inline: auto; }
 .section-sub {
   color: var(--muted);
   font-size: 1.05rem;
@@ -115,9 +122,10 @@ details summary::-webkit-details-marker { display: none; }
 }
 
 /* Shared pricing card design (homepage, /pricing, /reseller) */
-.pricing-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); box-shadow:var(--shadow); border-radius:22px; padding:1.5rem; text-align:left; position:relative; transition:border-color 0.2s; }
+.pricing-card { display:flex; flex-direction:column; background:var(--bg-card); border:1px solid var(--border); box-shadow:var(--shadow); border-radius:16px; border-top:4px solid var(--border); padding:1.5rem; text-align:left; position:relative; transition:border-color 0.2s, transform 0.2s; }
+.pricing-card:hover { transform: translateY(-3px); }
 .pricing-card:hover { border-color:rgba(11,42,111,0.4); }
-.pricing-card.featured { border-color:var(--brand); box-shadow:0 0 0 1px rgba(11,42,111,0.2); }
+.pricing-card.featured { border-top-color:var(--accent); border-color:var(--brand); box-shadow:0 0 0 1px rgba(11,42,111,0.2); }
 .badge-popular, .badge-save { position:absolute; top:-10px; left:50%; transform:translateX(-50%); font-size:0.7rem; font-weight:800; padding:0.2rem 0.75rem; border-radius:20px; white-space:nowrap; }
 .badge-popular { background:var(--accent); color:#fff; }
 .badge-save { background:var(--bg-2); color:var(--brand); border:1px solid var(--border); }
@@ -137,7 +145,7 @@ details summary::-webkit-details-marker { display: none; }
 .section-label .icon { margin-right: 0.4rem; vertical-align: -0.2em; }
 .qvp-icon, .why-icon, .feat-icon, .trust-icon, .c-icon, .ben-icon {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 54px; height: 54px; border-radius: 14px;
+  width: 54px; height: 54px; border-radius: 12px;
   background: rgba(11, 42, 111, 0.08); color: var(--brand);
 }
 .qvp-icon, .feat-icon, .trust-icon, .c-icon, .ben-icon { margin-inline: auto; }
@@ -175,3 +183,7 @@ details summary::-webkit-details-marker { display: none; }
 
 /* Links inside running text must be identifiable without relying on colour alone (WCAG 1.4.1). */
 main p a:not([class]) { text-decoration: underline; text-underline-offset: 2px; }
+
+
+
+.cur { font-size: 0.42em; font-weight: 800; letter-spacing: 0.04em; color: var(--muted); vertical-align: baseline; }

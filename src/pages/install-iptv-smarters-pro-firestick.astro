@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Icon from '../components/Icon.astro';
 import { prices, durations, bonusMonths } from '../data/pricing';
-const money = (n: number) => `$${n.toFixed(2)}`;
+const money = (n: number) => `$${n.toFixed(2)} CAD`;
 
 const faqs = [["Is IPTV Smarters Pro in the Amazon Appstore?", "No. IPTV Smarters Pro is not listed in the Amazon Appstore. On a Firestick it is installed with the free Downloader app from the player’s official website."], ["Do I need Downloader to install IPTV Smarters Pro on Firestick?", "Yes, in the usual method. Install Downloader from the Appstore, allow it to install unknown apps in Developer options, then use it to install the player from the official source."], ["Which login do I use in IPTV Smarters Pro?", "Use the Xtream Codes login with the server URL, username and password we send you by WhatsApp or email."], ["Why is IPTV Smarters Pro not working on my Firestick?", "Check your login details for typos or extra spaces, check your internet connection, and restart the app and the Firestick. If it still fails, clear the app cache or reinstall it, or contact support."], ["Does this work on a Fire TV Stick 4K?", "Yes. The steps are the same on any Fire TV Stick, including the Fire TV Stick 4K, which can play 4K streams on a 4K TV with a stable connection."], ["Can I test it before I pay?", "Yes. Prime IPTV has a 24-hour free trial with no credit card, and we send the details by WhatsApp or email, so you can test IPTV Smarters Pro on your Firestick first."]];
 const faqSchema = {

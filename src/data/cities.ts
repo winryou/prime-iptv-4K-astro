@@ -153,7 +153,7 @@ export const cities: City[] = [
     extra: [
       { title: 'Best IPTV in Quebec: what to look for', text: 'The best IPTV service for a Quebec household is one you can test first, with clear prices, a refund policy and support that answers in French. Prime IPTV offers a 24-hour free trial with no credit card, published prices, a 7-day money-back guarantee and WhatsApp support in French and English.' },
       { title: 'IPTV free trial in Quebec', text: 'Ask for the free trial on WhatsApp in French or English, tell us your device, and we send your trial login. Use the 24 hours to check your channels, a live game and the picture quality on your own connection.' },
-      { title: 'Cheap IPTV in Quebec: plans from $34.99 CAD', text: 'Plans start at $34.99 CAD for 3 months, about $11.66 a month. The 24-month plan works out to about $5.21 a month, with 2 free months on top. There is no contract. That is the 1-connection price; 2, 3 and 4 connection plans cost more, and the pricing page shows each one.' },
+      { title: 'Cheap IPTV in Quebec: plans from $34.99 CAD', text: 'Plans start at $34.99 CAD for 3 months, about $11.66 CAD a month. The 24-month plan works out to about $5.21 CAD a month, with 2 free months on top. There is no contract. That is the 1-connection price; 2, 3 and 4 connection plans cost more, and the pricing page shows each one.' },
     ],
   },
   {
@@ -189,7 +189,7 @@ export const cities: City[] = [
     internet: 'Most of Hamilton has good broadband. Larger homes may need a mesh Wi-Fi system or a wired connection to reach the farthest TV. Plan on about 10 Mbps per HD screen and 25 Mbps or more for 4K.',
     faqs: [
       ['Does Prime IPTV work in Burlington and Ancaster?', 'Yes. Any location with a stable internet connection works across Hamilton and the Golden Horseshoe.'],
-      ['Is it cheaper than cable?', 'Prices are published on the pricing page, with plans from $34.99 for 3 months. Compare against your current bill and use the free trial first.'],
+      ['Is it cheaper than cable?', 'Prices are published on the pricing page, with plans from $34.99 CAD for 3 months. Compare against your current bill and use the free trial first.'],
       ['Do I need to buy equipment?', 'No special box. Most people use a Smart TV, a Firestick or a phone with a compatible player app.'],
     ],
     near: ['toronto', 'ottawa', 'montreal'],

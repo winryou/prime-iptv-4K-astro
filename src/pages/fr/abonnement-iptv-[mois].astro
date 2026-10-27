@@ -12,7 +12,7 @@ const SITE = 'https://primeiptv4k.ca';
 const copy = planFr[months];
 const priced = isPriced(months);
 const bonus = bonusFor(months);
-const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
 const wa = (text: string) => `https://wa.me/14062356618?text=${encodeURIComponent(text)}`;
 const connLabel = (n: number) => `${n} ${n === 1 ? 'connexion' : 'connexions'}`;
 const bonusText = bonus > 0 ? `+${bonus} mois gratuit${bonus > 1 ? 's' : ''}` : '';

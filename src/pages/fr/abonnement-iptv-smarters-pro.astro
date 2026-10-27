@@ -1,13 +1,13 @@
 ---
 import ContentPage from '../../layouts/ContentPage.astro';
 import Icon from '../../components/Icon.astro';
-const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
 import { prices, durations, bonusMonths } from '../../data/pricing';
 const faqs: [string, string][] = [
   ['IPTV Smarters Pro comprend-il un abonnement?', 'Non. IPTV Smarters Pro est une application de lecture et n’a aucune chaîne en propre. Vous ajoutez un abonnement d’un fournisseur IPTV, comme Prime IPTV, pour regarder.'],
   ['Prime IPTV fonctionne-t-il avec IPTV Smarters Pro?', 'Oui. Prime IPTV fonctionne avec IPTV Smarters Pro grâce à la connexion Xtream Codes : URL du serveur, nom d’utilisateur et mot de passe.'],
   ['Où obtenir mon identifiant IPTV Smarters Pro?', 'Auprès de votre fournisseur IPTV. Pour Prime IPTV, nous envoyons vos identifiants par WhatsApp ou par courriel quand vous commencez l’essai gratuit ou vous abonnez.'],
-  ['IPTV Smarters Pro est-il gratuit?', 'L’application s’installe depuis une boutique d’applications ou le site officiel, et ses chaînes viennent de votre abonnement. Consultez la fiche actuelle de l’application pour ses conditions. L’abonnement Prime IPTV est distinct et commence à 34,99 $ pour 3 mois.'],
+  ['IPTV Smarters Pro est-il gratuit?', 'L’application s’installe depuis une boutique d’applications ou le site officiel, et ses chaînes viennent de votre abonnement. Consultez la fiche actuelle de l’application pour ses conditions. L’abonnement Prime IPTV est distinct et commence à 34,99 $ CAD pour 3 mois.'],
   ['Puis-je essayer un abonnement avant de payer?', 'Oui. Prime IPTV offre un essai gratuit de 24 heures sans carte de crédit, et nous envoyons les détails par WhatsApp ou par courriel.'],
   ['Et si je ne veux pas utiliser IPTV Smarters Pro?', 'Prime IPTV fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U, y compris TiviMate, IBO Player, Set IPTV et NET IPTV.'],
 ];

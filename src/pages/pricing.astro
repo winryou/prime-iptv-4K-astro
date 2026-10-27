@@ -25,10 +25,10 @@ const product = {
   brand: { '@type': 'Brand', name: 'Prime IPTV' },
   offers,
 };
-const money = (n: number) => `$${n.toFixed(2)}`;
+const money = (n: number) => `$${n.toFixed(2)} CAD`;
 const pricingFaqs = [
   { q: 'Do you offer more than 4 devices?', a: 'Yes. Standard plans cover 1 to 4 devices (connections). If you need more than 4 devices, message us on WhatsApp or email us and we will quote a plan for you.' },
-  { q: 'How much does Prime IPTV cost?', a: 'Plans start at $34.99 for 3 months with 1 connection. The price depends on how long the plan runs (3, 6, 12 or 24 months), and on how many connections you need (1 to 4). Need more than 4 devices? Message us on WhatsApp or email us for a custom plan. All prices are in Canadian dollars (CAD).' },
+  { q: 'How much does Prime IPTV cost?', a: 'Plans start at $34.99 CAD for 3 months with 1 connection. The price depends on how long the plan runs (3, 6, 12 or 24 months), and on how many connections you need (1 to 4). Need more than 4 devices? Message us on WhatsApp or email us for a custom plan. All prices are in Canadian dollars (CAD).' },
   { q: 'Which plan has the lowest monthly cost?', a: '24-month plans cost the least per month at every connection count, followed by 12-month and 6-month plans. 3-month plans cost the least up front.' },
   { q: 'What does +1 month free and +2 months free mean?', a: 'The 6-month and 12-month plans add 1 extra month at no charge, and the 24-month plans add 2. The free months are added on top of the period you pay for.' },
   { q: 'What is a connection?', a: 'A connection is one stream playing at a time. With a 2-connection plan, two screens can watch at the same moment.' },
@@ -46,7 +46,7 @@ const pricingFaqSchema = {
   mainEntity: pricingFaqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 };
 ---
-<Layout title="IPTV Subscription Canada: Plans from $34.99 CAD | Prime IPTV" description="Buy an IPTV subscription in Canada with 1 to 4 connections for 3, 6, 12 or 24 months from $34.99. Free bonus months, 24-hour free trial, 7-day refund." schema={[product, pricingFaqSchema]}>
+<Layout title="IPTV Subscription Canada: Plans from $34.99 CAD | Prime IPTV" description="Buy an IPTV subscription in Canada with 1 to 4 connections for 3, 6, 12 or 24 months from $34.99 CAD. Free bonus months, 24-hour free trial, 7-day refund." schema={[product, pricingFaqSchema]}>
   <Header slot="header" />
 
   <section class="section">
@@ -57,7 +57,7 @@ const pricingFaqSchema = {
 
       <PricingTabs />
 
-      <p style="color:var(--muted); margin-top:1.5rem; font-size:0.875rem;">Need more than 4 connections? <a href="/contact/" style="color:var(--brand);">Contact us</a> for a custom plan. Comparing providers? See the <a href="/best-iptv-service-canada/" style="color:var(--brand);">8-point IPTV buyer&rsquo;s checklist</a>, the <a href="/4k-iptv/" style="color:var(--brand);">4K IPTV guide</a> and <a href="/iptv-smarters-pro-subscription/" style="color:var(--brand);">IPTV Smarters Pro subscription</a>. Not sure how many connections you need? Use our <a href="/blog/how-many-iptv-connections-do-i-need/" style="color:var(--brand);">connection chooser</a>. Questions before you buy? Read the <a href="/faq/" style="color:var(--brand);">FAQ</a>, the <a href="/refund/" style="color:var(--brand);">7-day refund policy</a>, or <a href="/free-trial/" style="color:var(--brand);">start the 24-hour free trial</a> (no credit card).</p>
+      <p style="color:var(--muted); margin-top:1.5rem; font-size:0.875rem;">Need more than 4 connections? <a href="/contact/" style="color:var(--brand);">Contact us</a> for a custom plan. Comparing providers? See the <a href="/best-iptv-service-canada/" style="color:var(--brand);">why Prime IPTV is the best IPTV in Canada</a>, the <a href="/4k-iptv/" style="color:var(--brand);">4K IPTV guide</a> and <a href="/iptv-smarters-pro-subscription/" style="color:var(--brand);">IPTV Smarters Pro subscription</a>. Not sure how many connections you need? Use our <a href="/blog/how-many-iptv-connections-do-i-need/" style="color:var(--brand);">connection chooser</a>. Questions before you buy? Read the <a href="/faq/" style="color:var(--brand);">FAQ</a>, the <a href="/refund/" style="color:var(--brand);">7-day refund policy</a>, or <a href="/free-trial/" style="color:var(--brand);">start the 24-hour free trial</a> (no credit card).</p>
     </div>
   </section>
 

@@ -3,9 +3,9 @@ import ContentPage from '../../layouts/ContentPage.astro';
 import Icon from '../../components/Icon.astro';
 import PricingTabs from '../../components/PricingTabs.astro';
 import { prices, durations, bonusMonths } from '../../data/pricing';
-const fmt = (n: number) => n.toFixed(2).replace('.', ',') + ' $';
+const fmt = (n: number) => n.toFixed(2).replace('.', ',') + ' $ CAD';
 ---
-<ContentPage title="Abonnement IPTV Canada : forfaits dès 34,99 $ | Prime IPTV" description="Abonnement IPTV Canada : forfaits Prime IPTV de 1 à 4 connexions et de 3 à 24 mois, dès 34,99 $. Plus de 25 000 chaînes, 4K, sports et PPV. Essai gratuit de 24 heures et garantie de 7 jours." label="Forfaits et tarifs" icon="card" h1="Abonnement IPTV Canada : forfaits et tarifs" width={1100}>
+<ContentPage title="Abonnement IPTV Canada : forfaits dès 34,99 $ CAD | Prime IPTV" description="Abonnement IPTV Canada : forfaits Prime IPTV de 1 à 4 connexions et de 3 à 24 mois, dès 34,99 $ CAD. Plus de 25 000 chaînes, 4K, sports et PPV. Essai gratuit de 24 heures et garantie de 7 jours." label="Forfaits et tarifs" icon="card" h1="Abonnement IPTV Canada : forfaits et tarifs" width={1100}>
   <p style="max-width:720px;">Choisissez l’abonnement IPTV qui vous convient. Tous les forfaits comprennent plus de 25 000 chaînes en direct, plus de 120 000 films et séries, le 4K, l’EPG, le sport, le PPV et le soutien 24/7. Aucun contrat. Annulation possible.</p>
   <div style="text-align:center;"><PricingTabs /></div>
   <h2>Coût par mois selon la durée (1 connexion)</h2>

@@ -1,6 +1,6 @@
 import { prices } from './pricing';
 
-const f = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+const f = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
 const p = (c: number, m: number) => f(prices[c][m]);
 const pm = (c: number, m: number, paid = m) => f(prices[c][m] / paid);
 

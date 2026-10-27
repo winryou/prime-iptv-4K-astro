@@ -15,7 +15,7 @@ const copy = planCopy[months];
 const priced = isPriced(months);
 const bonus = bonusFor(months);
 const label = planLabel(months);
-const money = (n: number) => `$${n.toFixed(2)}`;
+const money = (n: number) => `$${n.toFixed(2)} CAD`;
 const wa = (text: string) => `https://wa.me/14062356618?text=${encodeURIComponent(text)}`;
 const connLabel = (n: number) => `${n} ${n === 1 ? 'connection' : 'connections'}`;
 const bonusText = bonus > 0 ? `+${bonus} ${bonus === 1 ? 'month' : 'months'} free` : '';

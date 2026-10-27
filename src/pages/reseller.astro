@@ -85,7 +85,7 @@ const faqs = [
             {p.popular && <div class="badge-popular">Most Popular</div>}
             <div class="plan-name">{p.credits} Credits</div>
             <div class="plan-duration">High Performance Server</div>
-            <div class="plan-price">${p.priceText}</div>
+            <div class="plan-price">${p.priceText} <span class="cur">CAD</span></div>
             <div class="plan-per">≈ ${p.perCredit} CAD per credit</div>
             <ul class="plan-features">
               {includes.map(f => <li><Icon name="check" size={16} class="ic-check" /> {f}</li>)}

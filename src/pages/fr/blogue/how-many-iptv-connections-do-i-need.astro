@@ -3,7 +3,7 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 import Icon from '../../../components/Icon.astro';
 import { prices, durations, bonusMonths, connectionTabs } from '../../../data/pricing';
 
-const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $`;
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
 const advice: Record<number, { who: string; text: string }> = {
   1: { who: 'Un spectateur à la fois', text: 'Convient à une personne seule, ou à un foyer où un seul téléviseur, téléphone ou tablette diffuse à la fois.' },
   2: { who: 'Deux écrans en même temps', text: 'Convient à un couple ou à deux personnes aux goûts différents, par exemple le téléviseur du salon et un téléphone ou le téléviseur de la chambre en même temps.' },

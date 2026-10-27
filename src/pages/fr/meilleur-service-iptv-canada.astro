@@ -1,71 +1,207 @@
 ---
-import ContentPage from '../../layouts/ContentPage.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 import Icon from '../../components/Icon.astro';
-import { prices } from '../../data/pricing';
-const faqs: [string, string][] = [
-  ['Quel est le meilleur service IPTV au Canada?', 'Le meilleur service est celui qui a vos chaînes, fonctionne bien sur vos appareils, offre un essai gratuit et est transparent sur le prix, les remboursements et le soutien. Prime IPTV offre plus de 25 000 chaînes en direct, plus de 120 000 films et séries, le 4K, un essai gratuit de 24 heures sans carte de crédit et une garantie de remboursement de 7 jours.'],
-  ['Comment choisir un fournisseur IPTV?', 'Utilisez la liste de 8 critères de cette page : chaînes, qualité et PPV, essai gratuit, appareils et lecteurs, prix, remboursement et contrat, soutien et antécédents. Testez ensuite vos chaînes indispensables pendant un essai.'],
-  ['Un essai gratuit est-il important pour choisir un service IPTV?', 'Oui. Un essai vous permet de vérifier les chaînes, la qualité d’image, le guide des programmes et le soutien sur votre propre appareil et votre propre connexion avant de payer.'],
-  ['Que chercher dans les prix de l’IPTV?', 'Des prix publiés pour chaque durée, un nombre clair de connexions, les éventuels mois gratuits et une politique de remboursement. Prime IPTV publie tous ses prix et offre une garantie de remboursement de 7 jours.'],
-  ['Faut-il un contrat pour l’IPTV?', 'Pas avec Prime IPTV. Il n’y a aucun contrat, et l’annulation est possible.'],
-  ['Quels appareils Prime IPTV prend-il en charge?', 'Prime IPTV fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U, sur téléviseurs intelligents, Fire TV / Firestick, Android TV, Apple TV, Roku, téléphones, tablettes et ordinateurs, ainsi qu’avec les boîtiers MAG.'],
-];
-const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+import { prices, durations, bonusMonths } from '../../data/pricing';
+import { cities, frName } from '../../data/cities';
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
+const faqs: [string, string][] = [["Quel est le meilleur service IPTV au Canada?", "Prime IPTV est notre réponse. Plus de 25 000 chaînes en direct, plus de 120 000 films et séries, le 4K, des prix publiés, un essai gratuit de 24 heures sans carte de crédit, une garantie de remboursement de 7 jours, aucun contrat et un soutien 24/7. Inutile de nous croire sur parole : l’essai gratuit vous permet de tout vérifier sur votre propre téléviseur."], ["Pourquoi Prime IPTV est-il le meilleur IPTV pour le Canada?", "Il est conçu pour les spectateurs au Canada. Toutes les chaînes canadiennes et américaines et des chaînes d’autres pays, les sports canadiens et américains, le PPV en 4K et en FHD, un guide des programmes et du soutien par WhatsApp, par courriel et par téléphone. Il fonctionne dans chaque province et territoire."], ["Y a-t-il un essai gratuit pour le meilleur service IPTV?", "Oui. Prime IPTV offre un essai gratuit de 24 heures sans carte de crédit. Nous envoyons les détails par WhatsApp ou par courriel."], ["Combien coûte le meilleur IPTV au Canada?", "Les forfaits Prime IPTV commencent à 34,99 $ CAD pour 3 mois avec 1 connexion. Vous choisissez de 1 à 4 connexions et 3, 6, 12 ou 24 mois. Les forfaits de 6 et 12 mois incluent +1 mois gratuit, et ceux de 24 mois +2 mois gratuits."], ["Faut-il un contrat avec Prime IPTV?", "Non. Il n’y a aucun contrat, et l’annulation est possible. Une garantie de remboursement de 7 jours s’applique."], ["Sur quels appareils Prime IPTV fonctionne-t-il?", "Téléviseurs intelligents, Fire TV et Firestick, Android TV, Apple TV, Roku, téléphones, tablettes, ordinateurs et boîtiers MAG, avec tout lecteur qui accepte les codes Xtream ou un lien M3U."]];
+faqs.push(...([["Quel est le meilleur boîtier IPTV au Canada?", "Vous n’avez généralement pas besoin d’un boîtier spécial. Un Firestick, un boîtier Android TV, un Apple TV, un téléviseur intelligent ou un téléphone avec un lecteur IPTV fonctionne avec Prime IPTV. Les boîtiers MAG sont aussi pris en charge."], ["L’IPTV est-il illégal au Canada?", "La technologie IPTV n’est pas illégale, mais regarder ou distribuer du contenu protégé sans permission peut l’être. Vérifiez les conditions d’un fournisseur avant de payer et lisez notre article sur la légalité de l’IPTV au Canada. Ce n’est pas un avis juridique."], ["Quel IPTV est le meilleur pour les Canadiens?", "Prime IPTV est conçu pour les spectateurs canadiens : chaînes et sports canadiens et américains, PPV en 4K et en FHD, prix en CAD, guides par ville et soutien par WhatsApp, courriel et téléphone."]] as [string, string][]));
+faqs.push(...([["Qui offre le meilleur fournisseur IPTV au Canada?", "Prime IPTV est notre choix : un fournisseur IPTV conçu pour le Canada, avec plus de 25 000 chaînes, un essai gratuit de 24 heures sans carte, des prix publiés, une garantie de remboursement de 7 jours et un soutien 24/7."], ["Quel est le meilleur abonnement IPTV au Canada?", "Un bon abonnement IPTV affiche ses prix et ne vous enferme pas. Les forfaits Prime IPTV commencent à 34,99 $ CAD pour 3 mois, avec 1 à 4 connexions et des mois bonus sur les forfaits de 6, 12 et 24 mois."], ["Quel est le meilleur IPTV au Québec?", "Prime IPTV est offert partout au Québec, de Montréal à Québec et à la Côte-Nord, avec des chaînes canadiennes et américaines, des sports et le PPV en 4K. Voyez la page IPTV Québec et demandez l’essai gratuit pour le vérifier sur votre connexion."], ["L’IPTV est-il légal au Canada?", "L’IPTV est une technologie de diffusion, et ce qui compte, c’est que le contenu que vous regardez soit autorisé là où vous vivez. Lisez notre article sur la légalité de l’IPTV au Canada, ainsi que nos conditions, notre politique de confidentialité et notre politique de remboursement avant de vous abonner."]] as [string, string][]));
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
 ---
-<ContentPage title="Meilleur IPTV Canada : liste de 8 critères | Prime IPTV" description="Comment choisir le meilleur service IPTV au Canada : 8 critères sur les chaînes, le 4K, l’essai gratuit, les appareils, les prix, les remboursements et le soutien." label="Guide d’achat" icon="award" h1="Meilleur service IPTV au Canada : une liste de 8 critères" width={860} schema={[faqSchema]}>
-  <p><strong>Le meilleur service IPTV pour le Canada est celui qui offre les chaînes que vous regardez vraiment, fonctionne bien sur vos appareils, vous laisse tester avant de payer et est transparent sur le prix, les remboursements et le soutien.</strong> Utilisez cette liste de 8 critères pour comparer n’importe quel fournisseur IPTV, et voyez comment Prime IPTV s’en tire.</p>
+<Layout title="Meilleur IPTV Canada 2026 : Prime IPTV, le meilleur service" description="Meilleur IPTV au Canada en 2026 : pourquoi Prime IPTV est le meilleur fournisseur. 25 000+ chaînes, 4K, essai gratuit de 24 h, garantie de 7 jours." crumb="Meilleur IPTV Canada" schema={[faqSchema]}>
+  <Header slot="header" />
 
-  <h2>Les 8 critères pour choisir un service IPTV</h2>
-  <ol>
-    <li><strong>Les chaînes que vous regardez vraiment.</strong> Dressez la liste de vos chaînes et sports indispensables, y compris ceux d’autres pays, et vérifiez-les, idéalement pendant un essai.</li>
-    <li><strong>Qualité d’image et PPV.</strong> Cherchez la SD, la HD, la FHD et le 4K, et vérifiez si les chaînes PPV sont incluses et en quelle qualité.</li>
-    <li><strong>Un essai gratuit sans carte.</strong> Un essai vous permet de tester sur votre appareil et votre connexion sans risque.</li>
-    <li><strong>Fonctionne sur vos appareils et vos lecteurs.</strong> Vérifiez Firestick, téléviseur intelligent, Android TV, Apple TV, téléphones et boîtiers MAG, et quelles connexions de lecteur (Xtream Codes, M3U) sont prises en charge.</li>
-    <li><strong>Prix et connexions clairs.</strong> Les prix, les durées et le nombre d’écrans simultanés devraient être publiés, et non cachés.</li>
-    <li><strong>Conditions de remboursement et de contrat.</strong> Cherchez une garantie de remboursement, l’absence de contrat et une façon simple d’annuler.</li>
-    <li><strong>Du soutien quand vous en avez besoin.</strong> Vérifiez les heures, les canaux (WhatsApp, courriel, téléphone) et la rapidité des réponses pendant votre essai.</li>
-    <li><strong>Antécédents et transparence.</strong> Regardez depuis quand l’entreprise est en activité et si elle publie ses coordonnées et ses politiques.</li>
-  </ol>
+  <section class="bhero">
+    <div class="container">
+      <div class="chip"><Icon name="award" size={14} /> Meilleur IPTV Canada &middot; mis à jour en octobre 2026</div>
+      <h1>Meilleur IPTV au Canada (2026) : Prime IPTV est le meilleur service IPTV</h1>
+      <p class="lede">Prime IPTV est notre réponse à « quel est le meilleur IPTV au Canada? ». Plus de 25 000 chaînes en direct, plus de 120 000 films et séries, sports et PPV en 4K, un essai gratuit sans carte et une garantie de remboursement de 7 jours, le tout conçu pour les spectateurs canadiens.</p>
+      <div class="cta">
+        <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit de 24 heures</a>
+        <a href="/fr/tarifs/" class="btn-ghost">Voir les forfaits et les prix<Icon name="arrow" size={16} /></a>
+      </div>
+      <ul class="stats">
+        <li><strong>25,000+</strong><span>chaînes en direct</span></li>
+        <li><strong>120,000+</strong><span>films et séries</span></li>
+        <li><strong>24 h</strong><span>essai gratuit, sans carte</span></li>
+        <li><strong>7-jour</strong><span>garantie de remboursement</span></li>
+      </ul>
+    </div>
+  </section>
 
-  <h2>Comment Prime IPTV s’en tire</h2>
-  <div style="overflow-x:auto;"><table>
-    <thead><tr><th>Critère</th><th>Prime IPTV</th></tr></thead>
-    <tbody>
-      <tr><td>1. Chaînes</td><td>Plus de 25 000 chaînes en direct (toutes les chaînes canadiennes et américaines et des chaînes d’autres pays) plus plus de 120 000 films et séries. <a href="/fr/chaines/">Voir le guide des chaînes</a>.</td></tr>
-      <tr><td>2. Qualité et PPV</td><td>SD, HD, FHD et 4K; toutes les chaînes PPV en 4K et en FHD. <a href="/fr/iptv-4k/">Guide IPTV 4K</a> &middot; <a href="/fr/sports-ppv-4k/">sports et PPV</a>.</td></tr>
-      <tr><td>3. Essai gratuit</td><td>24 heures, sans carte de crédit, livré par WhatsApp ou par courriel. <a href="/fr/essai-gratuit/">Le demander</a>.</td></tr>
-      <tr><td>4. Appareils et lecteurs</td><td>Fonctionne avec tous les lecteurs qui acceptent les codes Xtream ou un lien M3U (IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV, NET IPTV) et avec les boîtiers MAG. <a href="/fr/installation/">Guides par appareil</a>.</td></tr>
-      <tr><td>5. Prix</td><td>Publiés dès 34,99 $ pour 3 mois; de 1 à 4 connexions; +1 mois gratuit sur les forfaits de 6 et 12 mois et +2 sur ceux de 24 mois. <a href="/fr/tarifs/">Voir tous les prix</a>.</td></tr>
-      <tr><td>6. Remboursement et contrat</td><td>Garantie de remboursement de 7 jours; aucun contrat; annulation possible. <a href="/fr/remboursement/">Politique de remboursement</a>.</td></tr>
-      <tr><td>7. Soutien</td><td>24/7 par WhatsApp et par courriel, plus par téléphone : +1 (406) 235-6618.</td></tr>
-      <tr><td>8. Antécédents</td><td>Téléphone, courriel et adresse d’entreprise publiés; pages de conditions, de confidentialité, de remboursement et de DMCA. <a href="/fr/a-propos/">À propos de Prime IPTV</a>.</td></tr>
-    </tbody>
-  </table></div>
-  <p>Nous avons conçu Prime IPTV pour les spectateurs au Canada, et cette liste est la façon dont vous pouvez en juger vous-même, avec un essai gratuit et une garantie de remboursement de 7 jours en appui.</p>
+  <section class="section">
+    <div class="container">
+      <div class="head"><div class="section-label"><Icon name="trophy" size={14} />Le verdict</div>
+      <h2 class="section-title">Pourquoi Prime IPTV l’emporte</h2><p class="section-sub">Huit raisons pour lesquelles les Canadiens choisissent Prime IPTV plutôt que d’autres services IPTV.</p></div>
+      <div class="whys"><article class="why"><span class="why-ic"><Icon name="tv-play" size={24} /></span><h3>Plus de 25 000 chaînes en direct</h3><p>Toutes les chaînes canadiennes et américaines et des chaînes d’autres pays, avec plus de 120 000 films et séries sur demande.</p><a href="/fr/chaines/">Voir la liste <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="trophy" size={24} /></span><h3>Sports et PPV en 4K</h3><p>Sports canadiens, américains et internationaux, et toutes les chaînes PPV en 4K et en FHD.</p><a href="/fr/sports-ppv-4k/">Sports et PPV <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="play" size={24} /></span><h3>Essai gratuit, sans carte</h3><p>Testez 24 heures sur votre propre téléviseur et votre connexion avant de payer quoi que ce soit.</p><a href="/fr/essai-gratuit/">Commencer l’essai <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="monitor" size={24} /></span><h3>Sur tous vos écrans</h3><p>Téléviseur intelligent, Firestick, Android TV, Apple TV, Roku, téléphones, ordinateurs et boîtiers MAG.</p><a href="/fr/installation/">Guides par appareil <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="card" size={24} /></span><h3>Prix publiés</h3><p>Forfaits dès 34,99 $ CAD, de 1 à 4 connexions, avec des mois bonus sur les forfaits plus longs.</p><a href="/fr/tarifs/">Voir les tarifs <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="shield" size={24} /></span><h3>Garantie de 7 jours, sans contrat</h3><p>Une garantie de remboursement et aucun engagement : l’essayer ne présente aucun risque.</p><a href="/fr/remboursement/">Politique de remboursement <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="headset" size={24} /></span><h3>Soutien 24/7</h3><p>De vraies personnes sur WhatsApp et par courriel à toute heure, plus un soutien par téléphone.</p><a href="/fr/contact/">Nous joindre <Icon name="arrow" size={13} /></a></article><article class="why"><span class="why-ic"><Icon name="flag" size={24} /></span><h3>Conçu pour le Canada</h3><p>Pensé pour les spectateurs de chaque province et territoire, avec des guides locaux pour 14 villes canadiennes.</p><a href="/fr/#villes">Trouver votre ville <Icon name="arrow" size={13} /></a></article></div>
+    </div>
+  </section>
 
-  <h2>Des questions à poser à tout fournisseur IPTV avant de payer</h2>
-  <ul>
-    <li>Puis-je essayer d’abord, et faut-il une carte de crédit pour l’essai?</li>
-    <li>Combien de connexions simultanées chaque forfait comprend-il?</li>
-    <li>Quelle est la politique de remboursement et comment demander un remboursement?</li>
-    <li>En combien de temps recevrai-je mon identifiant après le paiement, et comment est-il livré?</li>
-    <li>Quels appareils et quels lecteurs sont pris en charge, et qui m’aide à les configurer?</li>
-    <li>Comment joindre le soutien, et quand est-il offert?</li>
-  </ul>
+  <section class="section alt">
+    <div class="container narrow">
+      <div class="head"><h2 class="section-title">Prime IPTV et les signaux d’alerte des autres services IPTV</h2><p class="section-sub">Voici ce que vous obtenez avec Prime IPTV, et ce dont il faut se méfier chez n’importe quel fournisseur.</p></div>
+      <div class="cmp-wrap"><table class="cmp">
+        <thead><tr><th>Ce qui compte</th><th class="us">Prime IPTV</th><th>Signaux d’alerte ailleurs</th></tr></thead>
+        <tbody><tr><td>Essai gratuit</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> 24 heures, sans carte de crédit</td><td class="no">Essai avec carte, ou aucun essai</td></tr><tr><td>Prix</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> Publiés pour chaque forfait</td><td class="no">« Contactez-nous pour un prix »</td></tr><tr><td>Remboursement</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> Garantie de remboursement de 7 jours</td><td class="no">Aucune politique de remboursement</td></tr><tr><td>Contrat</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> Aucun, annulation possible</td><td class="no">Engagement ou conditions floues</td></tr><tr><td>Soutien</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> 24/7 par WhatsApp et courriel, plus téléphone</td><td class="no">Lent ou difficile à joindre</td></tr><tr><td>Renseignements de l’entreprise</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> Téléphone, courriel et adresse publiés</td><td class="no">Anonyme, aucune coordonnée</td></tr><tr><td>Orientation Canada</td><td class="yes"><Icon name="check" size={16} class="ic-check" /> Chaînes et sports canadiens et américains, guides par ville</td><td class="no">Une seule liste générique mondiale</td></tr></tbody>
+      </table></div>
+    </div>
+  </section>
 
-  <h2>Le meilleur IPTV selon vos besoins</h2>
-  <ul>
-    <li><strong>Amateurs de sport :</strong> testez un match en direct aux heures de pointe. Voyez <a href="/fr/sports-ppv-4k/">sports et PPV sur Prime IPTV</a>.</li>
-    <li><strong>Spectateurs 4K :</strong> vérifiez le téléviseur, l’appareil et la vitesse. Voyez le <a href="/fr/iptv-4k/">guide IPTV 4K</a>.</li>
-    <li><strong>Utilisateurs de Firestick :</strong> voyez le <a href="/fr/installation/firestick/">guide d’installation Firestick</a>.</li>
-    <li><strong>Foyers avec plusieurs écrans :</strong> utilisez le <a href="/fr/blogue/how-many-iptv-connections-do-i-need/">choisisseur de connexions</a>.</li>
-    <li><strong>Pour les indécis :</strong> utilisez la <a href="/fr/blogue/iptv-free-trial-checklist/">liste de vérification de l’essai de 24 heures</a>.</li>
-  </ul>
-  <h2>Questions fréquentes</h2>
-  {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
-  <div class="box">
-    <h3 style="margin-top:0;">Jugez-en par vous-même</h3>
-    <p>Testez Prime IPTV gratuitement pendant 24 heures sans carte de crédit, puis comparez les forfaits.</p>
-    <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a><a href="/fr/tarifs/" class="btn-outline">Voir les forfaits</a></div>
-  </div>
-</ContentPage>
+  <section class="section">
+    <div class="container">
+      <div class="head"><h2 class="section-title">Prix du meilleur IPTV au Canada</h2><p class="section-sub">Prix en CAD, 1 connexion. Plus de connexions et des forfaits plus longs sont sur la page des tarifs.</p></div>
+      <div class="plans">
+        {durations.map((d) => (
+          <a class={`plan${d === 12 ? ' hot' : ''}`} href="/fr/tarifs/">
+            <span class="pm">{d} mois</span>
+            <strong>{money(prices[1][d])}</strong>
+            {bonusMonths[d] > 0 && <span class="pb">+{bonusMonths[d]} mois gratuit</span>}
+          </a>
+        ))}
+      </div>
+      <p class="more"><a href="/fr/tarifs/">Tous les forfaits <Icon name="arrow" size={14} /></a></p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="head"><h2 class="section-title">Pour qui Prime IPTV est le meilleur choix</h2></div>
+      <div class="bests"><a class="bf" href="/fr/sports-ppv-4k/"><strong>Amateurs de sports</strong><span>Sports canadiens et américains en direct et PPV en 4K et en FHD.</span><em>Sports et PPV <Icon name="arrow" size={13} /></em></a><a class="bf" href="/fr/blogue/how-many-iptv-connections-do-i-need/"><strong>Familles avec plusieurs écrans</strong><span>De 1 à 4 connexions, et demandez-nous pour davantage.</span><em>Choisir les connexions <Icon name="arrow" size={13} /></em></a><a class="bf" href="/fr/iptv-4k/"><strong>Spectateurs 4K</strong><span>De la SD au 4K selon votre téléviseur, votre appareil et votre vitesse.</span><em>IPTV 4K <Icon name="arrow" size={13} /></em></a><a class="bf" href="/fr/installation/firestick/"><strong>Propriétaires de Firestick et de téléviseur intelligent</strong><span>Utilisez les applications que vous avez déjà, sans boîtier à louer.</span><em>Installation Firestick <Icon name="arrow" size={13} /></em></a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow proof">
+      <h2 class="section-title" style="text-align:left;">Ne nous croyez pas sur parole</h2>
+      <p>Chaque affirmation de cette page peut être vérifiée. Demandez l’essai gratuit de 24 heures, testez vos chaînes indispensables et un match en direct, et choisissez ensuite un forfait. Si ce n’est pas pour vous, la garantie de remboursement de 7 jours s’applique.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <nav class="toc" aria-label="Sur cette page"><a href="#best-subscription">Meilleur abonnement</a><a href="#best-provider">Meilleur fournisseur</a><a href="#best-trial">Meilleur essai gratuit</a><a href="#best-city">Meilleur IPTV par ville</a><a href="#best-players">Meilleurs lecteurs</a><a href="#best-box">Boîtier IPTV</a><a href="#is-legal">Est-ce légal?</a></nav>
+      <div id="best-subscription" class="blk"><h2 class="section-title" style="text-align:left;">Meilleur abonnement IPTV au Canada</h2><p class="body">Le meilleur abonnement IPTV au Canada est clair sur ce que vous payez. Prime IPTV publie chaque prix, sans frais cachés et sans contrat, de 34,99 $ CAD pour 3 mois à des forfaits de 24 mois avec 2 mois gratuits. Comparez les durées, choisissez de 1 à 4 connexions et utilisez la garantie de remboursement de 7 jours si ce n’est pas pour vous. Pour le prix réel par mois, lisez <a href="/fr/blogue/iptv-cost-canada/">combien coûte l’IPTV au Canada</a> et <a href="/fr/blogue/iptv-vs-cable-canada/">IPTV ou câble</a>.</p></div>
+      <div id="best-provider" class="blk"><h2 class="section-title" style="text-align:left;">Meilleur fournisseur IPTV et service IPTV au Canada</h2><p class="body">Un fournisseur IPTV vous donne les chaînes et votre accès, un lecteur ne fait que les afficher, et le service est l’ensemble. Le meilleur fournisseur IPTV au Canada vous laisse essayer d’abord, publie ses prix, offre un remboursement, fonctionne sur vos appareils et répond quand vous écrivez. C’est la liste que suit Prime IPTV : <a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a>, <a href="/fr/tarifs/">prix publiés</a>, <a href="/fr/remboursement/">remboursement de 7 jours</a>, <a href="/fr/installation/">guides par appareil</a> et soutien 24/7. Voyez aussi la différence entre un <a href="/fr/blogue/iptv-service-vs-iptv-player-app/">service IPTV et un lecteur</a>.</p></div>
+      <div id="best-trial" class="blk"><h2 class="section-title" style="text-align:left;">Meilleur essai gratuit IPTV au Canada</h2><p class="body">Le meilleur essai gratuit IPTV est celui qui ne demande pas de carte et qui vous laisse tout tester. Avec Prime IPTV, vous demandez l’essai par WhatsApp ou par courriel, vous ajoutez l’accès dans un lecteur, puis vous vérifiez vos chaînes, un match en direct à l’heure de pointe et la bibliothèque de films. Notre <a href="/fr/blogue/iptv-free-trial-checklist/">liste pour l’essai de 24 heures</a> montre quoi vérifier.</p></div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <div id="best-city" class="blk"><h2 class="section-title" style="text-align:left;">Meilleur IPTV canadien près de chez vous : Montréal, Québec, Toronto et plus</h2><p class="body">Prime IPTV fonctionne partout au Canada. Choisissez votre ville pour un guide local avec les secteurs, les sports et les conseils de connexion :</p>
+        <div class="chips">{cities.map((c) => <a href={`/fr/iptv-${c.slug}/`}>IPTV {frName(c)}</a>)}</div></div>
+      <div id="best-players" class="blk" style="margin-top:2.25rem;"><h2 class="section-title" style="text-align:left;">Meilleurs lecteurs IPTV à utiliser avec Prime IPTV</h2><p class="body">Prime IPTV fonctionne avec tout lecteur qui accepte les codes Xtream ou un lien M3U : IPTV Smarters Pro, TiviMate, IBO Player, Set IPTV et NET IPTV. Voyez la <a href="/fr/abonnement-iptv-smarters-pro/">page IPTV Smarters Pro</a>, le <a href="/fr/installer-iptv-smarters-pro-firestick/">guide Firestick</a> et le <a href="/fr/blogue/best-iptv-players/">comparatif des lecteurs</a>.</p></div>
+      <div id="best-box" class="blk" style="margin-top:2.25rem;"><h2 class="section-title" style="text-align:left;">Meilleur boîtier IPTV au Canada : en faut-il un?</h2><p class="body">La plupart des gens n’ont pas besoin d’acheter un boîtier IPTV. Un Firestick, un boîtier Android TV, un Apple TV, un téléviseur intelligent ou un téléphone avec une application de lecture fait le même travail, et Prime IPTV fonctionne sur tous. Lisez <a href="/fr/blogue/iptv-box-canada/">boîtier IPTV au Canada : en faut-il un?</a> et les <a href="/fr/installation/">guides d’installation</a> avant de dépenser pour du matériel.</p></div>
+      <div id="is-legal" class="blk"><h2 class="section-title" style="text-align:left;">L’IPTV est-il légal au Canada?</h2><p class="body">L’IPTV est une technologie de diffusion, et la technologie elle-même n’est pas en cause. Ce qui compte, c’est que le contenu que vous regardez soit autorisé là où vous vivez : regarder ou distribuer du contenu protégé sans permission peut être illégal au Canada. Chaque spectateur est responsable de l’usage qu’il fait d’un service. Lisez les conditions d’un fournisseur avant de payer, ainsi que <a href="/fr/blogue/is-iptv-legal-in-canada/">l’IPTV est-il légal au Canada?</a> et <a href="/fr/blogue/is-iptv-safe-canada/">l’IPTV est-il sécuritaire?</a>, et voyez notre <a href="/fr/avertissement/">avertissement</a>. Cette page ne constitue pas un avis juridique.</p></div>
+      <p class="body note">Avant de vous abonner, lisez <a href="/fr/blogue/is-iptv-legal-in-canada/">l’IPTV est-il légal au Canada?</a> et nos <a href="/fr/conditions/">conditions</a>.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="section-title" style="text-align:left;">Meilleur IPTV Canada : vos questions</h2>
+      <div class="faq-grid">
+        {faqs.map(([q, a]) => (
+          <details class="faq-item">
+            <summary><span>{q}</span><span class="faq-arrow"><Icon name="chevron" size={16} /></span></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container final-inner">
+      <h2>Prêt à voir pourquoi il l’emporte?</h2>
+      <p>Testez Prime IPTV gratuitement pendant 24 heures. Aucune carte de crédit.</p>
+      <div class="final-actions">
+        <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Commencer mon essai gratuit</a>
+        <a href="/fr/tarifs/" class="btn-ghost">Voir tous les forfaits<Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .container.narrow { max-width: 820px; }
+  .head { text-align: center; margin-bottom: 2.25rem; }
+  .head .section-sub { margin-bottom: 0; }
+  .section.alt { background: var(--bg-2); }
+  .bhero { margin-top: -4.6rem; padding: 9rem 1rem 3.5rem; color: #fff; border-radius: 0 0 28px 28px;
+    background: radial-gradient(700px 360px at 90% 0%, rgba(79,123,234,0.5), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(232,53,47,0.35), transparent 60%), linear-gradient(160deg, #06143a, #0b2a6f 60%, #12388f); }
+  .chip { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.9rem; border-radius: 999px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-size: 0.82rem; font-weight: 700; margin-bottom: 1.1rem; }
+  .bhero h1 { font-size: clamp(2rem, 4.8vw, 3.4rem); line-height: 1.07; font-weight: 800; margin: 0 0 1rem; max-width: 800px; }
+  .lede { color: #d3def6; font-size: 1.1rem; max-width: 700px; margin: 0 0 1.6rem; }
+  .cta, .final-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .final-actions { justify-content: center; }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+  .stats { list-style: none; padding: 0; margin: 2.25rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; max-width: 760px; }
+  .stats li { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 0.9rem 1rem; display: grid; }
+  .stats strong { font-family: 'Sora', sans-serif; font-size: 1.35rem; }
+  .stats span { font-size: 0.8rem; color: #c7d4ee; }
+  .whys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .why { background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--brand-2); border-radius: 14px; padding: 1.35rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.45rem; }
+  .why:nth-child(4n+3) { border-top-color: var(--accent); }
+  .why-ic { width: 48px; height: 48px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; background: var(--bg-2); color: var(--brand-2); }
+  .why h3 { margin: 0.2rem 0 0; font-size: 1.02rem; font-weight: 800; }
+  .why p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.6; flex: 1; }
+  .why a { color: var(--brand-2); font-weight: 700; font-size: 0.86rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+  .why a:hover { text-decoration: underline; }
+  .cmp-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow); }
+  .cmp { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 560px; }
+  .cmp th, .cmp td { padding: 0.95rem 1.1rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .cmp tbody tr:last-child td { border-bottom: 0; }
+  .cmp th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .cmp td:first-child { font-weight: 700; }
+  .cmp .us { color: var(--brand); }
+  .cmp td.yes { background: rgba(31,79,216,0.07); color: var(--brand); font-weight: 700; }
+  .cmp td.no { color: var(--muted); }
+  .plans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .plan { display: grid; gap: 0.2rem; text-align: center; padding: 1.4rem 1rem; background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--border); border-radius: 14px; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s; }
+  .plan:hover { transform: translateY(-4px); border-color: var(--brand-2); }
+  .plan.hot { border-top-color: var(--accent); box-shadow: var(--shadow); }
+  .plan strong { font-family: 'Sora', sans-serif; font-size: 1.9rem; color: var(--brand); }
+  .pm { color: var(--muted); font-weight: 700; font-size: 0.85rem; }
+  .pb { color: var(--accent); font-weight: 800; font-size: 0.8rem; }
+  .more { text-align: center; margin: 1.5rem 0 0; }
+  .more a { color: var(--brand-2); font-weight: 700; text-decoration: none; display: inline-flex; gap: 0.35rem; align-items: center; }
+  .bests { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .bf { display: grid; gap: 0.4rem; align-content: start; padding: 1.3rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s; }
+  .bf:hover { transform: translateY(-4px); border-color: var(--brand-2); }
+  .bf span { color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+  .bf em { font-style: normal; color: var(--brand-2); font-weight: 700; font-size: 0.86rem; display: inline-flex; gap: 0.3rem; align-items: center; }
+  .proof p { color: var(--muted); line-height: 1.85; font-size: 1.02rem; margin: 0; border-left: 4px solid var(--accent); padding-left: 1.1rem; }
+  .faq-grid { display: grid; gap: 0.75rem; margin-top: 1rem; }
+  .faq-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 0 1.25rem; }
+  .faq-item[open] { border-color: var(--brand-2); box-shadow: var(--shadow); }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; font-weight: 700; font-size: 0.98rem; }
+  .faq-arrow { color: var(--brand-2); display: inline-flex; transition: transform 0.2s; }
+  .faq-item[open] .faq-arrow { transform: rotate(180deg); }
+  .faq-item p { margin: 0 0 1.1rem; color: var(--muted); line-height: 1.75; font-size: 0.94rem; }
+  .final { padding: 2rem 1rem 5rem; }
+  .final-inner { text-align: center; color: #fff; border-radius: 20px; padding: 3.5rem 1.5rem; background: radial-gradient(600px 300px at 80% 0%, rgba(232,53,47,0.45), transparent 60%), linear-gradient(150deg, #0b2a6f, #06143a); box-shadow: var(--shadow); }
+  .final-inner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; margin: 0 0 0.7rem; }
+  .final-inner p { color: #c7d4ee; margin: 0 auto 1.6rem; }
+  @media (max-width: 960px) { .whys, .bests { grid-template-columns: repeat(2, 1fr); } .plans { grid-template-columns: repeat(2, 1fr); } .stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .whys, .bests { grid-template-columns: 1fr; } }
+  .toc { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .toc a, .chips a { background: #fff; border: 1px solid var(--border); color: var(--brand); font-weight: 700; font-size: 0.85rem; padding: 0.45rem 0.95rem; border-radius: 10px; text-decoration: none; }
+  .toc a:hover, .chips a:hover { background: var(--brand); color: #fff; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .blk { margin-bottom: 2.25rem; scroll-margin-top: 6rem; }
+  .blk:last-child { margin-bottom: 0; }
+  .body { color: var(--muted); line-height: 1.85; margin: 0 0 1rem; }
+  .body a { color: var(--brand-2); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .note { font-size: 0.92rem; margin-top: 1.5rem; }
+</style>

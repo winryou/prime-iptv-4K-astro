@@ -21,8 +21,8 @@ const month = (n: number) => (n === 1 ? 'mois' : 'mois');
         {!p.popular && p.savePct > 0 && <div class={p.bestValue ? 'badge-save badge-best' : 'badge-save'}>{fr ? (p.bestValue ? `Meilleure valeur · Économisez ${p.savePct} %` : `Économisez ${p.savePct} %`) : (p.bestValue ? `Best Value Offer · Save ${p.savePct}%` : `Save ${p.savePct}%`)}</div>}
         <div class="plan-name">{fr ? ({ Starter: 'Débutant', Standard: 'Standard', Popular: 'Populaire', Premium: 'Premium' } as Record<string, string>)[p.name] : p.name}</div>
         <div class="plan-duration">{p.months} {fr ? 'mois' : 'Months'}</div>
-        <div class="plan-price">{fr ? `${p.price.replace('.', ',')} $` : `$${p.price}`}</div>
-        <div class="plan-per">{fr ? `${p.perMonth.replace('.', ',')} $ / mois` : `$${p.perMonth} / mo`}</div>
+        <div class="plan-price">{fr ? `${p.price.replace('.', ',')} $` : `$${p.price}`} <span class="cur">CAD</span></div>
+        <div class="plan-per">{fr ? `${p.perMonth.replace('.', ',')} $ CAD / mois` : `$${p.perMonth} CAD / mo`}</div>
         <ul class="plan-features">
           <li><Icon name="check" size={16} class="ic-check" /> {n} {fr ? (n === 1 ? 'connexion' : 'connexions') : (n === 1 ? 'Connection' : 'Connections')}</li>
           {(fr ? frFeatures : features).map((f) => <li><Icon name="check" size={16} class="ic-check" /> {f}</li>)}
@@ -31,7 +31,7 @@ const month = (n: number) => (n === 1 ? 'mois' : 'mois');
         <a
           class="btn-primary buy-btn"
           style="width:100%;justify-content:center;"
-          href={`https://wa.me/14062356618?text=${encodeURIComponent(fr ? `Bonjour Prime IPTV, je voudrais acheter le forfait ${n} connexion${n > 1 ? 's' : ''}, ${p.months} mois${p.bonus > 0 ? ` (+${p.bonus} mois gratuit${p.bonus > 1 ? 's' : ''})` : ''} à ${p.price} $. Pouvez-vous m'envoyer les détails de paiement?` : `Hello Prime IPTV, I'd like to buy the ${n}-connection, ${p.months}-month plan${p.bonus > 0 ? ` (+${p.bonus} ${p.bonus === 1 ? 'month' : 'months'} free)` : ''} for $${p.price}. Please send me the payment details.`)}`}
+          href={`https://wa.me/14062356618?text=${encodeURIComponent(fr ? `Bonjour Prime IPTV, je voudrais acheter le forfait ${n} connexion${n > 1 ? 's' : ''}, ${p.months} mois${p.bonus > 0 ? ` (+${p.bonus} mois gratuit${p.bonus > 1 ? 's' : ''})` : ''} à ${p.price} $. Pouvez-vous m'envoyer les détails de paiement?` : `Hello Prime IPTV, I'd like to buy the ${n}-connection, ${p.months}-month plan${p.bonus > 0 ? ` (+${p.bonus} ${p.bonus === 1 ? 'month' : 'months'} free)` : ''} for $${p.price} CAD. Please send me the payment details.`)}`}
           target="_blank"
           rel="noopener"
         ><Icon name="chat" size={18} />{fr ? 'Acheter maintenant' : 'Buy Now!'}</a>

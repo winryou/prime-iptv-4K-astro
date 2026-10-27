@@ -15,7 +15,7 @@ const wa = `https://wa.me/14062356618?text=${encodeURIComponent(`Hello Prime IPT
 const faqs = [
   ...city.faqs,
   [`Is there a free trial for ${city.name} viewers?`, 'Yes. The 24-hour free trial needs no credit card. Message us on WhatsApp or by email and we send the details.'],
-  [`How much does IPTV cost in ${city.name}?`, `Prime IPTV plans start at $${prices[1][3]} for 3 months with 1 connection, and you can pick 1 to 4 connections and 3, 6, 12 or 24 months. See the pricing page for every plan.`],
+  [`How much does IPTV cost in ${city.name}?`, `Prime IPTV plans start at $${prices[1][3]} CAD for 3 months with 1 connection, and you can pick 1 to 4 connections and 3, 6, 12 or 24 months. See the pricing page for every plan.`],
 ] as [string, string][];
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -118,7 +118,7 @@ const others = cities.filter((c) => c.slug !== city.slug);
         <li><a href="/blog/is-iptv-legal-in-canada/">Is IPTV legal in Canada?</a></li>
         <li><a href="/blog/iptv-vs-cable-canada/">IPTV vs cable in Canada</a></li>
         <li><a href="/blog/iptv-box-canada/">IPTV box in Canada: do you need one?</a></li>
-        <li><a href="/best-iptv-service-canada/">Best IPTV in Canada: an 8-point checklist</a></li>
+        <li><a href="/best-iptv-service-canada/">Best IPTV in Canada: why Prime IPTV is the best service</a></li>
       </ul>
     </div>
   </section>
@@ -155,7 +155,7 @@ const others = cities.filter((c) => c.slug !== city.slug);
 <style>
   .container.narrow { max-width: 780px; }
   .section.alt { background: var(--bg-2); }
-  .chero { margin-top: -4.6rem; padding: 8.5rem 1rem 3.5rem; color: #fff; border-radius: 0 0 36px 36px;
+  .chero { margin-top: -4.6rem; padding: 8.5rem 1rem 3.5rem; color: #fff; border-radius: 0 0 22px 22px;
     background: radial-gradient(700px 360px at 90% 0%, rgba(79,123,234,0.5), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(232,53,47,0.35), transparent 60%), linear-gradient(160deg, #06143a, #0b2a6f 60%, #12388f); }
   .crumbs { font-size: 0.82rem; color: #b9c9ec; margin-bottom: 1rem; }
   .crumbs a { color: #fff; text-decoration: none; }

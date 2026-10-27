@@ -3,7 +3,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
 import Icon from '../../components/Icon.astro';
 import { prices, durations, bonusMonths, connectionTabs } from '../../data/pricing';
 
-const money = (n: number) => `$${n.toFixed(2)}`;
+const money = (n: number) => `$${n.toFixed(2)} CAD`;
 const advice: Record<number, { who: string; text: string }> = {
   1: { who: 'One viewer at a time', text: 'Fits a single person, or a household where only one TV, phone or tablet is ever streaming at once.' },
   2: { who: 'Two screens at once', text: 'Fits a couple or two people with different tastes, for example the living-room TV and a phone or bedroom TV running at the same time.' },

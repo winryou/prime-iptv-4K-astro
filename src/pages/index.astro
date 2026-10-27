@@ -13,7 +13,7 @@ const homeFaqs = [
   { q: 'Which Canadian provinces does Prime IPTV cover?', a: 'All of them: Ontario, Quebec, British Columbia, Alberta, Manitoba, Saskatchewan, Nova Scotia, New Brunswick, Newfoundland and Labrador, Prince Edward Island, and the three territories. IPTV streams over the internet, so coverage depends on your connection, not on a local cable or satellite network.' },
   { q: 'How many channels does Prime IPTV offer?', a: 'More than 25,000 live TV channels, covering entertainment, sports, news, kids and family, and international programming.' },
   { q: 'How many movies and series are available?', a: 'The on-demand (VOD) library has more than 120,000 movies and series.' },
-  { q: 'How much does Prime IPTV cost?', a: 'Plans start at $34.99 for 3 months with 1 connection. You can choose 1, 2, 3 or 4 connections and 3, 6, 12 or 24 months. The 6- and 12-month plans include +1 month free, and the 24-month plans include +2 months free.' },
+  { q: 'How much does Prime IPTV cost?', a: 'Plans start at $34.99 CAD for 3 months with 1 connection. You can choose 1, 2, 3 or 4 connections and 3, 6, 12 or 24 months. The 6- and 12-month plans include +1 month free, and the 24-month plans include +2 months free.' },
   { q: 'Is there a free trial, and do I need a credit card?', a: 'Yes, there is a 24-hour free trial, and it does not need a credit card.' },
   { q: 'How do I buy a plan?', a: 'Pick a plan and press Buy Now! WhatsApp opens with your plan and price already in the message. You pay by credit or debit card, and we send your login by email or WhatsApp.' },
   { q: 'How quickly will I get my login?', a: 'Activation is normally within a few minutes after payment. Your login arrives by email or WhatsApp.' },
@@ -66,21 +66,27 @@ const homeFaqSchema = {
         </ul>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="screen">
-          <div class="screen-top"><span class="live"><i></i> LIVE</span><span class="res">4K UHD</span></div>
-          <div class="screen-main"><span>Prime IPTV</span></div>
-          <div class="screen-rows">
-            <div class="row"><b></b><span>Canadian channels</span><em>Live</em></div>
-            <div class="row"><b></b><span>Sports &amp; PPV</span><em>4K</em></div>
-            <div class="row"><b></b><span>Movies &amp; series</span><em>VOD</em></div>
+        <div class="tv">
+          <div class="tv-bar"><span class="live"><i></i> LIVE</span><span class="res">4K UHD</span></div>
+          <div class="tv-hero"><span class="tv-play"></span><div><b>Prime IPTV</b><small>Live sports tonight</small></div></div>
+          <div class="tv-tiles">
+            <span class="t1">Sports</span><span class="t2">Movies</span><span class="t3">News</span>
+            <span class="t4">Kids</span><span class="t5">PPV</span><span class="t6">Series</span>
           </div>
         </div>
+        <div class="tv-stand"></div>
         <div class="float f1"><strong>25K+</strong><span>Live channels</span></div>
         <div class="float f2"><strong>120K+</strong><span>Movies &amp; series</span></div>
-        <div class="float f3"><strong>10</strong><span>provinces + 3 territories</span></div>
+        <div class="float f3"><strong>13</strong><span>provinces + territories</span></div>
       </div>
     </div>
   </section>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      {[0,1].map(() => ['Live sports','Hockey','PPV in 4K','Movies','Series','Kids','News','TV guide (EPG)','Canadian channels','US channels'].map((w) => <span>{w}</span>))}
+    </div>
+  </div>
 
   <!-- QUICK FACTS -->
   <section class="facts">
@@ -146,7 +152,7 @@ const homeFaqSchema = {
         <div class="section-label"><Icon name="award" size={14} />IPTV provider in Canada</div>
         <h2 class="section-title">How to choose a good IPTV provider in Canada</h2>
       </div>
-      <p style="color:var(--muted); line-height:1.8;">If you are comparing IPTV providers and IPTV services in Canada, start with five checks: can you test it first, are the prices published, is there a refund policy, does it work on your devices, and can you reach support when something breaks. Prime IPTV is a Canadian-focused IPTV subscription service, built for IPTV in Canada rather than a generic worldwide list, and it covers all five: a <a href="/free-trial/" style="color:var(--brand); font-weight:600;">24-hour free trial with no credit card</a>, <a href="/pricing/" style="color:var(--brand); font-weight:600;">plans from $34.99 CAD</a>, a <a href="/refund/" style="color:var(--brand); font-weight:600;">7-day money-back guarantee</a>, support for Firestick, Smart TV, Android TV, Apple TV, phones and MAG boxes, and 24/7 help on WhatsApp. Our <a href="/best-iptv-service-canada/" style="color:var(--brand); font-weight:600;">best IPTV Canada checklist</a> shows how to compare any provider, and the <a href="/blog/iptv-cost-canada/" style="color:var(--brand); font-weight:600;">IPTV cost guide</a> explains the real monthly price.</p>
+      <p style="color:var(--muted); line-height:1.8;">If you are comparing IPTV providers and IPTV services in Canada, start with five checks: can you test it first, are the prices published, is there a refund policy, does it work on your devices, and can you reach support when something breaks. Prime IPTV is a Canadian-focused IPTV subscription service, built for IPTV in Canada rather than a generic worldwide list, and it covers all five: a <a href="/free-trial/" style="color:var(--brand); font-weight:600;">24-hour free trial with no credit card</a>, <a href="/pricing/" style="color:var(--brand); font-weight:600;">plans from $34.99 CAD</a>, a <a href="/refund/" style="color:var(--brand); font-weight:600;">7-day money-back guarantee</a>, support for Firestick, Smart TV, Android TV, Apple TV, phones and MAG boxes, and 24/7 help on WhatsApp. Our <a href="/best-iptv-service-canada/" style="color:var(--brand); font-weight:600;">best IPTV Canada page</a> explains why Prime IPTV wins on all five, and the <a href="/blog/iptv-cost-canada/" style="color:var(--brand); font-weight:600;">IPTV cost guide</a> explains the real monthly price.</p>
     </div>
   </section>
 
@@ -327,7 +333,7 @@ const homeFaqSchema = {
   background: radial-gradient(900px 500px at 85% 10%, rgba(79,123,234,0.55), transparent 60%),
               radial-gradient(700px 420px at 0% 100%, rgba(232,53,47,0.35), transparent 60%),
               linear-gradient(160deg, #06143a 0%, #0b2a6f 55%, #12388f 100%);
-  border-radius: 0 0 44px 44px; }
+  border-radius: 0 0 28px 28px; clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%); padding-bottom: 7rem; }
 .hero-grid { position: absolute; inset: 0; opacity: 0.35;
   background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
   background-size: 48px 48px; mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 75%); }
@@ -339,14 +345,14 @@ const homeFaqSchema = {
 .hero-sub { font-size: 1.1rem; color: #d3def6; max-width: 560px; margin: 0 0 1.75rem; }
 .hero-sub strong { color: #fff; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem; }
-.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.6rem; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.15s; }
 .btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 .hero-points { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.9rem; color: #d3def6; }
 .hero-points li { display: inline-flex; align-items: center; gap: 0.4rem; }
 .hero-points :global(.icon) { color: #ff8a84; }
 
 .hero-visual { position: relative; padding: 1.5rem 1rem 2.5rem; }
-.screen { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22); border-radius: 26px; padding: 1rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); transform: rotate(-2deg); }
+.screen { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22); border-radius: 18px; padding: 1rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); transform: perspective(1200px) rotateY(-6deg) rotateX(2deg); }
 .screen-top { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.75rem; }
 .live { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent); padding: 0.15rem 0.6rem; border-radius: 999px; }
 .live i { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
@@ -360,11 +366,11 @@ const homeFaqSchema = {
 .float { position: absolute; background: #fff; color: var(--brand); border-radius: 16px; padding: 0.55rem 0.9rem; box-shadow: 0 16px 30px -12px rgba(0,0,0,0.5); display: grid; line-height: 1.15; }
 .float strong { font-size: 1.25rem; font-weight: 800; }
 .float span { font-size: 0.7rem; color: var(--muted); font-weight: 600; }
-.f1 { top: -0.25rem; right: 0; } .f2 { bottom: 0.5rem; left: -0.5rem; } .f3 { bottom: -0.4rem; right: 1rem; }
+.f1 { top: -1.4rem; right: 0; } .f2 { bottom: 0.5rem; left: -0.5rem; } .f3 { bottom: -0.4rem; right: 1rem; }
 
 /* FACTS */
-.facts { padding: 0 1rem; margin-top: -2rem; position: relative; z-index: 2; }
-.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border: 1px solid var(--border); border-radius: 22px; box-shadow: var(--shadow); padding: 1.25rem 0.5rem; text-align: center; }
+.facts { padding: 3rem 1rem 0; position: relative; z-index: 2; }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: 1.25rem 0.5rem; text-align: center; }
 .facts-grid div { display: grid; padding: 0.25rem 0.5rem; border-right: 1px solid var(--border); }
 .facts-grid div:last-child { border-right: 0; }
 .facts-grid strong { font-size: 1.4rem; color: var(--brand); font-weight: 800; letter-spacing: -0.02em; }
@@ -372,27 +378,27 @@ const homeFaqSchema = {
 
 /* BENTO */
 .bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.bt { background: #fff; border: 1px solid var(--border); border-radius: 22px; padding: 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.5rem; transition: transform 0.2s, border-color 0.2s; }
+.bt { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--brand-2); border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.5rem; transition: transform 0.2s, border-color 0.2s; }
 .bt:hover { transform: translateY(-4px); border-color: var(--brand-2); }
 .bt-lg { grid-column: span 2; }
-.bt-ic { width: 50px; height: 50px; border-radius: 15px; display: inline-flex; align-items: center; justify-content: center; background: var(--bg-2); color: var(--brand-2); margin-bottom: 0.4rem; }
+.bt-ic { width: 50px; height: 50px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; background: var(--bg-2); color: var(--brand-2); margin-bottom: 0.4rem; }
 .bt h3 { font-size: 1.1rem; margin: 0; font-weight: 800; }
 .bt p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.6; flex: 1; }
 .bt-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.4rem; font-weight: 700; font-size: 0.88rem; color: var(--brand-2); text-decoration: none; }
 .bt-link:hover { text-decoration: underline; }
-.bt-dark { background: linear-gradient(150deg, #0b2a6f, #06143a); border-color: transparent; color: #fff; }
+.bt-dark { background: linear-gradient(150deg, #0b2a6f, #06143a); border-color: transparent; border-left-color: var(--accent); color: #fff; }
 .bt-dark p { color: #c7d4ee; } .bt-dark .bt-ic { background: rgba(255,255,255,0.12); color: #fff; } .bt-dark .bt-link { color: #ff8a84; }
 
 /* COVERAGE */
 .cov { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .cov-actions { margin-top: 1.5rem; }
 .prov { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-.prov span { background: #fff; border: 1px solid var(--border); color: var(--brand); font-size: 0.85rem; font-weight: 700; padding: 0.45rem 0.95rem; border-radius: 999px; box-shadow: 0 1px 2px rgba(11,42,111,0.05); }
+.prov span { background: #fff; border: 1px solid var(--border); color: var(--brand); font-size: 0.85rem; font-weight: 700; padding: 0.45rem 0.95rem; border-radius: 8px; box-shadow: 0 1px 2px rgba(11,42,111,0.05); }
 .prov span:nth-child(3n+1) { background: var(--brand); color: #fff; border-color: var(--brand); }
 
 /* CITIES */
 .city-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; }
-.city-tile { display: grid; gap: 0.15rem; padding: 1rem 0.5rem; background: #fff; border: 1px solid var(--border); border-radius: 18px; text-decoration: none; color: var(--brand); transition: transform 0.2s, background 0.2s, color 0.2s; }
+.city-tile { display: grid; gap: 0.15rem; padding: 1rem 0.5rem; background: #fff; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--brand); transition: transform 0.2s, background 0.2s, color 0.2s; }
 .city-tile strong { font-size: 0.95rem; font-weight: 800; }
 .city-tile span { font-size: 0.75rem; color: var(--muted); }
 .city-tile:hover { transform: translateY(-4px); background: var(--brand); color: #fff; }
@@ -401,19 +407,19 @@ const homeFaqSchema = {
 
 /* DEVICES */
 .devices-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.device-tile { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.5rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 20px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
+.device-tile { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1.5rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
 .device-tile:hover { transform: translateY(-4px); border-color: var(--brand-2); box-shadow: var(--shadow); }
 .dev-icon { color: var(--brand-2); }
 
 /* STEPS */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; position: relative; }
-.step { background: #fff; border: 1px solid var(--border); border-radius: 22px; padding: 1.75rem 1.25rem; box-shadow: var(--shadow); }
-.step-num { width: 48px; height: 48px; background: var(--accent); color: #fff; font-size: 1.2rem; font-weight: 800; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; transform: rotate(-6deg); }
+.step { background: #fff; border: 1px solid var(--border); border-radius: 14px; border-top: 4px solid var(--accent); padding: 1.75rem 1.25rem; box-shadow: var(--shadow); }
+.step-num { width: 48px; height: 48px; background: var(--accent); color: #fff; font-size: 1.2rem; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
 .step h3 { margin: 0 0 0.4rem; font-size: 1.1rem; font-weight: 800; }
 .step p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 
 /* COMPARISON */
-.cmp-wrap { overflow-x: auto; border-radius: 22px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow); }
+.cmp-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow); }
 .cmp { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 560px; }
 .cmp th, .cmp td { padding: 0.95rem 1.1rem; text-align: left; border-bottom: 1px solid var(--border); }
 .cmp tbody tr:last-child td { border-bottom: 0; }
@@ -424,7 +430,7 @@ const homeFaqSchema = {
 
 /* GUIDES */
 .guides-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: left; }
-.guide-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.4rem; background: #fff; border: 1px solid var(--border); border-radius: 20px; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s; }
+.guide-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.4rem; background: #fff; border: 1px solid var(--border); border-radius: 14px; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s; }
 .guide-card:hover { transform: translateY(-4px); border-color: var(--brand-2); }
 .guide-card strong { font-size: 0.98rem; font-weight: 800; }
 .guide-card p { margin: 0; color: var(--muted); font-size: 0.86rem; }
@@ -432,7 +438,7 @@ const homeFaqSchema = {
 
 /* FAQ */
 .faq-grid { display: grid; gap: 0.75rem; }
-.faq-item { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 0 1.25rem; transition: border-color 0.2s; }
+.faq-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 0 1.25rem; transition: border-color 0.2s; }
 .faq-item[open] { border-color: var(--brand-2); box-shadow: var(--shadow); }
 .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; font-weight: 700; font-size: 0.98rem; }
 .faq-arrow { color: var(--brand-2); display: inline-flex; transition: transform 0.2s; }
@@ -441,10 +447,37 @@ const homeFaqSchema = {
 
 /* FINAL CTA */
 .final { padding: 2rem 1rem 5rem; }
-.final-inner { text-align: center; color: #fff; border-radius: 36px; padding: 4rem 1.5rem; background: radial-gradient(600px 300px at 80% 0%, rgba(232,53,47,0.45), transparent 60%), linear-gradient(150deg, #0b2a6f, #06143a); box-shadow: var(--shadow); }
+.final-inner { text-align: center; color: #fff; border-radius: 20px; padding: 4rem 1.5rem; background: radial-gradient(600px 300px at 80% 0%, rgba(232,53,47,0.45), transparent 60%), linear-gradient(150deg, #0b2a6f, #06143a); box-shadow: var(--shadow); }
 .final-inner h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; margin: 0 0 0.8rem; }
 .final-inner p { color: #c7d4ee; max-width: 560px; margin: 0 auto 1.75rem; }
 .final-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+
+/* HERO v2 */
+.tv { background: #0a1736; border: 6px solid #16264f; border-radius: 20px; padding: 0.8rem; box-shadow: 0 40px 80px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.12), 0 0 70px -10px rgba(79,123,234,0.55); }
+.tv-bar { display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 700; margin-bottom: 0.6rem; }
+.tv-hero { aspect-ratio: 16/8; border-radius: 12px; display: flex; align-items: flex-end; gap: 0.8rem; padding: 0.9rem; background: radial-gradient(260px 140px at 80% 20%, rgba(232,53,47,0.55), transparent 70%), linear-gradient(135deg, #1f4fd8, #0b2a6f 60%, #06143a); }
+.tv-hero b { display: block; font-family: 'Sora', sans-serif; font-size: 1.3rem; line-height: 1.1; }
+.tv-hero small { color: #cfdcf8; font-size: 0.75rem; }
+.tv-play { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); flex: none; position: relative; box-shadow: 0 0 0 6px rgba(232,53,47,0.3); }
+.tv-play::after { content: ''; position: absolute; left: 15px; top: 11px; border-left: 12px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.tv-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.6rem; }
+.tv-tiles span { height: 52px; border-radius: 10px; display: flex; align-items: flex-end; padding: 0.4rem 0.55rem; font-size: 0.72rem; font-weight: 700; background: linear-gradient(160deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.14); }
+.tv-tiles .t1, .tv-tiles .t5 { background: linear-gradient(160deg, rgba(232,53,47,0.55), rgba(232,53,47,0.12)); }
+.tv-stand { width: 38%; height: 10px; margin: 0 auto; background: linear-gradient(#16264f, #0a1736); border-radius: 0 0 14px 14px; }
+.hero { padding-bottom: 6rem; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); line-height: 1.05; }
+.hero-chip { background: rgba(255,255,255,0.08); }
+.ribbon { overflow: hidden; background: var(--accent); color: #fff; padding: 0.7rem 0; margin-top: -1.8rem; position: relative; z-index: 3; transform: rotate(-1deg) scale(1.02); box-shadow: 0 10px 30px -12px rgba(232,53,47,0.6); }
+.ribbon-track { display: flex; width: max-content; gap: 2.5rem; animation: slide 40s linear infinite; }
+.ribbon-track span { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.9rem; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.06em; }
+.ribbon-track span::after { content: '\2605'; margin-left: 2.5rem; opacity: 0.6; }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none; } }
+.section.alt { background: var(--bg-2) radial-gradient(rgba(11,42,111,0.07) 1px, transparent 1px) 0 0 / 22px 22px; }
+.bt { border-left: 1px solid var(--border); border-top: 4px solid var(--brand-2); }
+.bt-dark { border-top-color: var(--accent); }
+.bt:hover { box-shadow: 0 20px 40px -20px rgba(11,42,111,0.35); }
+.facts-grid strong { font-family: 'Sora', sans-serif; }
 
 @media (max-width: 960px) {
   .hero-inner, .cov { grid-template-columns: 1fr; }
@@ -453,7 +486,7 @@ const homeFaqSchema = {
   .devices-grid, .guides-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .hero { padding: 7.5rem 1rem 4.5rem; border-radius: 0 0 30px 30px; }
+  .hero { padding: 7.5rem 1rem 4.5rem; border-radius: 0 0 20px 20px; }
   .facts-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem 0; }
   .facts-grid div:nth-child(2) { border-right: 0; }
   .bento, .steps { grid-template-columns: 1fr; }

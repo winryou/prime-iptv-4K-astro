@@ -4,25 +4,39 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Icon from '../components/Icon.astro';
 import { prices, durations, bonusMonths } from '../data/pricing';
-const money = (n: number) => `$${n.toFixed(2)}`;
+const money = (n: number) => `$${n.toFixed(2)} CAD`;
 
 const faqs = [["What is 4K IPTV?", "4K IPTV is IPTV delivered in 4K (Ultra HD) quality, which is 3840 × 2160 pixels. You need a 4K TV, a 4K-capable device and player, and a stable connection of about 25 Mbps or more per stream."], ["Does Prime IPTV have 4K?", "Yes. Prime IPTV streams in SD, HD, FHD and 4K where the content supports it, and all PPV channels are available in 4K and FHD."], ["What internet speed do I need for 4K IPTV?", "As a rough guide, about 25 Mbps or more per 4K stream. Multiply that by the number of screens streaming at the same time, and use a wired connection if you can."], ["Do I need a special box for 4K IPTV?", "No special Prime IPTV box is needed. You need a 4K-capable device you already own or can buy, such as a Fire TV Stick 4K, an Apple TV 4K or a 4K Android TV box, plus a compatible player."], ["Why does my 4K IPTV buffer?", "The usual causes are Wi-Fi, too many streams running at once, an older device or player settings. Try Ethernet, switch to FHD, restart the player and router, and see the buffering and login guide."], ["Is 4K available for sports and PPV?", "All PPV channels are available in 4K and FHD. Sports channels are available in the best quality the content supports."]];
+faqs.push(...([["Who is the best 4K IPTV provider in Canada?", "Prime IPTV is our pick. It streams in 4K where the content supports it, includes all PPV channels in 4K and FHD, publishes its prices, offers a 24-hour free trial with no card and backs every plan with a 7-day money-back guarantee."], ["Do I need a 4K IPTV box?", "Usually not. A Fire TV Stick 4K, Apple TV 4K, 4K Android TV or Google TV box, or a 4K Smart TV with a compatible player works with Prime IPTV. MAG boxes are supported too."], ["How much does 4K IPTV cost in Canada?", "Prime IPTV plans include 4K and start at $34.99 CAD for 3 months with 1 connection. You can choose 1 to 4 connections and 3, 6, 12 or 24 months."], ["Can I watch live sports in 4K on IPTV?", "Yes, where the content is offered in 4K. All PPV channels on Prime IPTV are available in 4K and FHD, and sports channels come in the best quality the content supports. Test a live game during the free trial."]] as [string, string][]));
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
 };
 ---
-<Layout title="4K IPTV Canada: What You Need to Stream in 4K | Prime IPTV" description="Prime IPTV streams in SD, HD, FHD and 4K, with all PPV channels in 4K and FHD. See what you need for 4K IPTV in Canada: TV, device, speed and setup." schema={[faqSchema]} >
+<Layout title="4K IPTV Canada: Prime IPTV, the Best 4K IPTV Service" description="Prime IPTV is the best 4K IPTV service in Canada: 4K, FHD and HD, all PPV in 4K, 25,000+ channels, 24-hour free trial and a 7-day money-back guarantee." schema={[faqSchema]} >
   <Header slot="header" />
   <section class="section">
     <div class="container" style="max-width:860px;">
-      <div class="section-label"><Icon name="gem" size={14} />4K IPTV</div>
-      <h1 class="page-h1">4K IPTV: How to Stream Live TV and Movies in 4K</h1>
+      <div class="section-label"><Icon name="gem" size={14} />Best 4K IPTV Canada</div>
+      <h1 class="page-h1">4K IPTV Canada: Why Prime IPTV Is the Best 4K IPTV Service</h1>
       <div class="prose">
+<div class="verdict">
+          <p><strong>Prime IPTV is the best 4K IPTV service in Canada.</strong> It streams in 4K, FHD, HD and SD where the content supports it, includes all PPV channels in 4K and FHD, and gives you 25,000+ live channels and 120,000+ movies and series. Test 4K on your own TV with a 24-hour free trial, no credit card, and a 7-day money-back guarantee behind every plan.</p>
+          <ul>
+            <li>4K and FHD PPV channels</li>
+            <li>25,000+ live channels</li>
+            <li>Free 24-hour trial, no card</li>
+            <li>7-day money-back guarantee</li>
+            <li>Plans from $34.99 CAD</li>
+            <li>Works on Firestick, Apple TV, Android TV and Smart TV</li>
+          </ul>
+          <div class="vbtns"><a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} />Test 4K free</a><a href="/pricing/" class="btn-ghost">See 4K IPTV plans<Icon name="arrow" size={16} /></a></div>
+        </div>
+        <nav class="toc" aria-label="On this page"><a href="#what-is-4k-iptv">What is 4K IPTV?</a><a href="#why-prime">Why Prime IPTV wins</a><a href="#4k-provider">4K IPTV provider</a><a href="#4k-box">4K IPTV box</a><a href="#4k-live">4K live IPTV</a><a href="#4k-price">4K IPTV price</a></nav>
         <p><strong>4K IPTV is IPTV delivered in 4K (Ultra HD) quality. To watch it you need a 4K TV, a device and player that can play 4K, and a stable connection of about 25 Mbps or more per 4K stream.</strong> Prime IPTV streams in SD, HD, FHD and 4K where the content supports it, and all PPV channels are available in 4K and FHD. This guide explains what you need for 4K IPTV in Canada and how to get a smooth picture.</p>
 
-        <h2>What is 4K IPTV?</h2>
+        <h2 id="what-is-4k-iptv">What is 4K IPTV?</h2>
         <p>4K, also called Ultra HD or UHD, is 3840 &times; 2160 pixels, which is four times the pixels of Full HD (1920 &times; 1080). With IPTV, &ldquo;4K IPTV&rdquo; means the channel or movie you stream is delivered at that resolution. Not every channel or title is produced in 4K, so the picture you see depends on the content as well as your equipment and connection.</p>
 
         <h2>What you need for 4K IPTV</h2>
@@ -54,7 +68,7 @@ const faqSchema = {
         </div>
         <p>These are rough guide values, not guarantees. Multiply them by the number of screens streaming together, so two 4K screens need roughly 50 Mbps before anything else on your network. See the <a href="/iptv-internet-speed-requirements/">internet speed requirements</a> for more.</p>
 
-        <h2>4K IPTV with Prime IPTV</h2>
+        <h2 id="why-prime">Why Prime IPTV is the best 4K IPTV service in Canada</h2>
         <ul>
           <li>Streams in <strong>SD, HD, FHD and 4K</strong> where the content supports it.</li>
           <li><strong>All PPV channels in 4K and FHD.</strong> See <a href="/iptv-sports-ppv-4k/">sports and PPV</a>.</li>
@@ -96,8 +110,38 @@ const faqSchema = {
           </table>
         </div>
 
-        <h2>4K IPTV subscription: what to look for</h2>
-        <p>If you are comparing the best 4K IPTV subscription options, check that the provider actually offers 4K content, tells you what speed and devices you need, lets you test before you pay, and publishes its prices. Prime IPTV includes 4K in every plan. <a href="/pricing/">Plans start at $34.99 for 3 months</a>, and you can test 4K on your own TV with the <a href="/free-trial/">24-hour free trial</a>.</p>
+        <h2 id="4k-provider">Best 4K IPTV provider: Prime IPTV vs the red flags</h2>
+        <p>Plenty of IPTV sites put “4K” in their name. A good 4K IPTV provider backs it up. Here is what to expect from Prime IPTV and what to be careful about with any provider.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>What matters for 4K</th><th>Prime IPTV</th><th>Red flags elsewhere</th></tr></thead>
+            <tbody>
+              <tr><td><strong>4K you can test</strong></td><td>24-hour free trial, no credit card</td><td>No trial, or a card required</td></tr>
+              <tr><td><strong>PPV quality</strong></td><td>All PPV channels in 4K and FHD</td><td>PPV quality not stated</td></tr>
+              <tr><td><strong>Honest about content</strong></td><td>4K where the content supports it</td><td>“Everything in 4K” claims</td></tr>
+              <tr><td><strong>Device help</strong></td><td>Setup guides for Firestick, Apple TV, Android TV, Smart TV and more</td><td>No setup help</td></tr>
+              <tr><td><strong>Prices and refund</strong></td><td>Prices published, 7-day money-back guarantee</td><td>“Contact us for a price”, no refund</td></tr>
+              <tr><td><strong>Support</strong></td><td>24/7 on WhatsApp and email</td><td>Slow or hard to reach</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="4k-box">4K IPTV box: do you need one?</h2>
+        <p>Most people do not need a special 4K IPTV box. A Fire TV Stick 4K, an Apple TV 4K, a 4K Android TV or Google TV box, or a 4K Smart TV with a compatible player is enough, and Prime IPTV works on all of them, plus MAG boxes. If you already own one, you can test 4K today. Read <a href="/blog/iptv-box-canada/">IPTV box in Canada: do you need one?</a> before you buy hardware.</p>
+
+        <h2 id="4k-live">4K live IPTV: sports and PPV</h2>
+        <p>Live sport is where a good 4K picture matters most. Prime IPTV carries Canadian, US and international sports, and every PPV channel is available in 4K and FHD. Test a live game at peak time during your free trial, on a wired connection, and see <a href="/iptv-sports-ppv-4k/">sports and PPV on Prime IPTV</a>.</p>
+
+        <h2 id="4k-price">4K IPTV price in Canada</h2>
+        <p>Every Prime IPTV plan includes 4K. Prices below are in CAD for 1 connection, and you can pick 1 to 4 connections.</p>
+        <div class="plan-row">
+          {durations.map((d) => (
+            <a href="/pricing/" class={d === 12 ? 'hot' : ''}><span>{d} months</span><strong>{money(prices[1][d])}</strong>{bonusMonths[d] > 0 && <em>+{bonusMonths[d]} month{bonusMonths[d] > 1 ? 's' : ''} free</em>}</a>
+          ))}
+        </div>
+
+        <h2>Best 4K IPTV subscription in Canada: what to look for</h2>
+        <p>If you are comparing the best 4K IPTV subscription options, check that the provider actually offers 4K content, tells you what speed and devices you need, lets you test before you pay, and publishes its prices. Prime IPTV includes 4K in every plan. <a href="/pricing/">Plans start at $34.99 CAD for 3 months</a>, and you can test 4K on your own TV with the <a href="/free-trial/">24-hour free trial</a>.</p>
       </div>
 
       <h2 class="faq-h"><Icon name="help" size={22} class="ic-accent" /> Frequently asked questions</h2>
@@ -137,4 +181,25 @@ const faqSchema = {
   .cta-box h3 { display:flex; align-items:center; justify-content:center; gap:0.5rem; margin:0 0 0.5rem; font-size:1.2rem; }
   .cta-box p { color:var(--muted); margin:0 0 1.25rem; }
   .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+  .verdict { background: linear-gradient(150deg, #0b2a6f, #06143a); color: #fff; border-radius: 16px; padding: 1.6rem 1.5rem; margin: 0 0 2rem; box-shadow: var(--shadow); }
+  .verdict p { color: #d3def6; margin: 0 0 1rem; }
+  .verdict a, .verdict a:hover { text-decoration: none !important; color: #fff !important; }
+  .verdict strong { color: #fff; }
+  .verdict ul { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.45rem 1.2rem; }
+  .verdict li { color: #fff; font-size: 0.92rem; display: flex; gap: 0.45rem; align-items: flex-start; }
+  .verdict li::before { content: '\2713'; color: #ff8a84; font-weight: 800; }
+  .verdict .vbtns { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .verdict .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.4rem; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+  .toc { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.75rem; }
+  .toc a { background: #fff; border: 1px solid var(--border); color: var(--brand); font-weight: 700; font-size: 0.83rem; padding: 0.4rem 0.9rem; border-radius: 10px; text-decoration: none; }
+  .toc a:hover { background: var(--brand); color: #fff; }
+  .plan-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1rem 0; }
+  .plan-row a { display: grid; gap: 0.15rem; text-align: center; padding: 1rem 0.6rem; background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--border); border-radius: 12px; text-decoration: none !important; color: var(--text); }
+  .plan-row a.hot { border-top-color: var(--accent); }
+  .plan-row strong { font-size: 1.4rem; color: var(--brand); }
+  .plan-row span { color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+  .plan-row em { font-style: normal; color: var(--accent); font-size: 0.78rem; font-weight: 800; }
+  .prose h2[id], h2[id] { scroll-margin-top: 6rem; }
+  @media (max-width: 640px) { .verdict ul, .plan-row { grid-template-columns: 1fr 1fr; } }
 </style>

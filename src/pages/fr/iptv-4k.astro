@@ -1,6 +1,8 @@
 ---
 import ContentPage from '../../layouts/ContentPage.astro';
 import Icon from '../../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../../data/pricing';
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
 const faqs: [string, string][] = [
   ['Qu’est-ce que l’IPTV 4K?', 'L’IPTV 4K est de l’IPTV livré en qualité 4K (Ultra HD), soit 3840 × 2160 pixels. Il vous faut un téléviseur 4K, un appareil et un lecteur compatibles 4K, et une connexion stable d’environ 25 Mb/s ou plus par flux.'],
   ['Prime IPTV offre-t-il le 4K?', 'Oui. Prime IPTV diffuse en SD, HD, FHD et 4K lorsque le contenu le permet, et toutes les chaînes PPV sont offertes en 4K et en FHD.'],
@@ -9,12 +11,26 @@ const faqs: [string, string][] = [
   ['Pourquoi mon IPTV 4K se met-il en mémoire tampon?', 'Les causes habituelles sont le Wi-Fi, trop de flux en même temps, un appareil plus ancien ou les réglages du lecteur. Essayez Ethernet, passez en FHD, redémarrez le lecteur et le routeur, et consultez le guide sur la mise en mémoire tampon et la connexion.'],
   ['Le 4K est-il offert pour le sport et le PPV?', 'Toutes les chaînes PPV sont offertes en 4K et en FHD. Les chaînes sportives sont offertes dans la meilleure qualité que le contenu permet.'],
 ];
+faqs.push(...([["Qui est le meilleur fournisseur IPTV 4K au Canada?", "Prime IPTV est notre choix. Il diffuse en 4K lorsque le contenu le permet, comprend toutes les chaînes PPV en 4K et en FHD, publie ses prix, offre un essai gratuit de 24 heures sans carte et protège chaque forfait par une garantie de remboursement de 7 jours."], ["Me faut-il un boîtier IPTV 4K?", "En général, non. Une Fire TV Stick 4K, une Apple TV 4K, un boîtier Android TV ou Google TV 4K, ou un téléviseur intelligent 4K avec un lecteur compatible fonctionne avec Prime IPTV. Les boîtiers MAG sont aussi pris en charge."], ["Combien coûte l’IPTV 4K au Canada?", "Les forfaits Prime IPTV comprennent le 4K et commencent à 34,99 $ CAD pour 3 mois avec 1 connexion. Vous choisissez de 1 à 4 connexions et 3, 6, 12 ou 24 mois."], ["Peut-on regarder le sport en direct en 4K avec l’IPTV?", "Oui, lorsque le contenu est offert en 4K. Toutes les chaînes PPV de Prime IPTV sont offertes en 4K et en FHD, et les chaînes sportives sont dans la meilleure qualité que le contenu permet. Testez un match en direct pendant l’essai gratuit."]] as [string, string][]));
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
 ---
-<ContentPage title="IPTV 4K Canada : ce qu’il faut pour le 4K | Prime IPTV" description="Prime IPTV diffuse en SD, HD, FHD et 4K, avec toutes les chaînes PPV en 4K et en FHD. Ce qu’il faut pour l’IPTV 4K au Canada : téléviseur, appareil, vitesse et installation." label="IPTV 4K" icon="gem" h1="IPTV 4K : comment diffuser la télé en direct et les films en 4K" width={860} schema={[faqSchema]}>
+<ContentPage title="IPTV 4K Canada : Prime IPTV, le meilleur service IPTV 4K" description="Prime IPTV est le meilleur service IPTV 4K au Canada : 4K, FHD et HD, tout le PPV en 4K, 25 000+ chaînes, essai gratuit de 24 h, garantie de 7 jours." label="Meilleur IPTV 4K Canada" icon="gem" h1="IPTV 4K Canada : pourquoi Prime IPTV est le meilleur service IPTV 4K" width={860} schema={[faqSchema]}>
+  <div class="verdict">
+    <p><strong>Prime IPTV est le meilleur service IPTV 4K au Canada.</strong> Il diffuse en 4K, FHD, HD et SD lorsque le contenu le permet, comprend toutes les chaînes PPV en 4K et en FHD, et offre plus de 25 000 chaînes en direct et plus de 120 000 films et séries. Testez le 4K sur votre propre téléviseur avec un essai gratuit de 24 heures, sans carte de crédit, et une garantie de remboursement de 7 jours sur chaque forfait.</p>
+    <ul>
+      <li>Chaînes PPV en 4K et en FHD</li>
+      <li>Plus de 25 000 chaînes en direct</li>
+      <li>Essai gratuit de 24 h, sans carte</li>
+      <li>Garantie de remboursement de 7 jours</li>
+      <li>Forfaits dès 34,99 $ CAD</li>
+      <li>Firestick, Apple TV, Android TV et téléviseur intelligent</li>
+    </ul>
+    <div class="vbtns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Tester le 4K gratuitement</a><a href="/fr/tarifs/" class="btn-ghost">Voir les forfaits IPTV 4K <Icon name="arrow" size={16} /></a></div>
+  </div>
+  <nav class="toc" aria-label="Sur cette page"><a href="#quest-ce-que-liptv-4k">Qu’est-ce que l’IPTV 4K?</a><a href="#pourquoi-prime">Pourquoi Prime IPTV l’emporte</a><a href="#fournisseur-4k">Fournisseur IPTV 4K</a><a href="#boitier-4k">Boîtier IPTV 4K</a><a href="#4k-direct">IPTV 4K en direct</a><a href="#prix-4k">Prix IPTV 4K</a></nav>
   <p><strong>L’IPTV 4K est de l’IPTV livré en qualité 4K (Ultra HD). Pour le regarder, il vous faut un téléviseur 4K, un appareil et un lecteur capables de lire du 4K, et une connexion stable d’environ 25 Mb/s ou plus par flux 4K.</strong> Prime IPTV diffuse en SD, HD, FHD et 4K lorsque le contenu le permet, et toutes les chaînes PPV sont offertes en 4K et en FHD. Ce guide explique ce qu’il faut pour l’IPTV 4K au Canada et comment obtenir une image fluide.</p>
 
-  <h2>Qu’est-ce que l’IPTV 4K?</h2>
+  <h2 id="quest-ce-que-liptv-4k">Qu’est-ce que l’IPTV 4K?</h2>
   <p>Le 4K, aussi appelé Ultra HD ou UHD, correspond à 3840 &times; 2160 pixels, soit quatre fois les pixels de la Full HD (1920 &times; 1080). Avec l’IPTV, « IPTV 4K » signifie que la chaîne ou le film diffusé est livré à cette résolution. Toutes les chaînes et tous les titres ne sont pas produits en 4K; l’image que vous voyez dépend donc du contenu, mais aussi de votre équipement et de votre connexion.</p>
 
   <h2>Ce qu’il faut pour l’IPTV 4K</h2>
@@ -42,7 +58,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
   </table></div>
   <p>Ce sont des valeurs indicatives, non des garanties. Multipliez-les par le nombre d’écrans qui diffusent ensemble : deux écrans 4K demandent donc environ 50 Mb/s avant tout autre usage de votre réseau. Voyez les <a href="/fr/vitesse-internet-iptv/">vitesses Internet requises</a>.</p>
 
-  <h2>L’IPTV 4K avec Prime IPTV</h2>
+  <h2 id="pourquoi-prime">Pourquoi Prime IPTV est le meilleur service IPTV 4K au Canada</h2>
   <ul>
     <li>Diffuse en <strong>SD, HD, FHD et 4K</strong> lorsque le contenu le permet.</li>
     <li><strong>Toutes les chaînes PPV en 4K et en FHD.</strong> Voyez <a href="/fr/sports-ppv-4k/">sports et PPV</a>.</li>
@@ -82,8 +98,36 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
     </tbody>
   </table></div>
 
-  <h2>Abonnement IPTV 4K : quoi chercher</h2>
-  <p>Si vous comparez les meilleures offres d’abonnement IPTV 4K, vérifiez que le fournisseur offre vraiment du contenu 4K, vous indique la vitesse et les appareils requis, vous laisse tester avant de payer et publie ses prix. Prime IPTV comprend le 4K dans chaque forfait. Les <a href="/fr/tarifs/">forfaits commencent à 34,99 $ pour 3 mois</a>, et vous pouvez tester le 4K sur votre propre téléviseur avec l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a>.</p>
+  <h2 id="fournisseur-4k">Meilleur fournisseur IPTV 4K : Prime IPTV et les signaux d’alerte</h2>
+  <p>Beaucoup de sites IPTV mettent « 4K » dans leur nom. Un bon fournisseur IPTV 4K tient parole. Voici ce à quoi vous attendre avec Prime IPTV, et ce dont il faut se méfier chez n’importe quel fournisseur.</p>
+  <div style="overflow-x:auto;"><table>
+    <thead><tr><th>Ce qui compte pour le 4K</th><th>Prime IPTV</th><th>Signaux d’alerte ailleurs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Un 4K que vous pouvez tester</strong></td><td>Essai gratuit de 24 heures, sans carte de crédit</td><td>Aucun essai, ou carte exigée</td></tr>
+      <tr><td><strong>Qualité du PPV</strong></td><td>Toutes les chaînes PPV en 4K et en FHD</td><td>Qualité du PPV non indiquée</td></tr>
+      <tr><td><strong>Honnêteté sur le contenu</strong></td><td>4K lorsque le contenu le permet</td><td>Promesses de « tout en 4K »</td></tr>
+      <tr><td><strong>Aide pour les appareils</strong></td><td>Guides pour Firestick, Apple TV, Android TV, téléviseur intelligent et plus</td><td>Aucune aide à l’installation</td></tr>
+      <tr><td><strong>Prix et remboursement</strong></td><td>Prix publiés, garantie de remboursement de 7 jours</td><td>« Contactez-nous pour un prix », aucun remboursement</td></tr>
+      <tr><td><strong>Soutien</strong></td><td>24/7 par WhatsApp et courriel</td><td>Lent ou difficile à joindre</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="boitier-4k">Boîtier IPTV 4K : en faut-il un?</h2>
+  <p>La plupart des gens n’ont pas besoin d’un boîtier IPTV 4K spécial. Une Fire TV Stick 4K, une Apple TV 4K, un boîtier Android TV ou Google TV 4K, ou un téléviseur intelligent 4K avec un lecteur compatible suffit, et Prime IPTV fonctionne sur tous, ainsi que sur les boîtiers MAG. Si vous en possédez déjà un, vous pouvez tester le 4K dès aujourd’hui. Lisez <a href="/fr/blogue/iptv-box-canada/">boîtier IPTV au Canada : en faut-il un?</a> avant d’acheter du matériel.</p>
+
+  <h2 id="4k-direct">IPTV 4K en direct : sports et PPV</h2>
+  <p>Le sport en direct est là où une belle image 4K compte le plus. Prime IPTV offre des sports canadiens, américains et internationaux, et chaque chaîne PPV est offerte en 4K et en FHD. Testez un match en direct à l’heure de pointe pendant votre essai gratuit, sur une connexion filaire, et voyez <a href="/fr/sports-ppv-4k/">les sports et le PPV sur Prime IPTV</a>.</p>
+
+  <h2 id="prix-4k">Prix de l’IPTV 4K au Canada</h2>
+  <p>Chaque forfait Prime IPTV comprend le 4K. Les prix ci-dessous sont en CAD pour 1 connexion, et vous pouvez choisir de 1 à 4 connexions.</p>
+  <div class="plan-row">
+    {durations.map((d) => (
+      <a href="/fr/tarifs/" class={d === 12 ? 'hot' : ''}><span>{d} mois</span><strong>{money(prices[1][d])}</strong>{bonusMonths[d] > 0 && <em>+{bonusMonths[d]} mois gratuit{bonusMonths[d] > 1 ? 's' : ''}</em>}</a>
+    ))}
+  </div>
+
+  <h2>Meilleur abonnement IPTV 4K au Canada : quoi chercher</h2>
+  <p>Si vous comparez les meilleures offres d’abonnement IPTV 4K, vérifiez que le fournisseur offre vraiment du contenu 4K, vous indique la vitesse et les appareils requis, vous laisse tester avant de payer et publie ses prix. Prime IPTV comprend le 4K dans chaque forfait. Les <a href="/fr/tarifs/">forfaits commencent à 34,99 $ CAD pour 3 mois</a>, et vous pouvez tester le 4K sur votre propre téléviseur avec l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a>.</p>
   <h2>Questions fréquentes</h2>
   {faqs.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
   <div class="box">
@@ -92,3 +136,26 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
     <div class="btns"><a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Essai gratuit</a><a href="/fr/tarifs/" class="btn-outline">Voir les forfaits</a></div>
   </div>
 </ContentPage>
+
+<style>
+  .verdict { background: linear-gradient(150deg, #0b2a6f, #06143a); color: #fff; border-radius: 16px; padding: 1.6rem 1.5rem; margin: 0 0 2rem; box-shadow: var(--shadow); }
+  .verdict p { color: #d3def6; margin: 0 0 1rem; }
+  .verdict a, .verdict a:hover { text-decoration: none !important; color: #fff !important; }
+  .verdict strong { color: #fff; }
+  .verdict ul { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.45rem 1.2rem; }
+  .verdict li { color: #fff; font-size: 0.92rem; display: flex; gap: 0.45rem; align-items: flex-start; }
+  .verdict li::before { content: '\2713'; color: #ff8a84; font-weight: 800; }
+  .verdict .vbtns { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .verdict .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.4rem; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-weight: 700; font-size: 0.92rem; text-decoration: none; }
+  .toc { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.75rem; }
+  .toc a { background: #fff; border: 1px solid var(--border); color: var(--brand); font-weight: 700; font-size: 0.83rem; padding: 0.4rem 0.9rem; border-radius: 10px; text-decoration: none; }
+  .toc a:hover { background: var(--brand); color: #fff; }
+  .plan-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1rem 0; }
+  .plan-row a { display: grid; gap: 0.15rem; text-align: center; padding: 1rem 0.6rem; background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--border); border-radius: 12px; text-decoration: none !important; color: var(--text); }
+  .plan-row a.hot { border-top-color: var(--accent); }
+  .plan-row strong { font-size: 1.4rem; color: var(--brand); }
+  .plan-row span { color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+  .plan-row em { font-style: normal; color: var(--accent); font-size: 0.78rem; font-weight: 800; }
+  .prose h2[id], h2[id] { scroll-margin-top: 6rem; }
+  @media (max-width: 640px) { .verdict ul, .plan-row { grid-template-columns: 1fr 1fr; } }
+</style>
