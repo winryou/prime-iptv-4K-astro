@@ -1,7 +1,6 @@
 import { devices } from './devices';
 import { posts } from './posts';
 import { cities, enCities } from './cities';
-import { altPath, isFr } from './i18n';
 import { planMonths, planSlug } from './pricing';
 import lastmodData from './lastmod.json';
 
@@ -110,21 +109,10 @@ const XML_HEAD = '<?xml version="1.0" encoding="UTF-8"?>\n';
 export function urlsetXml(entries: SitemapEntry[]): string {
   const body = entries
     .map((e) => {
-      const path = e.loc.replace(SITE, '');
-      const alt = altPath(path);
-      let links = '';
-      if (alt) {
-        const en = isFr(path) ? alt : path;
-        const fr = isFr(path) ? path : alt;
-        links =
-          `\n    <xhtml:link rel="alternate" hreflang="en-CA" href="${SITE}${en}"/>` +
-          `\n    <xhtml:link rel="alternate" hreflang="fr-CA" href="${SITE}${fr}"/>` +
-          `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${en}"/>`;
-      }
-      return `  <url>\n    <loc>${esc(e.loc)}</loc>\n    <lastmod>${e.lastmod}</lastmod>${links}\n  </url>`;
+      return `  <url>\n    <loc>${esc(e.loc)}</loc>\n    <lastmod>${e.lastmod}</lastmod>\n  </url>`;
     })
     .join('\n');
-  return `${XML_HEAD}<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`;
+  return `${XML_HEAD}<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }
 
 export function indexXml(): string {
