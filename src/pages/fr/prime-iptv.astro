@@ -1,0 +1,87 @@
+---
+import ContentPage from '../../layouts/ContentPage.astro';
+import Icon from '../../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../../data/pricing';
+
+const money = (n: number) => `${n.toFixed(2).replace('.', ',')} $ CAD`;
+const faqs: [string, string][] = [
+  ['Prime IPTV et IPTV Prime, est-ce la même chose?', 'Oui. Les gens cherchent les deux ordres de mots. Le service s’appelle Prime IPTV et son site est primeiptv4k.ca. Les autres sites, applications et chaînes aux noms semblables sont des entreprises distinctes.'],
+  ['Prime IPTV est-il une application de lecture?', 'Non. Prime IPTV est un service d’abonnement IPTV. Il fournit les chaînes, la bibliothèque sur demande et votre identifiant. Vous regardez au moyen d’une application de lecture compatible sur votre propre appareil. Plusieurs applications de lecture des boutiques d’applications ont des noms semblables et n’ont aucun lien avec nous.'],
+  ['Prime IPTV a-t-il un lien avec Amazon Prime ou Prime Video?', 'Non. Prime IPTV n’a aucun lien avec Amazon Prime ni avec Prime Video.'],
+  ['Prime IPTV est-il fiable?', 'Nous ne pouvons pas en décider à votre place; voici donc ce que vous pouvez vérifier vous-même : les prix sont publiés en dollars canadiens, l’essai de 24 heures n’exige aucune carte de crédit, il y a une garantie de remboursement de 7 jours, l’adresse de l’entreprise est indiquée et l’assistance répond par WhatsApp et par courriel. Servez-vous de l’essai gratuit sur votre propre appareil avant de payer. Pour l’aspect juridique, lisez notre guide sur la légalité de l’IPTV au Canada.'],
+  ['Combien coûte Prime IPTV?', `Les forfaits pour une connexion coûtent ${money(prices[1][3])} pour 3 mois, ${money(prices[1][6])} pour 6 mois, ${money(prices[1][12])} pour 12 mois et ${money(prices[1][24])} pour 24 mois. Les forfaits de 2 à 4 connexions figurent sur la page des tarifs. Tous les prix sont en dollars canadiens.`],
+  ['Y a-t-il un essai gratuit de Prime IPTV?', 'Oui. L’essai gratuit dure 24 heures et n’exige aucune carte de crédit. Demandez-le sur WhatsApp ou par courriel.'],
+  ['En combien de temps reçoit-on son identifiant?', 'Lors de notre propre essai, l’identifiant de l’essai est arrivé en une quinzaine de minutes. Pour un forfait payant, l’activation se fait normalement quelques minutes après le paiement.'],
+  ['Où lire comment vous l’avez testé?', 'Nous avons publié notre propre test de 24 heures, y compris ce qui n’a pas fonctionné, ainsi que les applications essayées. Ce sont deux textes de première main rédigés par l’équipe de Prime IPTV sur notre propre service, et non des avis indépendants.'],
+];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'fr-CA',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<ContentPage
+  title="Prime IPTV (IPTV Prime) Canada : forfaits, essai, contenu"
+  description="Prime IPTV, aussi cherché sous IPTV Prime, est un abonnement IPTV canadien : plus de 25 000 chaînes, plus de 120 000 films, essai gratuit de 24 heures, remboursement de 7 jours."
+  label="Prime IPTV"
+  icon="tv-play"
+  h1="Prime IPTV (IPTV Prime) : l’abonnement IPTV conçu pour le Canada"
+  crumb="Prime IPTV"
+  schema={[faqSchema]}
+>
+  <div class="box">
+    <p><strong>La réponse courte :</strong> Prime IPTV (aussi écrit IPTV Prime) est un <em>service d’abonnement</em> IPTV pour les spectateurs au Canada : plus de 25 000 chaînes en direct, plus de 120 000 films et séries, sports et PPV, 4K et FHD lorsque offerts, et une assistance 24 heures sur 24, 7 jours sur 7, par WhatsApp et par courriel. Ce n’est pas une application de lecture. Vous pouvez l’essayer gratuitement pendant 24 heures, sans carte de crédit.</p>
+  </div>
+  <div class="btns">
+    <a href="/fr/essai-gratuit/" class="btn-primary"><Icon name="play" size={14} /> Commencer l’essai gratuit de 24 heures</a>
+    <a href="/fr/tarifs/" class="btn-outline">Voir les forfaits et les prix</a>
+  </div>
+
+  <h2>Prime IPTV ou IPTV Prime : lequel est-ce?</h2>
+  <p>Les deux noms désignent le même service. Plus de gens cherchent « iptv prime » que « prime iptv » : vous verrez donc les deux sur ce site. Le service s’appelle Prime IPTV, et ce site, primeiptv4k.ca, en est le site officiel.</p>
+  <p>Attention au nom. Il existe des <em>applications de lecture</em> IPTV et d’autres sites IPTV aux noms semblables, qui n’ont aucun lien avec nous. Une application de lecture n’a aucune chaîne en propre. Notre guide explique la <a href="/fr/blogue/iptv-service-vs-iptv-player-app/">différence entre un service IPTV et une application de lecture</a>.</p>
+
+  <h2>Qui exploite ce site</h2>
+  <p>Prime IPTV exploite ce site et le service qu’il décrit : tout ce qui s’y trouve, y compris nos textes sur nos essais, est donc rédigé par l’équipe de Prime IPTV sur notre propre service. Ce sont des renseignements de première main : ils vous disent ce que nous offrons et ce que nous avons observé, et ce ne sont pas des avis indépendants. Notre adresse est le 97 Hocken Ave, Toronto (Ontario) M6G 2K1, Canada, et vous pouvez nous joindre par la <a href="/fr/contact/">page de contact</a>.</p>
+
+  <h2>Ce que comprend Prime IPTV</h2>
+  <ul>
+    <li><strong>Plus de 25 000 chaînes en direct</strong> : chaînes canadiennes, américaines et internationales, plus du sport et du PPV. Voyez la <a href="/fr/chaines/">page des chaînes</a>.</li>
+    <li><strong>Plus de 120 000 films et séries</strong> sur demande.</li>
+    <li><strong>SD, HD, FHD et 4K</strong> pour le contenu et les appareils compatibles. Voyez <a href="/fr/iptv-4k/">l’IPTV 4K</a>.</li>
+    <li><strong>Un essai gratuit de 24 heures</strong> sans carte de crédit, et une <strong>garantie de remboursement de 7 jours</strong>. Voyez la <a href="/fr/remboursement/">politique de remboursement</a>.</li>
+    <li><strong>Aucun contrat</strong>, avec des forfaits de 1 à 4 connexions.</li>
+    <li><strong>Assistance 24 heures sur 24, 7 jours sur 7</strong>, par WhatsApp et par courriel.</li>
+  </ul>
+
+  <h2>Forfaits et prix de Prime IPTV (une connexion, en dollars canadiens)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Durée du forfait</th><th>Prix</th><th>Bonus</th></tr></thead>
+      <tbody>
+        {durations.map((d) => (
+          <tr><td>{d} mois</td><td>{money(prices[1][d])}</td><td>{bonusMonths[d] > 0 ? `+${bonusMonths[d]} mois gratuit${bonusMonths[d] > 1 ? 's' : ''}` : 'Aucun'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Les forfaits de 2, 3 et 4 connexions figurent sur la <a href="/fr/tarifs/">page des tarifs</a>. Il vous en faut plus de quatre? Demandez-nous une soumission sur WhatsApp ou par courriel.</p>
+
+  <h2>Comment nous l’avons testé</h2>
+  <p>Nous avons fait notre propre essai de 24 heures et noté ce qui a fonctionné et ce qui n’a pas fonctionné, y compris un guide des programmes qui ne fonctionnait que partiellement et un rattrapage qui ne fonctionnait pas lors de notre essai. Lisez <a href="/fr/blogue/prime-iptv-trial-test/">ce que nous avons mesuré en 24 heures</a> et <a href="/fr/blogue/prime-iptv-apps-tested/">les applications que nous avons testées</a>.</p>
+
+  <h2>Pour commencer</h2>
+  <ol>
+    <li>Demandez l’<a href="/fr/essai-gratuit/">essai gratuit de 24 heures</a> sur WhatsApp ou par courriel.</li>
+    <li>Installez un lecteur sur votre appareil. Voyez les <a href="/fr/installation/">guides d’installation</a>.</li>
+    <li>Testez vos chaînes, un match en direct à une heure de pointe et l’assistance.</li>
+    <li>Si cela vous convient, choisissez un forfait. La garantie de remboursement de 7 jours s’applique encore après votre abonnement.</li>
+  </ol>
+
+  <h2>FAQ sur Prime IPTV</h2>
+  {faqs.map(([q, a]) => (
+    <details><summary>{q}</summary><p>{a}</p></details>
+  ))}
+  <p>D’autres réponses figurent dans la <a href="/fr/faq/">FAQ complète</a>. Lisez <a href="/fr/blogue/is-iptv-legal-in-canada/">L’IPTV est-il légal au Canada?</a> avant de décider.</p>
+</ContentPage>

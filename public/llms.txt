@@ -90,6 +90,8 @@ Key facts (as published on the site):
 - [IPTV vs Cable TV: What You’re Actually Trading Off](https://primeiptv4k.ca/blog/iptv-vs-cable/): IPTV vs cable TV compared on channels, on-demand content, devices, contracts and reliability, and what you gain and give up.
 - [Is IPTV Legal in Canada? What Viewers Should Know](https://primeiptv4k.ca/blog/is-iptv-legal-in-canada/): Is IPTV legal in Canada? A plain-language guide to licensing, what makes a service lawful, and how Canadian viewers can protect themselves. Not legal advice.
 - [Is IPTV Safe in Canada? Payments, Privacy and Scam Checks](https://primeiptv4k.ca/blog/is-iptv-safe-canada/): How to judge whether an IPTV service is safe in Canada: payment protection, privacy, refunds, trial offers and red flags to avoid.
+- [Prime IPTV Apps We Tested: TiviMate, IBO Player and More](https://primeiptv4k.ca/blog/prime-iptv-apps-tested/): The players we used with our own Prime IPTV trial: the supplied app, TiviMate and IBO Player on a TV, and an iPhone app. What worked and what we did not test.
+- [Prime IPTV Test: What We Measured in a 24-Hour Trial](https://primeiptv4k.ca/blog/prime-iptv-trial-test/): Our own 24-hour Prime IPTV test: 98 channels, 67 sports channels, about 60 Mbps at peak hours, support and apps, plus what did not work. First-party, not…
 - [What Is IPTV in Canada? Meaning, How It Works and What You Need](https://primeiptv4k.ca/blog/what-is-iptv/): IPTV meaning explained: what IPTV is, how it works, what you need to watch it and the terms you will see (EPG, VOD, PPV, M3U, Xtream Codes), for Canada viewers.
 
 ## Legal
@@ -132,6 +134,8 @@ Key facts (as published on the site):
 - [IPTV ou câble : ce que vous échangez vraiment](https://primeiptv4k.ca/fr/blogue/iptv-vs-cable/): IPTV et câble comparés sur les chaînes, le contenu sur demande, les appareils, les contrats et la fiabilité, et ce que vous gagnez et abandonnez.
 - [IPTV légal ou illégal au Québec? Ce qu’il faut savoir](https://primeiptv4k.ca/fr/blogue/is-iptv-legal-in-canada/): IPTV légal ou illégal au Québec et au Canada? Un guide en langage clair sur les forfaits télé à bas prix, les licences et comment vous protéger. Pas un avis…
 - [L’IPTV est-il sûr au Canada? Paiements et arnaques](https://primeiptv4k.ca/fr/blogue/is-iptv-safe-canada/): Comment juger si un service IPTV est sûr au Canada : protection des paiements, vie privée, remboursements, essais et signaux d’alarme à éviter.
+- [Applications testées avec Prime IPTV : TiviMate, IBO Player](https://primeiptv4k.ca/fr/blogue/prime-iptv-apps-tested/): Les lecteurs utilisés pendant notre propre essai de Prime IPTV : l’application fournie, TiviMate et IBO Player sur téléviseur, et une application sur iPhone.
+- [Test de Prime IPTV : ce que nous avons mesuré en 24 heures](https://primeiptv4k.ca/fr/blogue/prime-iptv-trial-test/): Notre propre essai de 24 heures de Prime IPTV : 98 chaînes, 67 chaînes sportives, environ 60 Mb/s aux heures de pointe, assistance, applications, et ce qui…
 - [Télévision IP (IPTV) : qu’est-ce que c’est et comment ça marche?](https://primeiptv4k.ca/fr/blogue/what-is-iptv/): Ce qu’est l’IPTV, comment il fonctionne, ce qu’il faut pour regarder et les termes que vous verrez (EPG, VOD, PPV, M3U, Xtream Codes), expliqués pour les…
 - [Chaînes IPTV au Canada : 25 000+ chaînes | Prime IPTV](https://primeiptv4k.ca/fr/chaines/): Prime IPTV offre plus de 25 000 chaînes en direct : chaînes canadiennes et américaines, chaînes d’autres pays, sports et PPV en 4K et en FHD.
 - [Conditions d’utilisation | Prime IPTV](https://primeiptv4k.ca/fr/conditions/): Conditions d’utilisation de Prime IPTV : description du service, utilisation acceptable, remboursements, disponibilité et annulation.
@@ -168,11 +172,16 @@ Key facts (as published on the site):
 - [IPTV Vancouver : abonnement Prime IPTV, 25 000+ chaînes](https://primeiptv4k.ca/fr/iptv-vancouver/): Prime IPTV à Vancouver, Colombie-Britannique : plus de 25 000 chaînes en direct, sports, PPV et plus de 120 000 films et séries. Essai gratuit de 24 heures…
 - [IPTV Winnipeg : abonnement Prime IPTV, 25 000+ chaînes](https://primeiptv4k.ca/fr/iptv-winnipeg/): Prime IPTV à Winnipeg, Manitoba : plus de 25 000 chaînes en direct, sports, PPV et plus de 120 000 films et séries. Essai gratuit de 24 heures, sans carte…
 - [Meilleur IPTV Canada 2026 : Prime IPTV, le meilleur service](https://primeiptv4k.ca/fr/meilleur-service-iptv-canada/): Meilleur IPTV au Canada en 2026 : pourquoi Prime IPTV est le meilleur fournisseur. 25 000+ chaînes, 4K, essai gratuit de 24 h, garantie de 7 jours.
+- [Prime IPTV (IPTV Prime) Canada : forfaits, essai, contenu](https://primeiptv4k.ca/fr/prime-iptv/): Prime IPTV, aussi cherché sous IPTV Prime, est un abonnement IPTV canadien : plus de 25 000 chaînes, plus de 120 000 films, essai gratuit de 24 heures…
 - [Politique de remboursement : garantie de 7 jours | Prime IPTV](https://primeiptv4k.ca/fr/remboursement/): Prime IPTV offre une garantie de remboursement de 7 jours sur tous les forfaits. Voyez comment demander un remboursement par WhatsApp ou par courriel.
 - [Revendeur IPTV Canada : forfaits de crédits | Prime IPTV](https://primeiptv4k.ca/fr/revendeur/): Revendeur IPTV Canada : devenez revendeur Prime IPTV. Forfaits de 120 à 1 200 crédits, plus de 25 000 chaînes en direct, plus de 120 000 films et séries et…
 - [IPTV sport au Canada : sports et PPV en 4K | Prime IPTV](https://primeiptv4k.ca/fr/sports-ppv-4k/): Prime IPTV comprend du sport canadien, américain et international et toutes les chaînes PPV en 4K et en FHD. Testez gratuitement pendant 24 heures.
 - [Abonnement IPTV Canada : forfaits dès 34,99 $ CAD | Prime IPTV](https://primeiptv4k.ca/fr/tarifs/): Abonnement IPTV Canada : forfaits Prime IPTV de 1 à 4 connexions et de 3 à 24 mois, dès 34,99 $ CAD. Plus de 25 000 chaînes, 4K, sports et PPV. Essai…
 - [Disponibilité et vitesse Internet requise | Prime IPTV Canada](https://primeiptv4k.ca/fr/vitesse-internet-iptv/): Prime IPTV dessert les spectateurs partout au Canada et est aussi offert dans le monde entier. Voyez la vitesse nécessaire pour la SD, la HD, la FHD et le…
+
+## Other
+
+- [Prime IPTV (IPTV Prime) Canada: Plans, Trial and Channels](https://primeiptv4k.ca/prime-iptv/)
 
 ## Optional
 

@@ -58,7 +58,7 @@ export function categorize(path: string): string {
   if (['/pricing/', '/free-trial/'].includes(path) || path.startsWith('/iptv-subscription-')) return 'plans';
   if (path === '/setup/' || path.startsWith('/setup/') || path === '/install-iptv-smarters-pro-firestick/') return 'setup';
   if (['/iptv-channels/', '/iptv-sports-ppv-4k/', '/4k-iptv/'].includes(path)) return 'channels';
-  if (['/best-iptv-service-canada/', '/iptv-smarters-pro-subscription/', '/iptv-internet-speed-requirements/'].includes(path)) return 'guides';
+  if (['/best-iptv-service-canada/', '/iptv-smarters-pro-subscription/', '/iptv-internet-speed-requirements/', '/prime-iptv/'].includes(path)) return 'guides';
   if (['/faq/', '/contact/', '/help/'].includes(path)) return 'support';
   if (['/privacy/', '/terms/', '/refund/', '/dmca/', '/disclaimer/'].includes(path)) return 'legal';
   return 'core';

@@ -453,7 +453,7 @@ URL: https://primeiptv4k.ca/about/
 
 About Us
 About Prime IPTV
-Prime IPTV (primeiptv4k.ca) is an IPTV subscription service for viewers in Canada, also available worldwide. It is not a player app: you subscribe to Prime IPTV and watch through any compatible IPTV player on your own device. Learn the difference between an IPTV service and a player app .
+Prime IPTV (primeiptv4k.ca) is an IPTV subscription service for viewers in Canada, also available worldwide. It is not a player app: you subscribe to Prime IPTV and watch through any compatible IPTV player on your own device. See what Prime IPTV (IPTV Prime) is and what you get . Learn the difference between an IPTV service and a player app .
 Prime IPTV is an IPTV subscription service built for viewers in Canada.
 Prime IPTV brings live TV, sports, PPV, movies, series, VOD and 4K streaming to viewers in Canada, with flexible subscription options and round-the-clock customer support.
 Our goal is simple: an easy, flexible way to watch on compatible devices, with no contracts, no complications and none of the limits of traditional cable TV.
@@ -626,7 +626,11 @@ October 26, 2026 · 5 min read Best IPTV Box in Canada: Do You Need One?
 Which device to use for IPTV in Canada, and when a dedicated box is worth it.
 October 26, 2026 · 5 min read IPTV M3U vs Xtream Codes: Which Login Should You Use?
 What an M3U playlist and an Xtream Codes login are, how they differ and which one to use on your device.
-October 26, 2026 · 5 min read
+October 26, 2026 · 5 min read Prime IPTV Test: What We Measured in a 24-Hour Trial
+What we saw in our own 24-hour trial of Prime IPTV: channels, sports, apps, support, and the guide and catch-up problems we found.
+October 29, 2026 · 6 min read Prime IPTV Apps We Tested: TiviMate, IBO Player and More
+Which apps we tried with Prime IPTV, what happened, and how to choose a player for your own device.
+October 29, 2026 · 5 min read
 Looking for device setup steps?
 Every supported device has its own step-by-step guide.
 Browse device setup guides
@@ -1264,6 +1268,113 @@ Start Free Trial
 
 ---
 
+## Prime IPTV Apps We Tested: TiviMate, IBO Player and More
+URL: https://primeiptv4k.ca/blog/prime-iptv-apps-tested/
+
+Back to Blog IPTV Guide
+Prime IPTV Apps We Tested: TiviMate, IBO Player and More
+Published October 29, 2026 · By the Prime IPTV team · 5 min read
+Who wrote this: we are Prime IPTV, so this is our own service. This is a first-party write-up of the apps we tried with our own trial, not an independent review. Test your own device with the 24-hour free trial .
+Prime IPTV is a subscription service, so you watch it through a player app. During our own 24-hour test we tried four apps on two kinds of device. Here is what we used, what happened and what we did not try.
+The apps we tested
+App Device What happened
+The app supplied with the subscription Not recorded It worked well. The app name and the device were not recorded in our notes.
+TiviMate TV Worked without problems.
+IBO Player TV Worked without problems.
+An IPTV app on iPhone iPhone Worked very well. Our notes say MyTVOnline 3, but we could not confirm the exact app name, so treat that name as unconfirmed.
+This was one short session on a premium server at about 60 Mbps at peak hours. The TV models and the exact date were not recorded. See the full 24-hour test for the channel, sports and support results.
+What we did not test
+IPTV Smarters Pro, VLC, Kodi and other players
+Amazon Fire TV, Roku, Apple TV, Samsung and LG apps, one by one
+Any device other than the TV and iPhone above
+Catch-up in each app, since it did not work in our test
+Other players should work too if they accept the login we give you, but we have not tested them, so do not treat that as a promise. Use the trial to check yours.
+How to choose a player for Prime IPTV
+Start with your device. Pick a player that exists for it. Our setup guides cover Fire TV, Android TV, Apple TV and more.
+Check which login you use. Players differ in whether they take Xtream Codes or an M3U link. Read M3U vs Xtream Codes .
+Install the player before you request the trial. That saves trial hours.
+Test the guide. If you care about the TV guide or catch-up, check them in that exact player.
+Download only from official stores. Do not install players from random links.
+For a wider comparison, see our guide to the best IPTV players and apps .
+Quick answers
+Does Prime IPTV work with TiviMate?
+Yes, it worked without problems in our test, on a TV.
+Does Prime IPTV work with IBO Player?
+Yes, it worked without problems in our test, on a TV.
+Is there a Prime IPTV app for iPhone?
+We used an IPTV player app on an iPhone and it worked well. We did not confirm its exact name, and that app is a third-party player, not ours.
+Is Prime IPTV itself a player app?
+No. Prime IPTV is the subscription service. A player app only displays what a service gives it. Read the difference .
+Related
+Our full 24-hour Prime IPTV test
+Best IPTV players and apps
+Set up Prime IPTV on your device
+M3U vs Xtream Codes: which login should you use?
+Try Prime IPTV free for 24 hours
+25,000+ live channels and 120,000+ movies &amp; series. No credit card required for the trial.
+Start Free Trial
+
+---
+
+## Prime IPTV Test: What We Measured in a 24-Hour Trial
+URL: https://primeiptv4k.ca/blog/prime-iptv-trial-test/
+
+Back to Blog IPTV Guide
+Prime IPTV Test: What We Measured in a 24-Hour Trial
+Published October 29, 2026 · By the Prime IPTV team · 6 min read
+Who wrote this: we are Prime IPTV, so this is our own service. This is a first-party test by our team, not an independent review. We publish what worked and what did not, and we say what we did not test. The best proof is your own test: the 24-hour free trial needs no credit card.
+We ran a short session on the 24-hour Prime IPTV free trial and wrote down what we saw. Below are the conditions, the results, the problems we found and what we did not test. It is one tester and one session, so treat it as a snapshot, not a guarantee.
+Test conditions
+Detail What we used
+Access The 24-hour free trial, no paid purchase
+Server The premium server
+Internet speed About 60 Mbps
+Time of day Peak viewing hours
+Devices and apps The app supplied with the subscription, TiviMate and IBO Player on a TV, and an IPTV app on an iPhone. See the apps we tested .
+Length One short session, one tester. The exact test date was not recorded; this write-up is dated 29 October 2026.
+What we saw
+Area Result
+Trial login Arrived within about 15 minutes.
+Live TV A sample of 98 channels played with no failures.
+Sports 67 sports channels and live sports worked. We did not record which leagues and events.
+Streaming at peak hours No buffering and no failed channels in the session, at about 60 Mbps.
+Movies and series The library is 120,000+ titles. Playback worked and search was excellent.
+Apps All the apps we tried worked without problems.
+Support Replies came from people on WhatsApp and by email, and the communication was clear and helpful. We did not record response times.
+Money-back guarantee 7 days if there is an issue. See the refund policy .
+What did not work
+The TV guide (EPG) was only partly working. It loaded, but it was not complete or reliable in our session. See how the TV guide works .
+Catch-up TV did not work. Our site says catch-up depends on the player you use, and in our test it did not work.
+If a working guide or catch-up matters to you, test them first in your trial, on the player you plan to use.
+What we did not test
+4K playback and the resolution of individual channels
+Paid checkout, billing and renewal
+More than one connection at the same time
+The other server options
+Reliability over several days or weeks, and big live events
+The money-back process in practice
+What this means for you
+In our session the channels, sports and library worked well at peak hours, the apps we tried worked, and support was human and helpful. The guide and catch-up were the weak spots. Your result depends on your device, your player and your connection, so repeat the test yourself with our 24-hour trial checklist .
+Quick answers
+Is this an independent review?
+No. We run Prime IPTV, so this is our own test of our own service. We wrote down the problems as well as the good results so you can judge it.
+How many channels did you test?
+A sample of 98, with no failures, including 67 sports channels. We did not count the full 25,000+.
+Does Prime IPTV have catch-up?
+Catch-up depends on your player. It did not work in our test, so check it in your trial if you need it.
+What internet speed did you use?
+About 60 Mbps. No speed guarantees good streaming on its own, so test on your own connection.
+Related
+Prime IPTV (IPTV Prime): what it is and what you get
+The apps we tested with Prime IPTV
+How to test an IPTV free trial: a 24-hour checklist
+IPTV EPG explained: how the TV guide works
+Try Prime IPTV free for 24 hours
+25,000+ live channels and 120,000+ movies &amp; series. No credit card required for the trial.
+Start Free Trial
+
+---
+
 ## What Is IPTV in Canada? Meaning, How It Works and What You Need
 URL: https://primeiptv4k.ca/blog/what-is-iptv/
 
@@ -1786,6 +1897,7 @@ URL: https://primeiptv4k.ca/fr/a-propos/
 À propos
 À propos de Prime IPTV
 Prime IPTV est un service d’abonnement IPTV conçu pour les spectateurs au Canada. Notre idée est simple : donner aux foyers canadiens un grand choix de chaînes, de sports et de films sur leur propre connexion Internet, avec des prix affichés ouvertement, un essai gratuit et aucun contrat.
+Voyez aussi ce qu’est Prime IPTV (IPTV Prime) et ce que vous obtenez .
 Ce que nous offrons
 Plus de 25 000 chaînes en direct et plus de 120 000 films et séries.
 Des chaînes canadiennes, américaines et d’autres pays, du sport et du PPV en 4K et en FHD.
@@ -2186,7 +2298,11 @@ Ce qu’est le guide de votre lecteur IPTV, d’où viennent ses données et com
 Quel appareil utiliser pour l’IPTV au Canada, et quand un boîtier dédié vaut la peine.
 26 octobre 2026 · 5 min de lecture M3U ou Xtream Codes : quel identifiant IPTV choisir?
 Ce qu’est une liste de lecture M3U et une connexion Xtream Codes, comment elles diffèrent et laquelle utiliser sur votre appareil.
-26 octobre 2026 · 5 min de lecture
+26 octobre 2026 · 5 min de lecture Test de Prime IPTV : ce que nous avons mesuré en 24 heures
+Ce que nous avons observé lors de notre propre essai de 24 heures de Prime IPTV : chaînes, sports, applications, assistance, et les problèmes de guide et de rattrapage.
+29 octobre 2026 · 6 min de lecture Applications testées avec Prime IPTV : TiviMate, IBO Player
+Quelles applications nous avons essayées avec Prime IPTV, ce qui s’est passé et comment choisir un lecteur pour votre appareil.
+29 octobre 2026 · 5 min de lecture
 Vous cherchez les étapes d’installation?
 Chaque appareil pris en charge a son propre guide pas à pas.
 Voir les guides d’installation
@@ -2822,6 +2938,113 @@ Communiquez avec nous tout de suite par WhatsApp ou par courriel. La politique d
 Liste de vérification de l’essai de 24 heures
 Politique de remboursement
 Joindre Prime IPTV
+Essayez Prime IPTV gratuitement pendant 24 heures
+Plus de 25 000 chaînes en direct et plus de 120 000 films et séries. Aucune carte de crédit pour l’essai.
+Essai gratuit
+
+---
+
+## Applications testées avec Prime IPTV : TiviMate, IBO Player
+URL: https://primeiptv4k.ca/fr/blogue/prime-iptv-apps-tested/
+
+Retour au blogue Guide IPTV
+Applications testées avec Prime IPTV : TiviMate, IBO Player
+Publié le 29 octobre 2026 · Par l’équipe Prime IPTV · 5 min de lecture
+Qui a écrit ce texte : nous sommes Prime IPTV, et c’est donc notre propre service. Il s’agit d’un texte de première main sur les applications essayées pendant notre propre essai, et non d’un avis indépendant. Testez votre appareil avec l’ essai gratuit de 24 heures .
+Prime IPTV est un service d’abonnement : vous le regardez donc au moyen d’une application de lecture. Pendant notre propre test de 24 heures, nous avons essayé quatre applications sur deux types d’appareils. Voici ce que nous avons utilisé, ce qui s’est passé et ce que nous n’avons pas essayé.
+Les applications testées
+Application Appareil Ce qui s’est passé
+L’application fournie avec l’abonnement Non consigné Elle a bien fonctionné. Le nom de l’application et l’appareil n’ont pas été consignés dans nos notes.
+TiviMate Téléviseur A fonctionné sans problème.
+IBO Player Téléviseur A fonctionné sans problème.
+Une application IPTV sur iPhone iPhone A très bien fonctionné. Nos notes disent MyTVOnline 3, mais nous n’avons pas pu confirmer le nom exact de l’application : considérez ce nom comme non confirmé.
+C’était une courte séance sur un serveur premium, à environ 60 Mb/s aux heures de pointe. Les modèles de téléviseurs et la date exacte n’ont pas été consignés. Voyez le test complet de 24 heures pour les résultats sur les chaînes, le sport et l’assistance.
+Ce que nous n’avons pas testé
+IPTV Smarters Pro, VLC, Kodi et d’autres lecteurs
+Les applications d’Amazon Fire TV, de Roku, d’Apple TV, de Samsung et de LG, une à une
+Tout appareil autre que le téléviseur et l’iPhone ci-dessus
+Le rattrapage dans chaque application, puisqu’il n’a pas fonctionné lors de notre test
+D’autres lecteurs devraient aussi fonctionner s’ils acceptent l’identifiant que nous vous donnons, mais nous ne les avons pas testés : n’y voyez donc pas une promesse. Servez-vous de l’essai pour vérifier le vôtre.
+Comment choisir un lecteur pour Prime IPTV
+Partez de votre appareil. Choisissez un lecteur qui existe pour lui. Nos guides d’installation couvrent Fire TV, Android TV, Apple TV et plus encore.
+Vérifiez quel identifiant vous utilisez. Les lecteurs diffèrent quant à la prise en charge des codes Xtream ou d’un lien M3U. Lisez M3U ou Xtream Codes .
+Installez le lecteur avant de demander l’essai. Vous économiserez des heures d’essai.
+Testez le guide. Si le guide des programmes ou le rattrapage comptent pour vous, vérifiez-les dans ce lecteur précis.
+Téléchargez seulement depuis les boutiques officielles. N’installez pas de lecteurs depuis des liens au hasard.
+Pour une comparaison plus large, voyez notre guide des meilleures applications IPTV .
+Réponses rapides
+Prime IPTV fonctionne-t-il avec TiviMate?
+Oui, il a fonctionné sans problème lors de notre test, sur un téléviseur.
+Prime IPTV fonctionne-t-il avec IBO Player?
+Oui, il a fonctionné sans problème lors de notre test, sur un téléviseur.
+Y a-t-il une application Prime IPTV pour iPhone?
+Nous avons utilisé une application de lecture IPTV sur iPhone, et elle a bien fonctionné. Nous n’avons pas confirmé son nom exact, et c’est un lecteur tiers, et non le nôtre.
+Prime IPTV est-il lui-même une application de lecture?
+Non. Prime IPTV est le service d’abonnement. Une application de lecture ne fait qu’afficher ce qu’un service lui donne. Lisez la différence .
+À lire aussi
+Notre test complet de 24 heures de Prime IPTV
+Meilleures applications IPTV
+Installer Prime IPTV sur votre appareil
+M3U ou Xtream Codes : quelle connexion utiliser?
+Essayez Prime IPTV gratuitement pendant 24 heures
+Plus de 25 000 chaînes en direct et plus de 120 000 films et séries. Aucune carte de crédit pour l’essai.
+Essai gratuit
+
+---
+
+## Test de Prime IPTV : ce que nous avons mesuré en 24 heures
+URL: https://primeiptv4k.ca/fr/blogue/prime-iptv-trial-test/
+
+Retour au blogue Guide IPTV
+Test de Prime IPTV : ce que nous avons mesuré en 24 heures
+Publié le 29 octobre 2026 · Par l’équipe Prime IPTV · 6 min de lecture
+Qui a écrit ce texte : nous sommes Prime IPTV, et c’est donc notre propre service. Il s’agit d’un test de première main fait par notre équipe, et non d’un avis indépendant. Nous publions ce qui a fonctionné et ce qui n’a pas fonctionné, et nous disons ce que nous n’avons pas testé. La meilleure preuve est votre propre essai : l’ essai gratuit de 24 heures n’exige aucune carte de crédit.
+Nous avons fait une courte séance pendant l’essai gratuit de 24 heures de Prime IPTV et noté ce que nous avons observé. Voici les conditions, les résultats, les problèmes trouvés et ce que nous n’avons pas testé. C’est un testeur et une séance : prenez-le comme un instantané, et non comme une garantie.
+Conditions du test
+Détail Ce que nous avons utilisé
+Accès L’essai gratuit de 24 heures, aucun achat payant
+Serveur Le serveur premium
+Vitesse Internet Environ 60 Mb/s
+Moment de la journée Heures de grande écoute
+Appareils et applications L’application fournie avec l’abonnement, TiviMate et IBO Player sur un téléviseur, et une application IPTV sur un iPhone. Voyez les applications testées .
+Durée Une courte séance, un testeur. La date exacte du test n’a pas été consignée; ce texte est daté du 29 octobre 2026.
+Ce que nous avons observé
+Élément Résultat
+Identifiant de l’essai Arrivé en une quinzaine de minutes.
+Télé en direct Un échantillon de 98 chaînes a été lu sans défaillance.
+Sports 67 chaînes sportives et du sport en direct ont fonctionné. Nous n’avons pas consigné les ligues ni les événements.
+Diffusion aux heures de pointe Aucune mise en mémoire tampon ni chaîne défaillante pendant la séance, à environ 60 Mb/s.
+Films et séries La bibliothèque compte plus de 120 000 titres. La lecture a fonctionné et la recherche était excellente.
+Applications Toutes les applications essayées ont fonctionné sans problème.
+Assistance Les réponses venaient de personnes, sur WhatsApp et par courriel, et la communication était claire et utile. Nous n’avons pas consigné les délais de réponse.
+Garantie de remboursement 7 jours en cas de problème. Voyez la politique de remboursement .
+Ce qui n’a pas fonctionné
+Le guide des programmes (EPG) ne fonctionnait que partiellement. Il se chargeait, mais il n’était ni complet ni fiable pendant notre séance. Voyez comment fonctionne le guide des programmes .
+La télé de rattrapage ne fonctionnait pas. Notre site dit que le rattrapage dépend du lecteur utilisé, et lors de notre test, il n’a pas fonctionné.
+Si un guide fonctionnel ou le rattrapage comptent pour vous, testez-les d’abord pendant votre essai, avec le lecteur que vous comptez utiliser.
+Ce que nous n’avons pas testé
+La lecture en 4K et la résolution de chaque chaîne
+Le paiement, la facturation et le renouvellement
+Plus d’une connexion en même temps
+Les autres options de serveur
+La fiabilité sur plusieurs jours ou semaines, et les grands événements en direct
+Le processus de remboursement dans la pratique
+Ce que cela signifie pour vous
+Pendant notre séance, les chaînes, le sport et la bibliothèque ont bien fonctionné aux heures de pointe, les applications essayées ont fonctionné et l’assistance était humaine et utile. Le guide et le rattrapage étaient les points faibles. Votre résultat dépend de votre appareil, de votre lecteur et de votre connexion : refaites donc le test vous-même avec notre liste de vérification de l’essai de 24 heures .
+Réponses rapides
+Est-ce un avis indépendant?
+Non. Nous exploitons Prime IPTV : c’est donc notre propre test de notre propre service. Nous avons noté les problèmes en plus des bons résultats pour que vous puissiez en juger.
+Combien de chaînes avez-vous testées?
+Un échantillon de 98, sans défaillance, dont 67 chaînes sportives. Nous n’avons pas compté les plus de 25 000 chaînes.
+Prime IPTV offre-t-il le rattrapage?
+Le rattrapage dépend de votre lecteur. Il n’a pas fonctionné lors de notre test : vérifiez-le donc pendant votre essai si vous en avez besoin.
+Quelle vitesse Internet avez-vous utilisée?
+Environ 60 Mb/s. Aucune vitesse ne garantit à elle seule une bonne diffusion : testez donc sur votre propre connexion.
+À lire aussi
+Prime IPTV (IPTV Prime) : ce que c’est et ce que vous obtenez
+Les applications testées avec Prime IPTV
+Comment tester un essai gratuit d’IPTV : liste de 24 heures
+Le guide des programmes IPTV (EPG) expliqué
 Essayez Prime IPTV gratuitement pendant 24 heures
 Plus de 25 000 chaînes en direct et plus de 120 000 films et séries. Aucune carte de crédit pour l’essai.
 Essai gratuit
@@ -4426,6 +4649,52 @@ L’IPTV est-il légal au Canada? L’IPTV est une technologie de diffusion, et 
 Prêt à voir pourquoi il l’emporte?
 Testez Prime IPTV gratuitement pendant 24 heures. Aucune carte de crédit.
 Commencer mon essai gratuit Voir tous les forfaits
+
+---
+
+## Prime IPTV (IPTV Prime) Canada : forfaits, essai, contenu
+URL: https://primeiptv4k.ca/fr/prime-iptv/
+
+Prime IPTV
+Prime IPTV (IPTV Prime) : l’abonnement IPTV conçu pour le Canada
+La réponse courte : Prime IPTV (aussi écrit IPTV Prime) est un service d’abonnement IPTV pour les spectateurs au Canada : plus de 25 000 chaînes en direct, plus de 120 000 films et séries, sports et PPV, 4K et FHD lorsque offerts, et une assistance 24 heures sur 24, 7 jours sur 7, par WhatsApp et par courriel. Ce n’est pas une application de lecture. Vous pouvez l’essayer gratuitement pendant 24 heures, sans carte de crédit.
+Commencer l’essai gratuit de 24 heures Voir les forfaits et les prix
+Prime IPTV ou IPTV Prime : lequel est-ce?
+Les deux noms désignent le même service. Plus de gens cherchent « iptv prime » que « prime iptv » : vous verrez donc les deux sur ce site. Le service s’appelle Prime IPTV, et ce site, primeiptv4k.ca, en est le site officiel.
+Attention au nom. Il existe des applications de lecture IPTV et d’autres sites IPTV aux noms semblables, qui n’ont aucun lien avec nous. Une application de lecture n’a aucune chaîne en propre. Notre guide explique la différence entre un service IPTV et une application de lecture .
+Qui exploite ce site
+Prime IPTV exploite ce site et le service qu’il décrit : tout ce qui s’y trouve, y compris nos textes sur nos essais, est donc rédigé par l’équipe de Prime IPTV sur notre propre service. Ce sont des renseignements de première main : ils vous disent ce que nous offrons et ce que nous avons observé, et ce ne sont pas des avis indépendants. Notre adresse est le 97 Hocken Ave, Toronto (Ontario) M6G 2K1, Canada, et vous pouvez nous joindre par la page de contact .
+Ce que comprend Prime IPTV
+Plus de 25 000 chaînes en direct : chaînes canadiennes, américaines et internationales, plus du sport et du PPV. Voyez la page des chaînes .
+Plus de 120 000 films et séries sur demande.
+SD, HD, FHD et 4K pour le contenu et les appareils compatibles. Voyez l’IPTV 4K .
+Un essai gratuit de 24 heures sans carte de crédit, et une garantie de remboursement de 7 jours . Voyez la politique de remboursement .
+Aucun contrat , avec des forfaits de 1 à 4 connexions.
+Assistance 24 heures sur 24, 7 jours sur 7 , par WhatsApp et par courriel.
+Forfaits et prix de Prime IPTV (une connexion, en dollars canadiens)
+Durée du forfait Prix Bonus
+3 mois 34,99 $ CAD Aucun
+6 mois 49,99 $ CAD +1 mois gratuit
+12 mois 79,99 $ CAD +1 mois gratuit
+24 mois 124,99 $ CAD +2 mois gratuits
+Les forfaits de 2, 3 et 4 connexions figurent sur la page des tarifs . Il vous en faut plus de quatre? Demandez-nous une soumission sur WhatsApp ou par courriel.
+Comment nous l’avons testé
+Nous avons fait notre propre essai de 24 heures et noté ce qui a fonctionné et ce qui n’a pas fonctionné, y compris un guide des programmes qui ne fonctionnait que partiellement et un rattrapage qui ne fonctionnait pas lors de notre essai. Lisez ce que nous avons mesuré en 24 heures et les applications que nous avons testées .
+Pour commencer
+Demandez l’ essai gratuit de 24 heures sur WhatsApp ou par courriel.
+Installez un lecteur sur votre appareil. Voyez les guides d’installation .
+Testez vos chaînes, un match en direct à une heure de pointe et l’assistance.
+Si cela vous convient, choisissez un forfait. La garantie de remboursement de 7 jours s’applique encore après votre abonnement.
+FAQ sur Prime IPTV
+Prime IPTV et IPTV Prime, est-ce la même chose? Oui. Les gens cherchent les deux ordres de mots. Le service s’appelle Prime IPTV et son site est primeiptv4k.ca. Les autres sites, applications et chaînes aux noms semblables sont des entreprises distinctes.
+Prime IPTV est-il une application de lecture? Non. Prime IPTV est un service d’abonnement IPTV. Il fournit les chaînes, la bibliothèque sur demande et votre identifiant. Vous regardez au moyen d’une application de lecture compatible sur votre propre appareil. Plusieurs applications de lecture des boutiques d’applications ont des noms semblables et n’ont aucun lien avec nous.
+Prime IPTV a-t-il un lien avec Amazon Prime ou Prime Video? Non. Prime IPTV n’a aucun lien avec Amazon Prime ni avec Prime Video.
+Prime IPTV est-il fiable? Nous ne pouvons pas en décider à votre place; voici donc ce que vous pouvez vérifier vous-même : les prix sont publiés en dollars canadiens, l’essai de 24 heures n’exige aucune carte de crédit, il y a une garantie de remboursement de 7 jours, l’adresse de l’entreprise est indiquée et l’assistance répond par WhatsApp et par courriel. Servez-vous de l’essai gratuit sur votre propre appareil avant de payer. Pour l’aspect juridique, lisez notre guide sur la légalité de l’IPTV au Canada.
+Combien coûte Prime IPTV? Les forfaits pour une connexion coûtent 34,99 $ CAD pour 3 mois, 49,99 $ CAD pour 6 mois, 79,99 $ CAD pour 12 mois et 124,99 $ CAD pour 24 mois. Les forfaits de 2 à 4 connexions figurent sur la page des tarifs. Tous les prix sont en dollars canadiens.
+Y a-t-il un essai gratuit de Prime IPTV? Oui. L’essai gratuit dure 24 heures et n’exige aucune carte de crédit. Demandez-le sur WhatsApp ou par courriel.
+En combien de temps reçoit-on son identifiant? Lors de notre propre essai, l’identifiant de l’essai est arrivé en une quinzaine de minutes. Pour un forfait payant, l’activation se fait normalement quelques minutes après le paiement.
+Où lire comment vous l’avez testé? Nous avons publié notre propre test de 24 heures, y compris ce qui n’a pas fonctionné, ainsi que les applications essayées. Ce sont deux textes de première main rédigés par l’équipe de Prime IPTV sur notre propre service, et non des avis indépendants.
+D’autres réponses figurent dans la FAQ complète . Lisez L’IPTV est-il légal au Canada? avant de décider.
 
 ---
 
@@ -6614,6 +6883,52 @@ Is there a contract? No. There is no contract, and cancellation is available.
 Is there a refund? Yes. Subscriptions come with a 7-day money-back guarantee. The refund policy explains how to request one.
 What if I need more than 4 connections? Message us on WhatsApp or send an email and we will suggest the best option.
 More questions
+
+---
+
+## Prime IPTV (IPTV Prime) Canada: Plans, Trial and Channels
+URL: https://primeiptv4k.ca/prime-iptv/
+
+Prime IPTV
+Prime IPTV (IPTV Prime): The IPTV Subscription Built for Canada
+The short answer: Prime IPTV (also written IPTV Prime) is an IPTV subscription service for viewers in Canada: 25,000+ live channels, 120,000+ movies and series, sports and PPV, 4K and FHD where available, and 24/7 support by WhatsApp and email. It is not a player app. You can test it free for 24 hours, no credit card.
+Start the free 24-hour trial See plans and prices
+Prime IPTV or IPTV Prime: which is it?
+Both names point to the same service. More people search for “iptv prime” than for “prime iptv”, so you will see both on this site. The service is Prime IPTV and this website, primeiptv4k.ca, is its official site.
+Be careful with the name. There are IPTV player apps and other IPTV websites with similar names, and they are separate from us. A player app has no channels of its own. Our guide explains the difference between an IPTV service and a player app .
+Who runs this website
+Prime IPTV runs this website and the service it describes, so everything here, including our test write-ups, is written by the Prime IPTV team about our own service. That makes it first-party information: it tells you what we offer and what we saw, and it is not an independent review. Our address is 97 Hocken Ave, Toronto, ON M6G 2K1, Canada, and you can reach us on the contact page .
+What you get with Prime IPTV
+25,000+ live channels : Canadian, US and international channels, plus sports and PPV. See the channels page .
+120,000+ movies and series on demand.
+SD, HD, FHD and 4K for supported content and devices. See 4K IPTV .
+A 24-hour free trial with no credit card, and a 7-day money-back guarantee . See the refund policy .
+No contract , with plans for 1 to 4 connections.
+24/7 support by WhatsApp and email.
+Prime IPTV plans and prices (one connection, CAD)
+Plan length Price Bonus
+3 months $34.99 CAD None
+6 months $49.99 CAD +1 month free
+12 months $79.99 CAD +1 month free
+24 months $124.99 CAD +2 months free
+Plans for 2, 3 and 4 connections are on the pricing page . Need more than four? Ask us for a quote on WhatsApp or by email.
+How we tested it
+We ran our own 24-hour trial and wrote down what worked and what did not, including a partly working TV guide and catch-up that did not work in our test. Read what we measured in our 24-hour test and which apps we tested .
+How to get started
+Request the 24-hour free trial on WhatsApp or by email.
+Install a player on your device. See the setup guides .
+Test your channels, a live game at a busy hour, and support.
+If it works for you, choose a plan. The 7-day money-back guarantee still applies after you subscribe.
+Prime IPTV FAQ
+Is Prime IPTV the same as IPTV Prime? Yes. People search for both word orders. The service is Prime IPTV, and its website is primeiptv4k.ca. Other websites, apps and channels with similar names are separate businesses.
+Is Prime IPTV a player app? No. Prime IPTV is an IPTV subscription service. It provides the channels, the on-demand library and your login. You watch through a compatible player app on your own device. Several player apps in app stores have similar names and are not connected to us.
+Is Prime IPTV connected to Amazon Prime or Prime Video? No. Prime IPTV has no connection to Amazon Prime or Prime Video.
+Is Prime IPTV legit? We cannot decide that for you, so here is what you can check yourself: prices are published in Canadian dollars, the 24-hour trial needs no credit card, there is a 7-day money-back guarantee, the business address is listed, and support answers by WhatsApp and email. Use the free trial on your own device before you pay. For the legal side, read our guide on whether IPTV is legal in Canada.
+How much does Prime IPTV cost? Plans for one connection cost $34.99 CAD for 3 months, $49.99 CAD for 6 months, $79.99 CAD for 12 months and $124.99 CAD for 24 months. Plans for 2 to 4 connections are on the pricing page. All prices are in Canadian dollars.
+Is there a Prime IPTV free trial? Yes. The free trial lasts 24 hours and needs no credit card. Request it on WhatsApp or by email.
+How fast do I get my login? In our own trial test, the trial login arrived within about 15 minutes. For paid plans, activation is normally within a few minutes after payment.
+Where can I read how you tested it? We published our own 24-hour test, including what did not work, and the apps we tried. Both are first-party write-ups by the Prime IPTV team about our own service, not independent reviews.
+More answers are on the full FAQ . Read Is IPTV legal in Canada? before you decide.
 
 ---
 

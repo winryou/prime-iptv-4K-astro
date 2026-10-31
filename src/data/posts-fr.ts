@@ -183,4 +183,28 @@ export const postsFr: Record<string, PostFr> = {
       { href: '/fr/blogue/iptv-buffering-troubleshooting/', text: 'L’IPTV ne fonctionne pas? Solutions' },
     ],
   },
+  'prime-iptv-trial-test': {
+    title: 'Test de Prime IPTV : ce que nous avons mesuré en 24 heures',
+    description: 'Notre propre essai de 24 heures de Prime IPTV : 98 chaînes, 67 chaînes sportives, environ 60 Mb/s aux heures de pointe, assistance, applications, et ce qui n’a pas fonctionné.',
+    excerpt: 'Ce que nous avons observé lors de notre propre essai de 24 heures de Prime IPTV : chaînes, sports, applications, assistance, et les problèmes de guide et de rattrapage.',
+    minutes: 6,
+    related: [
+      { href: '/fr/prime-iptv/', text: 'Prime IPTV (IPTV Prime) : ce que c’est et ce que vous obtenez' },
+      { href: '/fr/blogue/prime-iptv-apps-tested/', text: 'Les applications testées avec Prime IPTV' },
+      { href: '/fr/blogue/iptv-free-trial-checklist/', text: 'Comment tester un essai gratuit d’IPTV : liste de 24 heures' },
+      { href: '/fr/blogue/iptv-epg-explained/', text: 'Le guide des programmes IPTV (EPG) expliqué' },
+    ],
+  },
+  'prime-iptv-apps-tested': {
+    title: 'Applications testées avec Prime IPTV : TiviMate, IBO Player',
+    description: 'Les lecteurs utilisés pendant notre propre essai de Prime IPTV : l’application fournie, TiviMate et IBO Player sur téléviseur, et une application sur iPhone.',
+    excerpt: 'Quelles applications nous avons essayées avec Prime IPTV, ce qui s’est passé et comment choisir un lecteur pour votre appareil.',
+    minutes: 5,
+    related: [
+      { href: '/fr/blogue/prime-iptv-trial-test/', text: 'Notre test complet de 24 heures de Prime IPTV' },
+      { href: '/fr/blogue/best-iptv-players/', text: 'Meilleures applications IPTV' },
+      { href: '/fr/installation/', text: 'Installer Prime IPTV sur votre appareil' },
+      { href: '/fr/blogue/iptv-m3u-vs-xtream-codes/', text: 'M3U ou Xtream Codes : quelle connexion utiliser?' },
+    ],
+  },
 };

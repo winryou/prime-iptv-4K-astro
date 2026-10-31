@@ -24,6 +24,7 @@ export const routeMap: Record<string, string> = {
   '/blog/': '/fr/blogue/',
   '/reseller/': '/fr/revendeur/',
   '/dmca/': '/fr/dmca/',
+  '/prime-iptv/': '/fr/prime-iptv/',
   '/4k-iptv/': '/fr/iptv-4k/',
   '/iptv-smarters-pro-subscription/': '/fr/abonnement-iptv-smarters-pro/',
   '/install-iptv-smarters-pro-firestick/': '/fr/installer-iptv-smarters-pro-firestick/',

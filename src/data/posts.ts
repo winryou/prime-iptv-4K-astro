@@ -250,6 +250,38 @@ export const posts: Post[] = [
       { href: '/blog/iptv-buffering-troubleshooting/', text: 'IPTV not working? Buffering and login fixes' },
     ],
   },
+  {
+    slug: 'prime-iptv-trial-test',
+    title: 'Prime IPTV Test: What We Measured in a 24-Hour Trial',
+    description: 'Our own 24-hour Prime IPTV test: 98 channels, 67 sports channels, about 60 Mbps at peak hours, support and apps, plus what did not work. First-party, not independent.',
+    excerpt: 'What we saw in our own 24-hour trial of Prime IPTV: channels, sports, apps, support, and the guide and catch-up problems we found.',
+    keyword: 'prime iptv reviews',
+    datePublished: '2026-10-29',
+    dateModified: '2026-10-29',
+    minutes: 6,
+    related: [
+      { href: '/prime-iptv/', text: 'Prime IPTV (IPTV Prime): what it is and what you get' },
+      { href: '/blog/prime-iptv-apps-tested/', text: 'The apps we tested with Prime IPTV' },
+      { href: '/blog/iptv-free-trial-checklist/', text: 'How to test an IPTV free trial: a 24-hour checklist' },
+      { href: '/blog/iptv-epg-explained/', text: 'IPTV EPG explained: how the TV guide works' },
+    ],
+  },
+  {
+    slug: 'prime-iptv-apps-tested',
+    title: 'Prime IPTV Apps We Tested: TiviMate, IBO Player and More',
+    description: 'The players we used with our own Prime IPTV trial: the supplied app, TiviMate and IBO Player on a TV, and an iPhone app. What worked and what we did not test.',
+    excerpt: 'Which apps we tried with Prime IPTV, what happened, and how to choose a player for your own device.',
+    keyword: 'prime iptv tivimate / ibo player',
+    datePublished: '2026-10-29',
+    dateModified: '2026-10-29',
+    minutes: 5,
+    related: [
+      { href: '/blog/prime-iptv-trial-test/', text: 'Our full 24-hour Prime IPTV test' },
+      { href: '/blog/best-iptv-players/', text: 'Best IPTV players and apps' },
+      { href: '/setup/', text: 'Set up Prime IPTV on your device' },
+      { href: '/blog/iptv-m3u-vs-xtream-codes/', text: 'M3U vs Xtream Codes: which login should you use?' },
+    ],
+  },
 ];
 
 export const getPost = (slug: string) => posts.find((p) => p.slug === slug)!;

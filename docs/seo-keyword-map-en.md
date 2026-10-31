@@ -72,3 +72,15 @@ Researched independently from the French map. Source: Semrush Canada database (c
 | /setup/smart-tv/ | informational | device setup (iptv samsung tv 40; iptv on iphone 90/KD43; iptv apple tv 70/KD59; iptv on pc 50) |  |  |  | Very low volume; kept for completeness and internal linking. | IPTV on Smart TV: Samsung, LG & Android Setup Guide | How to Set Up IPTV on a Smart TV |
 | /setup/tablet/ | informational | device setup (iptv samsung tv 40; iptv on iphone 90/KD43; iptv apple tv 70/KD59; iptv on pc 50) |  |  |  | Very low volume; kept for completeness and internal linking. | IPTV on iPad & Android Tablet: Setup Guide | How to Set Up IPTV on an iPad or Tablet |
 | /terms/ | supporting / utility | (no keyword assigned: legal, support or utility page) |  |  |  |  | Terms of Service | Prime IPTV | Terms of Service |
+
+## Added 2026-10-29: brand page and first-party test write-ups
+
+Source: Semrush Canada database (ca), queried 2026-10-29. Brand-name searches: **iptv prime 880 (KD not reported)**, **prime iptv 720 (KD5)**, iptvprime 260, iptv prime canada 90, prime iptv canada 20, prime iptv reviews 20, prime iptv app/player/apk 20 each, what is prime iptv 10. No volume reported for prime iptv free trial, prime iptv review, is prime iptv a scam. SERP for "prime iptv" (top 10): Apple App Store, Google Play and Roku player apps, plus primeiptvcanada.com, iptvprime.ca and primeiptv8k.ca. primeiptv4k.ca had no organic data in Semrush Canada on 2026-10-29.
+
+| URL | Intent | Primary keyword | Secondary | Note | Title |
+|---|---|---|---|---|---|
+| /prime-iptv/ | brand / navigational | iptv prime (880) | prime iptv (720); iptvprime (260); iptv prime canada (90) | Reversed word order is the bigger query. Home keeps "prime iptv"; this page covers "IPTV Prime", the app-vs-service confusion, and who runs the site. | Prime IPTV (IPTV Prime) Canada: Plans, Trial and Channels |
+| /blog/prime-iptv-trial-test/ | informational (first-party test) | prime iptv reviews (20) | prime iptv test | Written as first-party, with a plain "who wrote this" notice, results and failures (EPG partial, catch-up not working), and what was not tested. No scores out of 10. | Prime IPTV Test: What We Measured in a 24-Hour Trial |
+| /blog/prime-iptv-apps-tested/ | informational | prime iptv app (20) | prime iptv tivimate; prime iptv ibo player (no volume reported) | iPhone app name unconfirmed, stated as such. | Prime IPTV Apps We Tested: TiviMate, IBO Player and More |
+
+French twins: /fr/prime-iptv/, /fr/blogue/prime-iptv-trial-test/, /fr/blogue/prime-iptv-apps-tested/ (hreflang via routeMap).

@@ -1,0 +1,86 @@
+---
+import ContentPage from '../layouts/ContentPage.astro';
+import Icon from '../components/Icon.astro';
+import { prices, durations, bonusMonths } from '../data/pricing';
+
+const money = (n: number) => `$${n.toFixed(2)} CAD`;
+const faqs: [string, string][] = [
+  ['Is Prime IPTV the same as IPTV Prime?', 'Yes. People search for both word orders. The service is Prime IPTV, and its website is primeiptv4k.ca. Other websites, apps and channels with similar names are separate businesses.'],
+  ['Is Prime IPTV a player app?', 'No. Prime IPTV is an IPTV subscription service. It provides the channels, the on-demand library and your login. You watch through a compatible player app on your own device. Several player apps in app stores have similar names and are not connected to us.'],
+  ['Is Prime IPTV connected to Amazon Prime or Prime Video?', 'No. Prime IPTV has no connection to Amazon Prime or Prime Video.'],
+  ['Is Prime IPTV legit?', 'We cannot decide that for you, so here is what you can check yourself: prices are published in Canadian dollars, the 24-hour trial needs no credit card, there is a 7-day money-back guarantee, the business address is listed, and support answers by WhatsApp and email. Use the free trial on your own device before you pay. For the legal side, read our guide on whether IPTV is legal in Canada.'],
+  ['How much does Prime IPTV cost?', `Plans for one connection cost ${money(prices[1][3])} for 3 months, ${money(prices[1][6])} for 6 months, ${money(prices[1][12])} for 12 months and ${money(prices[1][24])} for 24 months. Plans for 2 to 4 connections are on the pricing page. All prices are in Canadian dollars.`],
+  ['Is there a Prime IPTV free trial?', 'Yes. The free trial lasts 24 hours and needs no credit card. Request it on WhatsApp or by email.'],
+  ['How fast do I get my login?', 'In our own trial test, the trial login arrived within about 15 minutes. For paid plans, activation is normally within a few minutes after payment.'],
+  ['Where can I read how you tested it?', 'We published our own 24-hour test, including what did not work, and the apps we tried. Both are first-party write-ups by the Prime IPTV team about our own service, not independent reviews.'],
+];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<ContentPage
+  title="Prime IPTV (IPTV Prime) Canada: Plans, Trial and Channels"
+  description="Prime IPTV, also searched as IPTV Prime, is a Canadian IPTV subscription: 25,000+ channels, 120,000+ movies, a 24-hour free trial and a 7-day money-back guarantee."
+  label="Prime IPTV"
+  icon="tv-play"
+  h1="Prime IPTV (IPTV Prime): The IPTV Subscription Built for Canada"
+  crumb="Prime IPTV"
+  schema={[faqSchema]}
+>
+  <div class="box">
+    <p><strong>The short answer:</strong> Prime IPTV (also written IPTV Prime) is an IPTV <em>subscription service</em> for viewers in Canada: 25,000+ live channels, 120,000+ movies and series, sports and PPV, 4K and FHD where available, and 24/7 support by WhatsApp and email. It is not a player app. You can test it free for 24 hours, no credit card.</p>
+  </div>
+  <div class="btns">
+    <a href="/free-trial/" class="btn-primary"><Icon name="play" size={14} /> Start the free 24-hour trial</a>
+    <a href="/pricing/" class="btn-outline">See plans and prices</a>
+  </div>
+
+  <h2>Prime IPTV or IPTV Prime: which is it?</h2>
+  <p>Both names point to the same service. More people search for “iptv prime” than for “prime iptv”, so you will see both on this site. The service is Prime IPTV and this website, primeiptv4k.ca, is its official site.</p>
+  <p>Be careful with the name. There are IPTV <em>player apps</em> and other IPTV websites with similar names, and they are separate from us. A player app has no channels of its own. Our guide explains the <a href="/blog/iptv-service-vs-iptv-player-app/">difference between an IPTV service and a player app</a>.</p>
+
+  <h2>Who runs this website</h2>
+  <p>Prime IPTV runs this website and the service it describes, so everything here, including our test write-ups, is written by the Prime IPTV team about our own service. That makes it first-party information: it tells you what we offer and what we saw, and it is not an independent review. Our address is 97 Hocken Ave, Toronto, ON M6G 2K1, Canada, and you can reach us on the <a href="/contact/">contact page</a>.</p>
+
+  <h2>What you get with Prime IPTV</h2>
+  <ul>
+    <li><strong>25,000+ live channels</strong>: Canadian, US and international channels, plus sports and PPV. See the <a href="/iptv-channels/">channels page</a>.</li>
+    <li><strong>120,000+ movies and series</strong> on demand.</li>
+    <li><strong>SD, HD, FHD and 4K</strong> for supported content and devices. See <a href="/4k-iptv/">4K IPTV</a>.</li>
+    <li><strong>A 24-hour free trial</strong> with no credit card, and a <strong>7-day money-back guarantee</strong>. See the <a href="/refund/">refund policy</a>.</li>
+    <li><strong>No contract</strong>, with plans for 1 to 4 connections.</li>
+    <li><strong>24/7 support</strong> by WhatsApp and email.</li>
+  </ul>
+
+  <h2>Prime IPTV plans and prices (one connection, CAD)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Plan length</th><th>Price</th><th>Bonus</th></tr></thead>
+      <tbody>
+        {durations.map((d) => (
+          <tr><td>{d} months</td><td>{money(prices[1][d])}</td><td>{bonusMonths[d] > 0 ? `+${bonusMonths[d]} month${bonusMonths[d] > 1 ? 's' : ''} free` : 'None'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Plans for 2, 3 and 4 connections are on the <a href="/pricing/">pricing page</a>. Need more than four? Ask us for a quote on WhatsApp or by email.</p>
+
+  <h2>How we tested it</h2>
+  <p>We ran our own 24-hour trial and wrote down what worked and what did not, including a partly working TV guide and catch-up that did not work in our test. Read <a href="/blog/prime-iptv-trial-test/">what we measured in our 24-hour test</a> and <a href="/blog/prime-iptv-apps-tested/">which apps we tested</a>.</p>
+
+  <h2>How to get started</h2>
+  <ol>
+    <li>Request the <a href="/free-trial/">24-hour free trial</a> on WhatsApp or by email.</li>
+    <li>Install a player on your device. See the <a href="/setup/">setup guides</a>.</li>
+    <li>Test your channels, a live game at a busy hour, and support.</li>
+    <li>If it works for you, choose a plan. The 7-day money-back guarantee still applies after you subscribe.</li>
+  </ol>
+
+  <h2>Prime IPTV FAQ</h2>
+  {faqs.map(([q, a]) => (
+    <details><summary>{q}</summary><p>{a}</p></details>
+  ))}
+  <p>More answers are on the <a href="/faq/">full FAQ</a>. Read <a href="/blog/is-iptv-legal-in-canada/">Is IPTV legal in Canada?</a> before you decide.</p>
+</ContentPage>
